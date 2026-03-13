@@ -1,0 +1,702 @@
+unit_id,year_month,bookings,room_nights,revenue,adr,min_adr,max_adr
+100 LaFave South: Temple of Sinawava,2024-01,8,22,5320.0,241.82,225.0,317.5
+100 LaFave South: Temple of Sinawava,2024-02,8,25,5775.0,231.0,225.0,275.0
+100 LaFave South: Temple of Sinawava,2024-03,11,27,12135.0,449.44,225.0,525.0
+100 LaFave South: Temple of Sinawava,2024-04,8,21,10875.0,517.86,495.0,525.0
+100 LaFave South: Temple of Sinawava,2024-05,9,23,11875.0,516.3,495.0,595.0
+100 LaFave South: Temple of Sinawava,2024-06,8,25,12855.0,514.2,495.0,525.0
+100 LaFave South: Temple of Sinawava,2024-07,8,18,7420.0,412.22,375.0,495.0
+100 LaFave South: Temple of Sinawava,2024-08,7,23,9865.0,428.91,375.0,557.5
+100 LaFave South: Temple of Sinawava,2024-09,8,25,12855.0,514.2,495.0,525.0
+100 LaFave South: Temple of Sinawava,2024-10,8,20,10140.0,507.0,495.0,525.0
+100 LaFave South: Temple of Sinawava,2024-11,7,21,5945.0,283.1,245.0,385.0
+100 LaFave South: Temple of Sinawava,2024-12,6,18,4510.0,250.56,232.5,295.0
+100 LaFave South: Temple of Sinawava,2025-01,4,9,2205.0,245.0,245.0,245.0
+100 LaFave South: Temple of Sinawava,2025-02,6,19,4905.0,258.16,245.0,280.7142857142857
+100 LaFave South: Temple of Sinawava,2025-03,7,19,8825.0,464.47,295.0,525.0
+100 LaFave South: Temple of Sinawava,2025-04,10,25,13325.0,533.0,525.0,575.0
+100 LaFave South: Temple of Sinawava,2025-05,7,25,13195.0,527.8,495.0,575.0
+100 LaFave South: Temple of Sinawava,2025-06,7,24,12630.0,526.25,495.0,575.0
+100 LaFave South: Temple of Sinawava,2025-07,10,27,9245.0,342.41,295.0,525.0
+100 LaFave South: Temple of Sinawava,2025-08,7,27,9915.0,367.22,295.0,425.0
+100 LaFave South: Temple of Sinawava,2025-09,8,21,9905.0,471.67,295.0,525.0
+100 LaFave South: Temple of Sinawava,2025-10,8,23,11075.0,481.52,295.0,575.0
+100 LaFave South: Temple of Sinawava,2025-11,8,23,7085.0,308.04,245.0,595.0
+100 LaFave South: Temple of Sinawava,2025-12,6,17,5785.0,340.29,245.0,425.0
+101 LaFave South: The Sentinel,2024-01,7,18,4820.0,267.78,225.0,395.0
+101 LaFave South: The Sentinel,2024-02,7,18,4410.0,245.0,195.0,325.0
+101 LaFave South: The Sentinel,2024-03,8,19,9675.0,509.21,445.0,525.0
+101 LaFave South: The Sentinel,2024-04,8,25,13005.0,520.2,495.0,525.0
+101 LaFave South: The Sentinel,2024-05,8,20,10240.0,512.0,495.0,595.0
+101 LaFave South: The Sentinel,2024-06,8,20,9960.0,498.0,495.0,525.0
+101 LaFave South: The Sentinel,2024-07,8,26,11430.0,439.62,345.0,525.0
+101 LaFave South: The Sentinel,2024-08,10,23,9835.0,427.61,375.0,595.0
+101 LaFave South: The Sentinel,2024-09,8,26,13470.0,518.08,495.0,525.0
+101 LaFave South: The Sentinel,2024-10,10,28,13200.0,471.43,245.0,525.0
+101 LaFave South: The Sentinel,2024-11,10,27,9565.0,354.26,245.0,595.0
+101 LaFave South: The Sentinel,2024-12,8,26,7210.0,277.31,245.0,425.0
+101 LaFave South: The Sentinel,2025-01,4,12,2740.0,228.33,195.0,245.0
+101 LaFave South: The Sentinel,2025-02,7,22,5590.0,254.09,245.0,285.0
+101 LaFave South: The Sentinel,2025-03,9,25,11055.0,442.2,295.0,525.0
+101 LaFave South: The Sentinel,2025-04,7,22,11040.0,501.82,395.0,575.0
+101 LaFave South: The Sentinel,2025-05,10,30,15870.0,529.0,495.0,595.0
+101 LaFave South: The Sentinel,2025-06,7,23,12145.0,528.04,495.0,575.0
+101 LaFave South: The Sentinel,2025-07,7,24,8390.0,349.58,295.0,525.0
+101 LaFave South: The Sentinel,2025-08,10,31,10655.0,343.71,295.0,425.0
+101 LaFave South: The Sentinel,2025-09,8,25,12205.0,488.2,295.0,525.0
+101 LaFave South: The Sentinel,2025-10,9,21,9415.0,448.33,295.0,525.0
+101 LaFave South: The Sentinel,2025-11,10,28,8710.0,311.07,245.0,507.5
+101 LaFave South: The Sentinel,2025-12,6,19,6995.0,368.16,245.0,425.0
+102 LaFave South: The Watchman,2024-05,4,18,7810.0,433.89,395.0,455.0
+102 LaFave South: The Watchman,2024-06,8,24,10230.0,426.25,395.0,445.0
+102 LaFave South: The Watchman,2024-07,8,27,8815.0,326.48,295.0,345.0
+102 LaFave South: The Watchman,2024-08,7,20,6600.0,330.0,295.0,445.0
+102 LaFave South: The Watchman,2024-09,10,30,12790.0,426.33,395.0,445.0
+102 LaFave South: The Watchman,2024-10,11,28,11120.0,397.14,245.0,425.0
+102 LaFave South: The Watchman,2024-11,4,10,2250.0,225.0,195.0,345.0
+102 LaFave South: The Watchman,2024-12,5,13,3085.0,237.31,195.0,395.0
+102 LaFave South: The Watchman,2025-01,2,6,1220.0,203.33,195.0,207.5
+102 LaFave South: The Watchman,2025-02,5,10,1950.0,195.0,195.0,195.0
+102 LaFave South: The Watchman,2025-03,5,18,6010.0,333.89,245.0,445.0
+102 LaFave South: The Watchman,2025-04,9,20,9150.0,457.5,395.0,495.0
+102 LaFave South: The Watchman,2025-05,9,21,9445.0,449.76,395.0,495.0
+102 LaFave South: The Watchman,2025-06,6,18,7910.0,439.44,395.0,445.0
+102 LaFave South: The Watchman,2025-07,5,12,3240.0,270.0,245.0,345.0
+102 LaFave South: The Watchman,2025-08,6,23,6035.0,262.39,245.0,345.0
+102 LaFave South: The Watchman,2025-09,7,21,7845.0,373.57,245.0,445.0
+102 LaFave South: The Watchman,2025-10,10,23,9435.0,410.22,245.0,445.0
+102 LaFave South: The Watchman,2025-11,5,16,4520.0,282.5,195.0,495.0
+102 LaFave South: The Watchman,2025-12,3,8,2310.0,288.75,195.0,345.0
+103 LaFave South: The Zion Suite,2024-01,5,16,4620.0,288.75,195.0,395.0
+103 LaFave South: The Zion Suite,2024-02,5,26,5070.0,195.0,195.0,195.0
+103 LaFave South: The Zion Suite,2024-03,6,21,8695.0,414.05,395.0,445.0
+103 LaFave South: The Zion Suite,2024-04,6,19,7705.0,405.53,395.0,445.0
+103 LaFave South: The Zion Suite,2024-05,12,31,13195.0,425.65,395.0,495.0
+103 LaFave South: The Zion Suite,2024-06,8,27,11015.0,407.96,395.0,445.0
+103 LaFave South: The Zion Suite,2024-07,9,23,8285.0,360.22,295.0,395.0
+103 LaFave South: The Zion Suite,2024-08,8,25,9075.0,363.0,295.0,445.0
+103 LaFave South: The Zion Suite,2024-09,7,20,8030.0,401.5,245.0,445.0
+103 LaFave South: The Zion Suite,2024-10,12,27,10335.0,382.78,195.0,445.0
+103 LaFave South: The Zion Suite,2024-11,8,23,6085.0,264.57,195.0,395.0
+103 LaFave South: The Zion Suite,2024-12,3,8,1560.0,195.0,195.0,195.0
+103 LaFave South: The Zion Suite,2025-11,1,6,1470.0,245.0,245.0,245.0
+103 LaFave South: The Zion Suite,2025-12,5,14,3630.0,259.29,195.0,345.0
+200 LaFave South: Angels Landing,2024-01,2,6,3570.0,595.0,495.0,645.0
+200 LaFave South: Angels Landing,2024-02,3,11,6845.0,622.27,495.0,781.6666666666666
+200 LaFave South: Angels Landing,2024-03,5,25,24595.0,983.8,925.0,995.0
+200 LaFave South: Angels Landing,2024-04,6,19,18275.0,961.84,925.0,995.0
+200 LaFave South: Angels Landing,2024-05,8,22,21250.0,965.91,925.0,1095.0
+200 LaFave South: Angels Landing,2024-06,7,26,25450.0,978.85,925.0,995.0
+200 LaFave South: Angels Landing,2024-07,6,16,14430.0,901.88,795.0,995.0
+200 LaFave South: Angels Landing,2024-08,8,19,16355.0,860.79,675.0,995.0
+200 LaFave South: Angels Landing,2024-09,8,25,24115.0,964.6,925.0,995.0
+200 LaFave South: Angels Landing,2024-10,7,24,21360.0,890.0,545.0,995.0
+200 LaFave South: Angels Landing,2024-11,2,4,2570.0,642.5,610.0,675.0
+200 LaFave South: Angels Landing,2024-12,2,9,5425.0,602.78,545.0,675.0
+200 LaFave South: Angels Landing,2025-01,2,4,2180.0,545.0,545.0,545.0
+200 LaFave South: Angels Landing,2025-02,3,9,5035.0,559.44,545.0,610.0
+200 LaFave South: Angels Landing,2025-03,9,26,21150.0,813.46,675.0,975.0
+200 LaFave South: Angels Landing,2025-04,9,26,25200.0,969.23,925.0,975.0
+200 LaFave South: Angels Landing,2025-05,6,16,15780.0,986.25,975.0,1025.0
+200 LaFave South: Angels Landing,2025-06,7,22,21500.0,977.27,925.0,1025.0
+200 LaFave South: Angels Landing,2025-07,6,25,19287.5,771.5,675.0,893.75
+200 LaFave South: Angels Landing,2025-08,6,15,11725.0,781.67,675.0,875.0
+200 LaFave South: Angels Landing,2025-09,6,20,19100.0,955.0,875.0,975.0
+200 LaFave South: Angels Landing,2025-10,7,25,22275.0,891.0,675.0,1025.0
+200 LaFave South: Angels Landing,2025-11,4,13,9805.0,754.23,545.0,1095.0
+200 LaFave South: Angels Landing,2025-12,3,7,6425.0,917.86,875.0,975.0
+201 LaFave South: Checkerboard Mesa,2024-01,3,9,3105.0,345.0,345.0,345.0
+201 LaFave South: Checkerboard Mesa,2024-02,6,17,6465.0,380.29,195.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-03,5,21,16345.0,778.33,725.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-04,4,11,8605.0,782.27,725.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-05,5,19,14605.0,768.68,725.0,828.3333333333334
+201 LaFave South: Checkerboard Mesa,2024-06,7,23,17095.0,743.26,725.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-07,5,14,9330.0,666.43,595.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-08,4,15,9225.0,615.0,595.0,695.0
+201 LaFave South: Checkerboard Mesa,2024-09,5,20,15260.0,763.0,725.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-10,7,23,16765.0,728.91,375.0,795.0
+201 LaFave South: Checkerboard Mesa,2024-11,6,18,8310.0,461.67,375.0,895.0
+201 LaFave South: Checkerboard Mesa,2024-12,2,5,2415.0,483.0,375.0,645.0
+201 LaFave South: Checkerboard Mesa,2025-01,1,2,750.0,375.0,375.0,375.0
+201 LaFave South: Checkerboard Mesa,2025-02,1,3,1125.0,375.0,375.0,375.0
+201 LaFave South: Checkerboard Mesa,2025-03,6,14,8940.0,638.57,245.0,795.0
+201 LaFave South: Checkerboard Mesa,2025-04,6,19,15105.0,795.0,795.0,795.0
+201 LaFave South: Checkerboard Mesa,2025-05,7,19,15555.0,818.68,795.0,895.0
+201 LaFave South: Checkerboard Mesa,2025-06,8,22,17590.0,799.55,795.0,845.0
+201 LaFave South: Checkerboard Mesa,2025-07,6,15,9975.0,665.0,645.0,795.0
+201 LaFave South: Checkerboard Mesa,2025-08,4,12,6840.0,570.0,345.0,645.0
+201 LaFave South: Checkerboard Mesa,2025-09,7,19,13555.0,713.42,395.0,795.0
+201 LaFave South: Checkerboard Mesa,2025-10,7,21,15075.0,717.86,525.0,795.0
+201 LaFave South: Checkerboard Mesa,2025-11,7,21,10345.0,492.62,195.0,895.0
+201 LaFave South: Checkerboard Mesa,2025-12,3,10,6450.0,645.0,645.0,645.0
+202 LaFave South: Echo Canyon,2024-01,4,12,3690.0,307.5,195.0,345.0
+202 LaFave South: Echo Canyon,2024-02,4,10,3450.0,345.0,345.0,345.0
+202 LaFave South: Echo Canyon,2024-03,7,21,16555.0,788.33,725.0,795.0
+202 LaFave South: Echo Canyon,2024-04,8,21,15415.0,734.05,625.0,795.0
+202 LaFave South: Echo Canyon,2024-05,7,21,15875.0,755.95,725.0,895.0
+202 LaFave South: Echo Canyon,2024-06,8,25,18215.0,728.6,695.0,795.0
+202 LaFave South: Echo Canyon,2024-07,4,15,10485.0,699.0,575.0,795.0
+202 LaFave South: Echo Canyon,2024-08,4,12,8780.0,731.67,595.0,795.0
+202 LaFave South: Echo Canyon,2024-09,4,18,13300.0,738.89,725.0,775.0
+202 LaFave South: Echo Canyon,2024-10,7,26,17520.0,673.85,375.0,795.0
+202 LaFave South: Echo Canyon,2024-11,6,13,5575.0,428.85,375.0,725.0
+202 LaFave South: Echo Canyon,2024-12,4,16,6000.0,375.0,375.0,375.0
+202 LaFave South: Echo Canyon,2025-02,3,10,4050.0,405.0,375.0,450.0
+202 LaFave South: Echo Canyon,2025-03,4,14,10040.0,717.14,525.0,795.0
+202 LaFave South: Echo Canyon,2025-04,7,21,16445.0,783.1,695.0,845.0
+202 LaFave South: Echo Canyon,2025-05,2,7,5665.0,809.29,795.0,820.0
+202 LaFave South: Echo Canyon,2025-06,5,18,14310.0,795.0,795.0,795.0
+202 LaFave South: Echo Canyon,2025-07,5,13,7185.0,552.69,525.0,645.0
+202 LaFave South: Echo Canyon,2025-08,4,17,8205.0,482.65,345.0,645.0
+202 LaFave South: Echo Canyon,2025-09,5,14,10830.0,773.57,645.0,795.0
+202 LaFave South: Echo Canyon,2025-10,10,29,20825.0,718.1,525.0,845.0
+202 LaFave South: Echo Canyon,2025-11,5,13,5325.0,409.62,375.0,525.0
+202 LaFave South: Echo Canyon,2025-12,5,12,6660.0,555.0,375.0,645.0
+203 LaFave South: Emerald Pools,2024-01,2,6,2370.0,395.0,395.0,395.0
+203 LaFave South: Emerald Pools,2024-02,2,7,2765.0,395.0,395.0,395.0
+203 LaFave South: Emerald Pools,2024-03,5,16,13170.0,823.12,795.0,845.0
+203 LaFave South: Emerald Pools,2024-04,8,26,21520.0,827.69,795.0,845.0
+203 LaFave South: Emerald Pools,2024-05,7,26,21270.0,818.08,795.0,945.0
+203 LaFave South: Emerald Pools,2024-06,8,27,21715.0,804.26,795.0,845.0
+203 LaFave South: Emerald Pools,2024-07,3,9,6815.0,757.22,695.0,795.0
+203 LaFave South: Emerald Pools,2024-08,4,19,14415.0,758.68,695.0,845.0
+203 LaFave South: Emerald Pools,2024-09,5,20,16500.0,825.0,825.0,825.0
+203 LaFave South: Emerald Pools,2024-10,5,15,11535.0,769.0,575.0,825.0
+203 LaFave South: Emerald Pools,2024-11,4,13,9035.0,695.0,445.0,945.0
+203 LaFave South: Emerald Pools,2024-12,3,10,4710.0,471.0,445.0,575.0
+203 LaFave South: Emerald Pools,2025-02,1,2,890.0,445.0,445.0,445.0
+203 LaFave South: Emerald Pools,2025-03,5,17,13555.0,797.35,642.5,845.0
+203 LaFave South: Emerald Pools,2025-04,6,22,18390.0,835.91,795.0,845.0
+203 LaFave South: Emerald Pools,2025-05,7,24,20580.0,857.5,845.0,920.0
+203 LaFave South: Emerald Pools,2025-06,5,21,17985.0,856.43,845.0,905.0
+203 LaFave South: Emerald Pools,2025-07,5,15,10625.0,708.33,575.0,845.0
+203 LaFave South: Emerald Pools,2025-08,6,21,12585.0,599.29,575.0,745.0
+203 LaFave South: Emerald Pools,2025-09,5,15,11975.0,798.33,745.0,845.0
+203 LaFave South: Emerald Pools,2025-10,6,17,12800.0,752.94,575.0,925.0
+203 LaFave South: Emerald Pools,2025-11,5,17,10345.0,608.53,445.0,945.0
+203 LaFave South: Emerald Pools,2025-12,3,15,9315.0,621.0,445.0,825.0
+204 LaFave South: Hidden Canyon,2024-01,5,15,4615.0,307.67,195.0,325.0
+204 LaFave South: Hidden Canyon,2024-02,4,10,3250.0,325.0,325.0,325.0
+204 LaFave South: Hidden Canyon,2024-03,6,17,10545.0,620.29,445.0,725.0
+204 LaFave South: Hidden Canyon,2024-04,11,26,17050.0,655.77,625.0,725.0
+204 LaFave South: Hidden Canyon,2024-05,11,29,18715.0,645.34,395.0,812.5
+204 LaFave South: Hidden Canyon,2024-06,6,21,13625.0,648.81,625.0,725.0
+204 LaFave South: Hidden Canyon,2024-07,6,14,7500.0,535.71,475.0,575.0
+204 LaFave South: Hidden Canyon,2024-08,8,16,7600.0,475.0,225.0,525.0
+204 LaFave South: Hidden Canyon,2024-09,6,18,11800.0,655.56,625.0,725.0
+204 LaFave South: Hidden Canyon,2024-10,10,26,14950.0,575.0,325.0,675.0
+204 LaFave South: Hidden Canyon,2024-11,5,11,4995.0,454.09,325.0,625.0
+204 LaFave South: Hidden Canyon,2024-12,3,10,3950.0,395.0,325.0,425.0
+204 LaFave South: Hidden Canyon,2025-01,2,3,975.0,325.0,325.0,325.0
+204 LaFave South: Hidden Canyon,2025-02,4,13,4425.0,340.38,325.0,391.6666666666667
+204 LaFave South: Hidden Canyon,2025-03,5,17,10115.0,595.0,425.0,745.0
+204 LaFave South: Hidden Canyon,2025-04,10,23,14885.0,647.17,445.0,745.0
+204 LaFave South: Hidden Canyon,2025-05,7,15,10815.0,721.0,625.0,845.0
+204 LaFave South: Hidden Canyon,2025-06,5,12,8540.0,711.67,695.0,745.0
+204 LaFave South: Hidden Canyon,2025-07,5,18,9000.0,500.0,425.0,575.0
+204 LaFave South: Hidden Canyon,2025-08,6,18,8850.0,491.67,425.0,575.0
+204 LaFave South: Hidden Canyon,2025-09,9,20,11270.0,563.5,245.0,745.0
+204 LaFave South: Hidden Canyon,2025-10,10,24,14410.0,600.42,425.0,745.0
+204 LaFave South: Hidden Canyon,2025-11,3,9,3025.0,336.11,325.0,358.3333333333333
+204 LaFave South: Hidden Canyon,2025-12,1,3,1725.0,575.0,575.0,575.0
+205 LaFave South: Kolob Arch,2024-01,1,3,585.0,195.0,195.0,195.0
+205 LaFave South: Kolob Arch,2024-02,1,4,1300.0,325.0,325.0,325.0
+205 LaFave South: Kolob Arch,2024-03,7,19,12975.0,682.89,625.0,725.0
+205 LaFave South: Kolob Arch,2024-04,8,18,10890.0,605.0,395.0,725.0
+205 LaFave South: Kolob Arch,2024-05,11,28,17700.0,632.14,525.0,791.6666666666666
+205 LaFave South: Kolob Arch,2024-06,10,28,17450.0,623.21,600.0,625.0
+205 LaFave South: Kolob Arch,2024-07,5,21,11775.0,560.71,475.0,725.0
+205 LaFave South: Kolob Arch,2024-08,2,7,3725.0,532.14,475.0,575.0
+205 LaFave South: Kolob Arch,2024-09,6,15,9575.0,638.33,425.0,675.0
+205 LaFave South: Kolob Arch,2024-10,8,22,11700.0,531.82,325.0,675.0
+205 LaFave South: Kolob Arch,2024-11,5,13,4935.0,379.62,325.0,495.0
+205 LaFave South: Kolob Arch,2024-12,4,11,3575.0,325.0,325.0,325.0
+205 LaFave South: Kolob Arch,2025-01,2,4,1110.0,277.5,261.6666666666667,325.0
+205 LaFave South: Kolob Arch,2025-02,3,7,2475.0,353.57,325.0,391.6666666666667
+205 LaFave South: Kolob Arch,2025-03,5,15,9075.0,605.0,425.0,695.0
+205 LaFave South: Kolob Arch,2025-04,7,21,14595.0,695.0,695.0,695.0
+205 LaFave South: Kolob Arch,2025-05,6,17,12715.0,747.94,695.0,805.0
+205 LaFave South: Kolob Arch,2025-06,5,19,13205.0,695.0,695.0,695.0
+205 LaFave South: Kolob Arch,2025-07,7,12,5250.0,437.5,425.0,575.0
+205 LaFave South: Kolob Arch,2025-08,6,23,8965.0,389.78,245.0,575.0
+205 LaFave South: Kolob Arch,2025-09,6,21,12525.0,596.43,495.0,695.0
+205 LaFave South: Kolob Arch,2025-10,6,13,8765.0,674.23,425.0,695.0
+205 LaFave South: Kolob Arch,2025-11,5,15,5375.0,358.33,325.0,425.0
+205 LaFave South: Kolob Arch,2025-12,1,3,1725.0,575.0,575.0,575.0
+206 LaFave South: Mountain of the Sun,2024-01,3,9,4605.0,511.67,345.0,795.0
+206 LaFave South: Mountain of the Sun,2024-02,4,13,4635.0,356.54,345.0,395.0
+206 LaFave South: Mountain of the Sun,2024-03,7,19,14005.0,737.11,525.0,795.0
+206 LaFave South: Mountain of the Sun,2024-04,6,19,12865.0,677.11,445.0,795.0
+206 LaFave South: Mountain of the Sun,2024-05,8,23,16625.0,722.83,525.0,895.0
+206 LaFave South: Mountain of the Sun,2024-06,6,20,15060.0,753.0,725.0,795.0
+206 LaFave South: Mountain of the Sun,2024-07,6,21,13795.0,656.9,595.0,695.0
+206 LaFave South: Mountain of the Sun,2024-08,5,12,8390.0,699.17,595.0,895.0
+206 LaFave South: Mountain of the Sun,2024-09,5,14,10500.0,750.0,725.0,775.0
+206 LaFave South: Mountain of the Sun,2024-10,8,23,16205.0,704.57,375.0,795.0
+206 LaFave South: Mountain of the Sun,2024-11,7,21,10835.0,515.95,375.0,895.0
+206 LaFave South: Mountain of the Sun,2024-12,3,13,5625.0,432.69,375.0,525.0
+206 LaFave South: Mountain of the Sun,2025-01,1,2,750.0,375.0,375.0,375.0
+206 LaFave South: Mountain of the Sun,2025-02,1,4,1500.0,375.0,375.0,375.0
+206 LaFave South: Mountain of the Sun,2025-03,5,16,12180.0,761.25,525.0,795.0
+206 LaFave South: Mountain of the Sun,2025-04,7,22,17280.0,785.45,725.0,795.0
+206 LaFave South: Mountain of the Sun,2025-05,7,20,16200.0,810.0,795.0,845.0
+206 LaFave South: Mountain of the Sun,2025-06,7,21,16685.0,794.52,725.0,845.0
+206 LaFave South: Mountain of the Sun,2025-07,6,22,13630.0,619.55,525.0,845.0
+206 LaFave South: Mountain of the Sun,2025-08,7,24,13560.0,565.0,525.0,645.0
+206 LaFave South: Mountain of the Sun,2025-09,5,15,11325.0,755.0,645.0,795.0
+206 LaFave South: Mountain of the Sun,2025-10,6,25,17175.0,687.0,525.0,795.0
+206 LaFave South: Mountain of the Sun,2025-11,5,19,8325.0,438.16,375.0,525.0
+206 LaFave South: Mountain of the Sun,2025-12,3,13,6225.0,478.85,375.0,645.0
+207 LaFave South: Mystery Falls,2024-01,3,8,2700.0,337.5,325.0,345.0
+207 LaFave South: Mystery Falls,2024-02,5,14,5730.0,409.29,345.0,645.0
+207 LaFave South: Mystery Falls,2024-03,8,21,14345.0,683.1,395.0,795.0
+207 LaFave South: Mystery Falls,2024-04,6,18,13750.0,763.89,725.0,795.0
+207 LaFave South: Mystery Falls,2024-05,8,22,16710.0,759.55,725.0,810.0
+207 LaFave South: Mystery Falls,2024-06,8,23,16885.0,734.13,725.0,795.0
+207 LaFave South: Mystery Falls,2024-07,4,12,7930.0,660.83,595.0,725.0
+207 LaFave South: Mystery Falls,2024-08,5,15,10525.0,701.67,595.0,795.0
+207 LaFave South: Mystery Falls,2024-09,7,18,13560.0,753.33,425.0,795.0
+207 LaFave South: Mystery Falls,2024-10,8,26,18400.0,707.69,525.0,775.0
+207 LaFave South: Mystery Falls,2024-11,6,21,9885.0,470.71,375.0,895.0
+207 LaFave South: Mystery Falls,2024-12,3,9,3675.0,408.33,375.0,525.0
+207 LaFave South: Mystery Falls,2025-02,4,10,4050.0,405.0,375.0,450.0
+207 LaFave South: Mystery Falls,2025-03,5,17,11895.0,699.71,525.0,795.0
+207 LaFave South: Mystery Falls,2025-04,6,20,15760.0,788.0,725.0,795.0
+207 LaFave South: Mystery Falls,2025-05,5,17,14015.02,824.41,795.0,878.3333333333334
+207 LaFave South: Mystery Falls,2025-06,4,16,12920.0,807.5,795.0,835.0
+207 LaFave South: Mystery Falls,2025-07,4,13,7545.0,580.38,525.0,645.0
+207 LaFave South: Mystery Falls,2025-08,3,12,7380.0,615.0,525.0,645.0
+207 LaFave South: Mystery Falls,2025-09,4,11,7725.0,702.27,645.0,795.0
+207 LaFave South: Mystery Falls,2025-10,9,27,18815.0,696.85,445.0,845.0
+207 LaFave South: Mystery Falls,2025-11,4,16,6600.0,412.5,375.0,525.0
+207 LaFave South: Mystery Falls,2025-12,2,7,4245.0,606.43,591.0,645.0
+208 LaFave South: Northgate Peaks,2024-01,2,4,1300.0,325.0,325.0,325.0
+208 LaFave South: Northgate Peaks,2024-02,2,8,2600.0,325.0,325.0,325.0
+208 LaFave South: Northgate Peaks,2024-03,4,15,10675.0,711.67,625.0,725.0
+208 LaFave South: Northgate Peaks,2024-04,5,14,7600.0,542.86,395.0,625.0
+208 LaFave South: Northgate Peaks,2024-05,5,13,8245.0,634.23,495.0,687.5
+208 LaFave South: Northgate Peaks,2024-06,7,21,13425.01,639.29,591.67,725.0
+208 LaFave South: Northgate Peaks,2024-07,3,14,8050.0,575.0,575.0,575.0
+208 LaFave South: Northgate Peaks,2024-08,1,4,1900.0,475.0,475.0,475.0
+208 LaFave South: Northgate Peaks,2024-09,5,19,12025.0,632.89,425.0,725.0
+208 LaFave South: Northgate Peaks,2024-10,11,31,16815.0,542.42,295.0,675.0
+208 LaFave South: Northgate Peaks,2024-11,4,14,4550.0,325.0,325.0,325.0
+208 LaFave South: Northgate Peaks,2024-12,3,7,2525.0,360.71,325.0,575.0
+208 LaFave South: Northgate Peaks,2025-01,2,5,1235.0,247.0,195.0,325.0
+208 LaFave South: Northgate Peaks,2025-02,3,7,1885.0,269.29,195.0,325.0
+208 LaFave South: Northgate Peaks,2025-03,6,15,8535.0,569.0,425.0,695.0
+208 LaFave South: Northgate Peaks,2025-04,8,22,14940.0,679.09,445.0,745.0
+208 LaFave South: Northgate Peaks,2025-05,8,20,14650.0,732.5,695.0,845.0
+208 LaFave South: Northgate Peaks,2025-06,4,14,9980.0,712.86,695.0,745.0
+208 LaFave South: Northgate Peaks,2025-07,6,18,8250.0,458.33,425.0,575.0
+208 LaFave South: Northgate Peaks,2025-08,5,13,5525.0,425.0,425.0,425.0
+208 LaFave South: Northgate Peaks,2025-09,4,15,8205.0,547.0,425.0,671.0
+208 LaFave South: Northgate Peaks,2025-10,8,23,15175.0,659.78,560.0,695.0
+208 LaFave South: Northgate Peaks,2025-11,5,14,4560.0,325.71,195.0,425.0
+208 LaFave South: Northgate Peaks,2025-12,1,3,1725.0,575.0,575.0,575.0
+209 LaFave South: Orderville Canyon,2024-01,3,10,2730.0,273.0,195.0,325.0
+209 LaFave South: Orderville Canyon,2024-02,3,8,1950.0,243.75,195.0,325.0
+209 LaFave South: Orderville Canyon,2024-03,6,23,16275.0,707.61,625.0,725.0
+209 LaFave South: Orderville Canyon,2024-04,6,17,10105.0,594.41,395.0,725.0
+209 LaFave South: Orderville Canyon,2024-05,7,24,15500.0,645.83,625.0,708.3333333333334
+209 LaFave South: Orderville Canyon,2024-06,8,26,16450.0,632.69,625.0,725.0
+209 LaFave South: Orderville Canyon,2024-07,5,20,11350.0,567.5,525.0,575.0
+209 LaFave South: Orderville Canyon,2024-08,5,17,8175.0,480.88,425.0,525.0
+209 LaFave South: Orderville Canyon,2024-09,7,13,8125.0,625.0,425.0,725.0
+209 LaFave South: Orderville Canyon,2024-10,6,21,11975.0,570.24,425.0,675.0
+209 LaFave South: Orderville Canyon,2024-11,8,21,7025.0,334.52,325.0,425.0
+209 LaFave South: Orderville Canyon,2024-12,5,13,5925.0,455.77,325.0,575.0
+209 LaFave South: Orderville Canyon,2025-01,2,6,1430.0,238.33,195.0,325.0
+209 LaFave South: Orderville Canyon,2025-02,4,10,3250.0,325.0,325.0,325.0
+209 LaFave South: Orderville Canyon,2025-03,6,19,10235.0,538.68,425.0,695.0
+209 LaFave South: Orderville Canyon,2025-04,10,26,15670.0,602.69,395.0,745.0
+209 LaFave South: Orderville Canyon,2025-05,8,21,13695.0,652.14,445.0,745.0
+209 LaFave South: Orderville Canyon,2025-06,3,12,8340.0,695.0,695.0,695.0
+209 LaFave South: Orderville Canyon,2025-07,7,19,8975.0,472.37,425.0,575.0
+209 LaFave South: Orderville Canyon,2025-08,8,30,13440.0,448.0,245.0,575.0
+209 LaFave South: Orderville Canyon,2025-09,6,21,11705.0,557.38,411.6666666666667,695.0
+209 LaFave South: Orderville Canyon,2025-10,7,23,12205.0,530.65,425.0,695.0
+209 LaFave South: Orderville Canyon,2025-11,7,17,5405.0,317.94,245.0,365.0
+209 LaFave South: Orderville Canyon,2025-12,2,6,3450.0,575.0,575.0,575.0
+210 LaFave South: The Subway,2024-01,2,7,2765.0,395.0,395.0,395.0
+210 LaFave South: The Subway,2024-02,2,19,1185.0,62.37,0.0,395.0
+210 LaFave South: The Subway,2024-03,4,10,8450.0,845.0,845.0,845.0
+210 LaFave South: The Subway,2024-04,5,17,12915.0,759.71,445.0,845.0
+210 LaFave South: The Subway,2024-05,8,22,17890.0,813.18,795.0,895.0
+210 LaFave South: The Subway,2024-06,6,24,19080.0,795.0,795.0,795.0
+210 LaFave South: The Subway,2024-07,4,18,13680.0,760.0,725.0,795.0
+210 LaFave South: The Subway,2024-08,4,10,7450.0,745.0,695.0,795.0
+210 LaFave South: The Subway,2024-09,7,18,14590.0,810.56,695.0,845.0
+210 LaFave South: The Subway,2024-10,6,21,16145.0,768.81,445.0,845.0
+210 LaFave South: The Subway,2024-11,5,16,8870.0,554.38,295.0,855.0
+210 LaFave South: The Subway,2024-12,2,6,4190.0,698.33,445.0,825.0
+210 LaFave South: The Subway,2025-01,3,11,5195.0,472.27,445.0,545.0
+210 LaFave South: The Subway,2025-02,2,8,3560.0,445.0,445.0,445.0
+210 LaFave South: The Subway,2025-03,9,28,20490.0,731.79,575.0,845.0
+210 LaFave South: The Subway,2025-04,4,14,11830.0,845.0,845.0,845.0
+210 LaFave South: The Subway,2025-05,5,16,13880.0,867.5,845.0,925.0
+210 LaFave South: The Subway,2025-06,5,16,14480.0,905.0,845.0,925.0
+210 LaFave South: The Subway,2025-07,5,14,8860.0,632.86,575.0,845.0
+210 LaFave South: The Subway,2025-08,4,11,7855.0,714.09,575.0,745.0
+210 LaFave South: The Subway,2025-09,5,14,10720.0,765.71,575.0,845.0
+210 LaFave South: The Subway,2025-10,9,24,17320.0,721.67,445.0,845.0
+210 LaFave South: The Subway,2025-11,3,8,3690.0,461.25,445.0,488.3333333333333
+210 LaFave South: The Subway,2025-12,2,6,4470.0,745.0,745.0,745.0
+211 LaFave South: The Narrows,2024-01,2,6,2970.0,495.0,495.0,495.0
+211 LaFave South: The Narrows,2024-02,2,5,3595.0,719.0,495.0,775.0
+211 LaFave South: The Narrows,2024-03,7,23,22075.0,959.78,795.0,995.0
+211 LaFave South: The Narrows,2024-04,8,25,24315.0,972.6,925.0,995.0
+211 LaFave South: The Narrows,2024-05,7,20,19060.0,953.0,925.0,995.0
+211 LaFave South: The Narrows,2024-06,8,21,19445.0,925.95,795.0,995.0
+211 LaFave South: The Narrows,2024-07,5,18,15510.0,861.67,795.0,925.0
+211 LaFave South: The Narrows,2024-08,4,13,11055.0,850.38,795.0,875.0
+211 LaFave South: The Narrows,2024-09,5,15,14435.0,962.33,925.0,995.0
+211 LaFave South: The Narrows,2024-10,5,20,16100.0,805.0,545.0,975.0
+211 LaFave South: The Narrows,2024-11,3,7,4075.0,582.14,545.0,675.0
+211 LaFave South: The Narrows,2024-12,2,6,3930.0,655.0,545.0,875.0
+211 LaFave South: The Narrows,2025-02,1,4,2180.0,545.0,545.0,545.0
+211 LaFave South: The Narrows,2025-03,6,16,15300.0,956.25,925.0,975.0
+211 LaFave South: The Narrows,2025-04,9,28,27100.0,967.86,925.0,1025.0
+211 LaFave South: The Narrows,2025-05,6,20,19250.0,962.5,925.0,1025.0
+211 LaFave South: The Narrows,2025-06,6,24,23400.0,975.0,975.0,975.0
+211 LaFave South: The Narrows,2025-07,7,21,16375.0,779.76,675.0,975.0
+211 LaFave South: The Narrows,2025-08,5,14,10850.0,775.0,575.0,875.0
+211 LaFave South: The Narrows,2025-09,4,14,13850.0,989.29,975.0,1025.0
+211 LaFave South: The Narrows,2025-10,7,24,20700.0,862.5,675.0,975.0
+211 LaFave South: The Narrows,2025-11,5,14,9670.0,690.71,545.0,1095.0
+211 LaFave South: The Narrows,2025-12,3,12,10170.0,847.5,792.5,875.0
+300 LaFave South: Bridge Mountain,2024-01,2,5,2125.0,425.0,425.0,425.0
+300 LaFave South: Bridge Mountain,2024-02,1,2,850.0,425.0,425.0,425.0
+300 LaFave South: Bridge Mountain,2024-03,5,15,11925.0,795.0,795.0,795.0
+300 LaFave South: Bridge Mountain,2024-04,2,5,3975.0,795.0,795.0,795.0
+300 LaFave South: Bridge Mountain,2024-05,4,10,8250.0,825.0,795.0,895.0
+300 LaFave South: Bridge Mountain,2024-06,6,20,15900.0,795.0,795.0,795.0
+300 LaFave South: Bridge Mountain,2024-07,4,10,6800.0,680.0,625.0,795.0
+300 LaFave South: Bridge Mountain,2024-08,3,9,6615.0,735.0,695.0,795.0
+300 LaFave South: Bridge Mountain,2024-09,2,7,5715.0,816.43,795.0,825.0
+300 LaFave South: Bridge Mountain,2024-10,7,18,13200.0,733.33,445.0,825.0
+300 LaFave South: Bridge Mountain,2024-11,3,9,4005.0,445.0,445.0,445.0
+300 LaFave South: Bridge Mountain,2025-03,3,9,5905.0,656.11,545.0,795.0
+300 LaFave South: Bridge Mountain,2025-04,2,6,4860.0,810.0,795.0,825.0
+300 LaFave South: Bridge Mountain,2025-05,3,10,8520.0,852.0,825.0,875.0
+300 LaFave South: Bridge Mountain,2025-10,1,3,1635.0,545.0,545.0,545.0
+301 LaFave South: West Temple,2024-01,1,4,1980.0,495.0,495.0,495.0
+301 LaFave South: West Temple,2024-03,3,11,10195.0,926.82,895.0,945.0
+301 LaFave South: West Temple,2024-04,4,15,13825.0,921.67,895.0,945.0
+301 LaFave South: West Temple,2024-05,3,10,9250.0,925.0,895.0,995.0
+301 LaFave South: West Temple,2024-06,5,17,15215.0,895.0,895.0,895.0
+301 LaFave South: West Temple,2024-07,3,9,7605.0,845.0,745.0,895.0
+301 LaFave South: West Temple,2024-08,3,9,7155.0,795.0,745.0,895.0
+301 LaFave South: West Temple,2024-09,1,3,2775.0,925.0,925.0,925.0
+301 LaFave South: West Temple,2024-10,5,13,11885.0,914.23,895.0,945.0
+301 LaFave South: West Temple,2024-11,3,10,6360.0,636.0,525.0,895.0
+301 LaFave South: West Temple,2025-02,2,5,2745.0,549.0,525.0,585.0
+301 LaFave South: West Temple,2025-03,2,5,3785.0,757.0,645.0,925.0
+301 LaFave South: West Temple,2025-04,3,6,5550.0,925.0,925.0,925.0
+301 LaFave South: West Temple,2025-05,3,8,7470.0,933.75,925.0,948.3333333333334
+301 LaFave South: West Temple,2025-10,1,5,3505.0,701.0,701.0,701.0
+302 LaFave South: The Gallery House,2024-02,1,3,2985.0,995.0,995.0,995.0
+302 LaFave South: The Gallery House,2024-03,3,11,15345.0,1395.0,1395.0,1395.0
+302 LaFave South: The Gallery House,2024-04,2,9,12555.0,1395.0,1395.0,1395.0
+302 LaFave South: The Gallery House,2024-05,3,11,15345.0,1395.0,1395.0,1395.0
+302 LaFave South: The Gallery House,2024-06,2,14,18830.0,1345.0,1295.0,1395.0
+302 LaFave South: The Gallery House,2024-07,3,12,16040.0,1336.67,1295.0,1395.0
+302 LaFave South: The Gallery House,2024-08,2,7,9765.0,1395.0,1395.0,1395.0
+302 LaFave South: The Gallery House,2024-09,6,21,28895.0,1375.95,1295.0,1395.0
+302 LaFave South: The Gallery House,2024-10,3,8,10360.0,1295.0,1295.0,1295.0
+302 LaFave South: The Gallery House,2024-11,3,12,14740.0,1228.33,895.0,1455.0
+302 LaFave South: The Gallery House,2024-12,3,11,13645.0,1240.45,895.0,1415.0
+302 LaFave South: The Gallery House,2025-02,2,5,4475.0,895.0,895.0,895.0
+302 LaFave South: The Gallery House,2025-03,4,12,15240.0,1270.0,995.0,1395.0
+302 LaFave South: The Gallery House,2025-04,3,13,16835.0,1295.0,1295.0,1295.0
+302 LaFave South: The Gallery House,2025-05,4,13,17135.0,1318.08,1295.0,1445.0
+302 LaFave South: The Gallery House,2025-06,6,22,28890.0,1313.18,1295.0,1395.0
+302 LaFave South: The Gallery House,2025-07,2,6,7770.0,1295.0,1295.0,1295.0
+302 LaFave South: The Gallery House,2025-08,4,19,24905.0,1310.79,1295.0,1395.0
+302 LaFave South: The Gallery House,2025-09,4,10,13750.0,1375.0,1295.0,1395.0
+302 LaFave South: The Gallery House,2025-10,7,23,31185.0,1355.87,1095.0,1445.0
+302 LaFave South: The Gallery House,2025-11,4,15,17325.0,1155.0,995.0,1495.0
+302 LaFave South: The Gallery House,2025-12,1,2,2590.0,1295.0,1295.0,1295.0
+400 LaFave North: The Sundial,2024-03,3,9,3855.0,428.33,395.0,445.0
+400 LaFave North: The Sundial,2024-04,9,22,9940.0,451.82,395.0,525.0
+400 LaFave North: The Sundial,2024-05,8,25,11955.0,478.2,395.0,577.5
+400 LaFave North: The Sundial,2024-06,9,22,9590.0,435.91,395.0,495.0
+400 LaFave North: The Sundial,2024-07,5,19,7435.0,391.32,375.0,425.0
+400 LaFave North: The Sundial,2024-08,5,15,6065.0,404.33,375.0,475.0
+400 LaFave North: The Sundial,2024-09,8,23,11375.0,494.57,295.0,525.0
+400 LaFave North: The Sundial,2024-10,8,24,10570.0,440.42,295.0,525.0
+400 LaFave North: The Sundial,2024-11,8,23,6685.0,290.65,245.0,420.0
+400 LaFave North: The Sundial,2024-12,4,13,3235.0,248.85,195.0,295.0
+400 LaFave North: The Sundial,2025-01,4,12,2840.0,236.67,195.0,245.0
+400 LaFave North: The Sundial,2025-02,7,19,4605.0,242.37,195.0,270.0
+400 LaFave North: The Sundial,2025-03,8,23,9645.0,419.35,295.0,575.0
+400 LaFave North: The Sundial,2025-04,7,23,11755.0,511.09,445.0,575.0
+400 LaFave North: The Sundial,2025-05,8,24,12630.0,526.25,445.0,575.0
+400 LaFave North: The Sundial,2025-06,6,17,8925.0,525.0,525.0,525.0
+400 LaFave North: The Sundial,2025-07,6,23,6785.0,295.0,295.0,295.0
+400 LaFave North: The Sundial,2025-08,6,20,5900.0,295.0,295.0,295.0
+400 LaFave North: The Sundial,2025-09,7,22,10400.0,472.73,295.0,525.0
+400 LaFave North: The Sundial,2025-10,11,28,12390.0,442.5,295.0,575.0
+400 LaFave North: The Sundial,2025-11,9,21,6545.0,311.67,245.0,595.0
+400 LaFave North: The Sundial,2025-12,2,9,2565.0,285.0,245.0,365.0
+500 LaFave North: Big Springs,2024-03,3,8,5350.0,668.75,625.0,695.0
+500 LaFave North: Big Springs,2024-04,8,25,17275.0,691.0,625.0,795.0
+500 LaFave North: Big Springs,2024-05,8,29,19085.0,658.1,625.0,760.0
+500 LaFave North: Big Springs,2024-06,6,18,12180.0,676.67,625.0,725.0
+500 LaFave North: Big Springs,2024-07,4,10,6230.0,623.0,595.0,695.0
+500 LaFave North: Big Springs,2024-08,2,10,6160.0,616.0,595.0,625.0
+500 LaFave North: Big Springs,2024-09,5,16,12140.0,758.75,695.0,795.0
+500 LaFave North: Big Springs,2024-10,8,23,15125.0,657.61,375.0,775.0
+500 LaFave North: Big Springs,2024-11,6,18,10240.0,568.89,375.0,725.0
+500 LaFave North: Big Springs,2024-12,3,8,3540.0,442.5,375.0,645.0
+500 LaFave North: Big Springs,2025-01,2,7,2625.0,375.0,375.0,375.0
+500 LaFave North: Big Springs,2025-02,3,12,3630.0,302.5,195.0,450.0
+500 LaFave North: Big Springs,2025-03,9,23,15705.0,682.83,375.0,795.0
+500 LaFave North: Big Springs,2025-04,7,18,14410.0,800.56,795.0,845.0
+500 LaFave North: Big Springs,2025-05,6,24,19280.0,803.33,795.0,845.0
+500 LaFave North: Big Springs,2025-06,6,18,14660.0,814.44,795.0,845.0
+500 LaFave North: Big Springs,2025-07,2,9,4725.0,525.0,525.0,525.0
+500 LaFave North: Big Springs,2025-08,5,16,8880.0,555.0,525.0,645.0
+500 LaFave North: Big Springs,2025-09,7,22,16440.0,747.27,645.0,795.0
+500 LaFave North: Big Springs,2025-10,9,25,15855.0,634.2,445.0,795.0
+500 LaFave North: Big Springs,2025-11,4,17,5985.0,352.06,245.0,479.0
+500 LaFave North: Big Springs,2025-12,1,3,1935.0,645.0,645.0,645.0
+501 LaFave North: Cathedral Mountain,2024-03,2,7,6065.0,866.43,845.0,895.0
+501 LaFave North: Cathedral Mountain,2024-04,7,19,16215.0,853.42,845.0,925.0
+501 LaFave North: Cathedral Mountain,2024-05,8,25,22665.0,906.6,845.0,1095.0
+501 LaFave North: Cathedral Mountain,2024-06,9,30,27720.0,924.0,845.0,995.0
+501 LaFave North: Cathedral Mountain,2024-07,5,16,13360.0,835.0,795.0,875.0
+501 LaFave North: Cathedral Mountain,2024-08,3,15,12515.0,834.33,795.0,875.0
+501 LaFave North: Cathedral Mountain,2024-09,6,21,20135.0,958.81,925.0,995.0
+501 LaFave North: Cathedral Mountain,2024-10,7,18,14580.0,810.0,545.0,975.0
+501 LaFave North: Cathedral Mountain,2024-11,4,10,7700.0,770.0,445.0,1095.0
+501 LaFave North: Cathedral Mountain,2024-12,2,5,3715.0,743.0,545.0,875.0
+501 LaFave North: Cathedral Mountain,2025-01,2,4,2180.0,545.0,545.0,545.0
+501 LaFave North: Cathedral Mountain,2025-02,5,15,8225.0,548.33,375.0,642.5
+501 LaFave North: Cathedral Mountain,2025-03,6,20,17010.0,850.5,675.0,975.0
+501 LaFave North: Cathedral Mountain,2025-04,8,26,25190.0,968.85,795.0,1025.0
+501 LaFave North: Cathedral Mountain,2025-05,8,28,27810.0,993.21,975.0,1055.0
+501 LaFave North: Cathedral Mountain,2025-06,7,22,21250.0,965.91,925.0,975.0
+501 LaFave North: Cathedral Mountain,2025-07,6,21,16275.0,775.0,675.0,925.0
+501 LaFave North: Cathedral Mountain,2025-08,6,21,15375.0,732.14,675.0,875.0
+501 LaFave North: Cathedral Mountain,2025-09,7,22,21150.0,961.36,875.0,975.0
+501 LaFave North: Cathedral Mountain,2025-10,5,21,18975.0,903.57,675.0,975.0
+501 LaFave North: Cathedral Mountain,2025-11,4,11,7105.0,645.91,375.0,820.0
+501 LaFave North: Cathedral Mountain,2025-12,2,6,4590.0,765.0,545.0,875.0
+502 LaFave North: East Temple,2024-03,2,5,2125.0,425.0,395.0,445.0
+502 LaFave North: East Temple,2024-04,6,22,16060.0,730.0,625.0,795.0
+502 LaFave North: East Temple,2024-05,6,18,12130.0,673.89,625.0,745.0
+502 LaFave North: East Temple,2024-06,6,23,15075.0,655.43,625.0,725.0
+502 LaFave North: East Temple,2024-07,4,15,10075.0,671.67,625.0,695.0
+502 LaFave North: East Temple,2024-08,2,6,3870.0,645.0,595.0,695.0
+502 LaFave North: East Temple,2024-09,6,18,12170.0,676.11,305.0,795.0
+502 LaFave North: East Temple,2024-10,7,20,12160.0,608.0,245.0,775.0
+502 LaFave North: East Temple,2024-11,5,19,9915.0,521.84,375.0,810.0
+502 LaFave North: East Temple,2024-12,3,7,3705.0,529.29,375.0,645.0
+502 LaFave North: East Temple,2025-01,3,7,2235.0,319.29,245.0,375.0
+502 LaFave North: East Temple,2025-02,5,17,5475.0,322.06,195.0,375.0
+502 LaFave North: East Temple,2025-03,7,21,14495.0,690.24,445.0,845.0
+502 LaFave North: East Temple,2025-04,7,18,14460.0,803.33,795.0,845.0
+502 LaFave North: East Temple,2025-05,8,24,19480.0,811.67,795.0,855.0
+502 LaFave North: East Temple,2025-06,5,26,20920.0,804.62,795.0,845.0
+502 LaFave North: East Temple,2025-07,5,14,6790.0,485.0,245.0,525.0
+502 LaFave North: East Temple,2025-08,4,15,7875.0,525.0,525.0,525.0
+502 LaFave North: East Temple,2025-09,5,13,9195.0,707.31,525.0,795.0
+502 LaFave North: East Temple,2025-10,7,23,12770.0,555.22,0.0,845.0
+502 LaFave North: East Temple,2025-11,3,9,4865.0,540.56,375.0,635.0
+502 LaFave North: East Temple,2025-12,1,2,1290.0,645.0,645.0,645.0
+503 LaFave North: Johnson Mountain,2024-03,4,9,7555.0,839.44,795.0,895.0
+503 LaFave North: Johnson Mountain,2024-04,9,24,20980.0,874.17,795.0,945.0
+503 LaFave North: Johnson Mountain,2024-05,7,19,16605.0,873.95,795.0,895.0
+503 LaFave North: Johnson Mountain,2024-06,8,27,22715.0,841.3,795.0,945.0
+503 LaFave North: Johnson Mountain,2024-07,7,21,16935.0,806.43,775.0,945.0
+503 LaFave North: Johnson Mountain,2024-08,4,11,9375.0,852.27,775.0,950.0
+503 LaFave North: Johnson Mountain,2024-09,6,22,20270.0,921.36,895.0,945.0
+503 LaFave North: Johnson Mountain,2024-10,9,25,21645.0,865.8,625.0,945.0
+503 LaFave North: Johnson Mountain,2024-11,3,13,10755.0,827.31,625.0,935.0
+503 LaFave North: Johnson Mountain,2024-12,2,7,4675.0,667.86,625.0,725.0
+503 LaFave North: Johnson Mountain,2025-01,2,6,2850.0,475.0,375.0,525.0
+503 LaFave North: Johnson Mountain,2025-02,1,3,1575.0,525.0,525.0,525.0
+503 LaFave North: Johnson Mountain,2025-03,8,21,17025.0,810.71,625.0,925.0
+503 LaFave North: Johnson Mountain,2025-04,8,29,23930.0,825.17,0.0,925.0
+503 LaFave North: Johnson Mountain,2025-05,7,19,17875.0,940.79,895.0,995.0
+503 LaFave North: Johnson Mountain,2025-06,6,22,20500.0,931.82,925.0,975.0
+503 LaFave North: Johnson Mountain,2025-07,6,24,17900.0,745.83,625.0,900.0
+503 LaFave North: Johnson Mountain,2025-08,6,20,14100.0,705.0,625.0,825.0
+503 LaFave North: Johnson Mountain,2025-09,7,19,16875.0,888.16,625.0,975.0
+503 LaFave North: Johnson Mountain,2025-10,7,26,22550.0,867.31,625.0,925.0
+503 LaFave North: Johnson Mountain,2025-11,5,13,8455.0,650.38,375.0,995.0
+503 LaFave North: Johnson Mountain,2025-12,2,7,5175.0,739.29,525.0,825.0
+504 LaFave North: Kayenta,2024-03,3,9,5425.0,602.78,525.0,625.0
+504 LaFave North: Kayenta,2024-04,7,18,9650.0,536.11,525.0,625.0
+504 LaFave North: Kayenta,2024-05,8,19,11425.0,601.32,525.0,791.6666666666666
+504 LaFave North: Kayenta,2024-06,10,28,16700.0,596.43,525.0,625.0
+504 LaFave North: Kayenta,2024-07,4,10,4850.0,485.0,475.0,525.0
+504 LaFave North: Kayenta,2024-08,4,12,5800.0,483.33,425.0,525.0
+504 LaFave North: Kayenta,2024-09,7,22,14900.0,677.27,625.0,725.0
+504 LaFave North: Kayenta,2024-10,11,26,13700.0,526.92,325.0,675.0
+504 LaFave North: Kayenta,2024-11,4,12,4420.0,368.33,325.0,498.3333333333333
+504 LaFave North: Kayenta,2024-12,2,5,1885.0,377.0,245.0,575.0
+504 LaFave North: Kayenta,2025-01,2,4,1300.0,325.0,325.0,325.0
+504 LaFave North: Kayenta,2025-02,4,11,2965.0,269.55,228.33333333333337,325.0
+504 LaFave North: Kayenta,2025-03,5,15,9345.0,623.0,425.0,695.0
+504 LaFave North: Kayenta,2025-04,8,17,12165.0,715.59,695.0,745.0
+504 LaFave North: Kayenta,2025-05,7,21,12745.0,606.9,445.0,745.0
+504 LaFave North: Kayenta,2025-06,7,23,15585.0,677.61,445.0,745.0
+504 LaFave North: Kayenta,2025-07,9,23,9075.0,394.57,245.0,425.0
+504 LaFave North: Kayenta,2025-08,4,16,6800.0,425.0,425.0,425.0
+504 LaFave North: Kayenta,2025-09,6,24,14310.0,596.25,425.0,695.0
+504 LaFave North: Kayenta,2025-10,9,23,14635.0,636.3,425.0,695.0
+504 LaFave North: Kayenta,2025-11,4,13,4925.0,378.85,325.0,425.0
+504 LaFave North: Kayenta,2025-12,2,7,4025.0,575.0,575.0,575.0
+505 LaFave North: Lava Point,2024-03,3,8,5900.0,737.5,725.0,745.0
+505 LaFave North: Lava Point,2024-04,6,18,12930.0,718.33,395.0,845.0
+505 LaFave North: Lava Point,2024-05,7,26,20180.0,776.15,725.0,895.0
+505 LaFave North: Lava Point,2024-06,7,21,15665.0,745.95,725.0,795.0
+505 LaFave North: Lava Point,2024-07,6,17,12985.0,763.82,725.0,845.0
+505 LaFave North: Lava Point,2024-08,4,14,10030.0,716.43,695.0,745.0
+505 LaFave North: Lava Point,2024-09,6,16,12610.0,788.12,675.0,845.0
+505 LaFave North: Lava Point,2024-10,7,21,14305.0,681.19,445.0,825.0
+505 LaFave North: Lava Point,2024-11,3,10,4950.0,495.0,445.0,611.6666666666666
+505 LaFave North: Lava Point,2024-12,4,12,6510.0,542.5,445.0,575.0
+505 LaFave North: Lava Point,2025-01,2,5,2225.0,445.0,445.0,445.0
+505 LaFave North: Lava Point,2025-02,3,11,4895.0,445.0,445.0,445.0
+505 LaFave North: Lava Point,2025-03,9,26,19090.0,734.23,575.0,845.0
+505 LaFave North: Lava Point,2025-04,9,26,21930.0,843.46,795.0,925.0
+505 LaFave North: Lava Point,2025-05,6,23,19825.0,861.96,795.0,925.0
+505 LaFave North: Lava Point,2025-06,7,21,18385.0,875.48,845.0,925.0
+505 LaFave North: Lava Point,2025-07,6,16,9880.0,617.5,575.0,745.0
+505 LaFave North: Lava Point,2025-08,4,16,9200.0,575.0,575.0,575.0
+505 LaFave North: Lava Point,2025-09,4,11,8215.0,746.82,575.0,845.0
+505 LaFave North: Lava Point,2025-10,6,20,16360.0,818.0,575.0,845.0
+505 LaFave North: Lava Point,2025-11,3,9,5895.0,655.0,445.0,820.0
+505 LaFave North: Lava Point,2025-12,3,11,6595.0,599.55,425.0,745.0
+506 LaFave North: Meridian Tower,2024-03,2,7,4365.0,623.57,395.0,795.0
+506 LaFave North: Meridian Tower,2024-04,6,21,14545.0,692.62,445.0,745.0
+506 LaFave North: Meridian Tower,2024-05,6,17,13265.0,780.29,725.0,845.0
+506 LaFave North: Meridian Tower,2024-06,8,25,19125.0,765.0,725.0,795.0
+506 LaFave North: Meridian Tower,2024-07,3,7,5065.0,723.57,695.0,795.0
+506 LaFave North: Meridian Tower,2024-08,3,9,6925.0,769.44,695.0,825.0
+506 LaFave North: Meridian Tower,2024-09,6,17,13575.0,798.53,495.0,825.0
+506 LaFave North: Meridian Tower,2024-10,5,15,10805.0,720.33,531.6666666666666,845.0
+506 LaFave North: Meridian Tower,2024-11,3,8,4560.0,570.0,445.0,945.0
+506 LaFave North: Meridian Tower,2024-12,2,5,3085.0,617.0,531.6666666666666,745.0
+506 LaFave North: Meridian Tower,2025-01,1,2,890.0,445.0,445.0,445.0
+506 LaFave North: Meridian Tower,2025-02,1,3,1595.0,531.67,531.6666666666666,531.6666666666666
+506 LaFave North: Meridian Tower,2025-03,6,20,15550.0,777.5,575.0,845.0
+506 LaFave North: Meridian Tower,2025-04,6,17,14605.0,859.12,845.0,925.0
+506 LaFave North: Meridian Tower,2025-05,7,21,17745.0,845.0,845.0,845.0
+506 LaFave North: Meridian Tower,2025-06,5,20,16100.0,805.0,445.0,845.0
+506 LaFave North: Meridian Tower,2025-07,4,13,7885.0,606.54,525.0,745.0
+506 LaFave North: Meridian Tower,2025-08,5,18,10350.0,575.0,575.0,575.0
+506 LaFave North: Meridian Tower,2025-09,1,2,1690.0,845.0,845.0,845.0
+506 LaFave North: Meridian Tower,2025-10,5,16,12710.0,794.38,575.0,845.0
+506 LaFave North: Meridian Tower,2025-11,3,11,5395.0,490.45,445.0,545.0
+506 LaFave North: Meridian Tower,2025-12,2,5,3725.0,745.0,745.0,745.0
+507 LaFave North: Mount Kinesava,2024-04,4,12,6900.0,575.0,525.0,625.0
+507 LaFave North: Mount Kinesava,2024-05,8,26,15500.0,596.15,525.0,875.0
+507 LaFave North: Mount Kinesava,2024-06,8,24,14300.0,595.83,525.0,625.0
+507 LaFave North: Mount Kinesava,2024-07,4,8,4100.0,512.5,475.0,525.0
+507 LaFave North: Mount Kinesava,2024-08,5,15,7025.0,468.33,425.0,475.0
+507 LaFave North: Mount Kinesava,2024-09,7,21,13575.0,646.43,625.0,725.0
+507 LaFave North: Mount Kinesava,2024-10,6,17,8875.0,522.06,391.6666666666667,675.0
+507 LaFave North: Mount Kinesava,2024-11,5,15,4615.0,307.67,195.0,325.0
+507 LaFave North: Mount Kinesava,2024-12,5,13,4225.0,325.0,325.0,325.0
+507 LaFave North: Mount Kinesava,2025-01,2,6,1430.0,238.33,195.0,325.0
+507 LaFave North: Mount Kinesava,2025-02,4,9,3025.0,336.11,325.0,358.3333333333333
+507 LaFave North: Mount Kinesava,2025-03,3,16,9770.0,610.62,425.0,695.0
+507 LaFave North: Mount Kinesava,2025-04,6,18,12660.0,703.33,695.0,745.0
+507 LaFave North: Mount Kinesava,2025-05,5,18,12860.0,714.44,695.0,745.0
+507 LaFave North: Mount Kinesava,2025-06,4,14,9330.0,666.43,445.0,745.0
+507 LaFave North: Mount Kinesava,2025-07,8,22,9200.0,418.18,245.0,575.0
+507 LaFave North: Mount Kinesava,2025-08,7,18,7330.0,407.22,345.0,425.0
+507 LaFave North: Mount Kinesava,2025-09,7,17,9315.0,547.94,345.0,745.0
+507 LaFave North: Mount Kinesava,2025-10,6,18,11160.0,620.0,425.0,695.0
+507 LaFave North: Mount Kinesava,2025-11,6,19,6455.0,339.74,195.0,425.0
+508 LaFave North: Phantom Valley,2024-03,2,8,5300.0,662.5,625.0,725.0
+508 LaFave North: Phantom Valley,2024-04,6,20,12500.0,625.0,445.0,725.0
+508 LaFave North: Phantom Valley,2024-05,5,14,10070.0,719.29,625.0,895.0
+508 LaFave North: Phantom Valley,2024-06,7,26,17740.0,682.31,625.0,725.0
+508 LaFave North: Phantom Valley,2024-07,4,12,7170.0,597.5,475.0,645.0
+508 LaFave North: Phantom Valley,2024-08,5,15,10525.0,701.67,595.0,845.0
+508 LaFave North: Phantom Valley,2024-09,7,19,14615.0,769.21,725.0,795.0
+508 LaFave North: Phantom Valley,2024-10,8,24,16410.0,683.75,375.0,795.0
+508 LaFave North: Phantom Valley,2024-11,6,22,10330.0,469.55,375.0,895.0
+508 LaFave North: Phantom Valley,2024-12,2,5,1725.0,345.0,325.0,375.0
+508 LaFave North: Phantom Valley,2025-01,2,9,3375.0,375.0,375.0,375.0
+508 LaFave North: Phantom Valley,2025-02,4,12,4500.0,375.0,375.0,375.0
+508 LaFave North: Phantom Valley,2025-03,6,22,14470.0,657.73,445.0,795.0
+508 LaFave North: Phantom Valley,2025-04,7,17,13315.0,783.24,445.0,845.0
+508 LaFave North: Phantom Valley,2025-05,6,17,13815.0,812.65,795.0,870.0
+508 LaFave North: Phantom Valley,2025-06,6,18,14310.0,795.0,795.0,795.0
+508 LaFave North: Phantom Valley,2025-07,2,8,4680.0,585.0,525.0,645.0
+508 LaFave North: Phantom Valley,2025-08,4,15,7875.0,525.0,525.0,525.0
+508 LaFave North: Phantom Valley,2025-09,6,17,10395.0,611.47,445.0,795.0
+508 LaFave North: Phantom Valley,2025-10,10,26,18350.0,705.77,445.0,795.0
+508 LaFave North: Phantom Valley,2025-11,5,18,7150.0,397.22,195.0,635.0
+508 LaFave North: Phantom Valley,2025-12,1,3,1935.0,645.0,645.0,645.0
+509 LaFave North: Pine Creek,2024-03,2,8,5350.0,668.75,625.0,695.0
+509 LaFave North: Pine Creek,2024-04,7,21,13875.0,660.71,625.0,725.0
+509 LaFave North: Pine Creek,2024-05,8,26,17910.0,688.85,625.0,895.0
+509 LaFave North: Pine Creek,2024-06,7,23,15485.0,673.26,625.0,795.0
+509 LaFave North: Pine Creek,2024-07,4,17,10685.0,628.53,595.0,645.0
+509 LaFave North: Pine Creek,2024-08,2,6,3570.0,595.0,595.0,595.0
+509 LaFave North: Pine Creek,2024-09,6,21,15855.0,755.0,525.0,795.0
+509 LaFave North: Pine Creek,2024-10,6,24,16500.0,687.5,375.0,775.0
+509 LaFave North: Pine Creek,2024-11,5,13,6065.0,466.54,375.0,635.0
+509 LaFave North: Pine Creek,2024-12,5,16,7010.0,438.12,245.0,641.6666666666666
+509 LaFave North: Pine Creek,2025-01,3,6,1970.0,328.33,245.0,375.0
+509 LaFave North: Pine Creek,2025-02,3,7,2625.0,375.0,375.0,375.0
+509 LaFave North: Pine Creek,2025-03,6,18,11880.0,660.0,525.0,795.0
+509 LaFave North: Pine Creek,2025-04,8,25,19875.0,795.0,795.0,795.0
+509 LaFave North: Pine Creek,2025-05,5,19,13805.0,726.58,445.0,878.3333333333334
+509 LaFave North: Pine Creek,2025-06,5,13,10285.0,791.15,695.0,845.0
+509 LaFave North: Pine Creek,2025-07,6,19,11025.0,580.26,525.0,795.0
+509 LaFave North: Pine Creek,2025-08,7,19,9975.0,525.0,525.0,525.0
+509 LaFave North: Pine Creek,2025-09,5,25,17925.0,717.0,525.0,795.0
+509 LaFave North: Pine Creek,2025-10,6,20,12490.0,624.5,245.0,845.0
+509 LaFave North: Pine Creek,2025-11,5,11,5225.0,475.0,195.0,895.0
+509 LaFave North: Pine Creek,2025-12,2,8,5160.0,645.0,645.0,645.0
+510 LaFave North: Virgin River,2024-03,2,7,5915.0,845.0,845.0,845.0
+510 LaFave North: Virgin River,2024-04,6,21,18065.0,860.24,845.0,925.0
+510 LaFave North: Virgin River,2024-05,7,21,19845.0,945.0,845.0,1095.0
+510 LaFave North: Virgin River,2024-06,8,25,21965.0,878.6,845.0,995.0
+510 LaFave North: Virgin River,2024-07,6,16,13830.0,864.38,795.0,995.0
+510 LaFave North: Virgin River,2024-08,5,14,11980.0,855.71,795.0,1011.6666666666666
+510 LaFave North: Virgin River,2024-09,5,18,16860.0,936.67,925.0,995.0
+510 LaFave North: Virgin River,2024-10,5,17,15025.0,883.82,675.0,975.0
+510 LaFave North: Virgin River,2024-11,4,12,7850.0,654.17,545.0,925.0
+510 LaFave North: Virgin River,2024-12,4,12,5740.0,478.33,0.0,875.0
+510 LaFave North: Virgin River,2025-02,4,12,6540.0,545.0,545.0,545.0
+510 LaFave North: Virgin River,2025-03,6,23,19425.0,844.57,675.0,975.0
+510 LaFave North: Virgin River,2025-04,7,23,22425.0,975.0,975.0,975.0
+510 LaFave North: Virgin River,2025-05,7,28,26870.0,959.64,835.0,1025.0
+510 LaFave North: Virgin River,2025-06,5,18,17750.0,986.11,975.0,1025.0
+510 LaFave North: Virgin River,2025-07,5,17,13575.0,798.53,675.0,875.0
+510 LaFave North: Virgin River,2025-08,7,22,17050.0,775.0,675.0,875.0
+510 LaFave North: Virgin River,2025-09,4,14,13650.0,975.0,925.0,1025.0
+510 LaFave North: Virgin River,2025-10,8,27,25075.0,928.7,675.0,1025.0
+510 LaFave North: Virgin River,2025-11,3,9,6395.0,710.56,545.0,911.6666666666666
+510 LaFave North: Virgin River,2025-12,3,7,3715.0,530.71,0.0,875.0
+511 LaFave North: Weeping Rock,2024-03,4,9,5225.0,580.56,525.0,625.0
+511 LaFave North: Weeping Rock,2024-04,9,21,11535.0,549.29,395.0,625.0
+511 LaFave North: Weeping Rock,2024-05,9,23,13825.0,601.09,525.0,791.6666666666666
+511 LaFave North: Weeping Rock,2024-06,9,23,13675.0,594.57,525.0,625.0
+511 LaFave North: Weeping Rock,2024-07,8,18,9600.0,533.33,475.0,575.0
+511 LaFave North: Weeping Rock,2024-08,9,22,10950.0,497.73,425.0,575.0
+511 LaFave North: Weeping Rock,2024-09,8,17,10625.0,625.0,425.0,725.0
+511 LaFave North: Weeping Rock,2024-10,9,28,15100.0,539.29,325.0,675.0
+511 LaFave North: Weeping Rock,2024-11,7,18,7370.0,409.44,325.0,698.3333333333334
+511 LaFave North: Weeping Rock,2024-12,4,11,3975.0,361.36,325.0,400.0
+511 LaFave North: Weeping Rock,2025-01,4,10,2860.0,286.0,195.0,325.0
+511 LaFave North: Weeping Rock,2025-02,6,14,4230.0,302.14,195.0,375.0
+511 LaFave North: Weeping Rock,2025-03,9,26,15840.0,609.23,425.0,745.0
+511 LaFave North: Weeping Rock,2025-04,6,19,13065.0,687.63,625.0,695.0
+511 LaFave North: Weeping Rock,2025-05,4,13,9415.0,724.23,625.0,770.0
+511 LaFave North: Weeping Rock,2025-06,5,11,6895.0,626.82,445.0,695.0
+511 LaFave North: Weeping Rock,2025-07,6,20,7600.0,380.0,245.0,425.0
+511 LaFave North: Weeping Rock,2025-08,9,22,10100.0,459.09,425.0,575.0
+511 LaFave North: Weeping Rock,2025-09,9,25,15635.0,625.4,425.0,695.0
+511 LaFave North: Weeping Rock,2025-10,8,26,16450.0,632.69,425.0,695.0
+511 LaFave North: Weeping Rock,2025-11,6,15,5175.0,345.0,325.0,425.0
+511 LaFave North: Weeping Rock,2025-12,3,5,2875.0,575.0,575.0,575.0

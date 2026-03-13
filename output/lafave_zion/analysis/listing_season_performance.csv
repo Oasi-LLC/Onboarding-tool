@@ -1,0 +1,97 @@
+unit_id,season,season_revenue,season_room_nights,season_bookings,season_adr,season_score_1_10
+100 LaFave South: Temple of Sinawava,High,118730.0,232,81,511.77,2
+101 LaFave South: The Sentinel,High,120550.0,240,83,502.29,2
+102 LaFave South: The Watchman,High,85735.0,203,74,422.34,2
+103 LaFave South: The Zion Suite,High,50280.0,124,45,405.48,1
+200 LaFave South: Angels Landing,High,214305.0,225,71,952.47,10
+201 LaFave South: Checkerboard Mesa,High,149210.0,196,63,761.28,7
+202 LaFave South: Echo Canyon,High,148400.0,200,63,742.0,6
+203 LaFave South: Emerald Pools,High,174270.0,213,62,818.17,8
+204 LaFave South: Hidden Canyon,High,136060.0,214,85,635.79,4
+205 LaFave South: Kolob Arch,High,129120.0,202,73,639.21,4
+206 LaFave South: Mountain of the Sun,High,149920.0,202,65,742.18,7
+207 LaFave South: Mystery Falls,High,148540.02,198,65,750.2,6
+208 LaFave South: Northgate Peaks,High,121060.01,192,65,630.52,3
+209 LaFave South: Orderville Canyon,High,123770.0,204,68,606.72,3
+210 LaFave South: The Subway,High,148850.0,186,60,800.27,7
+211 LaFave South: The Narrows,High,197655.0,211,65,936.75,9
+300 LaFave South: Bridge Mountain,High,62055.0,79,27,785.51,4
+301 LaFave South: West Temple,High,69475.0,77,25,902.27,5
+302 LaFave South: The Gallery House,High,193780.0,144,40,1345.69,9
+400 LaFave North: The Sundial,High,109530.0,230,81,476.22,2
+500 LaFave North: Big Springs,High,156450.0,218,70,717.66,7
+501 LaFave North: Cathedral Mountain,High,215690.0,232,72,929.7,9
+502 LaFave North: East Temple,High,144420.0,205,63,704.49,5
+503 LaFave North: Johnson Mountain,High,203945.0,232,74,879.07,9
+504 LaFave North: Kayenta,High,135815.0,221,80,614.55,4
+505 LaFave North: Lava Point,High,160405.0,203,65,790.17,8
+506 LaFave North: Meridian Tower,High,134165.0,171,55,784.59,6
+507 LaFave North: Mount Kinesava,High,114475.0,185,61,618.78,3
+508 LaFave North: Phantom Valley,High,141520.0,198,68,714.75,5
+509 LaFave North: Pine Creek,High,154005.0,217,63,709.7,6
+510 LaFave North: Virgin River,High,197530.0,212,62,931.75,9
+511 LaFave North: Weeping Rock,High,126220.0,206,76,612.72,3
+100 LaFave South: Temple of Sinawava,Low,28500.0,110,38,259.09,6
+101 LaFave South: The Sentinel,Low,31765.0,115,39,276.22,6
+102 LaFave South: The Watchman,Low,8565.0,37,15,231.49,1
+103 LaFave South: The Zion Suite,Low,14880.0,64,18,232.5,3
+200 LaFave South: Angels Landing,Low,29480.0,46,15,640.87,10
+201 LaFave South: Checkerboard Mesa,Low,20310.0,46,16,441.52,7
+202 LaFave South: Echo Canyon,Low,23850.0,60,20,397.5,7
+203 LaFave South: Emerald Pools,Low,20050.0,40,11,501.25,7
+204 LaFave South: Hidden Canyon,Low,18940.0,54,19,350.74,5
+205 LaFave South: Kolob Arch,Low,10770.0,32,12,336.56,3
+206 LaFave South: Mountain of the Sun,Low,23340.0,54,15,432.22,8
+207 LaFave South: Mystery Falls,Low,20400.0,48,17,425.0,7
+208 LaFave South: Northgate Peaks,Low,11270.0,34,13,331.47,3
+209 LaFave South: Orderville Canyon,Low,18735.0,53,19,353.49,5
+210 LaFave South: The Subway,Low,21365.0,57,13,374.82,6
+211 LaFave South: The Narrows,Low,22845.0,33,10,692.27,9
+300 LaFave South: Bridge Mountain,Low,2975.0,7,3,425.0,3
+301 LaFave South: West Temple,Low,4725.0,9,3,525.0,5
+302 LaFave South: The Gallery House,Low,23695.0,21,7,1128.33,9
+400 LaFave North: The Sundial,Low,13245.0,53,17,249.91,3
+500 LaFave North: Big Springs,Low,11730.0,30,9,391.0,4
+501 LaFave North: Cathedral Mountain,Low,18710.0,30,11,623.67,8
+502 LaFave North: East Temple,Low,12705.0,33,12,385.0,4
+503 LaFave North: Johnson Mountain,Low,14275.0,23,7,620.65,7
+504 LaFave North: Kayenta,Low,10175.0,27,10,376.85,3
+505 LaFave North: Lava Point,Low,20225.0,39,12,518.59,8
+506 LaFave North: Meridian Tower,Low,9295.0,15,6,619.67,5
+507 LaFave North: Mount Kinesava,Low,8680.0,28,11,310.0,2
+508 LaFave North: Phantom Valley,Low,11535.0,29,9,397.76,4
+509 LaFave North: Pine Creek,Low,16765.0,37,13,453.11,6
+510 LaFave North: Virgin River,Low,15995.0,31,11,515.97,7
+511 LaFave North: Weeping Rock,Low,13940.0,40,17,348.5,4
+100 LaFave South: Temple of Sinawava,Shoulder,70435.0,185,65,380.73,4
+101 LaFave South: The Sentinel,Shoulder,79315.0,203,72,390.71,5
+102 LaFave South: The Watchman,Shoulder,37470.0,126,40,297.38,1
+103 LaFave South: The Zion Suite,Shoulder,33610.0,98,32,342.96,1
+200 LaFave South: Angels Landing,Shoulder,119917.5,143,46,838.58,10
+201 LaFave South: Checkerboard Mesa,Shoulder,79310.0,130,43,610.08,6
+202 LaFave South: Echo Canyon,Shoulder,72150.0,118,39,611.44,6
+203 LaFave South: Emerald Pools,Shoulder,90545.0,127,37,712.95,8
+204 LaFave South: Hidden Canyon,Shoulder,61630.0,120,44,513.58,4
+205 LaFave South: Kolob Arch,Shoulder,62075.0,125,42,496.6,4
+206 LaFave South: Mountain of the Sun,Shoulder,94720.0,154,48,615.06,7
+207 LaFave South: Mystery Falls,Shoulder,76105.0,127,39,599.25,6
+208 LaFave South: Northgate Peaks,Shoulder,52045.0,107,34,486.4,3
+209 LaFave South: Orderville Canyon,Shoulder,80880.0,166,52,487.23,6
+210 LaFave South: The Subway,Shoulder,79345.0,115,38,689.96,8
+211 LaFave South: The Narrows,Shoulder,104910.0,126,42,832.62,9
+300 LaFave South: Bridge Mountain,Shoulder,35250.0,52,18,677.88,4
+301 LaFave South: West Temple,Shoulder,35100.0,44,14,797.73,5
+302 LaFave South: The Gallery House,Shoulder,121130.0,94,25,1288.62,10
+400 LaFave North: The Sundial,Shoulder,52915.0,153,50,345.85,2
+500 LaFave North: Big Springs,Shoulder,63275.0,111,35,570.05,5
+501 LaFave North: Cathedral Mountain,Shoulder,95405.0,121,36,788.47,9
+502 LaFave North: East Temple,Shoulder,60010.0,104,32,577.02,4
+503 LaFave North: Johnson Mountain,Shoulder,102100.0,132,43,773.48,9
+504 LaFave North: Kayenta,Shoulder,50640.0,110,37,460.36,3
+505 LaFave North: Lava Point,Shoulder,77930.0,116,38,671.81,7
+506 LaFave North: Meridian Tower,Shoulder,60095.0,93,29,646.18,5
+507 LaFave North: Mount Kinesava,Shoulder,48495.0,113,38,429.16,2
+508 LaFave North: Phantom Valley,Shoulder,67500.0,120,34,562.5,5
+509 LaFave North: Pine Creek,Shoulder,63775.0,111,37,574.55,5
+510 LaFave North: Virgin River,Shoulder,96020.0,120,38,800.17,9
+511 LaFave North: Weeping Rock,Shoulder,71860.0,150,58,479.07,4

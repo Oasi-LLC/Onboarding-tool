@@ -1,0 +1,7 @@
+channel,year,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Booked Online,2024,1353,2629875.0,4111,71.1,70.07,639.72
+Direct Connect,2024,418,725840.01,1214,19.62,21.65,597.89
+Other,2024,160,343080.0,506,9.28,8.29,678.02
+Direct Connect,2025,429,765795.02,1267,20.88,23.04,604.42
+Booked Online,2025,1253,2563657.5,3903,69.91,67.29,656.84
+Other,2025,180,337385.0,520,9.2,9.67,648.82

@@ -9,9 +9,6 @@ __pycache__/
 .env
 .env.*
 
-# Generated outputs (per property)
-output/
-
 # OS / editor
 .DS_Store
 .vscode/

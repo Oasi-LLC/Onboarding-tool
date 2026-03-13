@@ -1,0 +1,158 @@
+{
+  "column_checks": [
+    {
+      "check": "required_columns_present",
+      "severity": null,
+      "passed": true,
+      "message": "All required columns present",
+      "detail": {
+        "missing": []
+      }
+    },
+    {
+      "check": "channel_columns_present",
+      "severity": null,
+      "passed": true,
+      "message": "At least one channel column present"
+    },
+    {
+      "check": "no_duplicate_columns",
+      "severity": null,
+      "passed": true,
+      "message": "No duplicate columns",
+      "detail": {
+        "duplicates": []
+      }
+    }
+  ],
+  "cell_checks": [
+    {
+      "check": "reservation_id_not_empty",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with empty reservation_id: 0",
+      "count": 0,
+      "sample_rows": []
+    },
+    {
+      "check": "date_parseable",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with unparseable or missing date: 0",
+      "count": 0
+    },
+    {
+      "check": "date_in_reasonable_range",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with arrival_date outside 2015\u20132030: 0",
+      "count": 0
+    },
+    {
+      "check": "departure_after_arrival",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with nights < 1: 0",
+      "count": 0
+    },
+    {
+      "check": "unit_id_not_empty",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with empty unit_id: 0",
+      "count": 0
+    },
+    {
+      "check": "amount_parseable_and_non_negative",
+      "severity": "error",
+      "passed": false,
+      "message": "Rows with missing or negative revenue: 1",
+      "count": 1
+    },
+    {
+      "check": "booking_date_parseable",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with unparseable or missing booking_date: 0",
+      "count": 0
+    },
+    {
+      "check": "booking_before_arrival",
+      "severity": "warning",
+      "passed": false,
+      "message": "Rows with booking_date after arrival_date: 2",
+      "count": 2
+    }
+  ],
+  "row_checks": [
+    {
+      "check": "no_duplicate_key",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with duplicate (reservation_id, unit_id, arrival_date): 0",
+      "count": 0
+    },
+    {
+      "check": "nights_consistent",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with nights < 1: 0",
+      "count": 0
+    },
+    {
+      "check": "adr_sanity",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with ADR > $50,000: 0",
+      "count": 0
+    }
+  ],
+  "dataset_checks": [
+    {
+      "check": "row_count",
+      "severity": "info",
+      "passed": true,
+      "message": "Total rows: 6213",
+      "count": 6213
+    },
+    {
+      "check": "date_range",
+      "severity": null,
+      "passed": true,
+      "message": "Arrival range: 2022-12-01 00:00:00 to 2026-11-21 00:00:00 (~47.7 months)",
+      "detail": {
+        "min_arrival": "2022-12-01 00:00:00",
+        "max_arrival": "2026-11-21 00:00:00",
+        "months_approx": 47.7
+      }
+    },
+    {
+      "check": "revenue_coverage",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with revenue 0 or null: 25 (0.4%)",
+      "count": 25
+    },
+    {
+      "check": "channel_mix",
+      "severity": null,
+      "passed": true,
+      "message": "Rows with channel 'Other': 676 (10.9%)",
+      "count": 676
+    },
+    {
+      "check": "null_amount_paid",
+      "severity": "info",
+      "passed": true,
+      "message": "Rows with null amount_paid: 194",
+      "count": 194
+    }
+  ],
+  "summary": {
+    "can_continue": false,
+    "error_count": 1,
+    "warning_count": 1,
+    "total_rows": 6213,
+    "message": "Validation complete. Do not run analysis."
+  }
+}
