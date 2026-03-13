@@ -1,0 +1,42 @@
+# LaFave Zion property inventory
+# Used for occupancy % and RevPAR (room count, room types) and to select the right PMS mapping.
+
+property_id: lafave_zion
+property_name: LaFave Zion
+pms_id: resnexus   # links to config/pms/resnexus_mapping.yaml for ingestion
+room_count: 32
+
+# Room types / units (unit_id as in canonical data: "number Name")
+room_types:
+  - unit_id: "100 LaFave South: Temple of Sinawava"
+  - unit_id: "101 LaFave South: The Sentinel"
+  - unit_id: "102 LaFave South: The Watchman"
+  - unit_id: "103 LaFave South: The Zion Suite"
+  - unit_id: "200 LaFave South: Angels Landing"
+  - unit_id: "201 LaFave South: Checkerboard Mesa"
+  - unit_id: "202 LaFave South: Echo Canyon"
+  - unit_id: "203 LaFave South: Emerald Pools"
+  - unit_id: "204 LaFave South: Hidden Canyon"
+  - unit_id: "205 LaFave South: Kolob Arch"
+  - unit_id: "206 LaFave South: Mountain of the Sun"
+  - unit_id: "207 LaFave South: Mystery Falls"
+  - unit_id: "208 LaFave South: Northgate Peaks"
+  - unit_id: "209 LaFave South: Orderville Canyon"
+  - unit_id: "210 LaFave South: The Subway"
+  - unit_id: "211 LaFave South: The Narrows"
+  - unit_id: "300 LaFave South: Bridge Mountain"
+  - unit_id: "301 LaFave South: West Temple"
+  - unit_id: "302 LaFave South: The Gallery House"
+  - unit_id: "400 LaFave North: The Sundial"
+  - unit_id: "500 LaFave North: Big Springs"
+  - unit_id: "501 LaFave North: Cathedral Mountain"
+  - unit_id: "502 LaFave North: East Temple"
+  - unit_id: "503 LaFave North: Johnson Mountain"
+  - unit_id: "504 LaFave North: Kayenta"
+  - unit_id: "505 LaFave North: Lava Point"
+  - unit_id: "506 LaFave North: Meridian Tower"
+  - unit_id: "507 LaFave North: Mount Kinesava"
+  - unit_id: "508 LaFave North: Phantom Valley"
+  - unit_id: "509 LaFave North: Pine Creek"
+  - unit_id: "510 LaFave North: Virgin River"
+  - unit_id: "511 LaFave North: Weeping Rock"

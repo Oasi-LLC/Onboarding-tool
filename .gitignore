@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.log
+
+# Virtual environment
+.venv/
+
+# Python environment files
+.env
+.env.*
+
+# Generated outputs (per property)
+output/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+

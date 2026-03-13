@@ -1,0 +1,33 @@
+# ResNexus / LaFave CSV → canonical schema mapping
+# Used when source file has this PMS export format.
+# Path: config/pms/resnexus_mapping.yaml
+
+pms_id: resnexus
+description: "ResNexus export (e.g. LaFave Zion)"
+
+required_columns:
+  - "Res#"
+  - "Date"
+  - "Guest"
+  - "Unit"
+  - "Amount"
+  - "Reserved On"
+
+channel_columns:
+  - "Booked Online"
+  - "GDS"
+  - "Trip Connect"
+  - "MyAllocator"
+  - "Direct Connect"
+
+column_mapping:
+  "Res#": reservation_id
+  "Date": _date_raw
+  "Guest": guest_name
+  "Unit": unit_id
+  "Amount": revenue_raw
+  "Paid": amount_paid_raw
+  "Reserved On": booking_date_raw
+
+# Date format in source: M/D/YYYY or M/D-M/D/YYYY
+date_format: "%m/%d/%Y"
