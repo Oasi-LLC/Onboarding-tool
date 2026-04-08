@@ -1,0 +1,361 @@
+unit_id,month_index,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+100 LaFave South: Temple of Sinawava,1,215.0,204.0,225.0,254.0,259.0,278.0,229.0
+100 LaFave South: Temple of Sinawava,2,208.0,198.0,218.0,247.0,252.0,271.0,223.0
+100 LaFave South: Temple of Sinawava,3,418.0,418.0,434.0,494.0,494.0,525.0,449.0
+100 LaFave South: Temple of Sinawava,4,543.0,543.0,559.0,626.0,626.0,658.0,576.0
+100 LaFave South: Temple of Sinawava,5,529.0,529.0,546.0,611.0,611.0,642.0,562.0
+100 LaFave South: Temple of Sinawava,6,529.0,529.0,545.0,610.0,610.0,642.0,562.0
+100 LaFave South: Temple of Sinawava,7,419.0,419.0,434.0,495.0,495.0,526.0,449.0
+100 LaFave South: Temple of Sinawava,8,420.0,420.0,435.0,495.0,495.0,526.0,450.0
+100 LaFave South: Temple of Sinawava,9,531.0,531.0,547.0,612.0,612.0,643.0,563.0
+100 LaFave South: Temple of Sinawava,10,543.0,543.0,559.0,626.0,626.0,658.0,576.0
+100 LaFave South: Temple of Sinawava,11,421.0,421.0,436.0,496.0,496.0,527.0,451.0
+100 LaFave South: Temple of Sinawava,12,220.0,209.0,230.0,260.0,265.0,285.0,235.0
+101 LaFave South: The Sentinel,1,256.0,244.0,267.0,302.0,308.0,331.0,273.0
+101 LaFave South: The Sentinel,2,248.0,236.0,259.0,294.0,300.0,323.0,265.0
+101 LaFave South: The Sentinel,3,420.0,420.0,436.0,496.0,496.0,528.0,451.0
+101 LaFave South: The Sentinel,4,526.0,526.0,542.0,607.0,607.0,637.0,558.0
+101 LaFave South: The Sentinel,5,533.0,533.0,548.0,614.0,614.0,645.0,564.0
+101 LaFave South: The Sentinel,6,531.0,531.0,547.0,613.0,613.0,645.0,564.0
+101 LaFave South: The Sentinel,7,421.0,421.0,436.0,497.0,497.0,528.0,451.0
+101 LaFave South: The Sentinel,8,422.0,422.0,437.0,497.0,497.0,529.0,452.0
+101 LaFave South: The Sentinel,9,533.0,533.0,549.0,615.0,615.0,647.0,566.0
+101 LaFave South: The Sentinel,10,526.0,526.0,542.0,607.0,607.0,637.0,558.0
+101 LaFave South: The Sentinel,11,423.0,423.0,438.0,498.0,498.0,530.0,453.0
+101 LaFave South: The Sentinel,12,221.0,211.0,231.0,261.0,266.0,287.0,236.0
+102 LaFave South: The Watchman,1,148.0,144.0,157.0,178.0,182.0,195.0,161.0
+102 LaFave South: The Watchman,2,148.0,144.0,157.0,178.0,182.0,195.0,161.0
+102 LaFave South: The Watchman,3,331.0,331.0,346.0,400.0,400.0,427.0,359.0
+102 LaFave South: The Watchman,4,430.0,430.0,444.0,502.0,502.0,531.0,458.0
+102 LaFave South: The Watchman,5,431.0,431.0,445.0,502.0,502.0,531.0,459.0
+102 LaFave South: The Watchman,6,439.0,439.0,453.0,511.0,511.0,540.0,467.0
+102 LaFave South: The Watchman,7,355.0,355.0,371.0,429.0,429.0,457.0,385.0
+102 LaFave South: The Watchman,8,355.0,355.0,370.0,429.0,429.0,457.0,385.0
+102 LaFave South: The Watchman,9,421.0,421.0,434.0,489.0,489.0,517.0,448.0
+102 LaFave South: The Watchman,10,430.0,430.0,444.0,502.0,502.0,531.0,458.0
+102 LaFave South: The Watchman,11,355.0,355.0,370.0,429.0,429.0,458.0,385.0
+102 LaFave South: The Watchman,12,179.0,174.0,189.0,214.0,220.0,235.0,194.0
+103 LaFave South: The Zion Suite,1,202.0,196.0,213.0,242.0,248.0,265.0,219.0
+103 LaFave South: The Zion Suite,2,202.0,196.0,213.0,242.0,248.0,265.0,219.0
+103 LaFave South: The Zion Suite,3,365.0,365.0,380.0,440.0,440.0,469.0,395.0
+103 LaFave South: The Zion Suite,4,430.0,430.0,444.0,502.0,502.0,531.0,458.0
+103 LaFave South: The Zion Suite,5,429.0,429.0,443.0,502.0,502.0,531.0,457.0
+103 LaFave South: The Zion Suite,6,421.0,421.0,435.0,493.0,493.0,522.0,449.0
+103 LaFave South: The Zion Suite,7,341.0,341.0,355.0,411.0,411.0,439.0,369.0
+103 LaFave South: The Zion Suite,8,341.0,341.0,356.0,411.0,411.0,439.0,369.0
+103 LaFave South: The Zion Suite,9,439.0,439.0,454.0,515.0,515.0,545.0,468.0
+103 LaFave South: The Zion Suite,10,430.0,430.0,444.0,502.0,502.0,531.0,458.0
+103 LaFave South: The Zion Suite,11,341.0,341.0,356.0,411.0,411.0,438.0,369.0
+103 LaFave South: The Zion Suite,12,171.0,166.0,181.0,206.0,210.0,225.0,186.0
+200 LaFave South: Angels Landing,1,538.0,521.0,567.0,642.0,660.0,706.0,584.0
+200 LaFave South: Angels Landing,2,530.0,512.0,558.0,632.0,649.0,695.0,575.0
+200 LaFave South: Angels Landing,3,880.0,880.0,911.0,1036.0,1036.0,1098.0,943.0
+200 LaFave South: Angels Landing,4,1033.0,1033.0,1063.0,1187.0,1187.0,1248.0,1094.0
+200 LaFave South: Angels Landing,5,1055.0,1055.0,1087.0,1213.0,1213.0,1276.0,1119.0
+200 LaFave South: Angels Landing,6,1053.0,1053.0,1085.0,1212.0,1212.0,1275.0,1117.0
+200 LaFave South: Angels Landing,7,897.0,897.0,929.0,1056.0,1056.0,1119.0,961.0
+200 LaFave South: Angels Landing,8,905.0,905.0,935.0,1060.0,1060.0,1123.0,967.0
+200 LaFave South: Angels Landing,9,1019.0,1019.0,1050.0,1172.0,1172.0,1232.0,1081.0
+200 LaFave South: Angels Landing,10,1047.0,1047.0,1079.0,1205.0,1205.0,1266.0,1110.0
+200 LaFave South: Angels Landing,11,883.0,883.0,914.0,1039.0,1039.0,1102.0,946.0
+200 LaFave South: Angels Landing,12,471.0,456.0,497.0,563.0,578.0,618.0,512.0
+201 LaFave South: Checkerboard Mesa,1,299.0,289.0,313.0,353.0,363.0,386.0,322.0
+201 LaFave South: Checkerboard Mesa,2,429.0,415.0,448.0,508.0,521.0,554.0,461.0
+201 LaFave South: Checkerboard Mesa,3,741.0,741.0,773.0,898.0,898.0,961.0,804.0
+201 LaFave South: Checkerboard Mesa,4,908.0,908.0,936.0,1047.0,1047.0,1103.0,964.0
+201 LaFave South: Checkerboard Mesa,5,907.0,907.0,935.0,1047.0,1047.0,1102.0,964.0
+201 LaFave South: Checkerboard Mesa,6,907.0,907.0,935.0,1046.0,1046.0,1102.0,963.0
+201 LaFave South: Checkerboard Mesa,7,745.0,745.0,777.0,902.0,902.0,964.0,808.0
+201 LaFave South: Checkerboard Mesa,8,745.0,745.0,777.0,902.0,902.0,964.0,808.0
+201 LaFave South: Checkerboard Mesa,9,909.0,909.0,938.0,1048.0,1048.0,1104.0,965.0
+201 LaFave South: Checkerboard Mesa,10,908.0,908.0,936.0,1047.0,1047.0,1103.0,964.0
+201 LaFave South: Checkerboard Mesa,11,744.0,744.0,776.0,901.0,901.0,963.0,807.0
+201 LaFave South: Checkerboard Mesa,12,334.0,324.0,350.0,396.0,407.0,432.0,360.0
+202 LaFave South: Echo Canyon,1,274.0,265.0,287.0,325.0,333.0,355.0,295.0
+202 LaFave South: Echo Canyon,2,289.0,280.0,302.0,342.0,351.0,372.0,310.0
+202 LaFave South: Echo Canyon,3,717.0,717.0,748.0,869.0,869.0,929.0,777.0
+202 LaFave South: Echo Canyon,4,878.0,878.0,905.0,1013.0,1013.0,1066.0,932.0
+202 LaFave South: Echo Canyon,5,878.0,878.0,904.0,1012.0,1012.0,1066.0,931.0
+202 LaFave South: Echo Canyon,6,876.0,876.0,903.0,1011.0,1011.0,1065.0,930.0
+202 LaFave South: Echo Canyon,7,719.0,719.0,751.0,873.0,873.0,932.0,781.0
+202 LaFave South: Echo Canyon,8,723.0,723.0,754.0,875.0,875.0,936.0,784.0
+202 LaFave South: Echo Canyon,9,879.0,879.0,905.0,1013.0,1013.0,1068.0,932.0
+202 LaFave South: Echo Canyon,10,878.0,878.0,905.0,1013.0,1013.0,1066.0,932.0
+202 LaFave South: Echo Canyon,11,720.0,720.0,750.0,871.0,871.0,931.0,780.0
+202 LaFave South: Echo Canyon,12,323.0,313.0,338.0,383.0,393.0,418.0,348.0
+203 LaFave South: Emerald Pools,1,334.0,321.0,346.0,390.0,403.0,427.0,358.0
+203 LaFave South: Emerald Pools,2,351.0,338.0,364.0,410.0,423.0,448.0,376.0
+203 LaFave South: Emerald Pools,3,685.0,685.0,710.0,807.0,807.0,856.0,734.0
+203 LaFave South: Emerald Pools,4,827.0,827.0,853.0,951.0,951.0,999.0,877.0
+203 LaFave South: Emerald Pools,5,843.0,843.0,869.0,969.0,969.0,1019.0,894.0
+203 LaFave South: Emerald Pools,6,824.0,824.0,851.0,949.0,949.0,998.0,875.0
+203 LaFave South: Emerald Pools,7,706.0,706.0,731.0,831.0,831.0,882.0,756.0
+203 LaFave South: Emerald Pools,8,712.0,712.0,737.0,837.0,837.0,887.0,762.0
+203 LaFave South: Emerald Pools,9,801.0,801.0,825.0,920.0,920.0,967.0,849.0
+203 LaFave South: Emerald Pools,10,845.0,845.0,871.0,971.0,971.0,1021.0,895.0
+203 LaFave South: Emerald Pools,11,713.0,713.0,738.0,837.0,837.0,887.0,763.0
+203 LaFave South: Emerald Pools,12,421.0,404.0,436.0,493.0,509.0,540.0,452.0
+204 LaFave South: Hidden Canyon,1,265.0,255.0,275.0,315.0,325.0,345.0,285.0
+204 LaFave South: Hidden Canyon,2,292.0,281.0,303.0,347.0,358.0,379.0,314.0
+204 LaFave South: Hidden Canyon,3,476.0,476.0,496.0,575.0,575.0,614.0,516.0
+204 LaFave South: Hidden Canyon,4,597.0,597.0,618.0,698.0,698.0,738.0,637.0
+204 LaFave South: Hidden Canyon,5,597.0,597.0,618.0,698.0,698.0,738.0,637.0
+204 LaFave South: Hidden Canyon,6,597.0,597.0,618.0,698.0,698.0,738.0,637.0
+204 LaFave South: Hidden Canyon,7,479.0,479.0,499.0,579.0,579.0,618.0,520.0
+204 LaFave South: Hidden Canyon,8,481.0,481.0,501.0,580.0,580.0,619.0,522.0
+204 LaFave South: Hidden Canyon,9,597.0,597.0,618.0,698.0,698.0,738.0,637.0
+204 LaFave South: Hidden Canyon,10,597.0,597.0,618.0,698.0,698.0,738.0,637.0
+204 LaFave South: Hidden Canyon,11,524.0,524.0,546.0,632.0,632.0,674.0,568.0
+204 LaFave South: Hidden Canyon,12,276.0,265.0,286.0,328.0,338.0,359.0,297.0
+205 LaFave South: Kolob Arch,1,265.0,255.0,275.0,315.0,325.0,345.0,285.0
+205 LaFave South: Kolob Arch,2,292.0,281.0,303.0,347.0,358.0,379.0,314.0
+205 LaFave South: Kolob Arch,3,480.0,480.0,500.0,579.0,579.0,619.0,521.0
+205 LaFave South: Kolob Arch,4,602.0,602.0,623.0,703.0,703.0,743.0,642.0
+205 LaFave South: Kolob Arch,5,602.0,602.0,623.0,703.0,703.0,743.0,642.0
+205 LaFave South: Kolob Arch,6,602.0,602.0,622.0,703.0,703.0,744.0,642.0
+205 LaFave South: Kolob Arch,7,483.0,483.0,503.0,583.0,583.0,622.0,524.0
+205 LaFave South: Kolob Arch,8,485.0,485.0,504.0,584.0,584.0,624.0,526.0
+205 LaFave South: Kolob Arch,9,602.0,602.0,623.0,703.0,703.0,743.0,642.0
+205 LaFave South: Kolob Arch,10,602.0,602.0,623.0,703.0,703.0,743.0,642.0
+205 LaFave South: Kolob Arch,11,487.0,487.0,506.0,587.0,587.0,626.0,527.0
+205 LaFave South: Kolob Arch,12,278.0,267.0,288.0,330.0,340.0,362.0,298.0
+206 LaFave South: Mountain of the Sun,1,497.0,481.0,520.0,588.0,604.0,641.0,535.0
+206 LaFave South: Mountain of the Sun,2,395.0,382.0,413.0,471.0,484.0,516.0,427.0
+206 LaFave South: Mountain of the Sun,3,724.0,724.0,756.0,878.0,878.0,939.0,786.0
+206 LaFave South: Mountain of the Sun,4,887.0,887.0,915.0,1024.0,1024.0,1078.0,942.0
+206 LaFave South: Mountain of the Sun,5,887.0,887.0,914.0,1023.0,1023.0,1077.0,941.0
+206 LaFave South: Mountain of the Sun,6,886.0,886.0,913.0,1022.0,1022.0,1076.0,941.0
+206 LaFave South: Mountain of the Sun,7,727.0,727.0,759.0,882.0,882.0,943.0,789.0
+206 LaFave South: Mountain of the Sun,8,732.0,732.0,763.0,885.0,885.0,946.0,794.0
+206 LaFave South: Mountain of the Sun,9,889.0,889.0,915.0,1024.0,1024.0,1079.0,943.0
+206 LaFave South: Mountain of the Sun,10,887.0,887.0,915.0,1024.0,1024.0,1078.0,942.0
+206 LaFave South: Mountain of the Sun,11,727.0,727.0,758.0,881.0,881.0,941.0,789.0
+206 LaFave South: Mountain of the Sun,12,327.0,316.0,342.0,387.0,398.0,423.0,352.0
+207 LaFave South: Mystery Falls,1,274.0,265.0,287.0,325.0,333.0,355.0,295.0
+207 LaFave South: Mystery Falls,2,413.0,400.0,432.0,489.0,502.0,534.0,445.0
+207 LaFave South: Mystery Falls,3,727.0,727.0,759.0,883.0,883.0,943.0,790.0
+207 LaFave South: Mystery Falls,4,892.0,892.0,919.0,1029.0,1029.0,1084.0,946.0
+207 LaFave South: Mystery Falls,5,891.0,891.0,919.0,1028.0,1028.0,1083.0,946.0
+207 LaFave South: Mystery Falls,6,891.0,891.0,918.0,1028.0,1028.0,1082.0,945.0
+207 LaFave South: Mystery Falls,7,732.0,732.0,762.0,886.0,886.0,947.0,793.0
+207 LaFave South: Mystery Falls,8,735.0,735.0,766.0,890.0,890.0,950.0,797.0
+207 LaFave South: Mystery Falls,9,893.0,893.0,920.0,1030.0,1030.0,1085.0,948.0
+207 LaFave South: Mystery Falls,10,892.0,892.0,919.0,1029.0,1029.0,1084.0,946.0
+207 LaFave South: Mystery Falls,11,731.0,731.0,763.0,885.0,885.0,946.0,792.0
+207 LaFave South: Mystery Falls,12,328.0,318.0,344.0,389.0,399.0,425.0,354.0
+208 LaFave South: Northgate Peaks,1,265.0,255.0,275.0,315.0,325.0,345.0,285.0
+208 LaFave South: Northgate Peaks,2,242.0,233.0,251.0,288.0,297.0,315.0,260.0
+208 LaFave South: Northgate Peaks,3,473.0,473.0,492.0,570.0,570.0,608.0,512.0
+208 LaFave South: Northgate Peaks,4,592.0,592.0,613.0,692.0,692.0,732.0,632.0
+208 LaFave South: Northgate Peaks,5,592.0,592.0,613.0,692.0,692.0,731.0,632.0
+208 LaFave South: Northgate Peaks,6,593.0,593.0,613.0,692.0,692.0,731.0,632.0
+208 LaFave South: Northgate Peaks,7,476.0,476.0,495.0,574.0,574.0,613.0,515.0
+208 LaFave South: Northgate Peaks,8,450.0,450.0,469.0,547.0,547.0,586.0,489.0
+208 LaFave South: Northgate Peaks,9,593.0,593.0,613.0,692.0,692.0,731.0,632.0
+208 LaFave South: Northgate Peaks,10,592.0,592.0,613.0,692.0,692.0,732.0,632.0
+208 LaFave South: Northgate Peaks,11,417.0,417.0,434.0,503.0,503.0,539.0,452.0
+208 LaFave South: Northgate Peaks,12,273.0,263.0,284.0,325.0,335.0,356.0,294.0
+209 LaFave South: Orderville Canyon,1,269.0,259.0,279.0,317.0,327.0,345.0,288.0
+209 LaFave South: Orderville Canyon,2,246.0,237.0,255.0,289.0,298.0,315.0,263.0
+209 LaFave South: Orderville Canyon,3,474.0,474.0,493.0,568.0,568.0,605.0,512.0
+209 LaFave South: Orderville Canyon,4,592.0,592.0,612.0,687.0,687.0,725.0,630.0
+209 LaFave South: Orderville Canyon,5,591.0,591.0,610.0,685.0,685.0,724.0,628.0
+209 LaFave South: Orderville Canyon,6,590.0,590.0,609.0,685.0,685.0,723.0,628.0
+209 LaFave South: Orderville Canyon,7,479.0,479.0,498.0,573.0,573.0,610.0,517.0
+209 LaFave South: Orderville Canyon,8,482.0,482.0,500.0,575.0,575.0,612.0,520.0
+209 LaFave South: Orderville Canyon,9,593.0,593.0,612.0,688.0,688.0,726.0,631.0
+209 LaFave South: Orderville Canyon,10,592.0,592.0,612.0,687.0,687.0,725.0,630.0
+209 LaFave South: Orderville Canyon,11,423.0,423.0,440.0,506.0,506.0,539.0,457.0
+209 LaFave South: Orderville Canyon,12,277.0,267.0,287.0,326.0,336.0,356.0,297.0
+210 LaFave South: The Subway,1,455.0,437.0,472.0,537.0,554.0,590.0,490.0
+210 LaFave South: The Subway,2,420.0,403.0,436.0,498.0,515.0,549.0,453.0
+210 LaFave South: The Subway,3,634.0,634.0,657.0,750.0,750.0,798.0,681.0
+210 LaFave South: The Subway,4,758.0,758.0,782.0,877.0,877.0,923.0,806.0
+210 LaFave South: The Subway,5,752.0,752.0,776.0,870.0,870.0,916.0,799.0
+210 LaFave South: The Subway,6,757.0,757.0,782.0,875.0,875.0,923.0,805.0
+210 LaFave South: The Subway,7,628.0,628.0,651.0,743.0,743.0,790.0,674.0
+210 LaFave South: The Subway,8,629.0,629.0,653.0,745.0,745.0,793.0,676.0
+210 LaFave South: The Subway,9,769.0,769.0,794.0,889.0,889.0,936.0,817.0
+210 LaFave South: The Subway,10,752.0,752.0,776.0,870.0,870.0,916.0,799.0
+210 LaFave South: The Subway,11,628.0,628.0,651.0,743.0,743.0,791.0,674.0
+210 LaFave South: The Subway,12,371.0,356.0,385.0,437.0,452.0,481.0,399.0
+211 LaFave South: The Narrows,1,413.0,400.0,435.0,493.0,506.0,541.0,448.0
+211 LaFave South: The Narrows,2,526.0,509.0,553.0,627.0,644.0,689.0,570.0
+211 LaFave South: The Narrows,3,880.0,880.0,911.0,1036.0,1036.0,1098.0,943.0
+211 LaFave South: The Narrows,4,1059.0,1059.0,1090.0,1217.0,1217.0,1279.0,1122.0
+211 LaFave South: The Narrows,5,1026.0,1026.0,1057.0,1180.0,1180.0,1240.0,1087.0
+211 LaFave South: The Narrows,6,1024.0,1024.0,1055.0,1179.0,1179.0,1239.0,1085.0
+211 LaFave South: The Narrows,7,880.0,880.0,912.0,1036.0,1036.0,1099.0,943.0
+211 LaFave South: The Narrows,8,860.0,860.0,891.0,1016.0,1016.0,1079.0,923.0
+211 LaFave South: The Narrows,9,1051.0,1051.0,1082.0,1208.0,1208.0,1270.0,1113.0
+211 LaFave South: The Narrows,10,1049.0,1049.0,1080.0,1206.0,1206.0,1267.0,1111.0
+211 LaFave South: The Narrows,11,884.0,884.0,915.0,1040.0,1040.0,1103.0,947.0
+211 LaFave South: The Narrows,12,472.0,457.0,497.0,563.0,578.0,619.0,512.0
+302 LaFave South: The Gallery House,1,790.0,760.0,825.0,940.0,965.0,1030.0,850.0
+302 LaFave South: The Gallery House,2,790.0,760.0,825.0,940.0,965.0,1030.0,850.0
+302 LaFave South: The Gallery House,3,1280.0,1280.0,1325.0,1505.0,1505.0,1595.0,1370.0
+302 LaFave South: The Gallery House,4,1451.0,1451.0,1494.0,1667.0,1667.0,1753.0,1537.0
+302 LaFave South: The Gallery House,5,1451.0,1451.0,1494.0,1667.0,1667.0,1753.0,1537.0
+302 LaFave South: The Gallery House,6,1451.0,1451.0,1494.0,1667.0,1667.0,1753.0,1537.0
+302 LaFave South: The Gallery House,7,1280.0,1280.0,1325.0,1505.0,1505.0,1595.0,1370.0
+302 LaFave South: The Gallery House,8,1280.0,1280.0,1325.0,1505.0,1505.0,1595.0,1370.0
+302 LaFave South: The Gallery House,9,1451.0,1451.0,1494.0,1667.0,1667.0,1753.0,1537.0
+302 LaFave South: The Gallery House,10,1451.0,1451.0,1494.0,1667.0,1667.0,1753.0,1537.0
+302 LaFave South: The Gallery House,11,1280.0,1280.0,1325.0,1505.0,1505.0,1595.0,1370.0
+302 LaFave South: The Gallery House,12,790.0,760.0,825.0,940.0,965.0,1030.0,850.0
+400 LaFave North: The Sundial,1,160.0,152.0,168.0,194.0,198.0,215.0,173.0
+400 LaFave North: The Sundial,2,174.0,166.0,183.0,209.0,213.0,231.0,188.0
+400 LaFave North: The Sundial,3,367.0,367.0,382.0,440.0,440.0,471.0,397.0
+400 LaFave North: The Sundial,4,464.0,464.0,480.0,543.0,543.0,574.0,495.0
+400 LaFave North: The Sundial,5,471.0,471.0,488.0,551.0,551.0,582.0,503.0
+400 LaFave North: The Sundial,6,473.0,473.0,489.0,552.0,552.0,583.0,504.0
+400 LaFave North: The Sundial,7,366.0,366.0,381.0,439.0,439.0,470.0,396.0
+400 LaFave North: The Sundial,8,364.0,364.0,379.0,438.0,438.0,469.0,394.0
+400 LaFave North: The Sundial,9,468.0,468.0,485.0,549.0,549.0,579.0,500.0
+400 LaFave North: The Sundial,10,464.0,464.0,480.0,543.0,543.0,574.0,495.0
+400 LaFave North: The Sundial,11,362.0,362.0,377.0,437.0,437.0,467.0,392.0
+400 LaFave North: The Sundial,12,189.0,180.0,199.0,229.0,233.0,253.0,204.0
+500 LaFave North: Big Springs,1,294.0,285.0,308.0,352.0,362.0,386.0,318.0
+500 LaFave North: Big Springs,2,284.0,275.0,298.0,340.0,349.0,372.0,307.0
+500 LaFave North: Big Springs,3,680.0,680.0,711.0,830.0,830.0,890.0,741.0
+500 LaFave North: Big Springs,4,837.0,837.0,864.0,972.0,972.0,1025.0,891.0
+500 LaFave North: Big Springs,5,838.0,838.0,864.0,972.0,972.0,1026.0,892.0
+500 LaFave North: Big Springs,6,838.0,838.0,866.0,973.0,973.0,1027.0,893.0
+500 LaFave North: Big Springs,7,681.0,681.0,712.0,833.0,833.0,893.0,743.0
+500 LaFave North: Big Springs,8,683.0,683.0,714.0,835.0,835.0,894.0,744.0
+500 LaFave North: Big Springs,9,837.0,837.0,863.0,971.0,971.0,1025.0,890.0
+500 LaFave North: Big Springs,10,837.0,837.0,864.0,972.0,972.0,1025.0,891.0
+500 LaFave North: Big Springs,11,677.0,677.0,708.0,828.0,828.0,888.0,738.0
+500 LaFave North: Big Springs,12,304.0,295.0,319.0,364.0,374.0,399.0,329.0
+501 LaFave North: Cathedral Mountain,1,454.0,440.0,479.0,542.0,557.0,597.0,494.0
+501 LaFave North: Cathedral Mountain,2,436.0,422.0,459.0,520.0,534.0,571.0,473.0
+501 LaFave North: Cathedral Mountain,3,862.0,862.0,893.0,1014.0,1014.0,1076.0,923.0
+501 LaFave North: Cathedral Mountain,4,1037.0,1037.0,1068.0,1192.0,1192.0,1253.0,1099.0
+501 LaFave North: Cathedral Mountain,5,1035.0,1035.0,1066.0,1189.0,1189.0,1251.0,1097.0
+501 LaFave North: Cathedral Mountain,6,1033.0,1033.0,1064.0,1188.0,1188.0,1250.0,1095.0
+501 LaFave North: Cathedral Mountain,7,836.0,836.0,865.0,983.0,983.0,1043.0,895.0
+501 LaFave North: Cathedral Mountain,8,842.0,842.0,873.0,995.0,995.0,1056.0,903.0
+501 LaFave North: Cathedral Mountain,9,1019.0,1019.0,1050.0,1172.0,1172.0,1232.0,1081.0
+501 LaFave North: Cathedral Mountain,10,1027.0,1027.0,1058.0,1181.0,1181.0,1242.0,1089.0
+501 LaFave North: Cathedral Mountain,11,865.0,865.0,896.0,1018.0,1018.0,1080.0,927.0
+501 LaFave North: Cathedral Mountain,12,462.0,447.0,487.0,551.0,566.0,606.0,502.0
+502 LaFave North: East Temple,1,294.0,285.0,308.0,352.0,362.0,386.0,318.0
+502 LaFave North: East Temple,2,237.0,230.0,249.0,283.0,291.0,311.0,256.0
+502 LaFave North: East Temple,3,670.0,670.0,700.0,818.0,818.0,877.0,729.0
+502 LaFave North: East Temple,4,824.0,824.0,851.0,957.0,957.0,1010.0,878.0
+502 LaFave North: East Temple,5,825.0,825.0,852.0,958.0,958.0,1010.0,879.0
+502 LaFave North: East Temple,6,827.0,827.0,852.0,959.0,959.0,1012.0,879.0
+502 LaFave North: East Temple,7,671.0,671.0,702.0,820.0,820.0,879.0,731.0
+502 LaFave North: East Temple,8,673.0,673.0,703.0,821.0,821.0,880.0,733.0
+502 LaFave North: East Temple,9,823.0,823.0,850.0,956.0,956.0,1009.0,876.0
+502 LaFave North: East Temple,10,824.0,824.0,851.0,957.0,957.0,1010.0,878.0
+502 LaFave North: East Temple,11,666.0,666.0,697.0,816.0,816.0,874.0,727.0
+502 LaFave North: East Temple,12,299.0,290.0,314.0,359.0,368.0,392.0,324.0
+503 LaFave North: Johnson Mountain,1,450.0,435.0,475.0,535.0,550.0,585.0,485.0
+503 LaFave North: Johnson Mountain,2,450.0,435.0,475.0,535.0,550.0,585.0,485.0
+503 LaFave North: Johnson Mountain,3,836.0,836.0,866.0,985.0,985.0,1045.0,896.0
+503 LaFave North: Johnson Mountain,4,987.0,987.0,1017.0,1135.0,1135.0,1193.0,1047.0
+503 LaFave North: Johnson Mountain,5,987.0,987.0,1017.0,1135.0,1135.0,1193.0,1047.0
+503 LaFave North: Johnson Mountain,6,987.0,987.0,1017.0,1135.0,1135.0,1193.0,1047.0
+503 LaFave North: Johnson Mountain,7,836.0,836.0,866.0,985.0,985.0,1045.0,896.0
+503 LaFave North: Johnson Mountain,8,836.0,836.0,866.0,985.0,985.0,1045.0,896.0
+503 LaFave North: Johnson Mountain,9,987.0,987.0,1017.0,1135.0,1135.0,1193.0,1047.0
+503 LaFave North: Johnson Mountain,10,987.0,987.0,1017.0,1135.0,1135.0,1193.0,1047.0
+503 LaFave North: Johnson Mountain,11,836.0,836.0,866.0,985.0,985.0,1045.0,896.0
+503 LaFave North: Johnson Mountain,12,450.0,435.0,475.0,535.0,550.0,585.0,485.0
+504 LaFave North: Kayenta,1,265.0,255.0,275.0,315.0,325.0,345.0,285.0
+504 LaFave North: Kayenta,2,242.0,233.0,251.0,288.0,297.0,315.0,260.0
+504 LaFave North: Kayenta,3,469.0,469.0,487.0,566.0,566.0,604.0,508.0
+504 LaFave North: Kayenta,4,588.0,588.0,608.0,686.0,686.0,726.0,627.0
+504 LaFave North: Kayenta,5,588.0,588.0,608.0,686.0,686.0,726.0,627.0
+504 LaFave North: Kayenta,6,588.0,588.0,608.0,686.0,686.0,726.0,627.0
+504 LaFave North: Kayenta,7,451.0,451.0,469.0,544.0,544.0,581.0,489.0
+504 LaFave North: Kayenta,8,473.0,473.0,492.0,570.0,570.0,609.0,512.0
+504 LaFave North: Kayenta,9,588.0,588.0,608.0,686.0,686.0,726.0,627.0
+504 LaFave North: Kayenta,10,588.0,588.0,608.0,686.0,686.0,726.0,627.0
+504 LaFave North: Kayenta,11,490.0,490.0,509.0,591.0,591.0,631.0,531.0
+504 LaFave North: Kayenta,12,271.0,261.0,281.0,322.0,332.0,353.0,292.0
+505 LaFave North: Lava Point,1,371.0,357.0,386.0,438.0,453.0,481.0,400.0
+505 LaFave North: Lava Point,2,347.0,333.0,360.0,408.0,421.0,448.0,373.0
+505 LaFave North: Lava Point,3,657.0,657.0,681.0,778.0,778.0,827.0,705.0
+505 LaFave North: Lava Point,4,786.0,786.0,811.0,908.0,908.0,957.0,835.0
+505 LaFave North: Lava Point,5,779.0,779.0,804.0,901.0,901.0,949.0,828.0
+505 LaFave North: Lava Point,6,784.0,784.0,809.0,907.0,907.0,955.0,834.0
+505 LaFave North: Lava Point,7,651.0,651.0,675.0,770.0,770.0,819.0,698.0
+505 LaFave North: Lava Point,8,645.0,645.0,669.0,763.0,763.0,812.0,692.0
+505 LaFave North: Lava Point,9,794.0,794.0,819.0,918.0,918.0,967.0,844.0
+505 LaFave North: Lava Point,10,780.0,780.0,805.0,901.0,901.0,949.0,829.0
+505 LaFave North: Lava Point,11,651.0,651.0,675.0,770.0,770.0,819.0,699.0
+505 LaFave North: Lava Point,12,384.0,369.0,399.0,454.0,469.0,499.0,414.0
+506 LaFave North: Meridian Tower,1,359.0,345.0,375.0,435.0,449.0,481.0,392.0
+506 LaFave North: Meridian Tower,2,402.0,386.0,420.0,485.0,501.0,535.0,438.0
+506 LaFave North: Meridian Tower,3,600.0,600.0,624.0,721.0,721.0,771.0,648.0
+506 LaFave North: Meridian Tower,4,725.0,725.0,750.0,848.0,848.0,897.0,774.0
+506 LaFave North: Meridian Tower,5,722.0,722.0,746.0,844.0,844.0,893.0,771.0
+506 LaFave North: Meridian Tower,6,730.0,730.0,754.0,852.0,852.0,901.0,779.0
+506 LaFave North: Meridian Tower,7,591.0,591.0,615.0,711.0,711.0,761.0,640.0
+506 LaFave North: Meridian Tower,8,589.0,589.0,614.0,711.0,711.0,760.0,638.0
+506 LaFave North: Meridian Tower,9,732.0,732.0,757.0,857.0,857.0,907.0,782.0
+506 LaFave North: Meridian Tower,10,719.0,719.0,744.0,842.0,842.0,890.0,768.0
+506 LaFave North: Meridian Tower,11,584.0,584.0,608.0,706.0,706.0,755.0,633.0
+506 LaFave North: Meridian Tower,12,344.0,331.0,360.0,416.0,430.0,460.0,375.0
+507 LaFave North: Mount Kinesava,1,259.0,249.0,271.0,314.0,324.0,345.0,281.0
+507 LaFave North: Mount Kinesava,2,263.0,253.0,273.0,315.0,326.0,347.0,283.0
+507 LaFave North: Mount Kinesava,3,426.0,426.0,444.0,518.0,518.0,555.0,463.0
+507 LaFave North: Mount Kinesava,4,536.0,536.0,556.0,631.0,631.0,669.0,574.0
+507 LaFave North: Mount Kinesava,5,538.0,538.0,557.0,633.0,633.0,670.0,576.0
+507 LaFave North: Mount Kinesava,6,539.0,539.0,558.0,634.0,634.0,671.0,577.0
+507 LaFave North: Mount Kinesava,7,427.0,427.0,445.0,520.0,520.0,557.0,465.0
+507 LaFave North: Mount Kinesava,8,422.0,422.0,441.0,515.0,515.0,550.0,460.0
+507 LaFave North: Mount Kinesava,9,535.0,535.0,554.0,630.0,630.0,668.0,573.0
+507 LaFave North: Mount Kinesava,10,536.0,536.0,556.0,631.0,631.0,669.0,574.0
+507 LaFave North: Mount Kinesava,11,411.0,411.0,430.0,502.0,502.0,539.0,448.0
+507 LaFave North: Mount Kinesava,12,216.0,208.0,225.0,260.0,269.0,286.0,234.0
+508 LaFave North: Phantom Valley,1,294.0,285.0,308.0,352.0,362.0,386.0,318.0
+508 LaFave North: Phantom Valley,2,237.0,229.0,249.0,283.0,291.0,311.0,256.0
+508 LaFave North: Phantom Valley,3,670.0,670.0,701.0,819.0,819.0,878.0,730.0
+508 LaFave North: Phantom Valley,4,826.0,826.0,852.0,958.0,958.0,1011.0,879.0
+508 LaFave North: Phantom Valley,5,827.0,827.0,853.0,959.0,959.0,1012.0,879.0
+508 LaFave North: Phantom Valley,6,827.0,827.0,853.0,960.0,960.0,1013.0,880.0
+508 LaFave North: Phantom Valley,7,653.0,653.0,683.0,798.0,798.0,856.0,711.0
+508 LaFave North: Phantom Valley,8,674.0,674.0,705.0,823.0,823.0,882.0,734.0
+508 LaFave North: Phantom Valley,9,825.0,825.0,851.0,958.0,958.0,1010.0,878.0
+508 LaFave North: Phantom Valley,10,826.0,826.0,852.0,958.0,958.0,1011.0,879.0
+508 LaFave North: Phantom Valley,11,668.0,668.0,698.0,816.0,816.0,875.0,728.0
+508 LaFave North: Phantom Valley,12,300.0,290.0,315.0,359.0,368.0,393.0,325.0
+509 LaFave North: Pine Creek,1,294.0,285.0,308.0,352.0,362.0,386.0,318.0
+509 LaFave North: Pine Creek,2,237.0,229.0,249.0,283.0,291.0,311.0,256.0
+509 LaFave North: Pine Creek,3,678.0,678.0,708.0,828.0,828.0,887.0,739.0
+509 LaFave North: Pine Creek,4,835.0,835.0,862.0,968.0,968.0,1022.0,888.0
+509 LaFave North: Pine Creek,5,836.0,836.0,862.0,969.0,969.0,1023.0,889.0
+509 LaFave North: Pine Creek,6,836.0,836.0,863.0,970.0,970.0,1024.0,890.0
+509 LaFave North: Pine Creek,7,679.0,679.0,710.0,830.0,830.0,889.0,739.0
+509 LaFave North: Pine Creek,8,643.0,643.0,674.0,794.0,794.0,853.0,703.0
+509 LaFave North: Pine Creek,9,833.0,833.0,861.0,967.0,967.0,1021.0,888.0
+509 LaFave North: Pine Creek,10,835.0,835.0,862.0,968.0,968.0,1022.0,888.0
+509 LaFave North: Pine Creek,11,675.0,675.0,706.0,826.0,826.0,885.0,735.0
+509 LaFave North: Pine Creek,12,303.0,294.0,318.0,363.0,373.0,397.0,328.0
+510 LaFave North: Virgin River,1,454.0,440.0,479.0,542.0,557.0,597.0,494.0
+510 LaFave North: Virgin River,2,369.0,357.0,389.0,441.0,453.0,485.0,401.0
+510 LaFave North: Virgin River,3,862.0,862.0,893.0,1014.0,1014.0,1076.0,923.0
+510 LaFave North: Virgin River,4,1012.0,1012.0,1042.0,1163.0,1163.0,1223.0,1072.0
+510 LaFave North: Virgin River,5,1024.0,1024.0,1055.0,1178.0,1178.0,1238.0,1086.0
+510 LaFave North: Virgin River,6,1031.0,1031.0,1061.0,1181.0,1181.0,1239.0,1090.0
+510 LaFave North: Virgin River,7,871.0,871.0,902.0,1025.0,1025.0,1087.0,933.0
+510 LaFave North: Virgin River,8,878.0,878.0,909.0,1029.0,1029.0,1090.0,938.0
+510 LaFave North: Virgin River,9,1051.0,1051.0,1082.0,1208.0,1208.0,1270.0,1113.0
+510 LaFave North: Virgin River,10,1017.0,1017.0,1047.0,1169.0,1169.0,1229.0,1078.0
+510 LaFave North: Virgin River,11,852.0,852.0,882.0,1002.0,1002.0,1064.0,913.0
+510 LaFave North: Virgin River,12,455.0,440.0,479.0,543.0,557.0,597.0,494.0
+511 LaFave North: Weeping Rock,1,265.0,255.0,275.0,315.0,325.0,345.0,285.0
+511 LaFave North: Weeping Rock,2,280.0,269.0,289.0,332.0,343.0,364.0,300.0
+511 LaFave North: Weeping Rock,3,457.0,457.0,476.0,551.0,551.0,588.0,495.0
+511 LaFave North: Weeping Rock,4,573.0,573.0,592.0,669.0,669.0,708.0,612.0
+511 LaFave North: Weeping Rock,5,573.0,573.0,592.0,669.0,669.0,708.0,611.0
+511 LaFave North: Weeping Rock,6,573.0,573.0,593.0,669.0,669.0,708.0,611.0
+511 LaFave North: Weeping Rock,7,460.0,460.0,479.0,555.0,555.0,593.0,498.0
+511 LaFave North: Weeping Rock,8,462.0,462.0,480.0,556.0,556.0,594.0,500.0
+511 LaFave North: Weeping Rock,9,573.0,573.0,593.0,669.0,669.0,707.0,611.0
+511 LaFave North: Weeping Rock,10,573.0,573.0,592.0,669.0,669.0,708.0,612.0
+511 LaFave North: Weeping Rock,11,502.0,502.0,523.0,606.0,606.0,647.0,545.0
+511 LaFave North: Weeping Rock,12,264.0,254.0,274.0,314.0,324.0,344.0,284.0

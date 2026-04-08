@@ -1,0 +1,97 @@
+property_id: flohom
+property_name: FLOHOM
+pms_id: hostaway
+room_count: 15
+
+room_types:
+  - unit_id: "FLOHOM 1"
+    listing_start_date: "2023-05-19"
+  - unit_id: "FLOHOM 2"
+    listing_start_date: "2023-08-23"
+  - unit_id: "FLOHOM 3"
+    listing_start_date: "2023-10-11"
+  - unit_id: "FLOHOM 4"
+    listing_start_date: "2024-05-01"
+  - unit_id: "FLOHOM 5"
+    listing_start_date: "2024-07-03"
+  - unit_id: "FLOHOM 6"
+    listing_start_date: "2025-01-19"
+  - unit_id: "FLOHOM 7"
+    listing_start_date: "2025-03-17"
+  - unit_id: "FLOHOM 8"
+    listing_start_date: "2025-04-15"
+  - unit_id: "FLOHOM 9"
+    listing_start_date: "2025-05-02"
+  - unit_id: "FLOHOM 10"
+    listing_start_date: "2025-08-08"
+  - unit_id: "FLOHOM 11"
+    listing_start_date: "2025-09-12"
+  - unit_id: "FLOHOM 12"
+    listing_start_date: "2025-08-27"
+  - unit_id: "FLOHOM 13"
+    listing_start_date: "2026-03-06"
+  - unit_id: "FLOHOM 14"
+    listing_start_date: "2025-07-11"
+  - unit_id: "FLOHOM 15"
+    listing_start_date: "2025-12-31"
+
+tiering:
+  method: "gap_detection"
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  gap_score_basis: "revpar_zscore"
+  smoothing_window_days: 14
+  gap_threshold_pct: 6
+  gap_threshold_zscore: 0.6
+  min_tiers: 2
+  max_tiers: 15
+  quantile_fallback_tiers: 6
+  min_days_per_tier: 14
+  min_active_months_for_portfolio: 6
+  tier_label_map:
+    1: "Soft"
+    2: "Low"
+    3: "Shoulder Low"
+    4: "Shoulder High"
+    5: "High"
+    6: "Peak"
+
+airdna:
+  # Submarket pull mapping for FLOHOM listings.
+  # This is benchmark metadata only (extension layer), not part of tiering.
+  submarket_pulls:
+    - pull_id: 1
+      submarket: "Baltimore (Downtown)"
+      reliability: "reliable"
+      listings: ["FLOHOM 1", "FLOHOM 2", "FLOHOM 5", "FLOHOM 7", "FLOHOM 12", "FLOHOM 13"]
+      note: ""
+    - pull_id: 2
+      submarket: "Annapolis"
+      reliability: "reliable"
+      listings: ["FLOHOM 3"]
+      note: ""
+    - pull_id: 3
+      submarket: "National Harbor"
+      reliability: "unreliable"
+      listings: ["FLOHOM 4", "FLOHOM 6", "FLOHOM 8"]
+      note: "Market consists largely of FLOHOM listings; benchmark is circular."
+    - pull_id: 4
+      submarket: "South Baltimore"
+      reliability: "unreliable"
+      listings: ["FLOHOM 9"]
+      note: "Market consists largely of FLOHOM listings; benchmark is circular."
+    - pull_id: 5
+      submarket: "Virginia Beach"
+      reliability: "unreliable"
+      listings: ["FLOHOM 10", "FLOHOM 11"]
+      note: "Market consists largely of FLOHOM listings; benchmark is circular."
+    - pull_id: 6
+      submarket: "Pasadena"
+      reliability: "unreliable"
+      listings: ["FLOHOM 14"]
+      note: "Market consists largely of FLOHOM listings; benchmark is circular."
+    - pull_id: 7
+      submarket: "Myrtle Beach"
+      reliability: "pending"
+      listings: ["FLOHOM 15"]
+      note: "Listing inactive; pull once live."

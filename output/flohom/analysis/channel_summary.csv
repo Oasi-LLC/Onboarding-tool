@@ -1,0 +1,4 @@
+channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Airbnb,553,453463.97,928,25.22,26.27,488.65
+Direct,1491,1273911.48,2545,70.86,70.83,500.55
+VRBO,61,70529.09,125,3.92,2.9,564.23

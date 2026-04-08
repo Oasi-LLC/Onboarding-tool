@@ -241,7 +241,7 @@ def validate_dataset(canonical: pd.DataFrame) -> list[dict[str, Any]]:
     return results
 
 
-def run_validation(raw: pd.DataFrame, pms_id: str) -> dict[str, Any]:
+def run_validation(raw: pd.DataFrame, pms_id: str, property_id: Any = None) -> dict[str, Any]:
     """
     Run full validation: column checks on raw (for this PMS), then map to canonical and run cell/row/dataset checks.
     Returns a report with summary and per-check results.
@@ -263,7 +263,7 @@ def run_validation(raw: pd.DataFrame, pms_id: str) -> dict[str, Any]:
         }
         return report
 
-    canonical = map_to_canonical(raw, pms_id)
+    canonical = map_to_canonical(raw, pms_id, property_id=property_id)
     report["cell_checks"] = validate_cells(canonical)
     report["row_checks"] = validate_rows(canonical)
     report["dataset_checks"] = validate_dataset(canonical)

@@ -73,7 +73,7 @@ def main():
     print(f"  Rows loaded: {len(raw)}")
 
     print("\nRunning validation...")
-    report = run_validation(raw, pms_id)
+    report = run_validation(raw, pms_id, property_id=property_id)
     text = validation_report_text(report)
     print(text)
 
@@ -108,7 +108,13 @@ def main():
             json.dump(_serialize(report), f, indent=2)
         print(f"Report written to: {output_report}")
 
-    canonical = normalize(raw, pms_id, exclude_unpaid_below_amount=True, exclude_invalid_revenue=True)
+    canonical = normalize(
+        raw,
+        pms_id,
+        property_id=property_id,
+        exclude_unpaid_below_amount=True,
+        exclude_invalid_revenue=True,
+    )
     excluded = len(raw) - len(canonical)
     print(f"\nCanonical rows: {len(canonical)} (excluded {excluded} invalid or unpaid rows from {len(raw)} raw)")
 

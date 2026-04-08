@@ -32,6 +32,8 @@ Onboarding_EDA/
 ├── scripts/
 │   ├── run_ingestion.py           # Entry point: ingestion + validation
 │   ├── run_analysis.py            # Entry point: analysis from canonical CSV
+│   ├── run_pricing_matrix.py      # Entry point: build draft pricing matrix from analysis
+│   ├── run_pricing_sheet.py       # Entry point: build daily pricing sheet from matrix + events
 │   └── run_dashboard.py           # Streamlit dashboard (frontend)
 ├── output/
 │   └── <property_id>/             # Per-property outputs (see below)
@@ -47,7 +49,7 @@ output/
     ingestion/
       canonical.csv
       validation_report.json
-    analysis/
+    analysis/                      # Step 1: analysis & scores (see docs/07)
       overall_summary.csv
       monthly_performance.csv
       monthly_performance_combined.csv
@@ -58,6 +60,8 @@ output/
       by_day_of_week.csv
       booking_window.csv
       adr_by_listing_by_month.csv
+    pricing/                       # Step 2: draft pricing matrix (see docs/08)
+      pricing_matrix_draft.csv
 ```
 
 For LaFave Zion, this is `output/lafave_zion/...`.
@@ -112,7 +116,7 @@ See `docs/01-data-ingestion-and-validation-design.md` and
 
 ---
 
-## 4. Analysis (CSV outputs)
+## 4. Analysis (CSV outputs – Step 1)
 
 Once you have a canonical CSV for a property:
 
@@ -141,10 +145,64 @@ Key tables include:
 - `listing_season_performance.csv` – listing performance in **High / Shoulder / Low** seasons with a 1–10 **season score**.
 
 Full table schemas and formulas are documented in `docs/07-analysis-tables-and-formulas.md`.
+Daily tiering methodology (gap detection + quantile fallback, diagnostics, and overrides) is documented in `docs/09-daily-tiering-methodology.md`.
 
 ---
 
-## 5. Dashboard (Streamlit)
+## 5. Draft pricing matrix (Step 2a)
+
+Once analysis is done, you can build a **draft pricing matrix** for a property:
+
+```bash
+source .venv/bin/activate
+
+PYTHONPATH=. python scripts/run_pricing_matrix.py --property lafave_zion
+```
+
+This reads the analysis tables from:
+
+- `output/lafave_zion/analysis/`
+
+and writes a draft rate matrix to:
+
+- `output/lafave_zion/pricing/pricing_matrix_draft.csv`
+
+The matrix has one row per `listing × calendar month` and one column per day of week (Mon–Sun), containing the suggested ADRs.  
+The logic for how these rates are derived (anchors, scores, hierarchies, and bounds) is documented in `docs/08-pricing-matrix-and-draft-rates.md`.
+
+---
+
+## 6. Daily pricing sheet (Step 2b)
+
+Once you have a pricing matrix for a property, you can generate a **daily pricing sheet** over a configurable date range:
+
+```bash
+source .venv/bin/activate
+
+PYTHONPATH=. python scripts/run_pricing_sheet.py \
+  --property lafave_zion \
+  --start-date 2026-03-01 \
+  --end-date 2026-12-31
+```
+
+This:
+
+- Reads the matrix from `output/<property_id>/pricing/pricing_matrix_draft.csv`.
+- Reads property‑specific events (with multipliers) from `config/properties/<property_id>.yaml` (see `pricing.events_YYYY`).
+- Builds one row per calendar date with:
+  - `date` and `day_of_week`
+  - one column per listing (final ADR for that date)
+  - `notes` describing any event/holiday that applies.
+
+The sheet is written to:
+
+- `output/<property_id>/pricing/pricing_sheet_<start>_<end>.csv`
+
+Analysts can then review and tweak this sheet before loading rates into the PMS/RMS.
+
+---
+
+## 7. Dashboard (Streamlit)
 
 To explore the outputs visually:
 
@@ -173,7 +231,7 @@ The dashboard includes:
 
 ---
 
-## 6. Adding a new property / PMS
+## 8. Adding a new property / PMS
 
 High-level steps:
 
@@ -193,4 +251,44 @@ High-level steps:
 5. Point the dashboard sidebar at `output/<property_id>/analysis`.
 
 In most cases you only need to add/adjust configs; the ingestion, validation, analysis, and dashboard logic stay the same.
+For adding a brand-new PMS parser, use `docs/10-pms-parser-template.md`.
+
+### Current PMS parser capabilities
+
+| PMS (`pms_id`) | Ingestion parser available | Property-specific hook support | Notes |
+|---|---|---|---|
+| `resnexus` | Yes | Yes (via `property_id` in parser path) | Current default mapping is generic; no active property-specific branch required. |
+| `hostaway` | Yes | Yes (via `property_id` in parser path) | Includes a FLOHOM-specific listing-name normalization branch only when `property_id = flohom`. |
+
+---
+
+## 9. AirDNA daily market context (extension)
+
+To build listing-day market context from AirDNA submarket files (without changing tiering):
+
+```bash
+source .venv/bin/activate
+
+python scripts/run_daily_market_context.py --property flohom
+```
+
+This script:
+
+- Reads listing-day property performance from `output/<property_id>/ingestion/canonical.csv` (analysis-period filtered).
+- Enriches each row with the property-day tier context from `output/<property_id>/analysis/daily_tier_calendar.csv`.
+- Joins AirDNA monthly submarket benchmarks from `data/airdna/<property_id>/...`.
+- Applies submarket reliability metadata from `config/properties/<property_id>.yaml` (`airdna.submarket_pulls`).
+
+Output:
+
+- `output/<property_id>/benchmark/daily_market_context.csv`
+
+Key columns include:
+
+- `date`, `unit_id`
+- `tier_id`, `tier_label` (plus base tier columns)
+- `submarket`, `market_reliability`, `benchmark_warning`
+- `property_revpar`, `market_revpar_monthly`, `rpi`
+- `market_condition` (submarket-relative terciles)
+- optional context fields: `bedroom_revenue_benchmark`, `percentile_band`
 

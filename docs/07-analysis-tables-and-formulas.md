@@ -93,7 +93,8 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 | `bookings` | Count of rows for that month. |
 | `occupancy_pct` | (Room-nights sold / Room-nights available) * 100. Available = room_count * days in month. |
 | `revpar` | Revenue / room-nights available for that month. |
-| `performance_score_1_10` | Month “strength” on a 1–10 scale combining **revenue** and **RevPAR**, using **month-of-year averages across both years**: for each calendar month (Jan–Dec) we combine revenue and RevPAR for 2024+2025, rank the 12 calendar months, then assign that score back to each `year_month` of the same month. 1 = weakest calendar month, 10 = strongest. |
+
+**Note:** The monthly performance score (1–10) is **not** in this table; it appears only in Table 2b (combined by calendar month).
 
 **Output:** e.g. `monthly_performance.csv`.
 
@@ -117,7 +118,7 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 | `bookings` | **Average** bookings per year for that calendar month. |
 | `occupancy_pct` | (Average room-nights sold / (room_count × days_in_month)) × 100, where days_in_month is the calendar month length (e.g. Jan = 31). |
 | `revpar` | Average revenue per available room-night for that calendar month (average revenue ÷ (room_count × days_in_month)). |
-| `performance_score_1_10` | Same month-of-year score as in Table 2: 1–10 scale combining calendar-month **revenue** and **RevPAR** across both years (1 = weakest calendar month, 10 = strongest). |
+| `performance_score_1_10` | Month “strength” on a **1–10 scale**: we rank the 12 calendar months by **revenue** and by **RevPAR** (averaged across both years), combine 50/50, and map to 1–10. 1 = weakest calendar month, 10 = strongest. |
 
 **Output:** e.g. `monthly_performance_combined.csv`.
 
@@ -162,13 +163,13 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 | Column | Formula / definition |
 |--------|----------------------|
 | `day_of_week` | Monday, Tuesday, …, Sunday (from `arrival_day_of_week`). |
-| `check_ins` | Count of rows (unit-stays) where arrival_date falls on that weekday. |
-| `revenue` | Sum of `revenue` for those rows. |
-| `room_nights` | Sum of `nights` for those rows. |
+| `check_ins` | **Average per year** count of rows (unit-stays) where arrival_date falls on that weekday (typical year view across the two analysis years). |
+| `revenue` | **Average per year** revenue for those rows. |
+| `room_nights` | **Average per year** room-nights for those rows. |
 | `adr` | Revenue / room_nights for that day of week. |
 | `share_of_check_ins_pct` | (check_ins / total check-ins) * 100. |
 | `share_of_revenue_pct` | (revenue / total revenue) * 100. |
-| `dow_score_1_10` | Day-of-week “strength” on a 1–10 scale, combining **ADR**, **share_of_revenue_pct**, and **share_of_check_ins_pct** (all ranked across the 7 days and averaged; 1 = weakest day, 10 = strongest). |
+| `dow_score_1_10` | Day-of-week “strength” on a **continuous 1–10 scale**, combining **ADR**, **share_of_revenue_pct**, and **share_of_check_ins_pct**. For each metric we rank days across the 7 weekdays, convert ranks to 0–1, then combine **40% ADR**, **40% revenue share**, and **20% check-in share** and map to 1–10; values near 1 are weakest, near 10 strongest. |
 
 **Output:** e.g. `by_day_of_week.csv`.
 
@@ -244,7 +245,8 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 | `season_room_nights` | Sum of `nights` over those arrivals. |
 | `season_bookings` | Count of rows (unit-stays) for that listing in that season. |
 | `season_adr` | `season_revenue / season_room_nights` (average ADR for that listing in that season). |
-| `season_score_1_10` | Listing’s performance in that season on a 1–10 scale, combining **season_revenue** and **season_adr** (both ranked across listings within that season and averaged; 1 = weakest listing in that season, 10 = strongest). |
+| `season_score_1_10` | Listing’s performance in that season on a 1–10 scale (float), combining **season_revenue** and **season_revpar** (both ranked across listings within that season, with revenue weighted 70% and RevPAR 30%; 1 = weakest listing in that season, 10 = strongest). |
+| `season_percentile` | Percentile rank of the listing within its season (0–100), derived from the same normalized score (e.g. 97.0 = 97th percentile among listings in that season). |
 
 **Output:** e.g. `listing_season_performance.csv`.
 

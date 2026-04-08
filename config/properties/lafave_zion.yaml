@@ -40,3 +40,132 @@ room_types:
   - unit_id: "509 LaFave North: Pine Creek"
   - unit_id: "510 LaFave North: Virgin River"
   - unit_id: "511 LaFave North: Weeping Rock"
+
+# Listing groups (used to build the pricing matrix).
+listing_groups:
+  - name: "House (6BR/4BA)"
+    bedrooms: 6
+    bathrooms: 4
+    unit_ids:
+      - "302 LaFave South: The Gallery House"
+
+  # Suites split into a bigger/smaller tier for pricing grouping.
+  - name: "Suite BIG (1BR/1BA)"
+    bedrooms: 1
+    bathrooms: 1
+    unit_ids:
+      - "400 LaFave North: The Sundial"
+      - "101 LaFave South: The Sentinel"
+      - "100 LaFave South: Temple of Sinawava"
+
+  - name: "Suite SMALL (1BR/1BA)"
+    bedrooms: 1
+    bathrooms: 1
+    unit_ids:
+      - "102 LaFave South: The Watchman"
+      - "103 LaFave South: The Zion Suite"
+
+  - name: "Deluxe Villa (2BR/1BA)"
+    bedrooms: 2
+    bathrooms: 1
+    unit_ids:
+      - "504 LaFave North: Kayenta"
+      - "507 LaFave North: Mount Kinesava"
+      - "511 LaFave North: Weeping Rock"
+      - "209 LaFave South: Orderville Canyon"
+      - "205 LaFave South: Kolob Arch"
+      - "208 LaFave South: Northgate Peaks"
+      - "204 LaFave South: Hidden Canyon"
+
+  # Premium vs Deluxe split for 2BR/2BA.
+  - name: "Premium Villa (2BR/2BA)"
+    bedrooms: 2
+    bathrooms: 2
+    unit_ids:
+      - "509 LaFave North: Pine Creek"
+      - "500 LaFave North: Big Springs"
+      - "508 LaFave North: Phantom Valley"
+      - "502 LaFave North: East Temple"
+      - "202 LaFave South: Echo Canyon"
+      - "207 LaFave South: Mystery Falls"
+      - "201 LaFave South: Checkerboard Mesa"
+      - "206 LaFave South: Mountain of the Sun"
+
+  # "Game room" villas subset.
+  - name: "Villa Game (2BR/2BA)"
+    bedrooms: 2
+    bathrooms: 2
+    unit_ids:
+      - "505 LaFave North: Lava Point"
+      - "506 LaFave North: Meridian Tower"
+      - "210 LaFave South: The Subway"
+      - "203 LaFave South: Emerald Pools"
+
+  - name: "J.MT. Villa (3BR/2BA)"
+    bedrooms: 3
+    bathrooms: 2
+    unit_ids:
+      - "503 LaFave North: Johnson Mountain"
+
+  - name: "Premier Villa (3BR/3BA)"
+    bedrooms: 3
+    bathrooms: 3
+    unit_ids:
+      - "510 LaFave North: Virgin River"
+      - "501 LaFave North: Cathedral Mountain"
+      - "200 LaFave South: Angels Landing"
+      - "211 LaFave South: The Narrows"
+
+pricing:
+  # LaFave-specific weekday price ladder, from lowest to highest tier
+  dow_hierarchy:
+    - ["Monday", "Tuesday"]
+    - ["Wednesday"]
+    - ["Sunday"]
+    - ["Thursday", "Friday"]
+    - ["Saturday"]
+  events_2026:
+    - name: "Zion Ultras & Trail Half Marathon"
+      start_date: "2026-04-10"
+      end_date: "2026-04-12"
+      multiplier: 1.20
+    - name: "Spring Break"
+      start_date: "2026-03-23"
+      end_date: "2026-03-27"
+      multiplier: 1.10
+    - name: "Easter Weekend"
+      start_date: "2026-04-03"
+      end_date: "2026-04-06"
+      multiplier: 1.25
+    - name: "Memorial Day Weekend"
+      start_date: "2026-05-22"
+      end_date: "2026-05-25"
+      multiplier: 1.25
+    - name: "Fourth of July Weekend"
+      start_date: "2026-07-02"
+      end_date: "2026-07-05"
+      multiplier: 1.10
+    - name: "Labor Day Weekend"
+      start_date: "2026-09-04"
+      end_date: "2026-09-07"
+      multiplier: 1.00
+    - name: "Columbus Day Weekend"
+      start_date: "2026-10-09"
+      end_date: "2026-10-12"
+      multiplier: 1.00
+    - name: "Thanksgiving"
+      start_date: "2026-11-26"
+      end_date: "2026-11-26"
+      multiplier: 1.20
+    - name: "Pre-Christmas Travel Period"
+      start_date: "2026-12-17"
+      end_date: "2026-12-23"
+      multiplier: 1.00
+    - name: "Christmas"
+      start_date: "2026-12-24"
+      end_date: "2026-12-26"
+      multiplier: 1.15
+    - name: "New Year’s Eve"
+      start_date: "2026-12-30"
+      end_date: "2026-12-31"
+      multiplier: 1.15

@@ -32,6 +32,10 @@ def load_property_inventory(property_id: str) -> dict[str, Any]:
     room_types = data.get("room_types") or []
     unit_ids = [r.get("unit_id") for r in room_types if isinstance(r, dict) and r.get("unit_id")]
     pms_id = data.get("pms_id")  # e.g. "resnexus" → links to config/pms/resnexus_mapping.yaml
+    pricing = data.get("pricing") or {}
+    listing_groups = data.get("listing_groups") or []  # [{ name, bedrooms?, bathrooms?, unit_ids: [...] }]
+    tiering = data.get("tiering") or {}
+    airdna = data.get("airdna") or {}
 
     return {
         "property_id": data.get("property_id", property_id),
@@ -40,4 +44,8 @@ def load_property_inventory(property_id: str) -> dict[str, Any]:
         "room_count": room_count if isinstance(room_count, int) else None,
         "room_types": room_types,
         "unit_ids": unit_ids,
+        "listing_groups": listing_groups,
+        "pricing": pricing,
+        "tiering": tiering,
+        "airdna": airdna,
     }
