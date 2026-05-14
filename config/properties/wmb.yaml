@@ -1,0 +1,150 @@
+property_id: wmb
+property_name: Onera Wimberley
+pms_id: cloudbeds
+room_count: 28
+analysis_window:
+  start_date: "2024-08-01"
+  end_date: "2026-03-31"
+
+# WMB canonical unit_id uses listing types (not physical room numbers).
+# unit_count = number of physical units behind each listing type (used for
+# per-listing occupancy and RevPAR denominators in overall_summary).
+room_types:
+  - unit_id: "Greenhouse"
+    listing_start_date: "2024-08-01"
+    unit_count: 9
+  - unit_id: "Greenhouse (Pet Friendly)"
+    listing_start_date: "2024-08-01"
+    unit_count: 6
+  - unit_id: "Greenhouse (Accessible)"
+    listing_start_date: "2024-08-01"
+    unit_count: 1
+  - unit_id: "Spyglass"
+    listing_start_date: "2024-08-01"
+    unit_count: 5
+  - unit_id: "Spyglass (Pet Friendly)"
+    listing_start_date: "2024-08-01"
+    unit_count: 6
+  - unit_id: "Spyglass (Accessible)"
+    listing_start_date: "2024-08-01"
+    unit_count: 1
+
+tiering:
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  quantile_fallback_tiers: 5
+
+# ── Pricing matrix configuration ─────────────────────────────────────────────
+# mode: tiered  →  rates = anchor × (season_index / low_index) × (dow_index / d1_index) × premium
+# All indices are relative to each other; the anchor IS the Greenhouse Low D1 rate.
+pricing:
+  mode: tiered
+  default_min_stay: 2
+
+  # Single cell that shifts every rate in the matrix.
+  # Represents: Greenhouse, Low season, Mon/Tue/Wed nightly rate (USD).
+  anchor_rate: 345
+
+  # Product groups collapse the 6 listing-type unit_ids into 2 priced products.
+  # premium is applied on top of the Greenhouse (base) rate.
+  product_groups:
+    - name: Greenhouse
+      unit_ids:
+        - "Greenhouse"
+        - "Greenhouse (Pet Friendly)"
+        - "Greenhouse (Accessible)"
+      premium: 1.00
+    - name: Spyglass
+      unit_ids:
+        - "Spyglass"
+        - "Spyglass (Pet Friendly)"
+        - "Spyglass (Accessible)"
+      premium: 1.20
+
+  # Seasonal tiers — index relative to Shoulder = 1.00.
+  # Anchor is in Low tier so the effective seasonal multiplier = index / low_index.
+  seasonal_tiers:
+    - name: Peak
+      months: [5, 6]          # May, June — 82–86% property occupancy (2025)
+      index: 1.30
+    - name: High
+      months: [3, 4, 10, 12]  # Mar, Apr, Oct, Dec — 73–76%
+      index: 1.15
+    - name: Shoulder
+      months: [2, 8, 9, 11]   # Feb, Aug, Sep, Nov — 64–69%
+      index: 1.00
+    - name: Low
+      months: [1, 7]          # Jan, Jul — 55–62% (Jul suppressed by TX heat)
+      index: 0.85
+
+  # Day-of-week tiers — index relative to D1 = 1.05 (Mon/Tue/Wed baseline).
+  # Effective DOW multiplier = index / d1_index (D1 row).
+  # Hierarchy confirmed by stay-night occupancy; Thu is the weakest demand day.
+  dow_tiers:
+    - name: D5
+      days: ["Saturday"]
+      index: 1.90
+    - name: D4
+      days: ["Friday"]
+      index: 1.40
+    - name: D3
+      days: ["Sunday"]
+      index: 1.22
+    - name: D2
+      days: ["Thursday"]
+      index: 1.15
+    - name: D1
+      days: ["Monday", "Tuesday", "Wednesday"]
+      index: 1.05
+
+  # Event overlays for pricing sheet generation (2027 calendar year).
+  # Multiplier applies on top of matrix rates for dates in each range.
+  events_2027:
+    - name: "MLK"
+      start_date: "2027-01-15"
+      end_date: "2027-01-18"
+      multiplier: 1.10
+    - name: "Valentines"
+      start_date: "2027-02-12"
+      end_date: "2027-02-14"
+      multiplier: 1.10
+    - name: "Presidents Day"
+      start_date: "2027-02-15"
+      end_date: "2027-02-16"
+      multiplier: 1.15
+    - name: "Spring Break"
+      start_date: "2027-03-12"
+      end_date: "2027-03-21"
+      multiplier: 1.10
+    - name: "Memorial Day"
+      start_date: "2027-05-28"
+      end_date: "2027-05-31"
+      multiplier: 1.25
+    - name: "4th of July"
+      start_date: "2027-07-01"
+      end_date: "2027-07-04"
+      multiplier: 1.20
+    - name: "Labor Day"
+      start_date: "2027-09-03"
+      end_date: "2027-09-06"
+      multiplier: 1.15
+    - name: "Columbus Day"
+      start_date: "2027-10-08"
+      end_date: "2027-10-11"
+      multiplier: 1.10
+    - name: "Thanksgiving"
+      start_date: "2027-11-25"
+      end_date: "2027-11-25"
+      multiplier: 1.20
+    - name: "Pre-XMAS"
+      start_date: "2027-12-17"
+      end_date: "2027-12-23"
+      multiplier: 1.05
+    - name: "XMAS"
+      start_date: "2027-12-24"
+      end_date: "2027-12-26"
+      multiplier: 1.20
+    - name: "NYE"
+      start_date: "2027-12-30"
+      end_date: "2028-01-02"
+      multiplier: 1.25

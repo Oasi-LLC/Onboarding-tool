@@ -6,6 +6,11 @@ property_name: LaFave Zion
 pms_id: resnexus   # links to config/pms/resnexus_mapping.yaml for ingestion
 room_count: 32
 
+# Include all booked arrivals from Jan 2024 through the latest stay in canonical (for forward pricing).
+analysis_window:
+  start_date: "2024-01-01"
+  end_date: "data_max"
+
 # Room types / units (unit_id as in canonical data: "number Name")
 room_types:
   - unit_id: "100 LaFave South: Temple of Sinawava"
@@ -124,6 +129,9 @@ pricing:
     - ["Sunday"]
     - ["Thursday", "Friday"]
     - ["Saturday"]
+  # After matrix + tier medians: scale selected months only (December eased vs v1; still forward-priced).
+  month_matrix_multipliers:
+    "12": 0.65
   events_2026:
     - name: "Zion Ultras & Trail Half Marathon"
       start_date: "2026-04-10"

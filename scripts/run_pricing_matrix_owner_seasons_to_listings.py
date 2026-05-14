@@ -11,7 +11,11 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.pricing_matrix import build_pricing_matrix  # noqa: E402
+from src.pricing_matrix import (  # noqa: E402
+    build_pricing_matrix,
+    coerce_month_score_by_index_config,
+    listing_factors_from_price_hierarchy,
+)
 from src.property_config import load_property_inventory  # noqa: E402
 
 
@@ -44,6 +48,10 @@ def main() -> None:
     inventory = load_property_inventory(prop_id)
     pricing_cfg = inventory.get("pricing") or {}
     dow_hierarchy = pricing_cfg.get("dow_hierarchy")
+    month_score_by_index = coerce_month_score_by_index_config(pricing_cfg.get("month_score_by_index"))
+    listing_factor_override = listing_factors_from_price_hierarchy(
+        pricing_cfg.get("listing_price_hierarchy")
+    )
 
     listing_groups = inventory.get("listing_groups") or []
     if not listing_groups:
@@ -96,7 +104,12 @@ def main() -> None:
     season_months: dict[str, list[int]] = {"High": [4, 5, 6, 9, 10], "Shoulder": [3, 7, 8, 11], "Low": [1, 2, 12]}
 
     # Generate model listing-level matrix first (this preserves individual differences within group)
-    model_matrix = build_pricing_matrix(analysis_dir, dow_hierarchy=dow_hierarchy)
+    model_matrix = build_pricing_matrix(
+        analysis_dir,
+        dow_hierarchy=dow_hierarchy,
+        month_score_by_index=month_score_by_index,
+        listing_factor_by_unit=listing_factor_override,
+    )
 
     if "unit_id" not in model_matrix.columns or "month_index" not in model_matrix.columns:
         raise SystemExit("Unexpected matrix format from build_pricing_matrix (expected unit_id and month_index).")

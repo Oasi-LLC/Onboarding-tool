@@ -1,0 +1,2 @@
+recommended_quantile_fallback_tiers,selection_rule,recommended_min_adjacent_step_revpar,recommended_avg_adjacent_step_revpar,natural_gap_detected_any_sweep,max_observed_gap_percentile_int,max_observed_gap_zscore,notes
+5,max positive min_adjacent_step_revpar,24.189999999999998,66.79499999999999,False,1.0,0.1238,"If natural gaps are absent across threshold sweeps, quantile fallback is the defensible path."

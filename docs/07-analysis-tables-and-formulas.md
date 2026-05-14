@@ -152,24 +152,25 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 
 ---
 
-## 6. Table 4: Day-of-week performance (ADR & check-ins; two years combined)
+## 6. Table 4: Day-of-week performance (night-of-week pricing view)
 
-**Purpose:** ADR and number of check-ins by day of week, combined across 2024 and 2025.
+**Purpose:** Build day-of-week pricing signal from **actual occupied stay nights** (not arrival-day-only attribution).
 
-**Grain:** One row per **day of week** (Monday, Tuesday, …, Sunday). Arrival-based: “check-in” = arrival on that weekday.
+**Grain:** One row per **day of week** (Monday, Tuesday, …, Sunday), based on exploded `stay_date` rows.
 
 **Columns:**
 
 | Column | Formula / definition |
 |--------|----------------------|
-| `day_of_week` | Monday, Tuesday, …, Sunday (from `arrival_day_of_week`). |
-| `check_ins` | **Average per year** count of rows (unit-stays) where arrival_date falls on that weekday (typical year view across the two analysis years). |
-| `revenue` | **Average per year** revenue for those rows. |
-| `room_nights` | **Average per year** room-nights for those rows. |
+| `day_of_week` | Monday, Tuesday, …, Sunday (from exploded stay dates). |
+| `check_ins` | Count of arrivals on that weekday (context only; not used in score). |
+| `revenue` | Sum of nightly-attributed revenue on that weekday, where each reservation contributes `revenue / nights` per occupied night. |
+| `room_nights` | Count of occupied stay nights on that weekday (after stay-date explosion). |
 | `adr` | Revenue / room_nights for that day of week. |
 | `share_of_check_ins_pct` | (check_ins / total check-ins) * 100. |
 | `share_of_revenue_pct` | (revenue / total revenue) * 100. |
-| `dow_score_1_10` | Day-of-week “strength” on a **continuous 1–10 scale**, combining **ADR**, **share_of_revenue_pct**, and **share_of_check_ins_pct**. For each metric we rank days across the 7 weekdays, convert ranks to 0–1, then combine **40% ADR**, **40% revenue share**, and **20% check-in share** and map to 1–10; values near 1 are weakest, near 10 strongest. |
+| `share_of_room_nights_pct` | (room_nights / total room_nights) * 100. |
+| `dow_score_1_10` | Day-of-week “strength” on a **continuous 1–10 scale**, combining **ADR**, **share_of_revenue_pct**, and **share_of_room_nights_pct**. For each metric we rank days across the 7 weekdays, convert ranks to 0–1, then combine **40% ADR**, **40% revenue share**, and **20% room-night share** and map to 1–10; values near 1 are weakest, near 10 strongest. |
 
 **Output:** e.g. `by_day_of_week.csv`.
 
@@ -273,7 +274,7 @@ If you want any of these added to specific tables, we can add columns to the sch
 | 3a | Channel by year | Channel × year | Bookings, revenue, share % | `channel_by_year.csv` |
 | 3b | Channel summary | Channel | Same, combined years | `channel_summary.csv` |
 | 3c | Channel by listing | Channel × unit_id | Same, per listing | `channel_by_listing.csv` |
-| 4 | Day of week | Day of week | Check-ins, ADR, share % | `by_day_of_week.csv` |
+| 4 | Day of week | Day of week | Room nights, ADR, share % | `by_day_of_week.csv` |
 | 5 | Booking window | Lead-time band | Revenue, bookings, share of revenue % | `booking_window.csv` |
 | 6 | ADR by listing × year_month | unit_id × year_month | ADR, revenue, room_nights, bookings | `adr_by_listing_by_month.csv` |
 
@@ -301,11 +302,11 @@ Use this to confirm everything is locked before coding.
 | Table 1: Overall summary | **Finalised** | §3 — listing + property row; columns as listed. |
 | Table 2: Monthly performance | **Finalised** | §4 — 24 months; property-level. |
 | Table 3: Channel (3a, 3b, 3c) | **Finalised** | §5 — by year, combined, by listing. |
-| Table 4: Day of week | **Finalised** | §6 — arrival-based check-ins; combined two years. |
+| Table 4: Day of week | **Finalised** | §6 — stay-date exploded night-of-week attribution. |
 | Table 5: Booking window | **Finalised** | §7 — bands configurable; default bands in §2. |
 | Table 6: ADR by listing x year_month | **Finalised** | §8 — unit_id x year_month (e.g. 2024-01 … 2025-12). |
 | Output files | **Finalised** | One CSV per table; names in §10. |
 | Bookings definition | **Finalised** | Row count = unit-stays (one row per unit-stay). |
-| Day-of-week definition | **Finalised** | Arrival-based (check-in = arrival on that weekday). |
+| Day-of-week definition | **Finalised** | Stay-date exploded night-of-week attribution; arrival check-ins retained as context only. |
 | When data has &lt; 2 full years | **Finalised** | Use available full years; add a note. |
 | Stays spanning year boundaries (e.g. Dec 2023 → Jan 2024, Dec 2024 → Jan 2025) | **Finalised** | Include only if **arrival_date** is in window. Assign whole stay to **arrival month**; do not split across months. See §1 "Stays spanning year boundaries". |

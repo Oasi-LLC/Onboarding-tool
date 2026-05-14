@@ -9,10 +9,11 @@ We use the **real** LaFave export (ResNexus PMS) as **one example** of a source 
 
 **Important (general rule):** Do **not** assume every property we onboard will have this format or even a single CSV. Input can differ widely: different PMS, different number of files (one CSV, multiple CSVs, Excel, etc.), different column names and semantics. The **methodology** is the same everywhere: a **canonical schema** that all analyses use, plus a **per-source mapping** that turns whatever we receive into that schema, plus **validation** on the normalized data. This file is simply the first concrete format we support.
 
-**Reference file:** `data/LAFAVE ZION/LAFAVE_1:1:23-1:1:27.csv` (or `Jan23-Jan27.csv`)  
+**Reference file (current pipeline):** `data/LAFAVE ZION/Lafave_data.csv` (ResNexus / LaFave **sheet** layout: `Arrival`, `Departure`, `Listing Name`, `Reservation Date`, `# Nights`, `Channel`, optional `Grouping`).  
+**Legacy layout (still supported):** combined stay column `Date` plus `Unit` and `Reserved On` (see `config/pms/resnexus_mapping.yaml` and `resnexus_raw_format` in `src/parser.py`).  
 **PMS:** ResNexus  
-**Rows:** 6,161 data rows + 1 header  
-**Date range in data:** 1/1/2023 through 11/24/2026 (multi-year)
+**Rows (Lafave_data.csv):** thousands of reservation rows + 1 header (counts change as the export is refreshed).  
+**Date range:** depends on export refresh (arrivals from early 2023 through latest in file).
 
 ---
 

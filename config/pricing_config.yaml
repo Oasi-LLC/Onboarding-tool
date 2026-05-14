@@ -1,0 +1,34 @@
+pricing:
+  flohom:
+    anchor_listing: "FLOHOM 1"
+    rounding_rule: "round_to_5"
+    min_rate_floors:
+      "FLOHOM 1": 275
+      "FLOHOM 2": 225
+      "FLOHOM 3": 125
+      "FLOHOM 4": 275
+      "FLOHOM 5": 200
+      "FLOHOM 6": 300
+      "FLOHOM 7": 250
+      "FLOHOM 8": 175
+      "FLOHOM 9": 200
+      "FLOHOM 10": 250
+      "FLOHOM 11": 125
+      "FLOHOM 12": 250
+      "FLOHOM 13": 315
+      "FLOHOM 14": 150
+      "FLOHOM 15": 275
+      "FLOHOM 16": 300
+    dow_bands:
+      effective_date: "2026-05-01"
+      bands:
+        base:
+          days: ["Mon", "Tue", "Wed"]
+          index: 1.00
+        mid:
+          days: ["Thu", "Sun"]
+          index: 1.15
+        peak:
+          days: ["Fri", "Sat"]
+          index: 1.40
+      market_overrides: {}

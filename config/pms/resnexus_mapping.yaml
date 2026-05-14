@@ -3,8 +3,11 @@
 # Path: config/pms/resnexus_mapping.yaml
 
 pms_id: resnexus
-description: "ResNexus export (e.g. LaFave Zion)"
+description: "ResNexus export (e.g. LaFave Zion). Parser accepts two layouts; see legacy vs sheet below."
 
+# ---------------------------------------------------------------------------
+# Legacy ResNexus export (combined stay "Date" + "Unit" + X-marked channels)
+# ---------------------------------------------------------------------------
 required_columns:
   - "Res#"
   - "Date"
@@ -29,5 +32,37 @@ column_mapping:
   "Paid": amount_paid_raw
   "Reserved On": booking_date_raw
 
-# Date format in source: M/D/YYYY or M/D-M/D/YYYY
+# ---------------------------------------------------------------------------
+# Sheet export (LaFave dashboard-style): separate Arrival/Departure + Listing Name
+# Implemented in src/parser.py (resnexus_raw_format + _resnexus_map_sheet_to_canonical).
+# ---------------------------------------------------------------------------
+sheet_required_columns:
+  - "Res#"
+  - "Guest"
+  - "Arrival"
+  - "Departure"
+  - "Amount"
+  - "Reservation Date"
+  - "# Nights"
+  - "Listing Name"
+
+sheet_channel_columns:
+  - "Channel"
+  - "By Phone"
+  - "Booked Online"
+  - "3rd Party"
+
+sheet_column_mapping:
+  "Res#": reservation_id
+  "Guest": guest_name
+  "Arrival": arrival_date_raw
+  "Departure": departure_date_raw
+  "Amount": revenue_raw
+  "Reservation Date": booking_date_raw
+  "# Nights": nights
+  "Listing Name": unit_id
+  "Channel": channel_raw
+  "Grouping": listing_group_raw
+
+# Date format in source: M/D/YYYY or M/D-M/D/YYYY (legacy "Date"); sheet uses M/D/YY or M/D/YYYY per column.
 date_format: "%m/%d/%Y"

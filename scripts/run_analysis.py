@@ -12,6 +12,7 @@ Example:
 
 import sys
 from pathlib import Path
+from typing import Optional
 
 import pandas as pd
 
@@ -19,7 +20,7 @@ import pandas as pd
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from src.analysis import get_analysis_years, run_analysis
+from src.analysis import resolve_analysis_window, run_analysis as run_analysis_tables
 from src.property_config import load_property_inventory
 
 OUTPUT_FILES = [
@@ -256,6 +257,139 @@ def build_tier_integrity_audit(
     return pd.DataFrame(rows)
 
 
+def build_tier_validation_outputs(
+    canonical_df: pd.DataFrame,
+    room_count: Optional[int],
+    base_tiering_cfg: dict,
+    listing_start_dates: dict[str, str],
+    analysis_window_cfg: dict,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """
+    Build automated tier sensitivity outputs so per-property tuning is reproducible.
+    Returns:
+      - tier_sensitivity_sweep (many rows)
+      - tier_validation_summary (condensed recommendation table)
+    """
+    if not base_tiering_cfg:
+        return pd.DataFrame(), pd.DataFrame()
+
+    threshold_values = base_tiering_cfg.get("sweep_gap_thresholds") or [3, 4, 5, 6, 7, 8, 10]
+    try:
+        threshold_values = [float(x) for x in threshold_values]
+    except Exception:
+        threshold_values = [3, 4, 5, 6, 7, 8, 10]
+    quantile_min = int(base_tiering_cfg.get("sweep_quantile_min_tiers", 5))
+    quantile_max = int(base_tiering_cfg.get("sweep_quantile_max_tiers", 10))
+    quantile_values = list(range(max(2, quantile_min), max(2, quantile_max) + 1))
+    basis_values = ["percentile_int", "revpar_zscore"]
+
+    rows: list[dict] = []
+    for basis in basis_values:
+        for gap in threshold_values:
+            cfg = dict(base_tiering_cfg)
+            cfg["gap_score_basis"] = basis
+            cfg["gap_threshold_pct"] = float(gap)
+            cfg["gap_threshold_zscore"] = float(gap) / 10.0
+            tables = run_analysis_tables(
+                canonical_df,
+                room_count=room_count,
+                tiering_cfg=cfg,
+                listing_start_dates=listing_start_dates,
+                analysis_window=analysis_window_cfg,
+            )
+            diag = tables.get("tier_diagnostics", pd.DataFrame())
+            summ = tables.get("tier_summary", pd.DataFrame()).sort_values("tier_id")
+            d = diag.iloc[0].to_dict() if not diag.empty else {}
+            if not summ.empty and "avg_revpar" in summ.columns:
+                steps = pd.to_numeric(summ["avg_revpar"], errors="coerce").diff().dropna()
+                min_step = float(steps.min()) if len(steps) else None
+                avg_step = float(steps.mean()) if len(steps) else None
+            else:
+                min_step, avg_step = None, None
+            rows.append(
+                {
+                    "sweep_type": "gap_threshold",
+                    "gap_score_basis": basis,
+                    "gap_threshold_value": float(gap),
+                    "quantile_fallback_tiers": int(cfg.get("quantile_fallback_tiers", 5)),
+                    "selected_method": d.get("selected_method"),
+                    "fallback_used": bool(d.get("fallback_used", False)),
+                    "fallback_reason": d.get("fallback_reason"),
+                    "final_tier_count": int(d.get("final_tier_count", 0) or 0),
+                    "candidate_tiers_percentile_int": int(d.get("candidate_tiers_percentile_int", 0) or 0),
+                    "candidate_tiers_zscore": int(d.get("candidate_tiers_zscore", 0) or 0),
+                    "max_gap_percentile_int": float(d.get("max_gap_percentile_int", 0.0) or 0.0),
+                    "max_gap_zscore": float(d.get("max_gap_zscore", 0.0) or 0.0),
+                    "min_adjacent_step_revpar": min_step,
+                    "avg_adjacent_step_revpar": avg_step,
+                }
+            )
+
+    for q in quantile_values:
+        cfg = dict(base_tiering_cfg)
+        cfg["quantile_fallback_tiers"] = int(q)
+        tables = run_analysis_tables(
+            canonical_df,
+            room_count=room_count,
+            tiering_cfg=cfg,
+            listing_start_dates=listing_start_dates,
+            analysis_window=analysis_window_cfg,
+        )
+        diag = tables.get("tier_diagnostics", pd.DataFrame())
+        summ = tables.get("tier_summary", pd.DataFrame()).sort_values("tier_id")
+        d = diag.iloc[0].to_dict() if not diag.empty else {}
+        if not summ.empty and "avg_revpar" in summ.columns:
+            steps = pd.to_numeric(summ["avg_revpar"], errors="coerce").diff().dropna()
+            min_step = float(steps.min()) if len(steps) else None
+            avg_step = float(steps.mean()) if len(steps) else None
+        else:
+            min_step, avg_step = None, None
+        rows.append(
+            {
+                "sweep_type": "quantile_tier_count",
+                "gap_score_basis": str(cfg.get("gap_score_basis", "percentile_int")),
+                "gap_threshold_value": float(cfg.get("gap_threshold_pct", 6)),
+                "quantile_fallback_tiers": int(q),
+                "selected_method": d.get("selected_method"),
+                "fallback_used": bool(d.get("fallback_used", False)),
+                "fallback_reason": d.get("fallback_reason"),
+                "final_tier_count": int(d.get("final_tier_count", 0) or 0),
+                "candidate_tiers_percentile_int": int(d.get("candidate_tiers_percentile_int", 0) or 0),
+                "candidate_tiers_zscore": int(d.get("candidate_tiers_zscore", 0) or 0),
+                "max_gap_percentile_int": float(d.get("max_gap_percentile_int", 0.0) or 0.0),
+                "max_gap_zscore": float(d.get("max_gap_zscore", 0.0) or 0.0),
+                "min_adjacent_step_revpar": min_step,
+                "avg_adjacent_step_revpar": avg_step,
+            }
+        )
+
+    sweep = pd.DataFrame(rows)
+    if sweep.empty:
+        return sweep, pd.DataFrame()
+
+    quant = sweep[sweep["sweep_type"] == "quantile_tier_count"].copy()
+    if quant.empty:
+        return sweep, pd.DataFrame()
+    quant["monotonic_ok"] = quant["min_adjacent_step_revpar"].notna() & (quant["min_adjacent_step_revpar"] > 0)
+    quant = quant.sort_values(["monotonic_ok", "min_adjacent_step_revpar", "quantile_fallback_tiers"], ascending=[False, False, True])
+    best = quant.iloc[0]
+    summary = pd.DataFrame(
+        [
+            {
+                "recommended_quantile_fallback_tiers": int(best["quantile_fallback_tiers"]),
+                "selection_rule": "max positive min_adjacent_step_revpar",
+                "recommended_min_adjacent_step_revpar": float(best["min_adjacent_step_revpar"]) if pd.notna(best["min_adjacent_step_revpar"]) else None,
+                "recommended_avg_adjacent_step_revpar": float(best["avg_adjacent_step_revpar"]) if pd.notna(best["avg_adjacent_step_revpar"]) else None,
+                "natural_gap_detected_any_sweep": bool((sweep["selected_method"] == "gap_detection").any()),
+                "max_observed_gap_percentile_int": float(pd.to_numeric(sweep["max_gap_percentile_int"], errors="coerce").max()),
+                "max_observed_gap_zscore": float(pd.to_numeric(sweep["max_gap_zscore"], errors="coerce").max()),
+                "notes": "If natural gaps are absent across threshold sweeps, quantile fallback is the defensible path.",
+            }
+        ]
+    )
+    return sweep, summary
+
+
 def main():
     args = sys.argv[1:]
     property_id = None
@@ -298,17 +432,25 @@ def main():
         sys.exit(1)
 
     room_count = inv.get("room_count")
-    year_1, year_2 = get_analysis_years()
-    print(f"Property: {inv.get('property_name', property_id)}")
-    print(f"Analysis period: {year_1} and {year_2} (Jan–Dec each)")
-    print(f"Room count: {room_count or 'not set (occupancy/RevPAR at property level will be null)'}")
-    print(f"Loading: {canonical_path}")
+    analysis_window_cfg = inv.get("analysis_window") or {}
 
     df = pd.read_csv(canonical_path)
-    # Parse date columns so analysis can filter and derive
     for col in ("arrival_date", "departure_date", "booking_date"):
         if col in df.columns:
             df[col] = pd.to_datetime(df[col], errors="coerce")
+    max_arrival = None
+    if "arrival_date" in df.columns and df["arrival_date"].notna().any():
+        max_arrival = pd.Timestamp(df["arrival_date"].max()).normalize()
+    start_date, end_date = resolve_analysis_window(
+        analysis_window_cfg, canonical_max_arrival=max_arrival
+    )
+    print(f"Property: {inv.get('property_name', property_id)}")
+    print(f"Analysis period: {start_date.date()} to {end_date.date()}")
+    mc_print = inv.get("monthly_performance_combined") or {}
+    if mc_print:
+        print(f"  monthly_performance_combined (rank table only): {mc_print}")
+    print(f"Room count: {room_count or 'not set (occupancy/RevPAR at property level will be null)'}")
+    print(f"Loading: {canonical_path}")
 
     room_types = inv.get("room_types") or []
     listing_start_dates = {}
@@ -316,11 +458,24 @@ def main():
         if isinstance(r, dict) and r.get("unit_id") and r.get("listing_start_date"):
             listing_start_dates[str(r["unit_id"])] = str(r["listing_start_date"])
 
-    tables = run_analysis(
+    # listing_unit_counts is populated by property_config when unit_count is set in room_types.
+    listing_unit_counts = inv.get("listing_unit_counts") or {}
+    if listing_unit_counts:
+        print(f"Listing unit counts: { {k: v for k, v in listing_unit_counts.items()} }")
+
+    listing_capacity_fallback = inv.get("listing_unit_capacity_fallback") or {}
+    if listing_capacity_fallback:
+        print(f"Listing capacity fallback (overlay → base): {listing_capacity_fallback}")
+
+    tables = run_analysis_tables(
         df,
         room_count=room_count,
         tiering_cfg=inv.get("tiering"),
         listing_start_dates=listing_start_dates,
+        listing_unit_counts=listing_unit_counts,
+        analysis_window=analysis_window_cfg,
+        listing_capacity_fallback=listing_capacity_fallback,
+        monthly_performance_combined_cfg=inv.get("monthly_performance_combined") or {},
     )
     n_rows = len(tables["overall_summary"]) - 1  # exclude PROPERTY row for listing count
     if n_rows == 0:
@@ -337,6 +492,24 @@ def main():
     audit_path = output_dir / "tier_integrity_audit.csv"
     audit_df.to_csv(audit_path, index=False)
     print(f"  Wrote {audit_path} ({len(audit_df)} checks)")
+
+    tiering_cfg = inv.get("tiering") or {}
+    if tiering_cfg:
+        sweep_df, summary_df = build_tier_validation_outputs(
+            canonical_df=df,
+            room_count=room_count,
+            base_tiering_cfg=tiering_cfg,
+            listing_start_dates=listing_start_dates,
+            analysis_window_cfg=analysis_window_cfg,
+        )
+        if not sweep_df.empty:
+            sweep_path = output_dir / "tier_sensitivity_sweep.csv"
+            sweep_df.to_csv(sweep_path, index=False)
+            print(f"  Wrote {sweep_path} ({len(sweep_df)} rows)")
+        if not summary_df.empty:
+            val_path = output_dir / "tier_validation_summary.csv"
+            summary_df.to_csv(val_path, index=False)
+            print(f"  Wrote {val_path} ({len(summary_df)} rows)")
 
     print(f"\nDone. All tables written to {output_dir}")
 

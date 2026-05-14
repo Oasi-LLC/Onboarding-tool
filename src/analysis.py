@@ -10,6 +10,8 @@ from typing import Any, Optional, Union
 
 import pandas as pd
 
+from src.parser import reservation_status_is_excluded
+
 # Default booking window bands (lead_time_days): (min_inclusive, max_inclusive, label)
 # Finer granularity from 31+ days so large windows are not over-aggregated.
 DEFAULT_BOOKING_WINDOW_BANDS = [
@@ -28,6 +30,47 @@ DEFAULT_BOOKING_WINDOW_BANDS = [
 ]
 
 DAY_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+
+def _per_listing_physical_units(
+    unit_id: object,
+    listing_unit_counts: dict[str, int],
+    listing_capacity_fallback: Optional[dict[str, str]] = None,
+) -> int:
+    """
+    Physical unit count for per-listing occupancy / RevPAR denominators.
+    When unit_count is 0 (overlay SKU sharing another listing's inventory), use the
+    fallback base listing's unit_count if configured.
+    """
+    key = str(unit_id)
+    counts = listing_unit_counts or {}
+    if key in counts:
+        raw = int(counts[key])
+    else:
+        raw = 1
+    if raw > 0:
+        return raw
+    base = (listing_capacity_fallback or {}).get(key)
+    if base:
+        bs = str(base)
+        if bs in counts:
+            v = int(counts[bs])
+            if v > 0:
+                return v
+    return 1
+
+
+def _property_pool_row_units(unit_id: object, listing_unit_counts: dict[str, int]) -> float:
+    """
+    Units counted toward property-level available room-nights for this SKU.
+    Returns 0 for overlay listings (unit_count 0) so they are not double-counted.
+    """
+    key = str(unit_id)
+    counts = listing_unit_counts or {}
+    if key in counts:
+        v = float(int(counts[key]))
+        return v if v > 0 else 0.0
+    return 1.0
 
 
 def _unit_id_numeric_sort_key(unit_id: Union[str, object]) -> tuple[int, str]:
@@ -51,6 +94,95 @@ def get_analysis_years() -> tuple[int, int]:
     return (y - 2, y - 1)
 
 
+_ANALYSIS_END_DATA_MAX_ALIASES: frozenset[str] = frozenset(
+    {"data_max", "canonical_max", "from_data", "max_arrival"}
+)
+
+
+def resolve_analysis_window(
+    analysis_window: Optional[dict[str, Any]] = None,
+    *,
+    canonical_max_arrival: Optional[pd.Timestamp] = None,
+) -> tuple[pd.Timestamp, pd.Timestamp]:
+    """
+    Resolve analysis window bounds.
+    Default: two full prior calendar years.
+    Override: config ``{start_date, end_date}`` in YYYY-MM-DD (inclusive).
+
+    If ``end_date`` is one of ``data_max``, ``canonical_max``, ``from_data``, or ``max_arrival``
+    (case-insensitive), the window end is the latest ``arrival_date`` in the canonical file
+    (pass ``canonical_max_arrival`` from the loaded dataframe). If that value is missing,
+    falls back to the default calendar end.
+    """
+    y1, y2 = get_analysis_years()
+    default_start = pd.Timestamp(year=y1, month=1, day=1)
+    default_end = pd.Timestamp(year=y2, month=12, day=31)
+    cfg = analysis_window or {}
+    end_raw = cfg.get("end_date")
+    use_data_max = isinstance(end_raw, str) and end_raw.strip().lower() in _ANALYSIS_END_DATA_MAX_ALIASES
+
+    if use_data_max:
+        start = pd.to_datetime(cfg.get("start_date"), errors="coerce")
+        if pd.isna(start):
+            start = default_start
+        else:
+            start = pd.Timestamp(start).normalize()
+        if canonical_max_arrival is not None:
+            end = pd.Timestamp(canonical_max_arrival).normalize()
+            if pd.isna(end):
+                end = default_end
+        else:
+            end = default_end
+        if end < start:
+            end = start
+        return start, end
+
+    start = pd.to_datetime(cfg.get("start_date"), errors="coerce")
+    end = pd.to_datetime(cfg.get("end_date"), errors="coerce")
+    if pd.isna(start) or pd.isna(end):
+        return default_start, default_end
+    start = pd.Timestamp(start).normalize()
+    end = pd.Timestamp(end).normalize()
+    if end < start:
+        return default_start, default_end
+    return start, end
+
+
+def _resolve_yoy_periods(
+    analysis_window: Optional[dict[str, Any]] = None,
+    *,
+    canonical_max_arrival: Optional[pd.Timestamp] = None,
+) -> tuple[pd.Timestamp, pd.Timestamp, pd.Timestamp, pd.Timestamp]:
+    """
+    Build YoY comparison windows aligned to analysis end-date.
+    Example: end_date=2026-03-31 -> compare 2025-01-01..2025-03-31 vs 2026-01-01..2026-03-31.
+    Falls back safely for leap-year edge cases.
+
+    Optional analysis_window["yoy_compare_end_date"] (YYYY-MM-DD): cap the compare-year
+    slice so YoY uses the same calendar span in each year (e.g. Jan–Apr 2025 vs Jan–Apr 2026)
+    while the main analysis window can still include more months via end_date.
+    """
+    cfg = analysis_window or {}
+    _, window_end = resolve_analysis_window(
+        analysis_window, canonical_max_arrival=canonical_max_arrival
+    )
+    yoy_cap = pd.to_datetime(cfg.get("yoy_compare_end_date"), errors="coerce")
+    end_date = pd.Timestamp(window_end).normalize()
+    if not pd.isna(yoy_cap):
+        end_date = min(end_date, pd.Timestamp(yoy_cap).normalize())
+    compare_year = int(end_date.year)
+    base_year = compare_year - 1
+    compare_start = pd.Timestamp(year=compare_year, month=1, day=1)
+    compare_end = end_date
+    try:
+        base_end = pd.Timestamp(year=base_year, month=end_date.month, day=end_date.day)
+    except ValueError:
+        # e.g., Feb 29 alignment to non-leap year
+        base_end = pd.Timestamp(year=base_year, month=end_date.month, day=1) + pd.offsets.MonthEnd(0)
+    base_start = pd.Timestamp(year=base_year, month=1, day=1)
+    return base_start, base_end.normalize(), compare_start, compare_end.normalize()
+
+
 def _ensure_datetime(ser: pd.Series) -> pd.Series:
     """Parse to datetime if not already."""
     if pd.api.types.is_datetime64_any_dtype(ser):
@@ -68,6 +200,16 @@ def prepare_canonical_for_analysis(df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError("Canonical data must have 'arrival_date'")
     out["arrival_date"] = _ensure_datetime(out["arrival_date"])
     out = out.loc[out["arrival_date"].notna()].copy()
+    if "channel" in out.columns:
+        # Keep this exclusion in analysis prep so legacy canonical files are safe.
+        ch_norm = out["channel"].astype(str).str.strip().str.lower()
+        out = out.loc[ch_norm != "sales group booking"].copy()
+    # Defense in depth: drop cancel/pending rows if a status column exists on canonical (ingestion
+    # should already exclude them; this keeps 2025+ and future runs aligned if schema evolves).
+    for _status_col in ("reservation_status", "status", "Status"):
+        if _status_col in out.columns:
+            out = out.loc[~out[_status_col].map(reservation_status_is_excluded)].copy()
+            break
     out["arrival_year_month"] = out["arrival_date"].dt.strftime("%Y-%m")
     out["arrival_day_of_week"] = out["arrival_date"].dt.day_name()
     out["month_of_year"] = out["arrival_date"].dt.month
@@ -76,30 +218,102 @@ def prepare_canonical_for_analysis(df: pd.DataFrame) -> pd.DataFrame:
 
 def filter_canonical_to_period(
     df: pd.DataFrame,
-    year_1: int,
-    year_2: int,
+    start_date: pd.Timestamp,
+    end_date: pd.Timestamp,
 ) -> pd.DataFrame:
     """
     Keep only rows where arrival_date is in [Jan 1, year_1] through [Dec 31, year_2].
     Stays spanning year boundaries: include only if arrival is in window; assign whole stay to arrival month.
     """
-    start = pd.Timestamp(year=year_1, month=1, day=1)
-    end = pd.Timestamp(year=year_2, month=12, day=31, hour=23, minute=59, second=59)
-    mask = (df["arrival_date"] >= start) & (df["arrival_date"] <= end)
+    mask = (df["arrival_date"] >= start_date) & (df["arrival_date"] <= end_date)
     return df.loc[mask].copy()
+
+
+def _active_days_in_window(
+    unit_id: object,
+    window_start: pd.Timestamp,
+    window_end: pd.Timestamp,
+    listing_start_dates: Optional[dict[str, str]] = None,
+) -> int:
+    """
+    Active days for a listing inside [window_start, window_end], inclusive.
+    If listing_start_dates is missing for unit_id, assume active from window_start.
+    """
+    listing_start_dates = listing_start_dates or {}
+    raw_start = listing_start_dates.get(str(unit_id))
+    start_dt = pd.to_datetime(raw_start, errors="coerce") if raw_start else pd.NaT
+    effective_start = window_start if pd.isna(start_dt) else max(window_start, pd.Timestamp(start_dt).normalize())
+    if effective_start > window_end:
+        return 0
+    return int((window_end - effective_start).days + 1)
+
+
+def _property_available_room_nights(
+    room_count: Optional[int],
+    window_start: pd.Timestamp,
+    window_end: pd.Timestamp,
+    listing_start_dates: Optional[dict[str, str]] = None,
+    listing_unit_counts: Optional[dict[str, int]] = None,
+) -> Optional[float]:
+    """
+    Property availability denominator in room-nights.
+    Prefer listing-level rollout when listing_start_dates is provided; fallback to room_count*days.
+    """
+    listing_start_dates = listing_start_dates or {}
+    listing_unit_counts = listing_unit_counts or {}
+    window_days = int((window_end - window_start).days + 1)
+    if listing_start_dates:
+        total = 0.0
+        for unit_id in listing_start_dates.keys():
+            units = _property_pool_row_units(unit_id, listing_unit_counts)
+            if units <= 0:
+                continue
+            total += units * _active_days_in_window(
+                unit_id=unit_id,
+                window_start=window_start,
+                window_end=window_end,
+                listing_start_dates=listing_start_dates,
+            )
+        return total
+    if room_count and room_count > 0:
+        return float(room_count * window_days)
+    return None
 
 
 def build_overall_summary(
     df: pd.DataFrame,
     room_count: Optional[int],
+    analysis_window: Optional[dict[str, Any]] = None,
+    listing_unit_counts: Optional[dict[str, int]] = None,
+    listing_start_dates: Optional[dict[str, str]] = None,
+    listing_capacity_fallback: Optional[dict[str, str]] = None,
+    *,
+    canonical_max_arrival: Optional[pd.Timestamp] = None,
 ) -> pd.DataFrame:
     """
     Table 1: One row per listing (unit_id) + one row for PROPERTY.
-    Metrics for combined two years; YoY compares year_1 vs year_2.
+    Metrics for combined analysis window; YoY compares year_1 vs year_2 within that window.
+
+    analysis_window: if provided, availability denominator uses the actual window length
+        instead of the default two-full-calendar-year assumption (730 days).
+    listing_unit_counts: {unit_id: physical_unit_count} — for properties where a single
+        unit_id represents multiple physical units (e.g. wmb listing types).  When absent
+        for a given listing, 1 physical unit is assumed.
     """
-    year_1, year_2 = get_analysis_years()
-    df1 = df.loc[df["arrival_date"].dt.year == year_1]
-    df2 = df.loc[df["arrival_date"].dt.year == year_2]
+    base_start, base_end, compare_start, compare_end = _resolve_yoy_periods(
+        analysis_window, canonical_max_arrival=canonical_max_arrival
+    )
+    df1 = df.loc[(df["arrival_date"] >= base_start) & (df["arrival_date"] <= base_end)]
+    df2 = df.loc[(df["arrival_date"] >= compare_start) & (df["arrival_date"] <= compare_end)]
+
+    # Resolve the actual analysis window so availability denominators are correct.
+    start_date, end_date = resolve_analysis_window(
+        analysis_window, canonical_max_arrival=canonical_max_arrival
+    )
+
+    listing_unit_counts = listing_unit_counts or {}
+    listing_start_dates = listing_start_dates or {}
+    listing_capacity_fallback = listing_capacity_fallback or {}
 
     rows = []
     for unit_id, grp in df.groupby("unit_id", sort=False):
@@ -118,9 +332,18 @@ def build_overall_summary(
 
         revenue_yoy = (rev2 - rev1) / rev1 * 100 if rev1 and rev1 != 0 else None
         bookings_yoy = (b2 - b1) / b1 * 100 if b1 and b1 != 0 else None
-        adr_yoy = (adr2 - adr1) / adr1 * 100 if adr1 and adr1 != 0 else None
+        adr_yoy = (adr2 - adr1) / adr1 * 100 if adr1 is not None and adr1 != 0 and adr2 is not None else None
 
-        avail = 730  # 365 * 2 for one unit
+        physical_units = _per_listing_physical_units(
+            unit_id, listing_unit_counts, listing_capacity_fallback=listing_capacity_fallback
+        )
+        active_days = _active_days_in_window(
+            unit_id=unit_id,
+            window_start=start_date,
+            window_end=end_date,
+            listing_start_dates=listing_start_dates,
+        )
+        avail = physical_units * active_days
         occ = (rn / avail * 100) if avail else None
         revpar = rev / avail if avail else None
 
@@ -137,7 +360,7 @@ def build_overall_summary(
             "revpar": round(revpar, 2) if revpar is not None else None,
         })
 
-    # Property total row
+    # Property total row — denominator is room_count * window_days.
     rev = df["revenue"].sum()
     rn = df["nights"].sum()
     bookings = len(df)
@@ -150,8 +373,14 @@ def build_overall_summary(
     adr = rev / rn if rn and rn > 0 else None
     revenue_yoy = (rev2 - rev1) / rev1 * 100 if rev1 and rev1 != 0 else None
     bookings_yoy = (b2 - b1) / b1 * 100 if b1 and b1 != 0 else None
-    adr_yoy = (adr2 - adr1) / adr1 * 100 if adr1 and adr1 != 0 else None
-    avail = (room_count * 730) if room_count else None
+    adr_yoy = (adr2 - adr1) / adr1 * 100 if adr1 is not None and adr1 != 0 and adr2 is not None else None
+    avail = _property_available_room_nights(
+        room_count=room_count,
+        window_start=start_date,
+        window_end=end_date,
+        listing_start_dates=listing_start_dates,
+        listing_unit_counts=listing_unit_counts,
+    )
     occ = (rn / avail * 100) if avail and avail > 0 else None
     revpar = (rev / avail) if avail and avail > 0 else None
 
@@ -173,9 +402,87 @@ def build_overall_summary(
     return pd.DataFrame(rows)
 
 
+def build_period_summary(
+    df: pd.DataFrame,
+    room_count: Optional[int],
+    period_start: pd.Timestamp,
+    period_end: pd.Timestamp,
+    listing_unit_counts: Optional[dict[str, int]] = None,
+    listing_start_dates: Optional[dict[str, str]] = None,
+    period_label: str = "",
+    listing_capacity_fallback: Optional[dict[str, str]] = None,
+) -> pd.DataFrame:
+    """
+    Summary table for a fixed period (e.g., 2026 Q1), one row per listing + PROPERTY.
+    """
+    listing_unit_counts = listing_unit_counts or {}
+    listing_start_dates = listing_start_dates or {}
+    listing_capacity_fallback = listing_capacity_fallback or {}
+    sub = df.loc[(df["arrival_date"] >= period_start) & (df["arrival_date"] <= period_end)].copy()
+    rows: list[dict[str, Any]] = []
+    for unit_id, grp in sub.groupby("unit_id", sort=False):
+        rev = grp["revenue"].sum()
+        rn = grp["nights"].sum()
+        bookings = len(grp)
+        adr = (rev / rn) if rn and rn > 0 else None
+        physical_units = _per_listing_physical_units(
+            unit_id, listing_unit_counts, listing_capacity_fallback=listing_capacity_fallback
+        )
+        active_days = _active_days_in_window(
+            unit_id=unit_id,
+            window_start=period_start,
+            window_end=period_end,
+            listing_start_dates=listing_start_dates,
+        )
+        avail = physical_units * active_days
+        occ = (rn / avail * 100) if avail else None
+        revpar = (rev / avail) if avail else None
+        rows.append({
+            "period_label": period_label,
+            "period_start": period_start.strftime("%Y-%m-%d"),
+            "period_end": period_end.strftime("%Y-%m-%d"),
+            "unit_id": unit_id,
+            "revenue": round(rev, 2),
+            "room_nights": int(rn),
+            "bookings": bookings,
+            "adr": round(adr, 2) if adr is not None else None,
+            "occupancy_pct": round(occ, 2) if occ is not None else None,
+            "revpar": round(revpar, 2) if revpar is not None else None,
+        })
+    rev = sub["revenue"].sum()
+    rn = sub["nights"].sum()
+    bookings = len(sub)
+    adr = (rev / rn) if rn and rn > 0 else None
+    avail = _property_available_room_nights(
+        room_count=room_count,
+        window_start=period_start,
+        window_end=period_end,
+        listing_start_dates=listing_start_dates,
+        listing_unit_counts=listing_unit_counts,
+    )
+    occ = (rn / avail * 100) if avail and avail > 0 else None
+    revpar = (rev / avail) if avail and avail > 0 else None
+    rows.append({
+        "period_label": period_label,
+        "period_start": period_start.strftime("%Y-%m-%d"),
+        "period_end": period_end.strftime("%Y-%m-%d"),
+        "unit_id": "PROPERTY",
+        "revenue": round(rev, 2),
+        "room_nights": int(rn),
+        "bookings": bookings,
+        "adr": round(adr, 2) if adr is not None else None,
+        "occupancy_pct": round(occ, 2) if occ is not None else None,
+        "revpar": round(revpar, 2) if revpar is not None else None,
+    })
+    rows.sort(key=lambda r: _unit_id_numeric_sort_key(r["unit_id"]))
+    return pd.DataFrame(rows)
+
+
 def build_monthly_performance(
     df: pd.DataFrame,
     room_count: Optional[int],
+    listing_start_dates: Optional[dict[str, str]] = None,
+    listing_unit_counts: Optional[dict[str, int]] = None,
 ) -> pd.DataFrame:
     """Table 2: One row per month (24 months). Property-level only."""
     months = df.groupby("arrival_year_month", sort=True).agg(
@@ -186,16 +493,26 @@ def build_monthly_performance(
     months["adr"] = (months["revenue"] / months["room_nights"]).round(2)
     months.loc[months["room_nights"] == 0, "adr"] = None
 
-    # Occupancy and RevPAR: available = room_count * days in month
-    def days_in_month(ym: str) -> int:
+    # Occupancy and RevPAR use active-in-month inventory when rollout dates are available.
+    listing_start_dates = listing_start_dates or {}
+    listing_unit_counts = listing_unit_counts or {}
+    month_avail = []
+    for ym in months["arrival_year_month"].tolist():
         y, m = int(ym[:4]), int(ym[5:7])
-        return (pd.Timestamp(year=y, month=m, day=1) + pd.offsets.MonthEnd(0)).day
-
-    months["days_in_month"] = months["arrival_year_month"].map(days_in_month)
-    avail = room_count * months["days_in_month"] if room_count else None
-    if avail is not None:
-        months["occupancy_pct"] = (months["room_nights"] / avail * 100).round(2)
-        months["revpar"] = (months["revenue"] / avail).round(2)
+        m_start = pd.Timestamp(year=y, month=m, day=1)
+        m_end = m_start + pd.offsets.MonthEnd(0)
+        avail = _property_available_room_nights(
+            room_count=room_count,
+            window_start=m_start,
+            window_end=m_end,
+            listing_start_dates=listing_start_dates,
+            listing_unit_counts=listing_unit_counts,
+        )
+        month_avail.append(avail)
+    months["available_room_nights"] = month_avail
+    if "available_room_nights" in months.columns:
+        months["occupancy_pct"] = (months["room_nights"] / months["available_room_nights"] * 100).round(2)
+        months["revpar"] = (months["revenue"] / months["available_room_nights"]).round(2)
     else:
         months["occupancy_pct"] = None
         months["revpar"] = None
@@ -214,16 +531,101 @@ def build_monthly_performance(
     return months[[c for c in cols if c in months.columns]]
 
 
+def _monthly_combined_provisional_flags(
+    months_detail: pd.DataFrame,
+    ratio: float,
+) -> dict[int, bool]:
+    """
+    True when the latest calendar year in months_detail has fewer bookings for that
+    month_index than ratio * mean(bookings) in strictly prior years (same month_index).
+    """
+    if months_detail.empty or "year" not in months_detail.columns or "month_index" not in months_detail.columns:
+        return {}
+    ly = int(months_detail["year"].max())
+    prev = months_detail.loc[months_detail["year"] < ly]
+    if prev.empty:
+        return {int(m): False for m in months_detail["month_index"].dropna().unique().astype(int)}
+    hist_mean = prev.groupby("month_index")["bookings"].mean()
+    latest = months_detail.loc[months_detail["year"] == ly].groupby("month_index")["bookings"].sum()
+    idx = sorted(
+        set(hist_mean.index.astype(int).tolist()) | set(latest.index.astype(int).tolist())
+    )
+    out: dict[int, bool] = {}
+    for m in idx:
+        h = hist_mean.get(m, float("nan"))
+        cur = latest.get(m, float("nan"))
+        if pd.isna(h) or float(h) <= 0 or pd.isna(cur):
+            out[int(m)] = False
+        else:
+            out[int(m)] = float(cur) < float(ratio) * float(h)
+    return out
+
+
 def build_monthly_performance_combined(
     df: pd.DataFrame,
     room_count: Optional[int],
+    listing_start_dates: Optional[dict[str, str]] = None,
+    listing_unit_counts: Optional[dict[str, int]] = None,
+    combined_min_arrival_date: Optional[pd.Timestamp] = None,
+    combined_max_arrival_date: Optional[pd.Timestamp] = None,
+    provisional_bookings_ratio: Optional[float] = None,
 ) -> pd.DataFrame:
     """
-    Combined monthly performance across both years (one row per calendar month).
-    Aggregates revenue, room_nights, bookings, occupancy, RevPAR, and re-uses the
-    same 1–10 performance score by month-of-year.
+    Combined monthly performance across years (one row per calendar month observed).
+
+    Optional filters (pricing-rank basis only; other analysis tables use full ``df``):
+    ``combined_min_arrival_date`` / ``combined_max_arrival_date`` restrict which reservation
+    rows contribute (e.g. FBG after Basse 2 go-live, or cap future pickup months at today).
+
+    When ``provisional_bookings_ratio`` is set (e.g. 0.6), ``performance_rank_provisional`` is
+    True if the latest year's booking count for that month_index is below the ratio times
+    the mean booking count in prior years for the same month_index.
     """
-    months = df.groupby("arrival_year_month", sort=True).agg(
+    sub = df.copy()
+    if combined_min_arrival_date is not None:
+        sub = sub.loc[sub["arrival_date"] >= combined_min_arrival_date].copy()
+    if combined_max_arrival_date is not None:
+        sub = sub.loc[sub["arrival_date"] <= combined_max_arrival_date].copy()
+
+    meta_min = (
+        pd.Timestamp(combined_min_arrival_date).strftime("%Y-%m-%d")
+        if combined_min_arrival_date is not None
+        else ""
+    )
+    meta_max = (
+        pd.Timestamp(combined_max_arrival_date).strftime("%Y-%m-%d")
+        if combined_max_arrival_date is not None
+        else ""
+    )
+
+    prov_ratio: Optional[float] = None
+    if provisional_bookings_ratio is not None:
+        try:
+            pr = float(provisional_bookings_ratio)
+            if 0 < pr <= 1:
+                prov_ratio = pr
+        except (TypeError, ValueError):
+            prov_ratio = None
+
+    if sub.empty:
+        cols = [
+            "month_index",
+            "month_name",
+            "avg_basis_year_count",
+            "revenue",
+            "room_nights",
+            "adr",
+            "bookings",
+            "occupancy_pct",
+            "revpar",
+            "performance_score_1_10",
+            "performance_rank_provisional",
+            "rank_filter_min_arrival",
+            "rank_filter_max_arrival",
+        ]
+        return pd.DataFrame(columns=cols)
+
+    months = sub.groupby("arrival_year_month", sort=True).agg(
         revenue=("revenue", "sum"),
         room_nights=("nights", "sum"),
         bookings=("unit_id", "count"),
@@ -243,25 +645,45 @@ def build_monthly_performance_combined(
         revenue_sum=("revenue", "sum"),
         room_nights_sum=("room_nights", "sum"),
         bookings_sum=("bookings", "sum"),
-        total_days_sum=("days_in_month", "sum"),
-        year_count=("year", "nunique"),
+        avg_basis_year_count=("year", "nunique"),
     ).reset_index()
 
-    # Avoid division by zero if somehow year_count is 0
-    grouped["year_count"] = grouped["year_count"].replace(0, 1)
+    # Distinct calendar years contributing to this month_index (before averaging).
+    # Shown on output for sanity checks (e.g. one year only when today-cap drops the compare year).
+    div = grouped["avg_basis_year_count"].replace(0, 1)
 
-    grouped["revenue"] = (grouped["revenue_sum"] / grouped["year_count"]).round(2)
-    grouped["room_nights"] = (grouped["room_nights_sum"] / grouped["year_count"]).round(2)
-    grouped["bookings"] = (grouped["bookings_sum"] / grouped["year_count"]).round(2)
-    grouped["days_in_month_avg"] = grouped["total_days_sum"] / grouped["year_count"]
+    grouped["revenue"] = (grouped["revenue_sum"] / div).round(2)
+    grouped["room_nights"] = (grouped["room_nights_sum"] / div).round(2)
+    grouped["bookings"] = (grouped["bookings_sum"] / div).round(2)
+    # Active inventory availability averaged by month index across years.
+    listing_start_dates = listing_start_dates or {}
+    listing_unit_counts = listing_unit_counts or {}
+    availability_rows = []
+    for y in sorted(months["year"].dropna().astype(int).unique().tolist()):
+        for m in sorted(months["month_index"].dropna().astype(int).unique().tolist()):
+            m_start = pd.Timestamp(year=int(y), month=int(m), day=1)
+            m_end = m_start + pd.offsets.MonthEnd(0)
+            avail = _property_available_room_nights(
+                room_count=room_count,
+                window_start=m_start,
+                window_end=m_end,
+                listing_start_dates=listing_start_dates,
+                listing_unit_counts=listing_unit_counts,
+            )
+            availability_rows.append({"year": int(y), "month_index": int(m), "available_room_nights": avail})
+    avail_df = pd.DataFrame(availability_rows)
+    if not avail_df.empty:
+        avail_month = avail_df.groupby("month_index", as_index=False).agg(
+            available_room_nights_avg=("available_room_nights", "mean")
+        )
+        grouped = grouped.merge(avail_month, on="month_index", how="left")
 
     # ADR and occupancy / RevPAR based on averaged values
     grouped["adr"] = (grouped["revenue"] / grouped["room_nights"]).round(2)
     grouped.loc[grouped["room_nights"] == 0, "adr"] = None
-    if room_count:
-        avail = room_count * grouped["days_in_month_avg"]
-        grouped["occupancy_pct"] = (grouped["room_nights"] / avail * 100).round(2)
-        grouped["revpar"] = (grouped["revenue"] / avail).round(2)
+    if "available_room_nights_avg" in grouped.columns:
+        grouped["occupancy_pct"] = (grouped["room_nights"] / grouped["available_room_nights_avg"] * 100).round(2)
+        grouped["revpar"] = (grouped["revenue"] / grouped["available_room_nights_avg"]).round(2)
     else:
         grouped["occupancy_pct"] = None
         grouped["revpar"] = None
@@ -285,9 +707,21 @@ def build_monthly_performance_combined(
     }
     grouped["month_name"] = grouped["month_index"].map(month_names)
 
+    if prov_ratio is not None:
+        prov_flags = _monthly_combined_provisional_flags(months, prov_ratio)
+        grouped["performance_rank_provisional"] = grouped["month_index"].astype(int).map(
+            lambda m: bool(prov_flags.get(int(m), False))
+        )
+    else:
+        grouped["performance_rank_provisional"] = False
+
+    grouped["rank_filter_min_arrival"] = meta_min
+    grouped["rank_filter_max_arrival"] = meta_max
+
     cols = [
         "month_index",
         "month_name",
+        "avg_basis_year_count",
         "revenue",
         "room_nights",
         "adr",
@@ -295,6 +729,9 @@ def build_monthly_performance_combined(
         "occupancy_pct",
         "revpar",
         "performance_score_1_10",
+        "performance_rank_provisional",
+        "rank_filter_min_arrival",
+        "rank_filter_max_arrival",
     ]
     return grouped[[c for c in cols if c in grouped.columns]]
 
@@ -373,52 +810,75 @@ def build_channel_by_listing(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def build_by_day_of_week(df: pd.DataFrame) -> pd.DataFrame:
-    """Table 4: One row per day of week (arrival-based check-ins), using average per year."""
+    """
+    Table 4: One row per day of week using stay-date (night-of-week) attribution.
+
+    Revenue is allocated to occupied nights via revenue / nights and then aggregated by
+    stay_date weekday. Arrival-day check-ins are still included as a contextual column.
+    """
     df = df.copy()
-    df["year"] = df["arrival_date"].dt.year
 
-    # First aggregate by year and day-of-week (sums within each year)
-    yearly = df.groupby(["year", "arrival_day_of_week"], sort=False).agg(
-        check_ins=("unit_id", "count"),
-        revenue=("revenue", "sum"),
-        room_nights=("nights", "sum"),
-    ).reset_index()
+    # Keep arrival-day check-ins as context for booking pattern interpretation.
+    arrivals = (
+        df.groupby("arrival_day_of_week", sort=False)
+        .agg(check_ins=("unit_id", "count"))
+        .reset_index()
+        .rename(columns={"arrival_day_of_week": "day_of_week"})
+    )
 
-    # Then average across years for each day-of-week so metrics represent a "typical year"
-    grp = yearly.groupby("arrival_day_of_week", sort=False).agg(
-        check_ins=("check_ins", "mean"),
-        revenue=("revenue", "mean"),
-        room_nights=("room_nights", "mean"),
+    stay = df[["arrival_date", "departure_date", "revenue", "nights"]].dropna(
+        subset=["arrival_date", "departure_date", "revenue", "nights"]
+    ).copy()
+    stay = stay.loc[stay["departure_date"] > stay["arrival_date"]].copy()
+    stay["nights_safe"] = pd.to_numeric(stay["nights"], errors="coerce")
+    stay = stay.loc[stay["nights_safe"] > 0].copy()
+    stay["rev_per_night"] = stay["revenue"] / stay["nights_safe"]
+
+    # Expand each reservation into occupied nights [arrival_date, departure_date).
+    stay["stay_date"] = stay.apply(
+        lambda r: pd.date_range(
+            start=pd.Timestamp(r["arrival_date"]).normalize(),
+            end=(pd.Timestamp(r["departure_date"]).normalize() - pd.Timedelta(days=1)),
+            freq="D",
+        ),
+        axis=1,
+    )
+    stay = stay.explode("stay_date")
+    stay["day_of_week"] = pd.to_datetime(stay["stay_date"], errors="coerce").dt.day_name()
+
+    grp = stay.groupby("day_of_week", sort=False).agg(
+        revenue=("rev_per_night", "sum"),
+        room_nights=("stay_date", "count"),
     ).reset_index()
+    grp = grp.merge(arrivals, on="day_of_week", how="left")
+    grp["check_ins"] = grp["check_ins"].fillna(0)
 
     tot_ci = grp["check_ins"].sum()
     tot_rev = grp["revenue"].sum()
+    tot_rn = grp["room_nights"].sum()
     grp["share_of_check_ins_pct"] = (grp["check_ins"] / tot_ci * 100).round(2) if tot_ci else None
     grp["share_of_revenue_pct"] = (grp["revenue"] / tot_rev * 100).round(2) if tot_rev else None
+    grp["share_of_room_nights_pct"] = (grp["room_nights"] / tot_rn * 100).round(2) if tot_rn else None
     grp["adr"] = (grp["revenue"] / grp["room_nights"]).round(2)
     grp.loc[grp["room_nights"] == 0, "adr"] = None
 
-    # Day-of-week performance score 1–10 combining ADR, share_of_revenue_pct and share_of_check_ins_pct (relative across the 7 days)
+    # Day-of-week performance score 1-10: ADR + revenue share + room-night share.
     n = len(grp)
     if n > 1:
         adr_rank = grp["adr"].rank(method="min", ascending=True)
         revshare_rank = grp["share_of_revenue_pct"].rank(method="min", ascending=True)
-        checkins_rank = grp["share_of_check_ins_pct"].rank(method="min", ascending=True)
+        room_nights_rank = grp["share_of_room_nights_pct"].rank(method="min", ascending=True)
         s_adr = (adr_rank - 1) / (n - 1)
         s_revshare = (revshare_rank - 1) / (n - 1)
-        s_check = (checkins_rank - 1) / (n - 1)
-        # Weighted combination: rate (ADR) and revenue share 40% each, check-in share 20%
-        s_combined = 0.4 * s_adr + 0.4 * s_revshare + 0.2 * s_check
-        # Keep as a continuous float score in [1, 10]
+        s_room_nights = (room_nights_rank - 1) / (n - 1)
+        s_combined = 0.4 * s_adr + 0.4 * s_revshare + 0.2 * s_room_nights
         grp["dow_score_1_10"] = 1 + 9 * s_combined
     else:
         grp["dow_score_1_10"] = 5.0
 
-    # Order Mon..Sun
-    grp["arrival_day_of_week"] = pd.Categorical(grp["arrival_day_of_week"], categories=DAY_ORDER, ordered=True)
-    grp = grp.sort_values("arrival_day_of_week").dropna(subset=["arrival_day_of_week"])
-    grp["arrival_day_of_week"] = grp["arrival_day_of_week"].astype(str)
-    grp = grp.rename(columns={"arrival_day_of_week": "day_of_week"})
+    grp["day_of_week"] = pd.Categorical(grp["day_of_week"], categories=DAY_ORDER, ordered=True)
+    grp = grp.sort_values("day_of_week").dropna(subset=["day_of_week"])
+    grp["day_of_week"] = grp["day_of_week"].astype(str)
     return grp
 
 
@@ -721,11 +1181,37 @@ def _assign_tier_quantile(
         return None
 
 
+def _default_tier_labels_for_count(n: int) -> dict[int, str]:
+    """
+    Deterministic default labels for 2..15 tiers.
+    Keeps lowest=Soft and highest=Peak across properties.
+    """
+    n = max(2, min(15, int(n)))
+    fixed = {
+        2: ["Soft", "Peak"],
+        3: ["Soft", "Shoulder", "Peak"],
+        4: ["Soft", "Low", "High", "Peak"],
+        5: ["Soft", "Low", "Shoulder", "High", "Peak"],
+        6: ["Soft", "Low", "Shoulder Low", "Shoulder High", "High", "Peak"],
+    }
+    if n in fixed:
+        labels = fixed[n]
+    else:
+        # For 7..15, insert deterministic intermediate bands between Low and High.
+        middle_count = n - 4  # Soft, Low, [middle...], High, Peak
+        mids = [f"Mid {i}" for i in range(1, middle_count + 1)]
+        labels = ["Soft", "Low"] + mids + ["High", "Peak"]
+    return {i + 1: labels[i] for i in range(len(labels))}
+
+
 def build_daily_tier_outputs(
     df: pd.DataFrame,
     room_count: Optional[int],
     tiering_cfg: Optional[dict[str, Any]] = None,
     listing_start_dates: Optional[dict[str, str]] = None,
+    analysis_window: Optional[dict[str, Any]] = None,
+    *,
+    canonical_max_arrival: Optional[pd.Timestamp] = None,
 ) -> dict[str, pd.DataFrame]:
     """
     Build tier outputs from smoothed daily RevPAR percentiles.
@@ -745,8 +1231,10 @@ def build_daily_tier_outputs(
     min_days_per_tier = int(cfg.get("min_days_per_tier", 14))
     min_active_months_for_portfolio = int(cfg.get("min_active_months_for_portfolio", 6))
 
-    y1, y2 = get_analysis_years()
-    daily = pd.DataFrame({"date": pd.date_range(f"{y1}-01-01", f"{y2}-12-31", freq="D")})
+    start_date, end_date = resolve_analysis_window(
+        analysis_window, canonical_max_arrival=canonical_max_arrival
+    )
+    daily = pd.DataFrame({"date": pd.date_range(start_date, end_date, freq="D")})
     if df.empty:
         daily["tier_id"] = 1
         daily["tier_label"] = "Tier 1"
@@ -799,7 +1287,7 @@ def build_daily_tier_outputs(
         base["active"] = base["date"] >= start_dt
         base["listing_start_date"] = start_dt
         base["start_date_source"] = start_date_source
-        base["out_of_window"] = bool(start_dt > pd.Timestamp(year=y2, month=12, day=31))
+        base["out_of_window"] = bool(start_dt > end_date)
         # Listing-day context should be stay-night based (not arrival-only).
         # Expand each reservation to occupied nights: [arrival_date, departure_date).
         stay = unit_df[
@@ -847,7 +1335,7 @@ def build_daily_tier_outputs(
             )
         )
         base = base.merge(md, on="month_day", how="left")
-        months_active = ((pd.Timestamp(year=y2, month=12, day=31) - start_dt).days + 1) / 30.44
+        months_active = ((end_date - start_dt).days + 1) / 30.44
         base["insufficient_data"] = bool(months_active < min_active_months_for_portfolio)
         unit_rows.append(base)
 
@@ -1028,6 +1516,8 @@ def build_daily_tier_outputs(
             label_map[int(k)] = str(v).strip()
         except (TypeError, ValueError):
             continue
+    if not label_map:
+        label_map = _default_tier_labels_for_count(int(daily["tier_id"].nunique()))
     daily["tier_label"] = daily["tier_id"].map(lambda t: label_map.get(int(t), f"Tier {int(t)}"))
     daily["tier_method"] = method
 
@@ -1105,38 +1595,253 @@ def build_daily_tier_outputs(
     }
 
 
+def build_tier_leadtime_pricing_integrity(
+    df: pd.DataFrame,
+    daily_tier_calendar: pd.DataFrame,
+    room_count: Optional[int] = None,
+    bands: Optional[list[tuple[int, int, str]]] = None,
+) -> pd.DataFrame:
+    """
+    Operational pricing integrity table:
+    tier_label x lead_band with ADR, revenue, share, and booking count.
+    Join is arrival-date based (booking behavior relative to arrival day tier).
+    """
+    if df.empty or daily_tier_calendar.empty:
+        return pd.DataFrame(
+            columns=[
+                "tier_id",
+                "tier_label",
+                "lead_band",
+                "adr",
+                "revenue",
+                "revenue_share_of_tier",
+                "booking_count",
+                "room_nights",
+                "room_night_share_of_tier",
+                "occupancy_pct_of_tier_capacity",
+                "tier_occupancy_pct",
+            ]
+        )
+    bands = bands or DEFAULT_BOOKING_WINDOW_BANDS
+    req = {"arrival_date", "lead_time_days", "revenue", "nights"}
+    if not req.issubset(set(df.columns)):
+        return pd.DataFrame(
+            columns=[
+                "tier_id",
+                "tier_label",
+                "lead_band",
+                "adr",
+                "revenue",
+                "revenue_share_of_tier",
+                "booking_count",
+                "room_nights",
+                "room_night_share_of_tier",
+                "occupancy_pct_of_tier_capacity",
+                "tier_occupancy_pct",
+            ]
+        )
+    x = df.copy()
+    x["arrival_date"] = pd.to_datetime(x["arrival_date"], errors="coerce")
+    x = x.dropna(subset=["arrival_date"]).copy()
+    x["lead_band"] = _assign_booking_window(pd.to_numeric(x["lead_time_days"], errors="coerce"), bands)
+    x["revenue"] = pd.to_numeric(x["revenue"], errors="coerce")
+    x["nights"] = pd.to_numeric(x["nights"], errors="coerce")
+    x = x.dropna(subset=["lead_band", "revenue", "nights"]).copy()
+    x = x[x["nights"] > 0].copy()
+
+    d = daily_tier_calendar.copy()
+    d["date"] = pd.to_datetime(d["date"], errors="coerce")
+    d = d.dropna(subset=["date"]).copy()
+    join_cols = [c for c in ["date", "tier_id", "tier_label"] if c in d.columns]
+    d = d[join_cols].rename(columns={"date": "arrival_date"})
+
+    m = x.merge(d, on="arrival_date", how="left")
+    m = m.dropna(subset=["tier_id", "tier_label"]).copy()
+
+    grp = (
+        m.groupby(["tier_id", "tier_label", "lead_band"], as_index=False)
+        .agg(
+            revenue=("revenue", "sum"),
+            room_nights=("nights", "sum"),
+            booking_count=("arrival_date", "count"),
+        )
+    )
+    grp["adr"] = grp["revenue"] / grp["room_nights"]
+    grp.loc[grp["room_nights"] <= 0, "adr"] = pd.NA
+    tier_totals = grp.groupby(["tier_id", "tier_label"], as_index=False).agg(
+        tier_revenue=("revenue", "sum"),
+        tier_room_nights=("room_nights", "sum"),
+    )
+    grp = grp.merge(tier_totals, on=["tier_id", "tier_label"], how="left")
+    grp["revenue_share_of_tier"] = grp["revenue"] / grp["tier_revenue"]
+    grp["room_night_share_of_tier"] = grp["room_nights"] / grp["tier_room_nights"]
+
+    # Occupancy context by tier capacity:
+    # denominator = days in tier * room_count (if room_count is available).
+    if room_count and room_count > 0 and {"tier_id", "date"}.issubset(set(daily_tier_calendar.columns)):
+        tier_days = (
+            daily_tier_calendar.groupby("tier_id", as_index=False)
+            .agg(tier_days=("date", "count"))
+        )
+        grp = grp.merge(tier_days, on="tier_id", how="left")
+        grp["tier_capacity_room_nights"] = pd.to_numeric(grp["tier_days"], errors="coerce") * float(room_count)
+        grp["occupancy_pct_of_tier_capacity"] = (grp["room_nights"] / grp["tier_capacity_room_nights"]) * 100.0
+        grp["tier_occupancy_pct"] = (grp["tier_room_nights"] / grp["tier_capacity_room_nights"]) * 100.0
+    else:
+        grp["occupancy_pct_of_tier_capacity"] = pd.NA
+        grp["tier_occupancy_pct"] = pd.NA
+
+    band_order = [label for _, _, label in bands]
+    grp["lead_band"] = pd.Categorical(grp["lead_band"], categories=band_order, ordered=True)
+    grp = grp.sort_values(["tier_id", "lead_band"]).reset_index(drop=True)
+    grp["revenue"] = grp["revenue"].round(2)
+    grp["adr"] = pd.to_numeric(grp["adr"], errors="coerce").round(2)
+    grp["revenue_share_of_tier"] = (pd.to_numeric(grp["revenue_share_of_tier"], errors="coerce") * 100.0).round(2)
+    grp["room_nights"] = pd.to_numeric(grp["room_nights"], errors="coerce").round(2)
+    grp["room_night_share_of_tier"] = (pd.to_numeric(grp["room_night_share_of_tier"], errors="coerce") * 100.0).round(2)
+    grp["occupancy_pct_of_tier_capacity"] = pd.to_numeric(grp["occupancy_pct_of_tier_capacity"], errors="coerce").round(2)
+    grp["tier_occupancy_pct"] = pd.to_numeric(grp["tier_occupancy_pct"], errors="coerce").round(2)
+    return grp[
+        [
+            "tier_id",
+            "tier_label",
+            "lead_band",
+            "adr",
+            "revenue",
+            "revenue_share_of_tier",
+            "booking_count",
+            "room_nights",
+            "room_night_share_of_tier",
+            "occupancy_pct_of_tier_capacity",
+            "tier_occupancy_pct",
+        ]
+    ]
+
+
+def _resolve_monthly_combined_rank_filters(
+    analysis_window: Optional[dict[str, Any]],
+    monthly_performance_combined_cfg: Optional[dict[str, Any]],
+    *,
+    canonical_max_arrival: Optional[pd.Timestamp] = None,
+) -> tuple[Optional[pd.Timestamp], Optional[pd.Timestamp], Optional[float]]:
+    """
+    Returns (min_arrival, max_arrival, provisional_ratio) for combined month ranking only.
+    max_arrival is None when no tighter bound than analysis end_date is requested.
+    """
+    mc = monthly_performance_combined_cfg or {}
+    _, end_date = resolve_analysis_window(
+        analysis_window or {}, canonical_max_arrival=canonical_max_arrival
+    )
+    end_norm = pd.Timestamp(end_date).normalize()
+
+    min_raw = pd.to_datetime(mc.get("min_arrival_date"), errors="coerce")
+    min_ad = None if pd.isna(min_raw) else pd.Timestamp(min_raw).normalize()
+
+    combined_max: Optional[pd.Timestamp] = None
+    tighten = False
+    u = end_norm
+    if bool(mc.get("cap_max_arrival_at_today")):
+        u = min(u, pd.Timestamp.today().normalize())
+        tighten = True
+    max_cfg_raw = pd.to_datetime(mc.get("max_arrival_date"), errors="coerce")
+    if not pd.isna(max_cfg_raw):
+        u = min(u, pd.Timestamp(max_cfg_raw).normalize())
+        tighten = True
+    if tighten:
+        combined_max = u
+
+    prov_raw = mc.get("provisional_bookings_vs_hist_ratio")
+    prov_ratio: Optional[float] = None
+    if prov_raw is not None:
+        try:
+            pr = float(prov_raw)
+            if 0 < pr <= 1:
+                prov_ratio = pr
+        except (TypeError, ValueError):
+            prov_ratio = None
+
+    return min_ad, combined_max, prov_ratio
+
+
 def run_analysis(
     df: pd.DataFrame,
     room_count: Optional[int] = None,
     booking_window_bands: Optional[list[tuple[int, int, str]]] = None,
     tiering_cfg: Optional[dict[str, Any]] = None,
     listing_start_dates: Optional[dict[str, str]] = None,
+    analysis_window: Optional[dict[str, Any]] = None,
+    listing_unit_counts: Optional[dict[str, int]] = None,
+    listing_capacity_fallback: Optional[dict[str, str]] = None,
+    monthly_performance_combined_cfg: Optional[dict[str, Any]] = None,
 ) -> dict[str, pd.DataFrame]:
     """
-    Run all analysis tables on canonical df (already filtered to analysis period).
+    Run all analysis tables on canonical df (full export is fine; rows are clipped to the
+    resolved analysis window inside this function).
+
     Returns dict of table_name -> DataFrame.
+
+    listing_unit_counts: {unit_id: physical_unit_count} — forwarded to build_overall_summary
+        so per-listing occupancy and RevPAR use the correct availability denominator for
+        properties where one unit_id represents multiple physical units (e.g. wmb).
+
+    monthly_performance_combined_cfg: optional dict (from property yaml
+        ``monthly_performance_combined``) with min_arrival_date, cap_max_arrival_at_today,
+        max_arrival_date, provisional_bookings_vs_hist_ratio — affects only
+        ``monthly_performance_combined`` output.
     """
-    year_1, year_2 = get_analysis_years()
     df = prepare_canonical_for_analysis(df)
-    df = filter_canonical_to_period(df, year_1, year_2)
+    max_arr: Optional[pd.Timestamp] = None
+    if not df.empty and "arrival_date" in df.columns and df["arrival_date"].notna().any():
+        max_arr = pd.Timestamp(df["arrival_date"].max()).normalize()
+    start_date, end_date = resolve_analysis_window(
+        analysis_window, canonical_max_arrival=max_arr
+    )
+    df = filter_canonical_to_period(df, start_date, end_date)
+    mc_min, mc_max, mc_prov = _resolve_monthly_combined_rank_filters(
+        analysis_window,
+        monthly_performance_combined_cfg,
+        canonical_max_arrival=max_arr,
+    )
     tier_tables = build_daily_tier_outputs(
         df,
         room_count=room_count,
         tiering_cfg=tiering_cfg,
         listing_start_dates=listing_start_dates,
+        analysis_window=analysis_window,
+        canonical_max_arrival=max_arr,
     )
 
-    use_tiers_as_seasons = bool((tiering_cfg or {}).get("use_tiers_as_seasons", False))
-    listing_season_df = (
-        build_listing_season_performance_from_tiers(tier_tables["listing_daily_tier_calendar"])
-        if use_tiers_as_seasons
-        else build_listing_season_performance(df)
+    # Tool-standard behavior: listing seasonality always follows the discovered
+    # tier calendar for consistency across properties.
+    listing_season_df = build_listing_season_performance_from_tiers(
+        tier_tables["listing_daily_tier_calendar"]
     )
 
-    return {
-        "overall_summary": build_overall_summary(df, room_count),
-        "monthly_performance": build_monthly_performance(df, room_count),
-        "monthly_performance_combined": build_monthly_performance_combined(df, room_count),
+    out = {
+        "overall_summary": build_overall_summary(
+            df,
+            room_count,
+            analysis_window=analysis_window,
+            listing_unit_counts=listing_unit_counts,
+            listing_start_dates=listing_start_dates,
+            listing_capacity_fallback=listing_capacity_fallback,
+            canonical_max_arrival=max_arr,
+        ),
+        "monthly_performance": build_monthly_performance(
+            df,
+            room_count,
+            listing_start_dates=listing_start_dates,
+            listing_unit_counts=listing_unit_counts,
+        ),
+        "monthly_performance_combined": build_monthly_performance_combined(
+            df,
+            room_count,
+            listing_start_dates=listing_start_dates,
+            listing_unit_counts=listing_unit_counts,
+            combined_min_arrival_date=mc_min,
+            combined_max_arrival_date=mc_max,
+            provisional_bookings_ratio=mc_prov,
+        ),
         "listing_season_performance": listing_season_df,
         "channel_by_year": build_channel_by_year(df),
         "channel_summary": build_channel_summary(df),
@@ -1149,4 +1854,25 @@ def run_analysis(
         "tier_summary": tier_tables["tier_summary"],
         "tier_blocks": tier_tables["tier_blocks"],
         "tier_diagnostics": tier_tables["tier_diagnostics"],
+        "tier_leadtime_pricing_integrity": build_tier_leadtime_pricing_integrity(
+            df,
+            tier_tables["daily_tier_calendar"],
+            room_count=room_count,
+            bands=booking_window_bands,
+        ),
     }
+    # Optional helper table for the requested 2026 Q1 period if present in window.
+    q1_start = pd.Timestamp(year=2026, month=1, day=1)
+    q1_end = pd.Timestamp(year=2026, month=3, day=31)
+    if start_date <= q1_end and end_date >= q1_start:
+        out["period_summary_2026_q1"] = build_period_summary(
+            df,
+            room_count=room_count,
+            period_start=max(start_date, q1_start),
+            period_end=min(end_date, q1_end),
+            listing_unit_counts=listing_unit_counts,
+            listing_start_dates=listing_start_dates,
+            period_label="2026_Q1",
+            listing_capacity_fallback=listing_capacity_fallback,
+        )
+    return out

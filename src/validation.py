@@ -10,9 +10,14 @@ from typing import Any
 import pandas as pd
 
 from .parser import (
+    _RESNEXUS_CHANNEL,
+    _RESNEXUS_REQUIRED,
+    _RESNEXUS_SHEET_CHANNEL,
+    _RESNEXUS_SHEET_REQUIRED,
     get_channel_columns,
     get_required_columns,
     map_to_canonical,
+    resnexus_raw_format,
 )
 
 # Severities
@@ -30,24 +35,58 @@ MONTHS_MIN_FOR_SEASONALITY = 12
 
 def validate_columns(raw: pd.DataFrame, pms_id: str) -> list[dict[str, Any]]:
     """Column-level checks on raw CSV (uses required/channel columns for this PMS)."""
-    required = get_required_columns(pms_id)
-    channel_cols = get_channel_columns(pms_id)
     results = []
-    missing = [c for c in required if c not in raw.columns]
-    results.append({
-        "check": "required_columns_present",
-        "severity": ERROR if missing else None,
-        "passed": len(missing) == 0,
-        "message": f"Missing required columns: {missing}" if missing else "All required columns present",
-        "detail": {"missing": missing},
-    })
-    channel_ok = any(c in raw.columns for c in channel_cols)
-    results.append({
-        "check": "channel_columns_present",
-        "severity": ERROR if not channel_ok else None,
-        "passed": channel_ok,
-        "message": "At least one channel column present" if channel_ok else "No channel columns found",
-    })
+    if pms_id == "resnexus":
+        fmt = resnexus_raw_format(raw)
+        if fmt == "unknown":
+            missing_legacy = [c for c in _RESNEXUS_REQUIRED if c not in raw.columns]
+            missing_sheet = [c for c in _RESNEXUS_SHEET_REQUIRED if c not in raw.columns]
+            results.append({
+                "check": "required_columns_present",
+                "severity": ERROR,
+                "passed": False,
+                "message": (
+                    "ResNexus CSV matches neither legacy nor sheet layout. "
+                    f"Legacy missing: {missing_legacy}. Sheet missing: {missing_sheet}."
+                ),
+                "detail": {"missing_legacy": missing_legacy, "missing_sheet": missing_sheet},
+            })
+        else:
+            results.append({
+                "check": "required_columns_present",
+                "severity": None,
+                "passed": True,
+                "message": f"All required columns present (ResNexus {fmt} layout)",
+                "detail": {"format": fmt},
+            })
+        channel_cols = _RESNEXUS_CHANNEL if fmt == "legacy" else _RESNEXUS_SHEET_CHANNEL
+        if fmt == "unknown":
+            channel_cols = list(dict.fromkeys(_RESNEXUS_CHANNEL + _RESNEXUS_SHEET_CHANNEL))
+        channel_ok = any(c in raw.columns for c in channel_cols)
+        results.append({
+            "check": "channel_columns_present",
+            "severity": ERROR if not channel_ok else None,
+            "passed": channel_ok,
+            "message": "At least one channel column present" if channel_ok else "No channel columns found",
+        })
+    else:
+        required = get_required_columns(pms_id)
+        channel_cols = get_channel_columns(pms_id)
+        missing = [c for c in required if c not in raw.columns]
+        results.append({
+            "check": "required_columns_present",
+            "severity": ERROR if missing else None,
+            "passed": len(missing) == 0,
+            "message": f"Missing required columns: {missing}" if missing else "All required columns present",
+            "detail": {"missing": missing},
+        })
+        channel_ok = any(c in raw.columns for c in channel_cols)
+        results.append({
+            "check": "channel_columns_present",
+            "severity": ERROR if not channel_ok else None,
+            "passed": channel_ok,
+            "message": "At least one channel column present" if channel_ok else "No channel columns found",
+        })
     dupes = raw.columns[raw.columns.duplicated()].tolist()
     results.append({
         "check": "no_duplicate_columns",

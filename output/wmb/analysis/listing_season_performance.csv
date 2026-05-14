@@ -1,0 +1,31 @@
+unit_id,season,season_order,season_revenue,season_room_nights,season_bookings,season_adr,season_score_1_10,season_percentile
+Greenhouse,Soft,1,190600.0,476.0,280.0,400.42,10.0,100.0
+Greenhouse (Accessible),Soft,1,13374.5,30.0,19.0,445.82,1.0,0.0
+Greenhouse (Pet Friendly),Soft,1,94284.16666666667,244.0,140.0,386.41,4.6,40.0
+Spyglass,Soft,1,143349.56666666668,305.0,187.0,470.0,8.2,80.0
+Spyglass (Accessible),Soft,1,18220.5,42.0,30.0,433.82,2.8,20.0
+Spyglass (Pet Friendly),Soft,1,126685.33333333333,276.0,161.0,459.0,6.3999999999999995,60.0
+Greenhouse,Low,2,261339.24285714285,663.0,365.0,394.18,10.0,100.0
+Greenhouse (Accessible),Low,2,18917.5,48.0,34.0,394.11,1.0,0.0
+Greenhouse (Pet Friendly),Low,2,140359.75,345.0,192.0,406.84,4.6,40.0
+Spyglass,Low,2,208390.6,451.0,265.0,462.06,8.2,80.0
+Spyglass (Accessible),Low,2,34920.5,80.0,42.0,436.51,2.8,20.0
+Spyglass (Pet Friendly),Low,2,180236.06666666668,385.0,229.0,468.15,6.3999999999999995,60.0
+Greenhouse,Shoulder,3,312363.82380952383,730.0,409.0,427.9,10.0,100.0
+Greenhouse (Accessible),Shoulder,3,25408.166666666668,56.0,29.0,453.72,1.0,0.0
+Greenhouse (Pet Friendly),Shoulder,3,158394.75,386.0,210.0,410.35,4.6,40.0
+Spyglass,Shoulder,3,224930.75,445.0,239.0,505.46,8.2,80.0
+Spyglass (Accessible),Shoulder,3,31133.25,66.0,37.0,471.72,2.8,20.0
+Spyglass (Pet Friendly),Shoulder,3,214318.18333333332,452.0,255.0,474.16,6.3999999999999995,60.0
+Greenhouse,High,4,343287.38333333336,859.0,492.0,399.64,10.0,100.0
+Greenhouse (Accessible),High,4,30660.333333333332,81.0,47.0,378.52,1.0,0.0
+Greenhouse (Pet Friendly),High,4,176708.33333333334,432.0,235.0,409.05,4.6,40.0
+Spyglass,High,4,249620.91666666666,505.0,298.0,494.3,8.2,80.0
+Spyglass (Accessible),High,4,39236.583333333336,85.0,50.0,461.61,2.8,20.0
+Spyglass (Pet Friendly),High,4,212315.83333333334,462.0,275.0,459.56,6.3999999999999995,60.0
+Greenhouse,Peak,5,433170.61666666664,945.0,511.0,458.38,10.0,100.0
+Greenhouse (Accessible),Peak,5,41913.5,97.0,58.0,432.1,1.0,0.0
+Greenhouse (Pet Friendly),Peak,5,266332.5,577.0,323.0,461.58,4.6,40.0
+Spyglass,Peak,5,300732.1666666667,523.0,287.0,575.01,6.3999999999999995,60.0
+Spyglass (Accessible),Peak,5,57891.166666666664,105.0,64.0,551.34,2.8,20.0
+Spyglass (Pet Friendly),Peak,5,315413.5833333333,566.0,326.0,557.27,8.2,80.0

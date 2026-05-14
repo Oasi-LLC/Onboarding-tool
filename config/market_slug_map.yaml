@@ -1,0 +1,11 @@
+flohom:
+  submarket_to_market_slug:
+    "Baltimore (Downtown)": "downtown_baltimore"
+    "South Baltimore": "south_baltimore"
+    "Annapolis": "annapolis"
+    "National Harbor": "national_harbor"
+    "Virginia Beach": "virginia_beach"
+    "Pasadena": "pasadena"
+    "Myrtle Beach": "myrtle_beach"
+  listing_to_market_slug:
+    "FLOHOM 16": "jersey_city"

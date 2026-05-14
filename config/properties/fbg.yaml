@@ -1,0 +1,225 @@
+# Onera Fredericksburg — Cloudbeds (FBG). property_id `fbg` matches data/FBG/.
+property_id: fbg
+property_name: Onera Fredericksburg
+pms_id: cloudbeds
+# Total physical units (sum of positive unit_count in room_types; overlay SKUs with unit_count 0 are excluded).
+# Great Lodge whole-property is not extra beds: it shares the 8 king-room units (see listing_unit_capacity_fallback).
+# Cypress Sleeps 6: two combo units (each marketed as 4+2); still 2 physical addresses — counts stay 2 / SKU, not additive with Sleeps 2/4 pools in this model.
+room_count: 37
+
+analysis_window:
+  start_date: "2025-01-01"
+  # Inclusive filter on arrival_date for all analysis tables (keep full 2025 + 2026 in data).
+  end_date: "2026-12-31"
+  # YoY columns in overall_summary compare the same calendar span each year (avoids full 2025 vs partial 2026).
+  # Move forward as 2026 fills in (e.g. 2026-05-31 after May closes). Basse 2 (from 2025-07-01) still appears in 2026 slice.
+  yoy_compare_end_date: "2026-04-30"
+
+# Combined month-of-year table only (monthly_performance_combined.csv). Does not change other analysis tables.
+# Aligns rank basis with full 37-unit portfolio after Basse 2 go-live; caps forward pickup; flags thin latest-year months.
+monthly_performance_combined:
+  min_arrival_date: "2025-07-01"
+  cap_max_arrival_at_today: true
+  provisional_bookings_vs_hist_ratio: 0.6
+
+# Whole-property Great Lodge uses the same 8 physical king rooms as Great Lodge: King Room (occupancy denominator).
+listing_unit_capacity_fallback:
+  Great Lodge: "Great Lodge: King Room"
+
+# Static inventory split (operational “Basse Type” / comma-joined rows can differ per stay).
+listing_groups:
+  - name: "Basse 1"
+    unit_ids:
+      - Bluebonnet
+      - Buckeye Bungalow
+      - Cedar Haus
+      - Cocoon
+      - Juniper Haus
+      - Lantana Dome
+      - Live Oak Lodge
+      - Monarch
+      - Pecan Haus
+      - Sage Safari
+      - Spyglass
+      - Walnut House
+  - name: "Basse 2"
+    unit_ids:
+      - "Cypress Lodge | Sleeps 2"
+      - "Cypress Lodge | Sleeps 4"
+      - "Cypress Lodge | Sleeps 6"
+      - Diamond
+      - Great Lodge
+      - "Great Lodge: King Room"
+      - Monolith
+      - Post Oak
+      - Quonset
+      - Spiral
+      - Winecup
+
+# Basse 2 portfolio went live July 2025; Basse 1 predates that (use for tier / availability context).
+# unit_count = physical units behind each canonical listing SKU (occupancy / RevPAR denominators).
+# Great Lodge: King Room: 6 standard + 2 accessible SKUs merged in ingestion → 8 units.
+room_types:
+  - unit_id: Bluebonnet
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Buckeye Bungalow
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Cedar Haus
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Cocoon
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Juniper Haus
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Lantana Dome
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Live Oak Lodge
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Monarch
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Pecan Haus
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Sage Safari
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Spyglass
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: Walnut House
+    unit_count: 1
+    listing_start_date: "2024-01-01"
+  - unit_id: "Cypress Lodge | Sleeps 2"
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+  - unit_id: "Cypress Lodge | Sleeps 4"
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+  - unit_id: "Cypress Lodge | Sleeps 6"
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+  - unit_id: Diamond
+    unit_count: 3
+    listing_start_date: "2025-07-01"
+  - unit_id: Great Lodge
+    unit_count: 0
+    listing_start_date: "2025-07-01"
+  - unit_id: "Great Lodge: King Room"
+    unit_count: 8
+    listing_start_date: "2025-07-01"
+  - unit_id: Monolith
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+  - unit_id: Post Oak
+    unit_count: 1
+    listing_start_date: "2025-07-01"
+  - unit_id: Quonset
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+  - unit_id: Spiral
+    unit_count: 1
+    listing_start_date: "2025-07-01"
+  - unit_id: Winecup
+    unit_count: 2
+    listing_start_date: "2025-07-01"
+
+tiering:
+  method: gap_detection
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  gap_score_basis: revpar_zscore
+  smoothing_window_days: 14
+  gap_threshold_pct: 6
+  gap_threshold_zscore: 0.6
+  min_tiers: 2
+  max_tiers: 15
+  quantile_fallback_tiers: 6
+  min_days_per_tier: 14
+  min_active_months_for_portfolio: 6
+
+# Score-mode pricing matrix only (run_pricing_matrix when mode != tiered).
+# month_score_by_index: manual 1–10 style strength per calendar month (overrides analysis CSV).
+# Hierarchy (weak → strong): Jan < Jun < Sep < Jul=Aug < May < Nov < Dec < Oct=Feb < Apr < Mar
+pricing:
+  mode: score
+  dow_hierarchy:
+    - ["Monday", "Tuesday", "Wednesday"]
+    - ["Thursday"]
+    - ["Sunday"]
+    - ["Friday", "Saturday"]
+  month_score_by_index:
+    1: 1   # Jan — weakest
+    2: 8   # Feb — same tier as Oct
+    3: 10  # Mar — strongest
+    4: 9   # Apr
+    5: 5   # May
+    6: 2   # Jun
+    7: 4   # Jul — same as Aug
+    8: 4   # Aug — same as Jul
+    9: 3   # Sep
+    10: 8  # Oct — same tier as Feb
+    11: 6  # Nov
+    12: 7  # Dec
+
+  # Single listing ladder (weak → strong), same idea as month_score_by_index and dow_hierarchy.
+  # Merges Basse 1 + Basse 2. Order tuned to median / night-weighted ADR in output/fbg/ingestion/canonical.csv
+  # (esp. arrivals from 2025-07-01). Live Onera overrides can still price GLKR aggressively on some nights.
+  listing_price_hierarchy:
+    tiers:
+      - order: 1
+        id: haus
+        unit_ids:
+          - Pecan Haus
+          - Juniper Haus
+          - Cedar Haus
+      - order: 2
+        id: king_room
+        unit_ids:
+          - "Great Lodge: King Room"
+      - order: 3
+        id: entry
+        unit_ids:
+          - Post Oak
+          - "Cypress Lodge | Sleeps 2"
+      - order: 4
+        id: soft
+        unit_ids:
+          - Bluebonnet
+          - Lantana Dome
+          - Sage Safari
+          - Cocoon
+          - Buckeye Bungalow
+      - order: 5
+        id: core
+        unit_ids:
+          - Spiral
+          - "Cypress Lodge | Sleeps 4"
+          - Winecup
+          - Quonset
+      - order: 6
+        id: signature
+        unit_ids:
+          - "Cypress Lodge | Sleeps 6"
+          - Diamond
+      - order: 7
+        id: hard
+        unit_ids:
+          - Live Oak Lodge
+          - Monarch
+          - Spyglass
+          - Walnut House
+      - order: 8
+        id: elite
+        unit_ids:
+          - Monolith
+      - order: 9
+        id: estate
+        unit_ids:
+          - Great Lodge

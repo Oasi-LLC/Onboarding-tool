@@ -1,0 +1,67 @@
+property_id: sos
+property_name: Spirit Of Sofia
+pms_id: multi
+room_count: 23
+
+# Include 2024–2025 full years plus 2026 arrivals through end of March.
+analysis_window:
+  start_date: "2024-01-01"
+  end_date: "2026-03-31"
+
+ingestion_sources:
+  - match: "cloudbeds"
+    pms_id: cloudbeds
+  - match: "track"
+    pms_id: track
+  - match: "guesty"
+    pms_id: guesty
+
+room_types:
+  - unit_id: "11BR"
+    unit_count: 1
+  - unit_id: "12BR"
+    unit_count: 1
+  - unit_id: "23BR"
+    unit_count: 1
+  - unit_id: "8BR"
+    unit_count: 1
+  - unit_id: "Deluxe King Suite"
+    unit_count: 5
+  - unit_id: "Superior King Suite"
+    unit_count: 4
+  - unit_id: "King Suite (Back)"
+    unit_count: 4
+  - unit_id: "King Suite (Front)"
+    unit_count: 2
+  - unit_id: "Queen Suite"
+    unit_count: 4
+  - unit_id: "Sofia Suite"
+    unit_count: 3
+
+# Editable canonical listing mapping used during ingestion.
+# Keys are raw listing labels from Cloudbeds/Track/Guesty source files.
+listing_name_map:
+  "11BR": "11BR"
+  "12BR": "12BR"
+  "23BR": "23BR"
+  "8BR": "8BR"
+  "Deluxe King Suite": "Deluxe King Suite"
+  "King Suite (Back)": "King Suite (Back)"
+  "King Suite (Front)": "King Suite (Front)"
+  "Queen Suite": "Queen Suite"
+  "Sofia Suite": "Sofia Suite"
+  "Superior King Suite": "Superior King Suite"
+  "SOS 11BR Backside": "11BR"
+  "SOS 12BR Frontside": "12BR"
+  "SOS 23BR": "23BR"
+  "2": ""
+
+pricing:
+  mode: score
+  # Enforced from lowest to highest demand:
+  # Mon=Tue=Wed < Sun < Thu < Fri=Sat
+  dow_hierarchy:
+    - ["Monday", "Tuesday", "Wednesday"]
+    - ["Sunday"]
+    - ["Thursday"]
+    - ["Friday", "Saturday"]

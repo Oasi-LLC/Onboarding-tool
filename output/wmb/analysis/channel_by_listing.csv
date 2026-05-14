@@ -1,0 +1,37 @@
+unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Greenhouse,Airbnb,160,93069.0,263,6.03,7.78,353.87
+Spyglass (Pet Friendly),Airbnb,243,162636.0,379,15.5,19.5,429.12
+Greenhouse (Pet Friendly),Airbnb,131,91444.0,232,10.92,11.91,394.16
+Greenhouse (Accessible),Airbnb,23,14572.0,37,11.19,12.3,393.84
+Spyglass,Airbnb,185,119130.0,301,10.57,14.5,395.78
+Spyglass (Accessible),Airbnb,28,21935.0,50,12.09,12.56,438.7
+Greenhouse,Booking.com,34,25315.0,50,1.64,1.65,506.3
+Greenhouse (Pet Friendly),Booking.com,11,8064.0,15,0.96,1.0,537.6
+Greenhouse (Accessible),Booking.com,7,4270.0,10,3.28,3.74,427.0
+Spyglass (Accessible),Booking.com,5,9764.0,11,5.38,2.24,887.64
+Spyglass (Pet Friendly),Booking.com,8,7623.0,14,0.73,0.64,544.5
+Spyglass,Booking.com,3,3448.0,6,0.31,0.24,574.67
+Spyglass (Pet Friendly),Direct,909,826898.0,1609,78.83,72.95,513.92
+Greenhouse,Direct,1684,1313015.0,3055,85.12,81.87,429.79
+Spyglass,Direct,1028,960616.0,1823,85.2,80.56,526.94
+Spyglass (Accessible),Direct,165,137030.0,280,75.54,73.99,489.39
+Greenhouse (Pet Friendly),Direct,863,671236.0,1556,80.18,78.45,431.39
+Greenhouse (Accessible),Direct,128,96182.0,222,73.83,68.45,433.25
+Greenhouse (Pet Friendly),Expedia,41,26659.0,69,3.18,3.73,386.36
+Spyglass (Accessible),Expedia,12,7047.0,17,3.88,5.38,414.53
+Spyglass (Pet Friendly),Expedia,35,22790.0,52,2.17,2.81,438.27
+Greenhouse,Expedia,86,56487.0,141,3.66,4.18,400.62
+Spyglass,Expedia,34,22532.0,47,2.0,2.66,479.4
+Greenhouse (Accessible),Expedia,16,7811.0,22,6.0,8.56,355.05
+Greenhouse,Group Booking,15,14680.0,52,0.95,0.73,282.31
+Greenhouse (Pet Friendly),Group Booking,12,12960.0,42,1.55,1.09,308.57
+Greenhouse (Accessible),Group Booking,2,2160.0,7,1.66,1.07,308.57
+Spyglass,Group Booking,6,6580.0,20,0.58,0.47,329.0
+Spyglass (Pet Friendly),Group Booking,6,7422.0,26,0.71,0.48,285.46
+Spyglass (Accessible),Group Booking,1,1484.0,5,0.82,0.45,296.8
+Greenhouse (Pet Friendly),Mr and Mrs Smith,42,26759.0,74,3.2,3.82,361.61
+Spyglass,Mr and Mrs Smith,20,15170.0,33,1.35,1.57,459.7
+Greenhouse,Mr and Mrs Smith,78,39959.0,117,2.59,3.79,341.53
+Spyglass (Pet Friendly),Mr and Mrs Smith,45,21600.0,61,2.06,3.61,354.1
+Spyglass (Accessible),Mr and Mrs Smith,12,4142.0,15,2.28,5.38,276.13
+Greenhouse (Accessible),Mr and Mrs Smith,11,5279.0,14,4.05,5.88,377.07

@@ -3,8 +3,13 @@ from __future__ import annotations
 import argparse
 from datetime import date, datetime, timedelta
 from pathlib import Path
+import sys
 
 import pandas as pd
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.property_config import load_property_inventory
 
@@ -18,6 +23,13 @@ def parse_args() -> argparse.Namespace:
         dest="property_id",
         required=True,
         help="Property ID (used to locate config and output/<property_id>/pricing).",
+    )
+    parser.add_argument(
+        "--matrix-file",
+        dest="matrix_file",
+        default="pricing_matrix_draft.csv",
+        help="CSV under output/<property>/pricing/ (default: per-listing pricing_matrix_draft.csv; "
+        "use pricing_matrix_group_draft.csv for listing-group columns).",
     )
     parser.add_argument(
         "--start-date",
@@ -35,8 +47,9 @@ def parse_args() -> argparse.Namespace:
         "--year",
         dest="year",
         type=int,
-        default=2026,
-        help="Event year to use from pricing.events_<year> (default: 2026 for LaFave example).",
+        default=None,
+        help="Deprecated: ignored when pricing.events_* blocks exist. If set and no events_* keys, "
+        "load only pricing.events_<year>.",
     )
     return parser.parse_args()
 
@@ -48,6 +61,27 @@ def _daterange(start: date, end: date):
         current += timedelta(days=1)
 
 
+def _event_lists_from_pricing_cfg(pricing_cfg: dict, year_fallback: int | None) -> list[dict]:
+    """Collect event dicts from all pricing.events_* keys (e.g. events_2026, events_2027)."""
+    out: list[dict] = []
+    keys = sorted(
+        k for k in pricing_cfg.keys() if isinstance(k, str) and k.startswith("events_")
+    )
+    for k in keys:
+        ev = pricing_cfg.get(k)
+        if isinstance(ev, list):
+            for item in ev:
+                if isinstance(item, dict):
+                    out.append(item)
+    if not out and year_fallback is not None:
+        ev = pricing_cfg.get(f"events_{year_fallback}")
+        if isinstance(ev, list):
+            for item in ev:
+                if isinstance(item, dict):
+                    out.append(item)
+    return out
+
+
 def main() -> None:
     args = parse_args()
     prop_id = args.property_id
@@ -56,8 +90,8 @@ def main() -> None:
     if end < start:
         raise SystemExit("end-date must be on or after start-date")
 
-    root = Path(".").resolve()
-    pricing_matrix_path = root / "output" / prop_id / "pricing" / "pricing_matrix_draft.csv"
+    root = PROJECT_ROOT
+    pricing_matrix_path = root / "output" / prop_id / "pricing" / str(args.matrix_file).strip()
     if not pricing_matrix_path.exists():
         raise SystemExit(f"Pricing matrix not found: {pricing_matrix_path}. Run run_pricing_matrix.py first.")
 
@@ -70,8 +104,7 @@ def main() -> None:
     # Load property config for events and unit_ids
     inventory = load_property_inventory(prop_id)
     pricing_cfg = inventory.get("pricing") or {}
-    events_key = f"events_{args.year}"
-    events = pricing_cfg.get(events_key, [])
+    events = _event_lists_from_pricing_cfg(pricing_cfg, args.year)
 
     # Build a simple event lookup by date
     event_by_date: dict[date, dict] = {}
@@ -143,7 +176,8 @@ def main() -> None:
     # Write sheet to output/<property>/pricing/pricing_sheet_<start>_<end>.csv
     out_dir = pricing_matrix_path.parent
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"pricing_sheet_{start.isoformat()}_{end.isoformat()}.csv"
+    group_tag = "_group" if "listing_group" in matrix.columns else ""
+    out_path = out_dir / f"pricing_sheet{group_tag}_{start.isoformat()}_{end.isoformat()}.csv"
     sheet.to_csv(out_path, index=False)
 
     print(f"Wrote pricing sheet: {out_path} ({len(sheet)} rows)")

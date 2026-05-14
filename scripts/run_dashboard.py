@@ -48,6 +48,9 @@ ANALYSIS_FILES = [
     "tier_summary",
     "tier_blocks",
     "tier_diagnostics",
+    "tier_leadtime_pricing_integrity",
+    "tier_sensitivity_sweep",
+    "tier_validation_summary",
 ]
 
 # Pricing matrix filenames (per-property)
@@ -349,22 +352,24 @@ def main():
         st.dataframe(format_table_display(ch_by_listing), use_container_width=True, hide_index=True)
 
     with tab_dow:
-        st.subheader("Check-ins and revenue by day of week")
+        st.subheader("Night-of-week pricing signal")
         df = data["by_day_of_week"]
         if not df.empty:
             with st.expander("How the day-of-week score (1–10) is calculated"):
                 st.markdown(
-                    "- **Inputs:** ADR, share of revenue, and share of check-ins for each arrival day (Mon–Sun).\n"
+                    "- **Inputs:** ADR, share of revenue, and share of room nights for each stay-night weekday (Mon-Sun).\n"
+                    "- Revenue is first split across occupied stay dates (`revenue / nights`) and then grouped by the actual night weekday.\n"
+                    "- `check_ins` is shown as contextual arrival behavior only; it is not used in the score.\n"
                     "- For each metric we rank days from worst to best and convert ranks to a 0–1 scale.\n"
-                    "- We then combine them with weights **40% ADR**, **40% revenue share**, and **20% check-in share**, "
+                    "- We then combine them with weights **40% ADR**, **40% revenue share**, and **20% room-night share**, "
                     "and map that combined score to a **continuous 1–10 scale** (no rounding).\n"
                     "- A day scores closer to **10** only if it is consistently **high-rate, high-revenue, and high-volume** "
                     "relative to the others; values near **1** are weakest across those dimensions."
                 )
             col1, col2, col3 = st.columns(3)
             with col1:
-                if "check_ins" in df.columns and "day_of_week" in df.columns:
-                    fig = px.bar(df, x="day_of_week", y="check_ins", title="Check-ins by day of week")
+                if "room_nights" in df.columns and "day_of_week" in df.columns:
+                    fig = px.bar(df, x="day_of_week", y="room_nights", title="Room nights by stay weekday")
                     fig.update_layout(xaxis_tickangle=-45)
                     st.plotly_chart(fig, use_container_width=True)
             with col2:
@@ -382,7 +387,7 @@ def main():
                     )
                     fig.update_layout(xaxis_tickangle=-45, yaxis=dict(dtick=1, range=[0.5, 10.5]))
                     st.plotly_chart(fig, use_container_width=True)
-            st.caption("Check-ins, revenue, and room-nights are averaged per year for each day of week (typical year view).")
+            st.caption("Room-night and revenue metrics are night-of-week values (from exploded stay dates) across the configured analysis window.")
             st.dataframe(format_table_display(df), use_container_width=True, hide_index=True)
         else:
             st.dataframe(format_table_display(df), use_container_width=True, hide_index=True)
@@ -490,13 +495,25 @@ def main():
                     st.caption("Seasonal metrics are summed over the two analysis years for each listing and season. Scores (1–10) are relative within each season.")
                     # Show only top N listings in chart to keep it readable
                     max_n = len(df_season)
-                    n_to_show = st.slider(
-                        "Number of listings to show in chart (sorted by score)",
-                        min_value=5,
-                        max_value=max_n,
-                        value=min(10, max_n),
-                        step=1,
-                    )
+                    if max_n <= 1:
+                        n_to_show = max_n
+                    elif max_n <= 5:
+                        # For small sets, avoid invalid slider bounds.
+                        n_to_show = st.slider(
+                            "Number of listings to show in chart (sorted by score)",
+                            min_value=1,
+                            max_value=max_n,
+                            value=max_n,
+                            step=1,
+                        )
+                    else:
+                        n_to_show = st.slider(
+                            "Number of listings to show in chart (sorted by score)",
+                            min_value=5,
+                            max_value=max_n,
+                            value=min(10, max_n),
+                            step=1,
+                        )
                     chart_df = df_season.head(n_to_show)
                     # Horizontal bar: score on x-axis, listings on y-axis
                     fig = px.bar(
@@ -607,24 +624,50 @@ def main():
         summary = data.get("tier_summary", pd.DataFrame())
         blocks = data.get("tier_blocks", pd.DataFrame())
         diagnostics = data.get("tier_diagnostics", pd.DataFrame())
+        tier_lead_integrity = data.get("tier_leadtime_pricing_integrity", pd.DataFrame())
+        sensitivity = data.get("tier_sensitivity_sweep", pd.DataFrame())
+        validation_summary = data.get("tier_validation_summary", pd.DataFrame())
         if daily.empty:
             st.info("No daily tier outputs found. Re-run analysis for this property.")
         else:
             method = daily["tier_method"].iloc[0] if "tier_method" in daily.columns and len(daily) > 0 else "unknown"
             st.caption(f"Tier method: {method}. Tiers are property-relative using smoothed daily RevPAR percentiles.")
-            tier_color_map = {
-                "Soft": "#d73027",           # red
-                "Low": "#fc8d59",            # orange-red
-                "Shoulder Low": "#fee08b",   # yellow
-                "Shoulder High": "#d9ef8b",  # yellow-green
-                "High": "#91cf60",           # green
-                "Peak": "#1a9850",           # dark green
-            }
-            tier_order = ["Soft", "Low", "Shoulder Low", "Shoulder High", "High", "Peak"]
+            # Consistent cross-property color progression:
+            # lowest tier -> red, highest tier -> green (by tier_id).
+            palette = [
+                "#d73027", "#e95b2b", "#f58634", "#fdbf6f", "#fee08b",
+                "#e6f598", "#c7e9ad", "#a6dba0", "#80cdc1", "#66bd63",
+                "#4daf4a", "#3b9d47", "#2a8a43", "#1f9e89", "#1a9850",
+            ]
+            if not summary.empty and "tier_id" in summary.columns and "tier_label" in summary.columns:
+                sorted_tiers = (
+                    summary[["tier_id", "tier_label"]]
+                    .dropna()
+                    .drop_duplicates()
+                    .sort_values("tier_id")
+                )
+                tier_order = sorted_tiers["tier_label"].astype(str).tolist()
+            elif "tier_label" in daily.columns and "tier_id" in daily.columns:
+                sorted_tiers = (
+                    daily[["tier_id", "tier_label"]]
+                    .dropna()
+                    .drop_duplicates()
+                    .sort_values("tier_id")
+                )
+                tier_order = sorted_tiers["tier_label"].astype(str).tolist()
+            else:
+                tier_order = sorted(daily["tier_id"].dropna().astype(int).unique().tolist()) if "tier_id" in daily.columns else []
+                tier_order = [f"Tier {t}" for t in tier_order]
+            tier_color_map = {}
+            n = len(tier_order)
+            if n > 0:
+                for idx, label in enumerate(tier_order):
+                    pal_idx = int(round(idx * (len(palette) - 1) / max(1, n - 1)))
+                    tier_color_map[str(label)] = palette[pal_idx]
             col1, col2 = st.columns(2)
             with col1:
                 if "date" in daily.columns and "revpar_smoothed" in daily.columns and "tier_id" in daily.columns:
-                    color_series = daily["tier_label"] if "tier_label" in daily.columns else daily["tier_id"].astype(str)
+                    color_series = daily["tier_label"].astype(str) if "tier_label" in daily.columns else daily["tier_id"].astype(str)
                     fig = px.scatter(
                         daily,
                         x="date",
@@ -649,11 +692,84 @@ def main():
                     )
                     fig.update_layout(showlegend=False)
                     st.plotly_chart(fig, use_container_width=True)
+            # Month-of-year aggregate view (helpful when analysis window starts mid-year).
+            if "date" in daily.columns and "revpar_smoothed" in daily.columns:
+                md = daily.copy()
+                md["date"] = pd.to_datetime(md["date"], errors="coerce")
+                md = md.dropna(subset=["date"])
+                if not md.empty:
+                    md["month_index"] = md["date"].dt.month
+                    month_map = {
+                        1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "Jun",
+                        7: "Jul", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec",
+                    }
+                    month_order = [month_map[i] for i in range(1, 13)]
+                    agg = (
+                        md.groupby("month_index", as_index=False)
+                        .agg(
+                            avg_revpar_smoothed=("revpar_smoothed", "mean"),
+                            n_days=("date", "count"),
+                        )
+                    )
+                    if "tier_label" in md.columns:
+                        dom = (
+                            md.groupby(["month_index", "tier_label"], as_index=False)
+                            .size()
+                            .sort_values(["month_index", "size"], ascending=[True, False])
+                            .drop_duplicates(subset=["month_index"])
+                            .rename(columns={"tier_label": "dominant_tier_label"})
+                        )
+                        agg = agg.merge(dom[["month_index", "dominant_tier_label"]], on="month_index", how="left")
+                    full = pd.DataFrame({"month_index": list(range(1, 13))})
+                    agg = full.merge(agg, on="month_index", how="left")
+                    agg["month_name"] = agg["month_index"].map(month_map)
+                    st.subheader("Month-of-year tier profile (aggregated across analysis years)")
+                    st.caption(
+                        "For each calendar month (Jan-Dec), values are averaged across all years included in the analysis window. "
+                        "This helps read seasonality when the window starts mid-year."
+                    )
+                    fig = px.bar(
+                        agg,
+                        x="month_name",
+                        y="avg_revpar_smoothed",
+                        color="dominant_tier_label" if "dominant_tier_label" in agg.columns else None,
+                        color_discrete_map=tier_color_map,
+                        category_orders={"month_name": month_order, "dominant_tier_label": tier_order},
+                        title="Average smoothed RevPAR by calendar month (all years combined)",
+                    )
+                    fig.update_layout(xaxis={"categoryorder": "array", "categoryarray": month_order})
+                    st.plotly_chart(fig, use_container_width=True)
+                    st.dataframe(format_table_display(agg), use_container_width=True, hide_index=True)
             st.subheader("Tier summary")
             st.dataframe(format_table_display(summary), use_container_width=True, hide_index=True)
             if not diagnostics.empty:
                 st.subheader("Tier diagnostics")
                 st.dataframe(diagnostics, use_container_width=True, hide_index=True)
+            if not validation_summary.empty:
+                st.subheader("Tier validation summary")
+                st.caption("Automated sweep-based recommendation from analysis run.")
+                st.dataframe(validation_summary, use_container_width=True, hide_index=True)
+            if not sensitivity.empty:
+                st.subheader("Tier sensitivity sweep")
+                st.caption(
+                    "Validation sweep across gap thresholds and quantile tier counts. "
+                    "Use this to confirm whether fallback tier count is defensible."
+                )
+                with st.expander("View full tier sensitivity sweep table"):
+                    st.dataframe(sensitivity, use_container_width=True, hide_index=True)
+            if not tier_lead_integrity.empty:
+                st.subheader("Pricing integrity: tier x lead band")
+                st.caption(
+                    "Operational check of ADR and revenue mix by tier and booking lead-time band "
+                    "(arrival-date join to tier calendar). `revenue_share_of_tier` is percent of tier revenue."
+                )
+                view = tier_lead_integrity.copy()
+                if "tier_label" in view.columns:
+                    tier_opts = ["All"] + sorted(view["tier_label"].dropna().astype(str).unique().tolist())
+                    tier_sel = st.selectbox("Filter pricing integrity by tier", tier_opts, index=0, key="tier_lead_filter")
+                    if tier_sel != "All":
+                        view = view[view["tier_label"] == tier_sel]
+                st.dataframe(format_table_display(view), use_container_width=True, hide_index=True)
             st.subheader("Tier blocks (contiguous runs)")
             st.dataframe(blocks, use_container_width=True, hide_index=True)
             st.subheader("Daily calendar table")
@@ -1002,23 +1118,40 @@ def main():
             )
             pricing_sheet_df = pricing_df if matrix_choice == "Per listing" else pricing_group_df
 
-            # Default dates: today -> fixed horizon (3 Jan 2027)
+            # Default dates:
+            # 1) property-specific pricing sheet defaults from config (if provided)
+            # 2) otherwise use today -> one year horizon.
             today = date.today()
+            default_start = today
+            default_end = date(today.year + 1, today.month, today.day) if not (today.month == 2 and today.day == 29) else date(today.year + 1, 2, 28)
+            cfg_start = pricing_cfg.get("pricing_sheet_start_date")
+            cfg_end = pricing_cfg.get("pricing_sheet_end_date")
+            try:
+                if cfg_start:
+                    default_start = datetime.strptime(str(cfg_start), "%Y-%m-%d").date()
+                if cfg_end:
+                    default_end = datetime.strptime(str(cfg_end), "%Y-%m-%d").date()
+            except Exception:
+                # Keep safe defaults if config dates are malformed.
+                pass
             col_dates, col_events = st.columns([2, 3])
             with col_dates:
                 start_date = st.date_input(
                     "Start date",
-                    value=today,
+                    value=default_start,
                 )
                 end_date = st.date_input(
                     "End date",
-                    value=date(2027, 1, 3),
+                    value=default_end,
                 )
                 if end_date < start_date:
                     st.error("End date must be on or after start date.")
             with col_events:
-                year_key = f"events_{start_date.year}"
-                raw_events = pricing_cfg.get(year_key, [])
+                # Pull events across the full selected range (handles year boundaries).
+                years = list(range(start_date.year, end_date.year + 1))
+                raw_events = []
+                for y in years:
+                    raw_events.extend(pricing_cfg.get(f"events_{y}", []))
                 # Sort events by start_date for a clean, chronological list
                 def _parse_start(evt: dict) -> datetime:
                     try:
@@ -1027,7 +1160,10 @@ def main():
                         return datetime.max
 
                 events = sorted(raw_events, key=_parse_start)
-                st.markdown(f"**Event multipliers for {start_date.year}** (editable for this session, ordered by date):")
+                st.markdown(
+                    f"**Event multipliers for selected range ({start_date} to {end_date})** "
+                    "(editable for this session, ordered by date):"
+                )
                 event_rows = []
                 for idx, evt in enumerate(events):
                     name = evt.get("name", f"Event {idx+1}")
@@ -1041,7 +1177,7 @@ def main():
                         max_value=3.0,
                         step=0.05,
                         value=default_mult,
-                        key=f"evt_{idx}_{name}",
+                        key=f"evt_{idx}_{name}_{s}_{e}",
                     )
                     event_rows.append(
                         {

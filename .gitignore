@@ -14,3 +14,16 @@ __pycache__/
 .vscode/
 .idea/
 
+# Legacy duplicate output folder (prefer output/)
+outputs/
+
+# Ad-hoc exports / duplicates at repo root
+/Pricing2026*.csv
+/SOS*.csv
+/wmb_pricing_matrix.xlsx
+/*.docx
+
+# Client raw exports (large / sensitive; keep locally, not in git)
+data/FBG/
+data/SOS/
+data/WMB/

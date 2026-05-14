@@ -11,7 +11,7 @@ Onboarding_EDA/
 │       └── lafave_zion.yaml
 ├── data/                             # Raw input data (e.g. client exports)
 │   └── LAFAVE ZION/
-│       └── Jan23-Jan27.csv
+│       └── Lafave_data.csv
 ├── docs/                             # Design and methodology docs
 │   ├── 01-data-ingestion-and-validation-design.md
 │   ├── 02-lafave-source-schema-and-methodology.md
@@ -72,5 +72,5 @@ Onboarding_EDA/
 
 ```bash
 # Ingestion (example)
-python scripts/run_ingestion.py --property lafave_zion "data/LAFAVE ZION/Jan23-Jan27.csv" --output-canonical output/lafave_zion/ingestion/canonical.csv --output-report output/lafave_zion/ingestion/validation_report.json
+python scripts/run_ingestion.py --property lafave_zion "data/LAFAVE ZION/Lafave_data.csv" --output-canonical output/lafave_zion/ingestion/canonical.csv --output-report output/lafave_zion/ingestion/validation_report.json
 ```

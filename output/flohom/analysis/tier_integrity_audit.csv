@@ -2,8 +2,8 @@ check_name,status,count,reason
 listing_start_source_all_config,pass,0,All listings should use config start dates.
 listing_out_of_window_units,pass,0,Listings outside analysis window should be explicit.
 active_before_listing_start_date,pass,0,No active days should exist before configured listing_start_date.
-contributing_units_not_exceed_total_units,pass,0,contributing_units_count must be <= units_total (14).
-composition_shift_gt_2_units_in_14d,pass,0,Large denominator shifts in smoothing window can bias signal interpretation.
+contributing_units_not_exceed_total_units,pass,0,contributing_units_count must be <= units_total (15).
+composition_shift_gt_2_units_in_14d,warn,9,Large denominator shifts in smoothing window can bias signal interpretation.
 weighted_revpar_denominator_consistency,pass,0,Portfolio revpar should equal weighted listing DOY mean per day.
 final_tier_count_matches_config_when_quantile,pass,6,Expected 6 when quantile_fallback selected.
 all_tiers_meet_min_days_threshold,pass,0,Each tier should have >= 14 days.

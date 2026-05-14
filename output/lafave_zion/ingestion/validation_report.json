@@ -4,9 +4,9 @@
       "check": "required_columns_present",
       "severity": null,
       "passed": true,
-      "message": "All required columns present",
+      "message": "All required columns present (ResNexus sheet layout)",
       "detail": {
-        "missing": []
+        "format": "sheet"
       }
     },
     {
@@ -112,47 +112,47 @@
       "check": "row_count",
       "severity": "info",
       "passed": true,
-      "message": "Total rows: 6213",
-      "count": 6213
+      "message": "Total rows: 6047",
+      "count": 6047
     },
     {
       "check": "date_range",
       "severity": null,
       "passed": true,
-      "message": "Arrival range: 2022-12-01 00:00:00 to 2026-11-21 00:00:00 (~47.7 months)",
+      "message": "Arrival range: 2023-01-11 00:00:00 to 2027-06-16 00:00:00 (~53.1 months)",
       "detail": {
-        "min_arrival": "2022-12-01 00:00:00",
-        "max_arrival": "2026-11-21 00:00:00",
-        "months_approx": 47.7
+        "min_arrival": "2023-01-11 00:00:00",
+        "max_arrival": "2027-06-16 00:00:00",
+        "months_approx": 53.1
       }
     },
     {
       "check": "revenue_coverage",
       "severity": null,
       "passed": true,
-      "message": "Rows with revenue 0 or null: 25 (0.4%)",
-      "count": 25
+      "message": "Rows with revenue 0 or null: 6 (0.1%)",
+      "count": 6
     },
     {
       "check": "channel_mix",
       "severity": null,
       "passed": true,
-      "message": "Rows with channel 'Other': 676 (10.9%)",
-      "count": 676
+      "message": "Rows with channel 'Other': 255 (4.2%)",
+      "count": 255
     },
     {
       "check": "null_amount_paid",
       "severity": "info",
       "passed": true,
-      "message": "Rows with null amount_paid: 194",
-      "count": 194
+      "message": "Rows with null amount_paid: 1",
+      "count": 1
     }
   ],
   "summary": {
     "can_continue": false,
     "error_count": 1,
     "warning_count": 1,
-    "total_rows": 6213,
+    "total_rows": 6047,
     "message": "Validation complete. Do not run analysis."
   }
 }

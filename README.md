@@ -22,7 +22,7 @@ Onboarding_EDA/
 │       └── lafave_zion.yaml
 ├── data/
 │   └── LAFAVE ZION/               # Example raw export for LaFave Zion
-│       └── Jan23-Jan27.csv
+│       └── Lafave_data.csv
 ├── docs/                          # Design & methodology
 ├── src/                           # Core Python package
 │   ├── parser.py                  # Ingestion + canonical mapping
@@ -93,7 +93,7 @@ source .venv/bin/activate
 
 python scripts/run_ingestion.py \
   --property lafave_zion \
-  "data/LAFAVE ZION/Jan23-Jan27.csv"
+  "data/LAFAVE ZION/Lafave_data.csv"
 ```
 
 If you don’t pass output paths, ingestion will default to:
@@ -106,7 +106,7 @@ You can override these with:
 ```bash
 python scripts/run_ingestion.py \
   --property lafave_zion \
-  "data/LAFAVE ZION/Jan23-Jan27.csv" \
+  "data/LAFAVE ZION/Lafave_data.csv" \
   --output-canonical output/lafave_zion/ingestion/canonical.csv \
   --output-report output/lafave_zion/ingestion/validation_report.json
 ```
