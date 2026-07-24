@@ -63,6 +63,18 @@ def load_property_inventory(property_id: str) -> dict[str, Any]:
     if not isinstance(monthly_performance_combined, dict):
         monthly_performance_combined = {}
 
+    analysis_unit_filter = bool(data.get("analysis_unit_filter", False))
+
+    capacity_schedule = data.get("capacity_schedule") or []
+    if not isinstance(capacity_schedule, list):
+        capacity_schedule = []
+    summer = data.get("summer") or {}
+    if not isinstance(summer, dict):
+        summer = {}
+    eras = data.get("eras") or []
+    if not isinstance(eras, list):
+        eras = []
+
     return {
         "property_id": data.get("property_id", property_id),
         "property_name": data.get("property_name", property_id),
@@ -70,6 +82,7 @@ def load_property_inventory(property_id: str) -> dict[str, Any]:
         "room_count": room_count if isinstance(room_count, int) else None,
         "room_types": room_types,
         "unit_ids": unit_ids,
+        "analysis_unit_filter": analysis_unit_filter,
         "listing_groups": listing_groups,
         "pricing": pricing,
         "tiering": tiering,
@@ -79,4 +92,7 @@ def load_property_inventory(property_id: str) -> dict[str, Any]:
         "listing_unit_counts": listing_unit_counts,
         "listing_unit_capacity_fallback": listing_unit_capacity_fallback,
         "monthly_performance_combined": monthly_performance_combined,
+        "capacity_schedule": capacity_schedule,
+        "summer": summer,
+        "eras": eras,
     }

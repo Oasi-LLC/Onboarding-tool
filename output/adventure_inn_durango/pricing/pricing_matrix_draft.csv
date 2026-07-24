@@ -1,0 +1,16 @@
+unit_id,month_index,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
+Small Queen,7,140,140,140,145,175,175,145
+Standard Queen,7,160,160,160,165,195,195,165
+Standard King,7,167,167,167,172,202,202,172
+Double Queen,7,178,178,178,183,213,213,183
+Standard Queen with Kitchen,7,170,170,170,175,205,205,175
+Small Queen,8,138,138,138,158,180,180,158
+Standard Queen,8,158,158,158,178,200,200,178
+Standard King,8,165,165,165,185,207,207,185
+Double Queen,8,176,176,176,196,218,218,196
+Standard Queen with Kitchen,8,168,168,168,188,210,210,188
+Small Queen,9,140,140,140,145,175,175,145
+Standard Queen,9,160,160,160,165,195,195,165
+Standard King,9,167,167,167,172,202,202,172
+Double Queen,9,178,178,178,183,213,213,183
+Standard Queen with Kitchen,9,170,170,170,175,205,205,175

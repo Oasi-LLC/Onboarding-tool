@@ -1,0 +1,24 @@
+# Unknown PMS — Adventure Inn Durango "Reservations with Financials" export.
+# Not Cloudbeds: similar field names may appear elsewhere; treat as its own format.
+pms_id: unknown_pms
+format_name: Reservations with Financials
+file_types: [xlsx, csv]
+notes: >
+  Header is typically on Excel row 6. Trailing totals / filter-string rows must be stripped.
+  Room Nights = rooms × LOS; canonical nights = LOS after expanding multi-room rows.
+  Exclude In-House from analysis. Cancelled statuses are absent from the export filter.
+
+columns:
+  reservation_id: Reservation Number
+  arrival_date: Check-In Date
+  departure_date: Check-Out Date
+  room_numbers: Room Numbers
+  room_types: Room Types
+  revenue: Room Revenue Total
+  amount_paid: Reservation Paid Amount
+  booking_datetime: Booking Date Time - UTC
+  channel: Reservation Source
+  channel_category: Reservation Source Category
+  status: Reservation Status
+  room_nights: Room Nights
+  room_count: Room Count

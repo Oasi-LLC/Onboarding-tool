@@ -60,12 +60,43 @@ PRICING_MATRIX_FILE = "pricing_matrix_draft.csv"
 PRICING_MATRIX_GROUP_FILE = "pricing_matrix_group_draft.csv"
 DAILY_MARKET_CONTEXT_FILE = "daily_market_context.csv"
 
+SUMMER_FILES = [
+    "summer_year_month_kpis",
+    "summer_pace_asof",
+    "summer_dow_adr",
+    "summer_weekday_weekend",
+    "summer_channel",
+    "summer_room_type",
+    "summer_lead_bands",
+    "summer_daily_occupancy",
+    "summer_recommendations",
+]
+
+SUMMER_MONTH_OPTIONS = [
+    (7, "July"),
+    (8, "August"),
+    (9, "September"),
+]
+
 
 def load_analysis_data(analysis_dir: Path) -> dict[str, pd.DataFrame]:
     """Load all analysis CSVs from the given directory. Returns dict of name -> DataFrame."""
     data = {}
     for name in ANALYSIS_FILES:
         path = analysis_dir / f"{name}.csv"
+        if path.exists():
+            data[name] = pd.read_csv(path)
+        else:
+            data[name] = pd.DataFrame()
+    return data
+
+
+def load_summer_data(analysis_dir: Path) -> dict[str, pd.DataFrame]:
+    """Load summer deep-dive CSVs from analysis/summer/."""
+    summer_dir = Path(analysis_dir) / "summer"
+    data = {}
+    for name in SUMMER_FILES:
+        path = summer_dir / f"{name}.csv"
         if path.exists():
             data[name] = pd.read_csv(path)
         else:
@@ -180,6 +211,7 @@ def main():
     selected_unit_ids = None
 
     data = load_analysis_data(analysis_dir)
+    summer_data = load_summer_data(analysis_dir)
     if data["overall_summary"].empty:
         st.warning("No data in overall_summary.csv. Run analysis first.")
         return
@@ -213,16 +245,23 @@ def main():
             st.metric("Occupancy %", f"{row.get('occupancy_pct') or 0:.1f}%", None)
         with c5:
             st.metric("RevPAR", f"${row.get('revpar') or 0:,.0f}", None)
+        if property_id == "adventure_inn_durango":
+            st.info(
+                "Adventure Inn Durango caveats: unknown PMS export · ownership Aug 2024 · "
+                "renovation Nov 2024–May 2025 · capacity 25→27 ~Apr 2026 · In-House excluded. "
+                "2025 Jul–Sep is the summer rate anchor. AirDNA is market context only."
+            )
         st.divider()
 
     # ----- Tabs for each analysis -----
-    tab_findings, tab_overall, tab_monthly, tab_channel, tab_dow, tab_booking, tab_season, tab_adr, tab_tiers, tab_market_ctx, tab_pricing, tab_pricing_sheet = st.tabs([
+    tab_findings, tab_overall, tab_monthly, tab_channel, tab_dow, tab_booking, tab_summer, tab_season, tab_adr, tab_tiers, tab_market_ctx, tab_pricing, tab_pricing_sheet = st.tabs([
         "Key findings",
         "Overall summary",
         "Monthly performance",
         "Channel",
         "Day of week",
         "Booking window",
+        "Summer (Jul–Sep)",
         "Listing seasonality",
         "ADR by listing × month",
         "Tier calendar",
@@ -260,6 +299,50 @@ def main():
             f"- **Quality:** ADR **${property_adr:,.0f}**, Occupancy **{property_occ:.1f}%**, RevPAR **${property_revpar:,.0f}**\n"
             f"- **Top drivers:** Listing **{top_listing}**, Month **{top_month}**, Channel **{top_channel}**\n"
         )
+        if property_id == "adventure_inn_durango" or any(
+            not summer_data[k].empty for k in SUMMER_FILES
+        ):
+            st.subheader("Durango / summer notes")
+            st.markdown(
+                "- **PMS:** unknown (`unknown_pms`) — not Cloudbeds.\n"
+                "- **Eras:** prior ownership → Aug 2024 purchase → Nov 2024–May 2025 reno → "
+                "25 rooms → +2 rooms ~Apr 2026 (27).\n"
+                "- **Summer:** use **2025 Jul–Sep** as the rate anchor; see **Summer (Jul–Sep)** tab "
+                "(month toggle) for pace, weekday vs weekend booking windows, and recommendations.\n"
+                "- **AirDNA:** guides seasonality / market shape only — property metrics govern pricing."
+            )
+            kpis = summer_data.get("summer_year_month_kpis", pd.DataFrame())
+            if not kpis.empty:
+                k25 = kpis.loc[kpis["year"] == 2025]
+                k26 = kpis.loc[kpis["year"] == 2026]
+                def _m(frame, month, col):
+                    r = frame.loc[frame["month"] == month]
+                    if r.empty:
+                        return None
+                    v = r.iloc[0].get(col)
+                    return None if pd.isna(v) else float(v)
+                jul25 = _m(k25, 7, "adr")
+                aug25 = _m(k25, 8, "adr")
+                sep25 = _m(k25, 9, "adr")
+                jul26 = _m(k26, 7, "adr")
+                aug26 = _m(k26, 8, "adr")
+                sep26 = _m(k26, 9, "adr")
+                bits = []
+                if jul25 is not None:
+                    bits.append(f"2025 Jul ADR **${jul25:,.0f}**")
+                if aug25 is not None:
+                    bits.append(f"2025 Aug ADR **${aug25:,.0f}**")
+                if sep25 is not None:
+                    bits.append(f"2025 Sep ADR **${sep25:,.0f}**")
+                if jul26 is not None:
+                    bits.append(f"2026 Jul ADR **${jul26:,.0f}**")
+                if aug26 is not None:
+                    bits.append(f"2026 Aug ADR **${aug26:,.0f}**")
+                if sep26 is not None:
+                    bits.append(f"2026 Sep ADR **${sep26:,.0f}**")
+                if bits:
+                    st.markdown("- Summer snapshot: " + " · ".join(bits))
+
 
     def _filter_by_group(df: pd.DataFrame, unit_id_col: str = "unit_id") -> pd.DataFrame:
         """If a listing group is selected, filter to those unit_ids plus PROPERTY if present."""
@@ -542,6 +625,254 @@ def main():
             st.dataframe(format_table_display(df), use_container_width=True, hide_index=True)
         else:
             st.dataframe(format_table_display(df), use_container_width=True, hide_index=True)
+
+    with tab_summer:
+        st.subheader("Summer deep-dive (July / August / September)")
+        st.caption(
+            "Property-first stay-month metrics. Months are never blended — use the toggle below. "
+            "AirDNA is not used for recommendation bands. "
+            "Run `python scripts/run_summer_analysis.py --property <id>` if tables are missing."
+        )
+        kpis = summer_data.get("summer_year_month_kpis", pd.DataFrame())
+        pace = summer_data.get("summer_pace_asof", pd.DataFrame())
+        dow = summer_data.get("summer_dow_adr", pd.DataFrame())
+        ww = summer_data.get("summer_weekday_weekend", pd.DataFrame())
+        channel = summer_data.get("summer_channel", pd.DataFrame())
+        room_type = summer_data.get("summer_room_type", pd.DataFrame())
+        leads = summer_data.get("summer_lead_bands", pd.DataFrame())
+        daily = summer_data.get("summer_daily_occupancy", pd.DataFrame())
+        recs = summer_data.get("summer_recommendations", pd.DataFrame())
+
+        if kpis.empty and pace.empty:
+            st.info("No summer analysis CSVs found under analysis/summer/.")
+        else:
+            available_months = []
+            for m, label in SUMMER_MONTH_OPTIONS:
+                has = False
+                for frame in (kpis, pace, dow, ww, channel, leads, daily, recs):
+                    if not frame.empty and "month" in frame.columns and (frame["month"] == m).any():
+                        has = True
+                        break
+                if has:
+                    available_months.append((m, label))
+            if not available_months:
+                available_months = list(SUMMER_MONTH_OPTIONS)
+
+            month_labels = [label for _, label in available_months]
+            selected_label = st.radio(
+                "Stay month",
+                month_labels,
+                horizontal=True,
+                key="summer_month_toggle",
+            )
+            selected_month = next(m for m, label in available_months if label == selected_label)
+
+            def _filter_month(frame: pd.DataFrame) -> pd.DataFrame:
+                if frame.empty or "month" not in frame.columns:
+                    return frame
+                return frame.loc[frame["month"] == selected_month].copy()
+
+            kpis_m = _filter_month(kpis)
+            pace_m = _filter_month(pace)
+            dow_m = _filter_month(dow)
+            ww_m = _filter_month(ww)
+            channel_m = _filter_month(channel)
+            room_type_m = _filter_month(room_type)
+            leads_m = _filter_month(leads)
+            daily_m = _filter_month(daily)
+            recs_m = _filter_month(recs)
+
+            def _summer_adr(year: int):
+                if kpis_m.empty:
+                    return None
+                r = kpis_m.loc[kpis_m["year"] == year]
+                if r.empty or pd.isna(r.iloc[0].get("adr")):
+                    return None
+                return float(r.iloc[0]["adr"])
+
+            def _summer_occ(year: int):
+                if kpis_m.empty:
+                    return None
+                r = kpis_m.loc[kpis_m["year"] == year]
+                if r.empty or pd.isna(r.iloc[0].get("occupancy_pct")):
+                    return None
+                return float(r.iloc[0]["occupancy_pct"])
+
+            c1, c2, c3, c4, c5 = st.columns(5)
+            with c1:
+                v = _summer_adr(2025)
+                st.metric(f"2025 {selected_label} ADR", f"${v:,.0f}" if v is not None else "—")
+            with c2:
+                v = _summer_occ(2025)
+                st.metric(f"2025 {selected_label} Occ", f"{v:.0f}%" if v is not None else "—")
+            with c3:
+                v = _summer_adr(2026)
+                st.metric(f"2026 {selected_label} ADR", f"${v:,.0f}" if v is not None else "—")
+            with c4:
+                v = _summer_occ(2026)
+                st.metric(f"2026 {selected_label} Occ", f"{v:.0f}%" if v is not None else "—")
+            with c5:
+                if not pace_m.empty:
+                    cur_p = pace_m.loc[pace_m["stay_year"] == 2026]
+                    if not cur_p.empty and pd.notna(cur_p.iloc[0].get("onbooks_vs_ly_onbooks_pct")):
+                        pct = float(cur_p.iloc[0]["onbooks_vs_ly_onbooks_pct"])
+                        asof = cur_p.iloc[0].get("asof_date", "")
+                        st.metric(f"On-books vs LY ({asof})", f"{pct:.0f}%")
+                    else:
+                        st.metric("On-books vs LY", "—")
+                else:
+                    st.metric("On-books vs LY", "—")
+
+            if not kpis_m.empty:
+                fig = px.bar(
+                    kpis_m,
+                    x="year",
+                    y="adr",
+                    title=f"{selected_label} ADR by year (property)",
+                    labels={"adr": "ADR ($)", "year": "Year"},
+                    text="adr",
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                st.dataframe(format_table_display(kpis_m), use_container_width=True, hide_index=True)
+
+            if not pace_m.empty:
+                asof = pace_m.iloc[0].get("asof_date", "")
+                st.subheader(f"Pace as-of {asof}")
+                plot_p = pace_m.copy()
+                fig = px.bar(
+                    plot_p,
+                    x="stay_year",
+                    y="onbooks_room_nights",
+                    title=f"{selected_label} on-books room-nights by stay year",
+                    labels={"onbooks_room_nights": "On-books RN", "stay_year": "Stay year"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                st.dataframe(format_table_display(pace_m), use_container_width=True, hide_index=True)
+
+            if not ww_m.empty:
+                st.subheader("Weekday vs weekend (Fri–Sat) — ADR + booking window")
+                st.caption(
+                    "Weekday = Sun–Thu arrivals; Weekend = Fri–Sat arrivals. "
+                    "Shows ADR and lead-time (median/mean + band shares) together."
+                )
+                fig = px.bar(
+                    ww_m,
+                    x="day_group",
+                    y="adr",
+                    color="year",
+                    barmode="group",
+                    title=f"{selected_label} ADR: weekday vs weekend",
+                    labels={"adr": "ADR ($)", "day_group": "Day group"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                fig2 = px.bar(
+                    ww_m,
+                    x="day_group",
+                    y="median_lead_days",
+                    color="year",
+                    barmode="group",
+                    title=f"{selected_label} median booking window (days)",
+                    labels={"median_lead_days": "Median lead days", "day_group": "Day group"},
+                )
+                st.plotly_chart(fig2, use_container_width=True)
+                st.dataframe(format_table_display(ww_m), use_container_width=True, hide_index=True)
+
+            if not daily_m.empty:
+                st.subheader("Daily occupancy (night-level)")
+                dplot = daily_m.copy()
+                dplot["night_date"] = pd.to_datetime(dplot["night_date"], errors="coerce")
+                fig = px.line(
+                    dplot,
+                    x="night_date",
+                    y="occupancy_pct",
+                    color="year",
+                    title=f"{selected_label} daily occupancy % (capacity-aware)",
+                    labels={"occupancy_pct": "Occupancy %", "night_date": "Night"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+
+            if not dow_m.empty:
+                st.subheader("Arrival day-of-week ADR")
+                fig = px.bar(
+                    dow_m,
+                    x="arrival_dow",
+                    y="adr",
+                    color="year",
+                    barmode="group",
+                    category_orders={
+                        "arrival_dow": [
+                            "Monday", "Tuesday", "Wednesday", "Thursday",
+                            "Friday", "Saturday", "Sunday",
+                        ]
+                    },
+                    title=f"{selected_label} ADR by arrival DOW",
+                    labels={"adr": "ADR ($)"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                st.dataframe(format_table_display(dow_m), use_container_width=True, hide_index=True)
+
+            if not room_type_m.empty:
+                st.subheader("Room-type ADR ladder")
+                st.dataframe(format_table_display(room_type_m), use_container_width=True, hide_index=True)
+
+            if not leads_m.empty:
+                st.subheader("Lead-time bands")
+                fig = px.bar(
+                    leads_m,
+                    x="lead_band",
+                    y="rn_share_pct",
+                    color="year",
+                    barmode="group",
+                    category_orders={"lead_band": ["0-6", "7-14", "15-30", "31-60", "61-90", "91+"]},
+                    title=f"{selected_label} room-night share by lead band",
+                    labels={"rn_share_pct": "Share of room-nights %"},
+                )
+                st.plotly_chart(fig, use_container_width=True)
+                st.dataframe(format_table_display(leads_m), use_container_width=True, hide_index=True)
+
+            if not channel_m.empty:
+                with st.expander("Channel mix & ADR (separate from pricing bands)", expanded=False):
+                    fig = px.bar(
+                        channel_m,
+                        x="channel",
+                        y="adr",
+                        color="year",
+                        barmode="group",
+                        title=f"{selected_label} channel ADR",
+                        labels={"adr": "ADR ($)"},
+                    )
+                    fig.update_layout(xaxis_tickangle=-45)
+                    st.plotly_chart(fig, use_container_width=True)
+                    st.dataframe(format_table_display(channel_m), use_container_width=True, hide_index=True)
+                    # Expedia vs Direct highlight when present
+                    ch_l = channel_m.copy()
+                    ch_l["channel_l"] = ch_l["channel"].astype(str).str.lower()
+                    exp = ch_l.loc[ch_l["channel_l"].str.contains("expedia")]
+                    direct = ch_l.loc[ch_l["channel_l"].str.contains("direct|website|property", regex=True)]
+                    if not exp.empty or not direct.empty:
+                        st.caption("Expedia vs Direct is insight-only — not folded into rate-band recommendations.")
+                        bits = []
+                        for y in sorted(ch_l["year"].dropna().unique()):
+                            e = exp.loc[exp["year"] == y]
+                            d = direct.loc[direct["year"] == y]
+                            if not e.empty:
+                                bits.append(
+                                    f"{int(y)} Expedia share {e.iloc[0].get('revenue_share_pct')}% / "
+                                    f"ADR ${e.iloc[0].get('adr')}"
+                                )
+                            if not d.empty:
+                                bits.append(
+                                    f"{int(y)} Direct share {d.iloc[0].get('revenue_share_pct')}% / "
+                                    f"ADR ${d.iloc[0].get('adr')}"
+                                )
+                        if bits:
+                            st.markdown("- " + "\n- ".join(bits))
+
+            if not recs_m.empty:
+                with st.expander(f"{selected_label} recommendations (from 2025 property actuals)", expanded=True):
+                    st.dataframe(format_table_display(recs_m), use_container_width=True, hide_index=True)
+                    for _, r in recs_m.iterrows():
+                        st.markdown(f"**{r.get('period')} — {r.get('metric')}:** {r.get('rationale')}")
 
     with tab_adr:
         st.subheader("ADR by listing and month (two years)")
@@ -836,6 +1167,101 @@ def main():
 
     with tab_market_ctx:
         st.subheader("AirDNA daily market context")
+        st.caption(
+            "Market context only — property ADR, occupancy, and summer recommendations govern pricing. "
+            "Do not treat AirDNA ADR as a rate floor or override."
+        )
+
+        # Durango / property-level monthly AirDNA (when generated)
+        market_monthly_path = benchmark_dir / "market_context_monthly.csv"
+        market_summer_path = benchmark_dir / "market_summer_compare.csv"
+        market_bw_path = benchmark_dir / "market_booking_window.csv"
+        market_monthly = pd.read_csv(market_monthly_path) if market_monthly_path.exists() else pd.DataFrame()
+        market_summer = pd.read_csv(market_summer_path) if market_summer_path.exists() else pd.DataFrame()
+        market_bw = pd.read_csv(market_bw_path) if market_bw_path.exists() else pd.DataFrame()
+
+        if not market_monthly.empty or not market_summer.empty:
+            st.markdown("### Durango market (AirDNA filter set)")
+            filters_note = ""
+            if not market_monthly.empty and "filters_note" in market_monthly.columns:
+                filters_note = str(market_monthly["filters_note"].dropna().iloc[0]) if market_monthly["filters_note"].notna().any() else ""
+            if filters_note:
+                st.caption(f"Filters: {filters_note}. Context only — STR comps, not a hotel ADR target.")
+
+            summer_months = [7, 8, 9]
+            if not market_summer.empty:
+                sm = market_summer.loc[market_summer["month"].isin(summer_months)].copy()
+                month_choice = st.radio(
+                    "Market stay month",
+                    ["July", "August", "September"],
+                    horizontal=True,
+                    key="airdna_summer_month",
+                )
+                month_num = {"July": 7, "August": 8, "September": 9}[month_choice]
+                sm_m = sm.loc[sm["month"] == month_num].copy()
+
+                if not sm_m.empty:
+                    # YoY market metrics
+                    plot_cols = [c for c in ["occupancy_pct", "adr", "revpar"] if c in sm_m.columns]
+                    if plot_cols:
+                        long = sm_m.melt(
+                            id_vars=["year"],
+                            value_vars=plot_cols,
+                            var_name="metric",
+                            value_name="value",
+                        )
+                        fig = px.bar(
+                            long,
+                            x="metric",
+                            y="value",
+                            color="year",
+                            barmode="group",
+                            title=f"Market {month_choice} occ / ADR / RevPAR by year",
+                        )
+                        st.plotly_chart(fig, use_container_width=True)
+
+                    gap_cols = [c for c in [
+                        "year", "month", "month_name",
+                        "occupancy_pct", "adr", "revpar",
+                        "property_occupancy_pct", "property_adr", "property_revpar",
+                        "occ_gap_ppt", "adr_gap", "revpar_gap",
+                    ] if c in sm_m.columns]
+                    st.subheader(f"Property vs market — {month_choice}")
+                    st.dataframe(format_table_display(sm_m[gap_cols]), use_container_width=True, hide_index=True)
+
+            if not market_monthly.empty:
+                with st.expander("Full monthly market series", expanded=False):
+                    st.dataframe(format_table_display(market_monthly), use_container_width=True, hide_index=True)
+
+            if not market_bw.empty:
+                st.subheader("Market booking-window shape (RevPAR in advance)")
+                st.caption(
+                    "AirDNA RevPAR by lead band — proxy for how far out demand is priced. "
+                    "Compare shape to property weekday/weekend lead bands in the Summer tab."
+                )
+                bw_month = st.selectbox(
+                    "Market BW month",
+                    sorted(market_bw["month"].dropna().unique().tolist()),
+                    format_func=lambda m: {7: "July", 8: "August", 9: "September"}.get(int(m), str(m)),
+                    key="airdna_bw_month",
+                )
+                bw_m = market_bw.loc[market_bw["month"] == bw_month].copy()
+                if not bw_m.empty:
+                    fig = px.bar(
+                        bw_m,
+                        x="lead_band",
+                        y="market_revpar",
+                        color="year",
+                        barmode="group",
+                        category_orders={"lead_band": ["0-6", "7-14", "15-30", "31-60", "61-90", "91+"]},
+                        title="Market RevPAR by booking lead band",
+                        labels={"market_revpar": "Market RevPAR ($)"},
+                    )
+                    st.plotly_chart(fig, use_container_width=True)
+                    st.dataframe(format_table_display(bw_m), use_container_width=True, hide_index=True)
+
+            st.divider()
+
         with st.expander("How AirDNA context is computed"):
             st.markdown(
                 "### 1) Purpose and separation\n"

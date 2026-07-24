@@ -1,0 +1,7 @@
+unit_id,revenue,revenue_yoy_pct,room_nights,bookings,bookings_yoy_pct,adr,adr_yoy_pct,occupancy_pct,revpar
+Double Queen,538221.8,-39.36,3912,2558,-37.05,137.58,-0.22,50.99,70.15
+Small Queen,159388.45,-20.59,1485,1063,-17.76,107.33,-8.58,67.75,72.71
+Standard King,606356.13,-41.21,4792,2997,-34.95,126.54,-7.28,54.65,69.16
+Standard Queen,606726.03,-42.45,5229,3313,-39.22,116.03,-13.56,53.01,61.51
+Standard Queen with Kitchen,13163.21,,105,57,,125.36,,38.18,47.87
+PROPERTY,1923855.61,-37.82,15523,9988,-33.81,123.94,-8.09,55.54,68.83

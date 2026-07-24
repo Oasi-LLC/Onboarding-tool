@@ -1,0 +1,10 @@
+year,month,occupancy_pct,adr,revpar,revenue_avg,month_name,context_only,filters_note,property_occupancy_pct,property_adr,property_revpar,occ_gap_ppt,adr_gap,revpar_gap
+2023,7,84.16,183.17,154.16,4327.840425531915,July,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",,,,,,
+2023,8,76.18,177.45,135.18,3804.884210526316,August,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",,,,,,
+2023,9,74.85,174.9,130.91,3682.159574468085,September,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",,,,,,
+2024,7,75.72,175.49,132.88,3778.6507936507937,July,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",90.71,144.39,130.97,14.99,-31.1,-1.91
+2024,8,74.78,173.14,129.48,3725.904,August,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",87.74,148.27,132.58,12.96,-24.87,3.1
+2024,9,68.84,171.7,118.2,3371.8818897637793,September,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",94.13,142.96,135.14,25.29,-28.74,16.94
+2025,7,78.59,179.6,141.15,4094.638655462185,July,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",95.23,172.84,170.39,16.64,-6.76,29.24
+2025,8,76.63,175.95,134.82,3801.9416666666666,August,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",92.39,173.16,155.5,15.76,-2.79,20.68
+2025,9,73.37,169.0,123.99,3570.7522935779816,September,True,"0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale",90.13,172.46,154.75,16.76,3.46,30.76

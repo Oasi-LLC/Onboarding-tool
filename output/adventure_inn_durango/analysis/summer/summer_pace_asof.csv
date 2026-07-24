@@ -1,0 +1,10 @@
+stay_year,month,month_name,asof_date,month_complete,onbooks_room_nights,final_room_nights,onbooks_pct_of_final,onbooks_adr,final_adr,ly_onbooks_room_nights,ly_final_room_nights,onbooks_vs_ly_onbooks_pct
+2024,7,July,2024-07-24,False,643,703,,147.22,144.39,,,
+2024,8,August,2024-07-24,False,282,693,,145.75,148.27,,,
+2024,9,September,2024-07-24,False,185,709,,138.79,142.96,,,
+2025,7,July,2025-07-24,False,700,764,,171.49,172.84,643.0,703.0,108.86
+2025,8,August,2025-07-24,False,249,696,,154.15,173.16,282.0,693.0,88.3
+2025,9,September,2025-07-24,False,98,673,,178.45,172.46,185.0,709.0,52.97
+2026,7,July,2026-07-24,False,616,616,,164.82,164.82,700.0,764.0,88.0
+2026,8,August,2026-07-24,False,180,180,,142.78,142.78,249.0,696.0,72.29
+2026,9,September,2026-07-24,False,115,115,,188.01,188.01,98.0,673.0,117.35

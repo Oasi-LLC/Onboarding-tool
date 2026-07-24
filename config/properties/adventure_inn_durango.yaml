@@ -1,0 +1,70 @@
+property_id: adventure_inn_durango
+property_name: Adventure Inn Durango
+# Unknown PMS — do not use cloudbeds mapper. Export: Reservations with Financials (.xlsx).
+pms_id: unknown_pms
+
+# Current inventory after Apr 2026 expansion. Historical property capacity via capacity_schedule.
+room_count: 27
+
+capacity_schedule:
+  - start_date: "2024-01-01"
+    end_date: "2026-03-31"
+    room_count: 25
+  - start_date: "2026-04-01"
+    room_count: 27
+
+eras:
+  - name: prior_ownership
+    end_date: "2024-07-31"
+  - name: ownership_transition
+    start_date: "2024-08-01"
+    end_date: "2024-10-31"
+  - name: renovation
+    start_date: "2024-11-01"
+    end_date: "2025-05-31"
+  - name: post_reno_25
+    start_date: "2025-06-01"
+    end_date: "2026-03-31"
+  - name: post_expansion_27
+    start_date: "2026-04-01"
+
+analysis_window:
+  start_date: "2024-01-01"
+  end_date: "2026-12-31"
+
+# unit_id = room type. Counts reflect current 27-room inventory.
+# Property-level occ/RevPAR use capacity_schedule (25 vs 27), not a flat 27 for all history.
+room_types:
+  - unit_id: "Standard Queen"
+    unit_count: 9
+    listing_start_date: "2024-01-01"
+  - unit_id: "Standard King"
+    unit_count: 8
+    listing_start_date: "2024-01-01"
+  - unit_id: "Double Queen"
+    unit_count: 7
+    listing_start_date: "2024-01-01"
+  - unit_id: "Small Queen"
+    unit_count: 2
+    listing_start_date: "2024-01-01"
+  - unit_id: "Standard Queen with Kitchen"
+    unit_count: 1
+    listing_start_date: "2026-04-01"
+
+summer:
+  months: [7, 8, 9]
+  pace_asof_month: 7
+  pace_asof_day: 24
+  anchor_year: 2025
+
+# AirDNA filter set: 0–1 BR, 1–2 bath, 1–4 guests, entire/private, economy–upscale.
+# Context only — never overrides property ADR/occ/RevPAR.
+airdna:
+  data_dir: data/airdna/adventure_inn_durango
+  filters_note: "0-1 bedrooms, 1-2 baths, 1-4 guests, entire/private, economy-midscale-upscale"
+  context_only: true
+
+tiering:
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  quantile_fallback_tiers: 5

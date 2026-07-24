@@ -1,0 +1,48 @@
+unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Double Queen,Airbnb,143,36200.0,229,6.73,5.59,158.08
+Standard Queen,Airbnb,90,18165.5,135,2.99,2.72,134.56
+Small Queen,Airbnb,71,12723.0,109,7.98,6.68,116.72
+Standard King,Airbnb,106,25416.1,183,4.19,3.54,138.89
+Standard King,Booking.com,562,112990.22666666667,875,18.63,18.75,129.13
+Double Queen,Booking.com,479,97441.53,716,18.1,18.73,136.09
+Small Queen,Booking.com,327,50145.191666666666,448,31.46,30.76,111.93
+Standard Queen,Booking.com,754,134087.41166666665,1140,22.1,22.76,117.62
+Standard Queen with Kitchen,Booking.com,5,928.3499999999999,6,7.05,8.77,154.72
+Standard Queen,Default Corporate Client,1,559.49,4,0.09,0.03,139.87
+Standard Queen,Direct,350,73196.98833333333,580,12.06,10.56,126.2
+Standard King,Direct,332,79359.1325,544,13.09,11.08,145.88
+Small Queen,Direct,101,19199.926666666666,151,12.05,9.5,127.15
+Double Queen,Direct,288,76508.7625,485,14.22,11.26,157.75
+Standard Queen with Kitchen,Direct,19,5212.05,34,39.6,33.33,153.3
+Standard Queen,Expedia,1324,229487.93,1998,37.82,39.96,114.86
+Double Queen,Expedia,1059,210959.915,1600,39.2,41.4,131.85
+Small Queen,Expedia,405,55177.57,559,34.62,38.1,98.71
+Standard King,Expedia,1318,254591.685,2113,41.99,43.98,120.49
+Standard Queen with Kitchen,Expedia,27,5376.41,54,40.84,47.37,99.56
+Standard King,Google (Ads Hotel),25,5398.8,44,0.89,0.83,122.7
+Small Queen,Google (Ads Hotel),14,1519.0,17,0.95,1.32,89.35
+Double Queen,Google (Ads Hotel),22,4903.5,37,0.91,0.86,132.53
+Standard Queen,Google (Ads Hotel),30,4813.93,49,0.79,0.91,98.24
+Standard King,Hotels.com,163,29579.0,247,4.88,5.44,119.75
+Double Queen,Hotels.com,144,27983.55,215,5.2,5.63,130.16
+Small Queen,Hotels.com,54,7053.75,73,4.43,5.08,96.63
+Standard Queen,Hotels.com,169,28156.0,269,4.64,5.1,104.67
+Standard King,Orbitz,11,2176.2,17,0.36,0.37,128.01
+Standard Queen,Orbitz,15,2097.3,18,0.35,0.45,116.52
+Double Queen,Orbitz,4,630.9,5,0.12,0.16,126.18
+Standard King,Phone,49,12543.539999999999,85,2.07,1.63,147.57
+Standard Queen,Phone,88,20636.7,129,3.4,2.66,159.97
+Double Queen,Phone,50,11189.1,76,2.08,1.95,147.22
+Small Queen,Phone,5,717.6,8,0.45,0.47,89.7
+Standard Queen with Kitchen,Phone,1,890.4,6,6.76,1.75,148.4
+Small Queen,Reservation Import,62,9526.76,93,5.98,5.83,102.44
+Standard Queen,Reservation Import,231,40471.91,379,6.67,6.97,106.79
+Standard King,Reservation Import,179,35735.62,317,5.89,5.97,112.73
+Double Queen,Reservation Import,195,35669.79,290,6.63,7.62,123.0
+Standard Queen,Stash Hotel Rewards,2,609.9,3,0.1,0.06,203.3
+Double Queen,Stash Hotel Rewards,2,294.49,2,0.05,0.08,147.24
+Standard Queen,Walk-In,259,54442.96727272727,525,8.97,7.82,103.7
+Double Queen,Walk-In,172,36440.259090909094,257,6.77,6.72,141.79
+Standard King,Walk-In,252,48565.82363636364,367,8.01,8.41,132.33
+Small Queen,Walk-In,24,3325.65,27,2.09,2.26,123.17
+Standard Queen with Kitchen,Walk-In,5,756.0,5,5.74,8.77,151.2

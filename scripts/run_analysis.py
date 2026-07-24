@@ -438,6 +438,12 @@ def main():
     for col in ("arrival_date", "departure_date", "booking_date"):
         if col in df.columns:
             df[col] = pd.to_datetime(df[col], errors="coerce")
+    if inv.get("analysis_unit_filter") and inv.get("unit_ids") and "unit_id" in df.columns:
+        allowed = {str(u).strip() for u in inv["unit_ids"] if str(u).strip()}
+        before = len(df)
+        df = df.loc[df["unit_id"].astype(str).isin(allowed)].copy()
+        if before != len(df):
+            print(f"Analysis scope: {', '.join(sorted(allowed))} ({len(df)} rows)")
     max_arrival = None
     if "arrival_date" in df.columns and df["arrival_date"].notna().any():
         max_arrival = pd.Timestamp(df["arrival_date"].max()).normalize()
@@ -476,6 +482,7 @@ def main():
         analysis_window=analysis_window_cfg,
         listing_capacity_fallback=listing_capacity_fallback,
         monthly_performance_combined_cfg=inv.get("monthly_performance_combined") or {},
+        capacity_schedule=inv.get("capacity_schedule") or [],
     )
     n_rows = len(tables["overall_summary"]) - 1  # exclude PROPERTY row for listing count
     if n_rows == 0:

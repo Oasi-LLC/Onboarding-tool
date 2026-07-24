@@ -47,6 +47,9 @@ _EXCLUDED_CANONICAL_RESERVATION_STATUSES_EXACT: frozenset[str] = frozenset(
         # Guesty-style non-stay rows (also excluded when STATUS maps here)
         "expired",
         "inquiry",
+        "inquirynotpossible",
+        "ownerstay",
+        "owner stay",
     }
 )
 
@@ -95,12 +98,12 @@ _RESNEXUS_SHEET_CHANNEL = [
     "3rd Party",
 ]
 _DATE_FORMAT = "%m/%d/%Y"
+_HOSTAWAY_LISTING_COLUMNS = ("Listing Name", "Listing.1", "Listing")
 _HOSTAWAY_REQUIRED = [
     "Guest",
     "Payment status",
     "Check-in date",
     "Check-out date",
-    "Listing Name",
     "Reservation date",
     "rentalRevenue",
 ]
@@ -123,12 +126,12 @@ _CLOUDBEDS_CHANNEL = [
     "Source",
     "Y",
 ]
+_TRACK_UNIT_COLUMNS = ("Listing Name", "Unit Name")
 _TRACK_REQUIRED = [
     "Res. #",
     "Check-In",
     "Checkout",
     "Nights",
-    "Listing Name",
     "Rev",
     "Channel",
 ]
@@ -149,6 +152,43 @@ _GUESTY_CHANNEL = [
     "Channel",
     "SOURCE",
 ]
+# OwnerRez / Oasi dashboard export (e.g. Spoon Mountain).
+_OWNERREZ_REQUIRED = [
+    "Booking #",
+    "Property",
+    "Guest",
+    "Booked",
+    "Arrival",
+    "Departure",
+    "N",
+    "Rent",
+    "Revenue",
+    "Booking Window",
+]
+_OWNERREZ_CHANNEL = [
+    "Channel",
+    "Listing Site",
+]
+# Unknown PMS — "Reservations with Financials" style export (e.g. Adventure Inn Durango).
+# Not Cloudbeds: dedicated loader/mapper; do not reuse cloudbeds column expectations.
+_UNKNOWN_PMS_REQUIRED = [
+    "Reservation Number",
+    "Check-In Date",
+    "Check-Out Date",
+    "Room Revenue Total",
+    "Reservation Status",
+]
+_UNKNOWN_PMS_CHANNEL = [
+    "Reservation Source",
+    "Reservation Source Category",
+]
+_UNKNOWN_PMS_ROOM_CODE_TO_TYPE = {
+    "STQ": "Standard Queen",
+    "STK": "Standard King",
+    "DQ": "Double Queen",
+    "SMQ": "Small Queen",
+    "STQK": "Standard Queen with Kitchen",
+}
 _PROPERTIES_DIR = Path(__file__).resolve().parent.parent / "config" / "properties"
 _PROPERTY_LISTING_MAP_CACHE: dict[str, dict[str, str]] = {}
 
@@ -328,6 +368,225 @@ def _guesty_load_csv(path) -> pd.DataFrame:
         return pd.read_csv(path, encoding="latin1")
 
 
+def _ownerrez_load_csv(path) -> pd.DataFrame:
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {path}")
+    try:
+        return pd.read_csv(path, encoding="utf-8")
+    except UnicodeDecodeError:
+        return pd.read_csv(path, encoding="latin1")
+
+
+def _unknown_pms_strip_junk_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """Drop totals row, blank spacer, and embedded report-filter string rows."""
+    if df.empty:
+        return df
+    out = df.copy()
+    if "Reservation Number" in out.columns:
+        res = out["Reservation Number"].astype(str).str.strip()
+        out = out.loc[res.notna() & (res != "") & (res.str.lower() != "nan")].copy()
+    if "Property Name" in out.columns:
+        prop = out["Property Name"].astype(str).str.strip()
+        out = out.loc[
+            prop.notna()
+            & (prop != "")
+            & (prop.str.lower() != "nan")
+            & (~prop.str.contains("Check-In Date", case=False, na=False))
+            & (~prop.str.contains("Booking Date Time", case=False, na=False))
+        ].copy()
+    return out.reset_index(drop=True)
+
+
+def _unknown_pms_load_csv(path) -> pd.DataFrame:
+    """
+    Load Reservations-with-Financials style export (xlsx or csv).
+    Excel: metadata rows 0-4, header on row 5; strip trailing junk rows.
+    """
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(f"File not found: {path}")
+    suffix = path.suffix.lower()
+    if suffix in {".xlsx", ".xls"}:
+        df = pd.read_excel(path, sheet_name=0, header=5)
+    else:
+        try:
+            df = pd.read_csv(path, encoding="utf-8")
+        except UnicodeDecodeError:
+            df = pd.read_csv(path, encoding="latin1")
+    # Drop unnamed index columns from Excel exports
+    drop_cols = [c for c in df.columns if str(c).startswith("Unnamed")]
+    if drop_cols:
+        df = df.drop(columns=drop_cols)
+    return _unknown_pms_strip_junk_rows(df)
+
+
+def _unknown_pms_parse_rooms(room_numbers: object, room_types: object) -> list[str]:
+    """
+    Return one room-type label per physical room on the reservation.
+    Prefer codes inside Room Numbers, e.g. '104 (STK), 103 (STK)'.
+    """
+    rn = str(room_numbers or "").strip()
+    rt = str(room_types or "").strip()
+    if rn and rn.lower() not in {"nan", "-", ""}:
+        parts = [p.strip() for p in rn.split(",") if p.strip()]
+        types: list[str] = []
+        for p in parts:
+            m = re.search(r"\(([^)]+)\)\s*$", p)
+            if m:
+                code = m.group(1).strip().upper()
+                types.append(_UNKNOWN_PMS_ROOM_CODE_TO_TYPE.get(code, code))
+            else:
+                types.append(p)
+        if types:
+            return types
+    if rt and rt.lower() not in {"nan", "-", ""}:
+        parts = [p.strip() for p in rt.split(",") if p.strip()]
+        if parts:
+            return parts
+    return ["Unknown"]
+
+
+def _derive_unknown_pms_channel(row: pd.Series) -> str:
+    raw = str(row.get("Reservation Source", "") or "").strip()
+    if not raw or raw.lower() in {"nan", "-"}:
+        raw = str(row.get("Reservation Source Category", "") or "").strip()
+    return _normalize_channel_label(raw)
+
+
+def _unknown_pms_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = None) -> pd.DataFrame:
+    """
+    Map unknown-PMS financials export to canonical.
+    Multi-room reservations are expanded to one row per room; revenue split evenly.
+    Excludes In-House. Lead time clipped at 0 (UTC booking vs local check-in).
+    """
+    df = _unknown_pms_strip_junk_rows(raw)
+    if df.empty:
+        return pd.DataFrame(columns=canonical_columns())
+
+    rows: list[dict[str, Any]] = []
+    for idx, r in df.iterrows():
+        status = str(r.get("Reservation Status", "") or "").strip()
+        if status.lower() == "in-house" or reservation_status_is_excluded(status):
+            continue
+
+        arrival = pd.to_datetime(r.get("Check-In Date"), errors="coerce")
+        departure = pd.to_datetime(r.get("Check-Out Date"), errors="coerce")
+        booked = pd.to_datetime(r.get("Booking Date Time - UTC"), errors="coerce")
+        if pd.isna(arrival) or pd.isna(departure):
+            continue
+        los = int((departure - arrival).days)
+        if los < 1:
+            continue
+
+        revenue_total = _parse_currency(r.get("Room Revenue Total"))
+        if revenue_total is None:
+            continue
+        paid_total = _parse_currency(r.get("Reservation Paid Amount"))
+
+        room_types_list = _unknown_pms_parse_rooms(r.get("Room Numbers"), r.get("Room Types"))
+        n_rooms = max(len(room_types_list), 1)
+        # Prefer explicit Room Count when present and consistent
+        rc_raw = pd.to_numeric(r.get("Room Count"), errors="coerce")
+        if pd.notna(rc_raw) and int(rc_raw) > n_rooms:
+            # Pad with primary type if Room Count > parsed rooms
+            primary = room_types_list[0]
+            room_types_list = room_types_list + [primary] * (int(rc_raw) - n_rooms)
+            n_rooms = len(room_types_list)
+
+        rev_each = float(revenue_total) / n_rooms
+        paid_each = (float(paid_total) / n_rooms) if paid_total is not None else None
+        res_id = str(r.get("Reservation Number", "") or "").strip()
+        if not res_id or res_id.lower() == "nan":
+            res_id = f"unknown-pms-{idx}"
+
+        lead = None
+        if pd.notna(booked):
+            lead = int((arrival.normalize() - booked.normalize()).days)
+            if lead < 0:
+                lead = 0
+
+        channel = _derive_unknown_pms_channel(r)
+        book_date = booked.normalize() if pd.notna(booked) else pd.NaT
+
+        for room_i, unit_id in enumerate(room_types_list):
+            unit_id = str(unit_id).strip() or "Unknown"
+            if property_id:
+                mapped = _apply_property_listing_name_map(pd.Series([unit_id]), property_id)
+                unit_id = str(mapped.iloc[0])
+            rows.append({
+                "reservation_id": res_id if n_rooms == 1 else f"{res_id}-r{room_i + 1}",
+                "arrival_date": arrival.normalize(),
+                "departure_date": departure.normalize(),
+                "nights": los,
+                "unit_id": unit_id,
+                "guest_name": "",
+                "revenue": rev_each,
+                "amount_paid": paid_each,
+                "booking_date": book_date,
+                "lead_time_days": lead,
+                "adr": (rev_each / los) if los > 0 else None,
+                "channel": channel,
+                "arrival_day_of_week": arrival.day_name(),
+                "arrival_year_month": arrival.strftime("%Y-%m"),
+            })
+
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return pd.DataFrame(columns=canonical_columns())
+    # Keep non-negative revenue (zero-revenue No Shows allowed through to normalize)
+    out = out.loc[out["revenue"].notna() & (out["revenue"] >= 0)].copy()
+    return out
+
+
+def _hostaway_listing_series(raw: pd.DataFrame) -> pd.Series:
+    """Oasi/Hostaway dashboard exports: Listing Name, Listing, or pandas-deduped Listing.1."""
+    for col in _HOSTAWAY_LISTING_COLUMNS:
+        if col in raw.columns:
+            ser = raw[col].astype(str).str.strip()
+            if ser.replace({"": None, "nan": None}).notna().any():
+                return ser
+    return pd.Series([""] * len(raw), index=raw.index)
+
+
+def _track_unit_series(raw: pd.DataFrame) -> pd.Series:
+    for col in _TRACK_UNIT_COLUMNS:
+        if col in raw.columns:
+            return raw[col].astype(str).str.strip()
+    return pd.Series([""] * len(raw), index=raw.index)
+
+
+def _apply_property_listing_name_map(series: pd.Series, property_id: Optional[str]) -> pd.Series:
+    mapping = _get_property_listing_name_map(property_id)
+    if not mapping:
+        return series
+    return series.replace(mapping)
+
+
+def _dedupe_hostaway_stay_rows(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Some Hostaway exports emit two paid rows per stay (gross rent vs accommodation-only).
+    Keep the row with the highest revenue per guest + stay dates + unit.
+    """
+    if df.empty or "revenue" not in df.columns:
+        return df
+    stay_key = (
+        df["guest_name"].astype(str)
+        + "|"
+        + df["arrival_date"].astype(str)
+        + "|"
+        + df["departure_date"].astype(str)
+        + "|"
+        + df["unit_id"].astype(str)
+    )
+    dup_mask = stay_key.duplicated(keep=False)
+    if not dup_mask.any():
+        return df
+    tagged = df.assign(_stay_key=stay_key)
+    keep_idx = tagged.groupby("_stay_key", sort=False)["revenue"].idxmax()
+    return tagged.loc[keep_idx].drop(columns=["_stay_key"])
+
+
 def _normalize_flohom_listing_name(val: object) -> str:
     s = str(val).strip()
     # Normalize zero-padded ids (e.g. "FLOHOM 01" -> "FLOHOM 1")
@@ -444,6 +703,24 @@ def _derive_cloudbeds_channel(row: pd.Series) -> str:
 def _derive_track_channel(row: pd.Series) -> str:
     raw = str(row.get("Channel", "") or "").strip()
     return _normalize_channel_label(raw)
+
+
+def _guest_name_is_canceled(guest_val: object) -> bool:
+    """OwnerRez exports mark voided stays in Guest, e.g. 'Smith, Jane [CANCELED]'."""
+    s = str(guest_val or "").strip()
+    if not s or s.lower() == "nan":
+        return False
+    return "[canceled]" in s.lower() or "[cancelled]" in s.lower()
+
+
+def _derive_ownerrez_channel(row: pd.Series) -> str:
+    for col in _OWNERREZ_CHANNEL:
+        if col not in row.index:
+            continue
+        raw = str(row.get(col, "")).strip()
+        if raw and raw.lower() not in {"nan", ""}:
+            return _normalize_channel_label(raw)
+    return "Unknown"
 
 
 def _derive_guesty_channel(row: pd.Series) -> str:
@@ -603,11 +880,11 @@ def _track_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = None
     booking_primary = pd.to_datetime(_col("booking date"), errors="coerce")
     booking_fallback = pd.to_datetime(_col("Booking Date"), errors="coerce")
     df["booking_date"] = booking_primary.where(booking_primary.notna(), booking_fallback)
-    unit_ser = df.get("Listing Name", "").astype(str).str.strip()
+    unit_ser = _track_unit_series(df)
     if str(property_id or "").strip().lower() == "sos":
         df["unit_id"] = unit_ser.apply(lambda v: _normalize_sos_listing_name(v, property_id=property_id))
     else:
-        df["unit_id"] = unit_ser
+        df["unit_id"] = _apply_property_listing_name_map(unit_ser, property_id)
     full_name = (
         df.get("First Name", "").astype(str).replace("nan", "").str.strip()
         + " "
@@ -686,18 +963,63 @@ def _guesty_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = Non
     return df
 
 
+def _ownerrez_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = None) -> pd.DataFrame:
+    """OwnerRez Oasi dashboard export: Property = unit; Revenue = canonical revenue."""
+    df = raw.copy()
+    df["unit_id"] = _apply_property_listing_name_map(
+        df["Property"].astype(str).str.strip(), property_id
+    )
+    df["guest_name"] = df["Guest"].astype(str).replace("nan", "").str.strip()
+    df["arrival_date"] = df["Arrival"].apply(_parse_date_resnexus)
+    df["departure_date"] = df["Departure"].apply(_parse_date_resnexus)
+    df["booking_date"] = df["Booked"].apply(_parse_date_resnexus)
+    res_num = df["Booking #"].astype(str).str.strip()
+    df["reservation_id"] = res_num.where(res_num != "", other=None)
+    missing_res = df["reservation_id"].isna() | (df["reservation_id"].astype(str).str.strip() == "")
+    df.loc[missing_res, "reservation_id"] = [
+        f"ownerrez-{idx + 1}-{u}-{a.date() if pd.notna(a) else 'na'}"
+        for idx, (u, a) in enumerate(zip(df.loc[missing_res, "unit_id"], df.loc[missing_res, "arrival_date"]))
+    ]
+    df["revenue"] = df["Revenue"].apply(_parse_currency)
+    if "Net Payments" in df.columns:
+        df["amount_paid"] = df["Net Payments"].apply(_parse_currency)
+    elif "Paid" in df.columns:
+        df["amount_paid"] = df["Paid"].apply(_parse_currency)
+    else:
+        df["amount_paid"] = df["revenue"]
+    df["channel"] = df.apply(_derive_ownerrez_channel, axis=1)
+    df["nights"] = pd.to_numeric(df.get("N"), errors="coerce")
+    inferred_nights = (df["departure_date"] - df["arrival_date"]).dt.days
+    df["nights"] = df["nights"].where(df["nights"].notna() & (df["nights"] > 0), inferred_nights)
+    bw = pd.to_numeric(df.get("Booking Window"), errors="coerce")
+    computed_lt = (df["arrival_date"] - df["booking_date"]).dt.days
+    df["lead_time_days"] = bw.where(bw.notna() & (bw >= 0), computed_lt)
+    df["adr"] = df["revenue"] / df["nights"]
+    df.loc[df["nights"].isna() | (df["nights"] <= 0), "adr"] = None
+    if pd.api.types.is_datetime64_any_dtype(df["arrival_date"]):
+        df["arrival_day_of_week"] = df["arrival_date"].dt.day_name()
+        df["arrival_year_month"] = df["arrival_date"].dt.strftime("%Y-%m")
+    else:
+        df["arrival_day_of_week"] = ""
+        df["arrival_year_month"] = ""
+    canceled_guest = df["Guest"].map(_guest_name_is_canceled)
+    df = df.loc[~canceled_guest].copy()
+    df = df.loc[df["revenue"].notna() & (df["revenue"] > 0)].copy()
+    return df
+
+
 def _hostaway_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = None) -> pd.DataFrame:
     df = raw.copy()
     df["arrival_date"] = pd.to_datetime(df.get("Check-in date"), errors="coerce", format="mixed")
     df["departure_date"] = pd.to_datetime(df.get("Check-out date"), errors="coerce", format="mixed")
     df["booking_date"] = pd.to_datetime(df.get("Reservation date"), errors="coerce", format="mixed")
-    unit_ser = df.get("Listing Name", "").astype(str).str.strip()
+    unit_ser = _hostaway_listing_series(df)
     # Property-specific hostaway mapping hook:
     # FLOHOM uses "FLOHOM 01"/"FLOHOM 1" mixed labels, normalize to "FLOHOM <n>".
     if str(property_id or "").strip().lower() == "flohom":
         df["unit_id"] = unit_ser.apply(_normalize_flohom_listing_name)
     else:
-        df["unit_id"] = unit_ser
+        df["unit_id"] = _apply_property_listing_name_map(unit_ser, property_id)
     df["guest_name"] = df.get("Guest", "").astype(str).replace("nan", "").str.strip()
     df["revenue"] = df.get("rentalRevenue").apply(_parse_currency)
     df["amount_paid"] = df.get("Total paid").apply(_parse_currency) if "Total paid" in df.columns else None
@@ -727,10 +1049,17 @@ def _hostaway_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = N
         df["arrival_day_of_week"] = ""
         df["arrival_year_month"] = ""
 
+    if "Reservation status" in df.columns:
+        st = df["Reservation status"].astype(str)
+        df = df.loc[~st.map(reservation_status_is_excluded)].copy()
+
     # Business rule: exclude unknown/unpaid payment rows; keep paid and partially paid.
     if "Payment status" in df.columns:
         payment_status = df["Payment status"].astype(str).str.strip().str.lower()
         df = df.loc[~payment_status.isin({"unknown", "unpaid"})].copy()
+
+    df = df.loc[df["revenue"].notna() & (df["revenue"] > 0)].copy()
+    df = _dedupe_hostaway_stay_rows(df)
 
     return df
 
@@ -858,6 +1187,18 @@ _PMS_PARSERS: dict[str, dict[str, Any]] = {
         "load_csv": _guesty_load_csv,
         "map_to_canonical": _guesty_map_to_canonical,
     },
+    "ownerrez": {
+        "required_columns": _OWNERREZ_REQUIRED,
+        "channel_columns": _OWNERREZ_CHANNEL,
+        "load_csv": _ownerrez_load_csv,
+        "map_to_canonical": _ownerrez_map_to_canonical,
+    },
+    "unknown_pms": {
+        "required_columns": _UNKNOWN_PMS_REQUIRED,
+        "channel_columns": _UNKNOWN_PMS_CHANNEL,
+        "load_csv": _unknown_pms_load_csv,
+        "map_to_canonical": _unknown_pms_map_to_canonical,
+    },
 }
 
 
@@ -916,6 +1257,9 @@ def normalize(
     if exclude_invalid_revenue:
         if pms_id == "cloudbeds":
             df = df.loc[df["revenue"].notna() & (df["revenue"] > 0)].copy()
+        elif pms_id == "unknown_pms":
+            # Keep zero-revenue No Shows; drop negative adjustment rows.
+            df = df.loc[df["revenue"].notna() & (df["revenue"] >= 0)].copy()
         else:
             df = df.loc[df["revenue"].notna() & (df["revenue"] >= 0)].copy()
     df = df.loc[df["nights"].notna() & (df["nights"] >= 1)].copy()

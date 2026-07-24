@@ -1,0 +1,62 @@
+year,month,month_name,channel,reservations,room_nights,revenue,adr,revenue_share_pct
+2024,7,July,Expedia,172,255,36799.55,144.31,36.25
+2024,7,July,Hotels.com,109,153,22321.5,145.89,21.99
+2024,7,July,Reservation Import,98,141,21708.97,153.96,21.39
+2024,7,July,Booking.com,76,105,16627.0,158.35,16.38
+2024,7,July,Google (Ads Hotel),13,16,2492.6,155.79,2.46
+2024,7,July,Orbitz,9,11,1554.6,141.33,1.53
+2024,8,August,Expedia,186,271,40113.02,148.02,39.04
+2024,8,August,Booking.com,105,153,24273.27,158.65,23.62
+2024,8,August,Reservation Import,51,90,13197.37,146.64,12.84
+2024,8,August,Hotels.com,36,64,9274.4,144.91,9.03
+2024,8,August,Walk-In,33,43,6212.0,144.47,6.05
+2024,8,August,Direct,22,27,4169.8,154.44,4.06
+2024,8,August,Phone,15,17,2675.2,157.36,2.6
+2024,8,August,Google (Ads Hotel),8,16,2560.0,160.0,2.49
+2024,8,August,Orbitz,1,2,275.4,137.7,0.27
+2024,9,September,Booking.com,148,214,30837.4,144.1,30.42
+2024,9,September,Expedia,133,204,29757.5,145.87,29.36
+2024,9,September,Direct,50,75,11353.6,151.38,11.2
+2024,9,September,Walk-In,54,72,9927.2,137.88,9.79
+2024,9,September,Reservation Import,43,67,9400.5,140.31,9.27
+2024,9,September,Hotels.com,22,39,5053.5,129.58,4.99
+2024,9,September,Phone,13,21,2871.3,136.73,2.83
+2024,9,September,Orbitz,5,9,1250.1,138.9,1.23
+2024,9,September,Google (Ads Hotel),5,6,906.0,151.0,0.89
+2025,7,July,Expedia,278,418,67764.51,162.12,51.32
+2025,7,July,Direct,67,115,22005.8,191.35,16.66
+2025,7,July,Booking.com,72,118,21487.95,182.1,16.27
+2025,7,July,Walk-In,35,64,11179.1,174.67,8.47
+2025,7,July,Airbnb,16,36,6933.0,192.58,5.25
+2025,7,July,Phone,10,13,2679.1,206.08,2.03
+2025,8,August,Expedia,241,353,56053.55,158.79,46.51
+2025,8,August,Booking.com,88,138,25679.45,186.08,21.31
+2025,8,August,Direct,62,93,17601.3,189.26,14.6
+2025,8,August,Airbnb,26,39,7695.0,197.31,6.39
+2025,8,August,Walk-In,30,34,7128.1,209.65,5.91
+2025,8,August,Phone,22,36,6358.8,176.63,5.28
+2025,9,September,Expedia,234,348,56395.57,162.06,48.59
+2025,9,September,Booking.com,101,138,25166.35,182.36,21.68
+2025,9,September,Direct,53,72,13565.9,188.42,11.69
+2025,9,September,Walk-In,44,59,10774.8,182.62,9.28
+2025,9,September,Airbnb,24,33,6082.5,184.32,5.24
+2025,9,September,Phone,11,20,3888.73,194.44,3.35
+2025,9,September,Stash Hotel Rewards,1,1,190.95,190.95,0.16
+2026,7,July,Expedia,161,235,32464.81,138.15,31.98
+2026,7,July,Direct,87,154,28835.73,187.25,28.4
+2026,7,July,Booking.com,52,79,14486.93,183.38,14.27
+2026,7,July,Airbnb,41,66,13007.0,197.08,12.81
+2026,7,July,Walk-In,44,67,11151.79,166.44,10.98
+2026,7,July,Phone,4,10,1581.9,158.19,1.56
+2026,8,August,Expedia,52,87,10477.45,120.43,40.77
+2026,8,August,Direct,25,37,6495.75,175.56,25.28
+2026,8,August,Airbnb,14,18,2819.0,156.61,10.97
+2026,8,August,Booking.com,10,18,2775.44,154.19,10.8
+2026,8,August,Walk-In,7,16,2574.0,160.88,10.02
+2026,8,August,Phone,4,4,558.0,139.5,2.17
+2026,9,September,Expedia,28,48,6840.44,142.51,31.64
+2026,9,September,Phone,17,19,5339.8,281.04,24.7
+2026,9,September,Booking.com,9,17,3258.67,191.69,15.07
+2026,9,September,Airbnb,8,12,2377.0,198.08,10.99
+2026,9,September,Walk-In,5,10,2122.1,212.21,9.82
+2026,9,September,Direct,6,9,1682.7,186.97,7.78

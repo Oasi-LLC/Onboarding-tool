@@ -1,0 +1,10 @@
+year,month,month_name,reservations,room_nights,revenue,adr,avg_los,median_lead,mean_lead,occupancy_pct,revpar,capacity_rooms,statuses_included
+2024,7,July,491,703,101504.22,144.39,1.43,19.0,42.93,90.71,130.97,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2024,8,August,463,693,102750.46,148.27,1.5,5.0,26.22,87.74,132.58,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2024,9,September,475,709,101357.1,142.96,1.49,16.0,32.57,94.13,135.14,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2025,7,July,478,764,132049.46,172.84,1.6,7.0,14.14,95.23,170.39,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2025,8,August,470,696,120516.2,173.16,1.48,6.0,21.88,92.39,155.5,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2025,9,September,469,673,116064.8,172.46,1.43,12.0,22.84,90.13,154.75,25,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2026,7,July,392,616,101528.16,164.82,1.57,4.0,15.32,73.0,121.3,27,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2026,8,August,112,180,25699.64,142.78,1.61,36.0,43.99,21.62,30.7,27,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"
+2026,9,September,73,115,21620.71,188.01,1.58,72.0,85.48,14.07,26.69,27,"Checked Out,Confirmed,No Show (In-House excluded at ingest)"

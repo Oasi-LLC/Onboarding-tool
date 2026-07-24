@@ -122,6 +122,10 @@ def main():
         canonical_part["source_pms_id"] = source_pms_id
         canonical_frames.append(canonical_part)
 
+    allowed_units = None
+    if inv.get("analysis_unit_filter") and inv.get("unit_ids"):
+        allowed_units = {str(u).strip() for u in inv["unit_ids"] if str(u).strip()}
+
     # Default output locations if not provided: per-property folders under output/
     if output_canonical is None:
         output_canonical = PROJECT_ROOT / "output" / property_id / "ingestion" / "canonical.csv"
@@ -161,6 +165,14 @@ def main():
             json.dump(_serialize(payload), f, indent=2)
         print(f"Report written to: {output_report}")
     canonical = pd.concat(canonical_frames, ignore_index=True) if canonical_frames else pd.DataFrame()
+    if allowed_units and not canonical.empty and "unit_id" in canonical.columns:
+        before = len(canonical)
+        canonical = canonical.loc[canonical["unit_id"].astype(str).isin(allowed_units)].copy()
+        if before != len(canonical):
+            print(
+                f"Filtered to analysis listings ({', '.join(sorted(allowed_units))}): "
+                f"{len(canonical)} rows kept ({before - len(canonical)} excluded)"
+            )
     excluded = total_raw_rows - len(canonical)
     print(f"\nCanonical rows: {len(canonical)} (excluded {excluded} invalid or unpaid rows from {total_raw_rows} raw)")
 

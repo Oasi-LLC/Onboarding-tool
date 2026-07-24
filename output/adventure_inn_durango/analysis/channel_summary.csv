@@ -1,0 +1,13 @@
+channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Expedia,4133,755593.51,6324,39.27,41.38,119.48
+Booking.com,2127,395592.71,3185,20.56,21.3,124.2
+Reservation Import,667,121404.08,1079,6.31,6.68,112.52
+Hotels.com,530,92772.3,804,4.82,5.31,115.39
+Google (Ads Hotel),91,16635.23,147,0.86,0.91,113.16
+Orbitz,30,4904.4,40,0.25,0.3,122.61
+Walk-In,712,143530.7,1181,7.46,7.13,121.53
+Direct,1090,253476.86,1794,13.18,10.91,141.29
+Phone,193,45977.34,304,2.39,1.93,151.24
+Airbnb,410,92504.6,656,4.81,4.1,141.01
+Stash Hotel Rewards,4,904.39,5,0.05,0.04,180.88
+Default Corporate Client,1,559.49,4,0.03,0.01,139.87

@@ -48,6 +48,12 @@ _FILE_CONFIG: dict[str, dict] = {
         "metric": "revpar",
         "scale": 1.0,
     },
+    "adr": {
+        "filename": "adr.csv",
+        "value_col": "Daily Rate",
+        "metric": "adr",
+        "scale": 1.0,
+    },
 }
 
 # Multi-value files handled separately
@@ -105,9 +111,11 @@ class AirDNAData:
         self.occupancy: Optional[pd.DataFrame] = None
         self.revenue_avg: Optional[pd.DataFrame] = None
         self.revpar: Optional[pd.DataFrame] = None
+        self.adr: Optional[pd.DataFrame] = None
         self.revenue_by_bedroom: Optional[pd.DataFrame] = None
         self.revenue_by_percentile: Optional[pd.DataFrame] = None
         self.peak_days: Optional[pd.DataFrame] = None
+        self.revpar_in_advance: Optional[pd.DataFrame] = None
 
     def load(self) -> "AirDNAData":
         d = self.data_dir
@@ -118,7 +126,8 @@ class AirDNAData:
             if p.exists():
                 raw = _read_csv(p)
                 df = _monthly_df(raw, cfg["value_col"], cfg["metric"])
-                setattr(self, key if key != "revenue_average" else "revenue_avg", df)
+                attr = "revenue_avg" if key == "revenue_average" else key
+                setattr(self, attr, df)
 
         # revenue_by_bedroom
         p = d / _BEDROOM_FILE
@@ -155,6 +164,25 @@ class AirDNAData:
             df["year"] = df["Date"].dt.year
             df["month"] = df["Date"].dt.month
             self.peak_days = df[["Date", "year", "month", "RevPAR"]].dropna(subset=["RevPAR"])
+
+        # Booking-window shape: RevPAR by lead band (AirDNA "in advance")
+        p = d / "revpar_in_advance.csv"
+        if p.exists():
+            raw = _read_csv(p)
+            band_cols = [c for c in ["0-6", "7-14", "15-30", "31-60", "61-90", "91+"] if c in raw.columns]
+            if band_cols:
+                long = raw.melt(
+                    id_vars=["Date"],
+                    value_vars=band_cols,
+                    var_name="lead_band",
+                    value_name="market_revpar",
+                )
+                long["market_revpar"] = pd.to_numeric(long["market_revpar"], errors="coerce")
+                long["year"] = long["Date"].dt.year
+                long["month"] = long["Date"].dt.month
+                self.revpar_in_advance = long[["year", "month", "lead_band", "market_revpar"]].dropna(
+                    subset=["market_revpar"]
+                )
 
         return self
 

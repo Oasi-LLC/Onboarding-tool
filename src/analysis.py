@@ -254,11 +254,44 @@ def _property_available_room_nights(
     window_end: pd.Timestamp,
     listing_start_dates: Optional[dict[str, str]] = None,
     listing_unit_counts: Optional[dict[str, int]] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
 ) -> Optional[float]:
     """
     Property availability denominator in room-nights.
-    Prefer listing-level rollout when listing_start_dates is provided; fallback to room_count*days.
+    Prefer capacity_schedule when present; else listing-level rollout; else room_count*days.
     """
+    window_start = pd.Timestamp(window_start).normalize()
+    window_end = pd.Timestamp(window_end).normalize()
+    if window_end < window_start:
+        return 0.0
+
+    schedule = capacity_schedule or []
+    if schedule:
+        total = 0.0
+        for seg in schedule:
+            if not isinstance(seg, dict):
+                continue
+            seg_start = pd.to_datetime(seg.get("start_date"), errors="coerce")
+            seg_end = pd.to_datetime(seg.get("end_date"), errors="coerce")
+            rc = seg.get("room_count")
+            try:
+                rc_i = int(rc)
+            except (TypeError, ValueError):
+                continue
+            if pd.isna(seg_start):
+                continue
+            seg_start = pd.Timestamp(seg_start).normalize()
+            if pd.isna(seg_end):
+                seg_end = window_end
+            else:
+                seg_end = pd.Timestamp(seg_end).normalize()
+            lo = max(window_start, seg_start)
+            hi = min(window_end, seg_end)
+            if hi < lo:
+                continue
+            total += rc_i * int((hi - lo).days + 1)
+        return total
+
     listing_start_dates = listing_start_dates or {}
     listing_unit_counts = listing_unit_counts or {}
     window_days = int((window_end - window_start).days + 1)
@@ -287,6 +320,7 @@ def build_overall_summary(
     listing_unit_counts: Optional[dict[str, int]] = None,
     listing_start_dates: Optional[dict[str, str]] = None,
     listing_capacity_fallback: Optional[dict[str, str]] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
     *,
     canonical_max_arrival: Optional[pd.Timestamp] = None,
 ) -> pd.DataFrame:
@@ -380,6 +414,7 @@ def build_overall_summary(
         window_end=end_date,
         listing_start_dates=listing_start_dates,
         listing_unit_counts=listing_unit_counts,
+        capacity_schedule=capacity_schedule,
     )
     occ = (rn / avail * 100) if avail and avail > 0 else None
     revpar = (rev / avail) if avail and avail > 0 else None
@@ -411,6 +446,7 @@ def build_period_summary(
     listing_start_dates: Optional[dict[str, str]] = None,
     period_label: str = "",
     listing_capacity_fallback: Optional[dict[str, str]] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
 ) -> pd.DataFrame:
     """
     Summary table for a fixed period (e.g., 2026 Q1), one row per listing + PROPERTY.
@@ -459,6 +495,7 @@ def build_period_summary(
         window_end=period_end,
         listing_start_dates=listing_start_dates,
         listing_unit_counts=listing_unit_counts,
+        capacity_schedule=capacity_schedule,
     )
     occ = (rn / avail * 100) if avail and avail > 0 else None
     revpar = (rev / avail) if avail and avail > 0 else None
@@ -483,6 +520,7 @@ def build_monthly_performance(
     room_count: Optional[int],
     listing_start_dates: Optional[dict[str, str]] = None,
     listing_unit_counts: Optional[dict[str, int]] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
 ) -> pd.DataFrame:
     """Table 2: One row per month (24 months). Property-level only."""
     months = df.groupby("arrival_year_month", sort=True).agg(
@@ -507,6 +545,7 @@ def build_monthly_performance(
             window_end=m_end,
             listing_start_dates=listing_start_dates,
             listing_unit_counts=listing_unit_counts,
+            capacity_schedule=capacity_schedule,
         )
         month_avail.append(avail)
     months["available_room_nights"] = month_avail
@@ -569,6 +608,7 @@ def build_monthly_performance_combined(
     combined_min_arrival_date: Optional[pd.Timestamp] = None,
     combined_max_arrival_date: Optional[pd.Timestamp] = None,
     provisional_bookings_ratio: Optional[float] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
 ) -> pd.DataFrame:
     """
     Combined monthly performance across years (one row per calendar month observed).
@@ -669,6 +709,7 @@ def build_monthly_performance_combined(
                 window_end=m_end,
                 listing_start_dates=listing_start_dates,
                 listing_unit_counts=listing_unit_counts,
+                capacity_schedule=capacity_schedule,
             )
             availability_rows.append({"year": int(y), "month_index": int(m), "available_room_nights": avail})
     avail_df = pd.DataFrame(availability_rows)
@@ -1773,6 +1814,7 @@ def run_analysis(
     listing_unit_counts: Optional[dict[str, int]] = None,
     listing_capacity_fallback: Optional[dict[str, str]] = None,
     monthly_performance_combined_cfg: Optional[dict[str, Any]] = None,
+    capacity_schedule: Optional[list[dict[str, Any]]] = None,
 ) -> dict[str, pd.DataFrame]:
     """
     Run all analysis tables on canonical df (full export is fine; rows are clipped to the
@@ -1825,6 +1867,7 @@ def run_analysis(
             listing_unit_counts=listing_unit_counts,
             listing_start_dates=listing_start_dates,
             listing_capacity_fallback=listing_capacity_fallback,
+            capacity_schedule=capacity_schedule,
             canonical_max_arrival=max_arr,
         ),
         "monthly_performance": build_monthly_performance(
@@ -1832,6 +1875,7 @@ def run_analysis(
             room_count,
             listing_start_dates=listing_start_dates,
             listing_unit_counts=listing_unit_counts,
+            capacity_schedule=capacity_schedule,
         ),
         "monthly_performance_combined": build_monthly_performance_combined(
             df,
@@ -1841,6 +1885,7 @@ def run_analysis(
             combined_min_arrival_date=mc_min,
             combined_max_arrival_date=mc_max,
             provisional_bookings_ratio=mc_prov,
+            capacity_schedule=capacity_schedule,
         ),
         "listing_season_performance": listing_season_df,
         "channel_by_year": build_channel_by_year(df),
@@ -1874,5 +1919,6 @@ def run_analysis(
             listing_start_dates=listing_start_dates,
             period_label="2026_Q1",
             listing_capacity_fallback=listing_capacity_fallback,
+            capacity_schedule=capacity_schedule,
         )
     return out

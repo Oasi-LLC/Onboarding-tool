@@ -10,10 +10,12 @@ from typing import Any
 import pandas as pd
 
 from .parser import (
+    _HOSTAWAY_LISTING_COLUMNS,
     _RESNEXUS_CHANNEL,
     _RESNEXUS_REQUIRED,
     _RESNEXUS_SHEET_CHANNEL,
     _RESNEXUS_SHEET_REQUIRED,
+    _TRACK_UNIT_COLUMNS,
     get_channel_columns,
     get_required_columns,
     map_to_canonical,
@@ -73,6 +75,10 @@ def validate_columns(raw: pd.DataFrame, pms_id: str) -> list[dict[str, Any]]:
         required = get_required_columns(pms_id)
         channel_cols = get_channel_columns(pms_id)
         missing = [c for c in required if c not in raw.columns]
+        if pms_id == "hostaway" and not any(c in raw.columns for c in _HOSTAWAY_LISTING_COLUMNS):
+            missing.append("Listing Name (or Listing / Listing.1)")
+        if pms_id == "track" and not any(c in raw.columns for c in _TRACK_UNIT_COLUMNS):
+            missing.append("Unit Name (or Listing Name)")
         results.append({
             "check": "required_columns_present",
             "severity": ERROR if missing else None,

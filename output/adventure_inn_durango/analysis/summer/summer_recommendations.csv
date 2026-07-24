@@ -1,0 +1,10 @@
+period,month,metric,anchor_2025_value,current_2026_value,recommended_band_low,recommended_band_high,rationale
+July,7,blended_adr,172.84,164.82,167.65,181.48,Hold near 2025 Jul achieved ADR; protect Thu–Sat; do not dump midweek to fill every room.
+July weekends,7,fri_sat_adr,189.19,178.51,183.51,204.33,"Rebuild/protect Fri–Sat vs weekday (anchor weekend $189, weekday $168)."
+August,8,blended_adr,173.16,142.78,165.0,185.0,2025 Aug achieved high occ at ~anchor ADR. Current on-books ADR is soft; reposition toward the band. Last year filled late at higher rates — avoid clearance pricing.
+August weekends,8,fri_sat_adr,196.73,153.37,190.83,212.47,"Rebuild/protect Fri–Sat vs weekday (anchor weekend $197, weekday $162)."
+September,9,blended_adr,172.46,188.01,163.84,177.63,September is still peak-shoulder; use 2025 Sep achieved ADR as anchor. Protect Fri–Sat premium; midweek can flex with pickup.
+September weekends,9,fri_sat_adr,188.99,236.76,183.32,204.11,"Rebuild/protect Fri–Sat vs weekday (anchor weekend $189, weekday $167)."
+July pace,7,onbooks_vs_ly_asof_2026-07-24,,88.0,,,Compare on-books room-nights to 2025 as-of 2026-07-24. Thin pace + soft ADR is the risk; thin pace alone is not.
+August pace,8,onbooks_vs_ly_asof_2026-07-24,,72.29,,,Compare on-books room-nights to 2025 as-of 2026-07-24. Thin pace + soft ADR is the risk; thin pace alone is not.
+September pace,9,onbooks_vs_ly_asof_2026-07-24,,117.35,,,Compare on-books room-nights to 2025 as-of 2026-07-24. Thin pace + soft ADR is the risk; thin pace alone is not.

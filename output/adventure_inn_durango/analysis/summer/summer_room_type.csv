@@ -1,0 +1,39 @@
+year,month,month_name,room_type,room_nights,revenue,adr,revenue_share_pct
+2024,7,July,Double Queen,194,30922.66,159.4,30.46
+2024,7,July,Standard King,212,32254.01,152.14,31.78
+2024,7,July,Standard Queen,220,30980.14,140.82,30.52
+2024,7,July,Small Queen,55,7347.42,133.59,7.24
+2024,8,August,Double Queen,188,30135.8,160.3,29.33
+2024,8,August,Standard King,219,33148.55,151.36,32.26
+2024,8,August,Standard Queen,214,30977.11,144.75,30.15
+2024,8,August,Small Queen,62,8489.0,136.92,8.26
+2024,9,September,Double Queen,191,29075.65,152.23,28.69
+2024,9,September,Standard King,222,32419.8,146.04,31.99
+2024,9,September,Standard Queen,237,32234.35,136.01,31.8
+2024,9,September,Small Queen,57,7627.3,133.81,7.53
+2025,7,July,Double Queen,215,40103.52,186.53,30.37
+2025,7,July,Standard King,258,44306.95,171.73,33.55
+2025,7,July,Standard Queen,229,38310.15,167.29,29.01
+2025,7,July,Small Queen,62,9328.84,150.47,7.06
+2025,8,August,Double Queen,177,33283.0,188.04,27.62
+2025,8,August,Standard King,218,38590.17,177.02,32.02
+2025,8,August,Standard Queen,236,39739.1,168.39,32.97
+2025,8,August,Small Queen,62,8903.93,143.61,7.39
+2025,9,September,Double Queen,158,29048.04,183.85,25.03
+2025,9,September,Standard King,220,38590.83,175.41,33.25
+2025,9,September,Standard Queen,233,39185.46,168.18,33.76
+2025,9,September,Small Queen,60,9240.47,154.01,7.96
+2026,7,July,Double Queen,180,33110.47,183.95,32.61
+2026,7,July,Standard King,174,29062.05,167.02,28.62
+2026,7,July,Standard Queen with Kitchen,16,2548.34,159.27,2.51
+2026,7,July,Standard Queen,194,29902.92,154.14,29.45
+2026,7,July,Small Queen,47,6904.38,146.9,6.8
+2026,8,August,Double Queen,44,7315.62,166.26,28.47
+2026,8,August,Standard King,56,7948.66,141.94,30.93
+2026,8,August,Small Queen,48,6452.97,134.44,25.11
+2026,8,August,Standard Queen,32,3982.39,124.45,15.5
+2026,9,September,Standard Queen,39,8622.46,221.09,39.88
+2026,9,September,Double Queen,13,2694.46,207.27,12.46
+2026,9,September,Standard Queen with Kitchen,1,190.0,190.0,0.88
+2026,9,September,Standard King,29,5027.03,173.35,23.25
+2026,9,September,Small Queen,33,5086.76,154.14,23.53
