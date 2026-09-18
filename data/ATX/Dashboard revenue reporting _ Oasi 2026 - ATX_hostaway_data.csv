@@ -1,0 +1,574 @@
+Guest,Channel,Reservation status,Payment status,Check-in date,Check-out date,Listing,Reservation date,accommodation,ownerPayout,rentalRevenue,totalGuestFees,totalPayout,totalPayoutAirbnb,totalPrice,totalPriceAirbnb,totalTaxes,Nights,Number of guests,Total paid,ADR,booking date,booking window,Listing,Channel
+Jeanette Lerma,airbnbOfficial,new,Paid,10/21/2024,10/26/2024,Romney,10/21/2024,800,973.35,1001.7,145,973.35,1135.11,973.35,1135.11,56.7,5,5,1135.11,200,10/21/2024,0,Romney,Airbnb
+Theresa (Reese) Blake,airbnbOfficial,new,Paid,10/24/2024,10/27/2024,Burnhill Dr,10/23/2024,704,889.92,915.84,160,889.92,1037.82,889.92,1037.82,51.84,3,10,1037.82,305,10/23/2024,1,Burnhill Dr,Airbnb
+Theresa (Reese) Blake,airbnbOfficial,new,Paid,10/24/2024,10/27/2024,Burnhill Dr,10/23/2024,704,771.03,864,160,838.08,838.08,985.98,985.98,0,3,10,1037.82,288,10/23/2024,1,Burnhill Dr,Airbnb
+Marina Murillo,airbnbOfficial,new,Paid,10/25/2024,10/28/2024,Sunstrip,10/23/2024,776,1084.14,1112.67,175,1084.14,1246.93,1084.14,1246.93,161.67,3,12,1246.93,371,10/23/2024,2,Sunstrip,Airbnb
+Dylan Norris,airbnbOfficial,modified,Paid,10/25/2024,10/28/2024,Coventry Ln,10/24/2024,776,1015.58,1045.16,210,1015.58,1184.36,1015.58,1184.36,59.16,3,6,1184.36,348,10/24/2024,1,Coventry Ln,Airbnb
+Dylan Norris,airbnbOfficial,modified,Paid,10/25/2024,10/28/2024,Coventry Ln,10/24/2024,776,879.91,986,210,956.42,956.42,1125.2,1125.2,0,3,6,1184.36,329,10/24/2024,1,Coventry Ln,Airbnb
+Ryan Sellors,airbnbOfficial,new,Paid,10/26/2024,10/29/2024,Romney,10/26/2024,522,687.01,707.02,145,687.01,801.19,687.01,801.19,40.02,3,3,801.19,236,10/26/2024,0,Romney,Airbnb
+Tabitha Gomez,airbnbOfficial,modified,Paid,10/29/2024,11/6/2024,Romney,10/29/2024,1492,1686.11,1735.22,145,1686.11,1966.33,1686.11,1966.33,98.22,8,3,1966.33,217,10/29/2024,0,Romney,Airbnb
+Georgia Seljaas,airbnbOfficial,new,Paid,10/31/2024,11/3/2024,Coventry Ln,10/30/2024,726,964.08,992.16,210,964.08,1124.3,964.08,1124.3,56.16,3,8,1124.3,331,10/30/2024,1,Coventry Ln,Airbnb
+Georgia Seljaas,airbnbOfficial,new,Paid,10/31/2024,11/3/2024,Coventry Ln,10/30/2024,726,835.29,936,210,907.92,907.92,1068.14,1068.14,0,3,8,1124.3,312,10/30/2024,1,Coventry Ln,Airbnb
+Hester Burdman,airbnbOfficial,new,Paid,11/1/2024,11/5/2024,Sunstrip,10/15/2024,1231,1602.84,1645.02,175,1602.84,1843.51,1602.84,1843.51,239.02,4,9,1843.51,411,10/15/2024,17,Sunstrip,Airbnb
+Mandy Gregg,airbnbOfficial,new,Paid,11/1/2024,11/4/2024,Burnhill Dr,10/31/2024,645,829.15,853.3,160,829.15,828.95,829.15,828.95,48.3,3,7,966.95,284,10/31/2024,1,Burnhill Dr,Airbnb
+Mandy Gregg,airbnbOfficial,new,Paid,11/1/2024,11/4/2024,Burnhill Dr,10/31/2024,645,718.38,805,160,780.85,780.85,780.65,780.65,0,3,7,966.95,268,10/31/2024,1,Burnhill Dr,Airbnb
+Judy Thomas,airbnbOfficial,new,Paid,11/6/2024,11/11/2024,Romney,10/22/2024,1055,1236,1272,145,1236,1441.41,1236,1441.41,72,5,4,1441.41,254,10/22/2024,15,Romney,Airbnb
+Isabella Bercoon,airbnbOfficial,modified,Paid,11/7/2024,11/11/2024,Sunstrip,10/11/2024,1062,1410.18,1447.29,175,1410.18,1740.93,1410.18,1740.93,210.29,4,9,1740.93,362,10/11/2024,27,Sunstrip,Airbnb
+Mark Vargas,airbnbOfficial,new,Paid,11/7/2024,11/10/2024,Coventry Ln,10/16/2024,1062,1310.16,1348.32,210,1310.16,1527.9,1310.16,1527.9,76.32,3,10,1527.9,449,10/16/2024,22,Coventry Ln,Airbnb
+Mark Vargas,airbnbOfficial,new,Paid,11/7/2024,11/10/2024,Coventry Ln,10/16/2024,1062,1135.13,1272,210,1233.84,1233.84,1451.58,1451.58,0,3,10,1527.9,424,10/16/2024,22,Coventry Ln,Airbnb
+Samantha Santiago,airbnbOfficial,new,Paid,11/8/2024,11/12/2024,Burnhill Dr,10/17/2024,1233,1434.79,1476.58,160,1434.79,1673.24,1434.79,1673.24,83.58,4,6,1673.24,369,10/17/2024,22,Burnhill Dr,Airbnb
+Samantha Santiago,airbnbOfficial,new,Paid,11/8/2024,11/12/2024,Burnhill Dr,10/17/2024,1233,1243.11,1393,160,1351.21,1351.21,1589.66,1589.66,0,4,6,1673.24,348,10/17/2024,22,Burnhill Dr,Airbnb
+Lewis Salada,airbnbOfficial,new,Paid,11/8/2024,11/11/2024,Malvern,11/5/2024,687,930.29,1037.79,200,1011.18,1011.18,1302.48,1302.48,150.79,3,8,1302.48,346,11/5/2024,3,Malvern,Airbnb
+Maddie Bagley,airbnbOfficial,new,Paid,11/13/2024,11/17/2024,Romney,11/13/2024,677,846.66,871.32,145,846.66,987.37,846.66,987.37,49.32,4,4,987.37,218,11/13/2024,0,Romney,Airbnb
+Maddie,airbnbOfficial,inquiry,Unknown,11/13/2024,11/17/2024,Romney,11/13/2024,0,0,0,0,0,0,0,0,0,4,4,0,0,11/13/2024,0,Romney,Airbnb
+Maddie,airbnbOfficial,inquiry,Unknown,11/13/2024,11/17/2024,Romney,11/13/2024,0,0,0,0,0,0,0,0,0,4,4,0,0,11/13/2024,0,Romney,Airbnb
+Joselin Rodriguez,airbnbOfficial,new,Paid,11/14/2024,11/17/2024,Sunstrip,10/21/2024,897,1222.08,1254.24,175,1222.08,1405.58,1222.08,1405.58,182.24,3,10,1405.58,418,10/21/2024,24,Sunstrip,Airbnb
+LaTanya,airbnbOfficial,inquiry,Unknown,11/14/2024,11/17/2024,Coventry Ln,10/28/2024,0,0,0,0,0,0,0,0,0,3,11,0,0,10/28/2024,17,Coventry Ln,Airbnb
+LaTanya,airbnbOfficial,inquiry,Unknown,11/14/2024,11/17/2024,Coventry Ln,10/28/2024,0,0,0,0,0,0,0,0,0,3,11,0,0,10/28/2024,17,Coventry Ln,Airbnb
+Maurice,airbnbOfficial,cancelled,,11/14/2024,11/17/2024,Romney,11/2/2024,0,0,0,0,0,0,0,0,0,3,6,0,0,11/2/2024,12,Romney,Airbnb
+Maurice,airbnbOfficial,cancelled,,11/14/2024,11/17/2024,Romney,11/2/2024,0,0,0,0,0,0,0,0,0,3,6,0,0,11/2/2024,12,Romney,Airbnb
+Roberto Carrizales,airbnbOfficial,modified,Paid,11/14/2024,11/18/2024,Burnhill Dr,11/6/2024,1046,1242.18,1278.36,160,1242.18,1448.62,1242.18,1448.62,72.36,4,11,1448.62,320,11/6/2024,8,Burnhill Dr,Airbnb
+Roberto Carrizales,airbnbOfficial,modified,Paid,11/14/2024,11/18/2024,Burnhill Dr,11/6/2024,1046,1076.23,1206,160,1169.82,1169.82,1376.26,1376.26,0,4,11,1448.62,302,11/6/2024,8,Burnhill Dr,Airbnb
+Genine,airbnbOfficial,inquiry,Unknown,11/15/2024,11/18/2024,Coventry Ln,10/24/2024,0,0,0,0,0,0,0,0,0,3,6,0,0,10/24/2024,22,Coventry Ln,Airbnb
+Genine,airbnbOfficial,inquiry,Unknown,11/15/2024,11/18/2024,Coventry Ln,10/24/2024,0,0,0,0,0,0,0,0,0,3,6,0,0,10/24/2024,22,Coventry Ln,Airbnb
+Lantz Clinton,airbnbOfficial,new,Paid,11/15/2024,11/17/2024,Coventry Ln,11/14/2024,466,696.28,716.56,210,696.28,812,696.28,812,40.56,2,5,812,358,11/14/2024,1,Coventry Ln,Airbnb
+Lantz Clinton,airbnbOfficial,new,Paid,11/15/2024,11/17/2024,Coventry Ln,11/14/2024,466,603.26,676,210,655.72,655.72,771.44,771.44,0,2,5,812,338,11/14/2024,1,Coventry Ln,Airbnb
+Patti Davis,airbnbOfficial,new,Paid,11/19/2024,11/21/2024,Sunstrip,10/21/2024,428,687.42,705.51,175,687.42,790.64,687.42,790.64,102.51,2,4,790.64,353,10/21/2024,29,Sunstrip,Airbnb
+Matt McCarthy,airbnbOfficial,new,Paid,11/19/2024,11/25/2024,Romney,11/17/2024,1154,1337.97,1376.94,145,1337.97,1560.33,1337.97,1560.33,77.94,6,2,1560.33,229,11/17/2024,2,Romney,Airbnb
+Kay Lee,airbnbOfficial,new,Paid,11/21/2024,11/24/2024,Sunstrip,10/15/2024,992,1330.38,1365.39,175,1330.38,1530.14,1330.38,1530.14,198.39,3,8,1530.14,455,10/15/2024,37,Sunstrip,Airbnb
+Maggie Farmer,airbnbOfficial,cancelled,,11/21/2024,11/24/2024,Coventry Ln,10/16/2024,0,0,0,0,0,0,0,0,0,3,6,665.69,0,10/16/2024,36,Coventry Ln,Airbnb
+Maggie Farmer,airbnbOfficial,cancelled,,11/21/2024,11/24/2024,Coventry Ln,10/16/2024,0,0,0,0,0,0,0,0,0,3,6,665.69,0,10/16/2024,36,Coventry Ln,Airbnb
+Jill Taylor,airbnbOfficial,new,Paid,11/21/2024,11/24/2024,Coventry Ln,11/19/2024,797,1037.21,1067.42,210,1037.21,1209.59,1037.21,1209.59,60.42,3,5,1209.59,356,11/19/2024,2,Coventry Ln,Airbnb
+Jill,airbnbOfficial,inquiry,Unknown,11/21/2024,11/24/2024,Coventry Ln,11/19/2024,0,0,0,0,0,0,0,0,0,3,5,0,0,11/19/2024,2,Coventry Ln,Airbnb
+Jill Taylor,airbnbOfficial,new,Paid,11/21/2024,11/24/2024,Coventry Ln,11/19/2024,797,898.65,1007,210,976.79,976.79,1149.17,1149.17,0,3,5,1209.59,336,11/19/2024,2,Coventry Ln,Airbnb
+Jill,airbnbOfficial,inquiry,Unknown,11/21/2024,11/24/2024,Coventry Ln,11/19/2024,0,0,0,0,0,0,0,0,0,3,5,0,0,11/19/2024,2,Coventry Ln,Airbnb
+Nahom,airbnbOfficial,inquiry,Unknown,11/22/2024,11/24/2024,Malvern (NEW),11/21/2024,0,0,0,0,0,0,0,0,0,2,8,0,0,11/21/2024,1,Malvern,Airbnb
+Nahom,airbnbOfficial,inquiry,Unknown,11/22/2024,11/24/2024,Malvern (NEW),11/21/2024,0,0,0,0,0,0,0,0,0,2,8,0,0,11/21/2024,1,Malvern,Airbnb
+Sam Perez,airbnbOfficial,new,Paid,11/22/2024,11/27/2024,Burnhill Dr,11/22/2024,875,1066.05,1097.1,160,1066.05,1243.22,1066.05,1243.22,62.1,5,8,1243.22,219,11/22/2024,0,Burnhill Dr,Airbnb
+Shaun Nganga,airbnbOfficial,new,Paid,11/22/2024,11/24/2024,Malvern (NEW),11/22/2024,418,704.52,723.06,200,704.52,810.31,704.52,810.31,105.06,2,8,810.31,362,11/22/2024,0,Malvern,Airbnb
+Sam Perez,airbnbOfficial,new,Paid,11/22/2024,11/27/2024,Burnhill Dr,11/22/2024,875,923.63,1035,160,1003.95,1003.95,1181.12,1181.12,0,5,8,1243.22,207,11/22/2024,0,Burnhill Dr,Airbnb
+Ashley,airbnbOfficial,inquiry,Unknown,11/24/2024,11/25/2024,Sunstrip,11/20/2024,0,0,0,0,0,0,0,0,0,1,9,0,0,11/20/2024,4,Sunstrip,Airbnb
+Ashley,airbnbOfficial,inquiry,Unknown,11/24/2024,11/25/2024,Sunstrip,11/20/2024,0,0,0,0,0,0,0,0,0,1,9,0,0,11/20/2024,4,Sunstrip,Airbnb
+Tomeka Glenn,airbnbOfficial,new,Paid,11/24/2024,11/25/2024,Coventry Ln,11/21/2024,143,363.59,374.18,210,363.59,424.02,363.59,424.02,21.18,1,12,424.02,374,11/21/2024,3,Coventry Ln,Airbnb
+Felicia Mokobia,airbnbOfficial,cancelled,,11/24/2024,11/25/2024,Coventry Ln,11/21/2024,0,0,0,0,0,0,0,0,0,1,12,0,0,11/21/2024,3,Coventry Ln,Airbnb
+Tomeka Glenn,airbnbOfficial,new,Paid,11/24/2024,11/25/2024,Coventry Ln,11/21/2024,143,315.02,353,210,342.41,342.41,402.84,402.84,0,1,12,424.02,353,11/21/2024,3,Coventry Ln,Airbnb
+Felicia Mokobia,airbnbOfficial,cancelled,,11/24/2024,11/25/2024,Coventry Ln,11/21/2024,0,0,0,0,0,0,0,0,0,1,12,0,0,11/21/2024,3,Coventry Ln,Airbnb
+Katy Mabee,airbnbOfficial,new,Paid,11/25/2024,11/29/2024,Sunstrip,6/24/2024,2449,2991.36,3070.08,175,2991.36,3440.53,2991.36,3440.53,446.08,4,5,3440.53,768,6/24/2024,154,Sunstrip,Airbnb
+Andre Watson,airbnbOfficial,new,Paid,11/26/2024,11/28/2024,Romney,11/26/2024,338,497.49,511.98,145,497.49,580.17,497.49,580.17,28.98,2,3,580.17,256,11/26/2024,0,Romney,Airbnb
+Jose Carlos San Pedro,airbnbOfficial,new,Paid,11/27/2024,11/29/2024,Coventry Ln,10/22/2024,748,986.74,1015.48,210,986.74,1650.73,986.74,1650.73,57.48,2,7,1650.73,508,10/22/2024,36,Coventry Ln,Airbnb
+Jose Carlos,airbnbOfficial,inquiry,Unknown,11/27/2024,11/29/2024,Coventry Ln,10/22/2024,0,0,0,0,0,0,0,0,0,2,7,0,0,10/22/2024,36,Coventry Ln,Airbnb
+Jose Carlos San Pedro,airbnbOfficial,new,Paid,11/27/2024,11/29/2024,Coventry Ln,10/22/2024,748,854.92,958,210,929.26,929.26,1593.25,1593.25,0,2,7,1650.73,479,10/22/2024,36,Coventry Ln,Airbnb
+Jose Carlos,airbnbOfficial,inquiry,Unknown,11/27/2024,11/29/2024,Coventry Ln,10/22/2024,0,0,0,0,0,0,0,0,0,2,7,0,0,10/22/2024,36,Coventry Ln,Airbnb
+Lori,airbnbOfficial,inquiry,Unknown,11/27/2024,11/29/2024,Romney,11/22/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,11/22/2024,5,Romney,Airbnb
+Lori,airbnbOfficial,inquiry,Unknown,11/27/2024,11/29/2024,Romney,11/22/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,11/22/2024,5,Romney,Airbnb
+Marlene Dillon,airbnbOfficial,new,Paid,11/27/2024,12/1/2024,Malvern (NEW),11/23/2024,1055,1430.7,1468.35,200,1430.7,1645.53,1430.7,1645.53,213.35,4,8,1645.53,367,11/23/2024,4,Malvern,Airbnb
+Gehrig Runyan,airbnbOfficial,new,Paid,11/28/2024,11/29/2024,Romney,11/28/2024,199,354.32,364.64,145,354.32,413.2,354.32,413.2,20.64,1,1,413.2,365,11/28/2024,0,Romney,Airbnb
+Gehrig,airbnbOfficial,inquiry,Unknown,11/28/2024,11/29/2024,Romney,11/28/2024,0,0,0,0,0,0,0,0,0,1,1,0,0,11/28/2024,0,Romney,Airbnb
+Robert,airbnbOfficial,inquiryNotPossible,Unknown,11/29/2024,12/2/2024,Sunstrip,10/26/2024,0,0,0,0,0,0,0,0,0,3,8,0,0,10/26/2024,34,Sunstrip,Airbnb
+Robert,airbnbOfficial,inquiryNotPossible,Unknown,11/29/2024,12/2/2024,Sunstrip,10/26/2024,0,0,0,0,0,0,0,0,0,3,8,0,0,10/26/2024,34,Sunstrip,Airbnb
+Aishat Adebayo,airbnbOfficial,new,Paid,11/29/2024,12/2/2024,Sunstrip,10/27/2024,1094,1446.66,1484.73,175,1446.66,1663.88,1446.66,1663.88,215.73,3,9,1663.88,495,10/27/2024,33,Sunstrip,Airbnb
+Aishat,airbnbOfficial,inquiry,Unknown,11/29/2024,12/2/2024,Sunstrip,10/27/2024,0,0,0,0,0,0,0,0,0,3,9,0,0,10/27/2024,33,Sunstrip,Airbnb
+Aishat,airbnbOfficial,inquiry,Unknown,11/29/2024,12/2/2024,Sunstrip,10/27/2024,0,0,0,0,0,0,0,0,0,3,9,0,0,10/27/2024,33,Sunstrip,Airbnb
+Luis,airbnbOfficial,inquiry,Unknown,11/29/2024,12/2/2024,Romney,11/15/2024,0,0,0,0,0,0,0,0,0,3,4,0,0,11/15/2024,14,Romney,Airbnb
+Luis,airbnbOfficial,inquiry,Unknown,11/29/2024,12/2/2024,Romney,11/15/2024,0,0,0,0,0,0,0,0,0,3,4,0,0,11/15/2024,14,Romney,Airbnb
+Luis Zaragoza,airbnbOfficial,new,Paid,11/29/2024,12/2/2024,Romney,11/19/2024,897,1073.26,1104.52,145,1073.26,1275.17,1073.26,1275.17,62.52,3,4,1275.17,368,11/19/2024,10,Romney,Airbnb
+Luis Guardado,airbnbOfficial,new,Paid,11/29/2024,12/1/2024,Coventry Ln,11/28/2024,398,626.24,644.48,210,626.24,730.32,626.24,730.32,36.48,2,8,730.32,322,11/28/2024,1,Coventry Ln,Airbnb
+Fernanda Maldonado,airbnbOfficial,new,Paid,12/2/2024,12/6/2024,Coventry Ln,12/1/2024,675,911.55,938.1,210,911.55,1063.04,911.55,1063.04,53.1,4,5,1063.04,235,12/1/2024,1,Coventry Ln,Airbnb
+Brent Nunley,airbnbOfficial,cancelled,,12/2/2024,12/6/2024,Sunstrip,12/2/2024,0,0,0,0,0,0,0,0,144.5,4,4,1114.5,0,12/2/2024,0,Sunstrip,Airbnb
+Grant,airbnbOfficial,inquiry,Unknown,12/4/2024,12/8/2024,Romney,11/2/2024,0,0,0,0,0,0,0,0,0,4,3,0,0,11/2/2024,32,Romney,Airbnb
+Grant,airbnbOfficial,inquiry,Unknown,12/4/2024,12/8/2024,Romney,11/2/2024,0,0,0,0,0,0,0,0,0,4,3,0,0,11/2/2024,32,Romney,Airbnb
+Revan,airbnbOfficial,inquiry,Unknown,12/5/2024,12/8/2024,Coventry Ln,10/31/2024,0,0,0,0,0,0,0,0,0,3,5,0,0,10/31/2024,35,Coventry Ln,Airbnb
+Revan,airbnbOfficial,inquiry,Unknown,12/5/2024,12/8/2024,Coventry Ln,10/31/2024,0,0,0,0,0,0,0,0,0,3,5,0,0,10/31/2024,35,Coventry Ln,Airbnb
+Jennifer,airbnbOfficial,inquiry,Unknown,12/5/2024,12/8/2024,Romney,12/3/2024,0,0,0,0,0,0,0,0,0,3,4,0,0,12/3/2024,2,Romney,Airbnb
+Charlie,direct,ownerStay,Unknown,12/5/2024,12/6/2024,Malvern (NEW),12/5/2024,0,0,0,0,0,0,0,0,0,1,2,0,0,12/5/2024,0,Malvern,Direct
+Adan Escobar Torres,airbnbOfficial,new,Paid,12/6/2024,12/8/2024,Burnhill Dr,12/2/2024,356,531.48,546.96,160,531.48,619.81,531.48,619.81,30.96,2,10,619.81,273,12/2/2024,4,Burnhill Dr,Airbnb
+Jose Hernandez,airbnbOfficial,modified,Paid,12/6/2024,12/8/2024,Sunstrip,12/3/2024,354,603.06,618.93,175,603.06,693.61,603.06,693.61,89.93,2,12,693.61,309,12/3/2024,3,Sunstrip,Airbnb
+Jennifer,airbnbOfficial,inquiry,Unknown,12/6/2024,12/8/2024,Coventry Ln,12/4/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,12/4/2024,2,Coventry Ln,Airbnb
+Sonje Washington,airbnbOfficial,new,Paid,12/6/2024,12/8/2024,Coventry Ln,12/5/2024,338,564.44,580.88,210,564.44,658.24,564.44,658.24,32.88,2,12,658.24,290,12/5/2024,1,Coventry Ln,Airbnb
+Vir Patel,airbnbOfficial,new,Paid,12/6/2024,12/8/2024,Romney,12/5/2024,310,468.65,482.3,145,468.65,646.54,468.65,646.54,27.3,2,5,646.54,241,12/5/2024,1,Romney,Airbnb
+Ernesto Lopez,airbnbOfficial,new,Paid,12/9/2024,12/13/2024,Coventry Ln,12/8/2024,656,891.98,917.96,210,891.98,1040.22,891.98,1040.22,51.96,4,5,1040.22,229,12/8/2024,1,Coventry Ln,Airbnb
+Editha Tenorio,airbnbOfficial,modified,Paid,12/10/2024,12/12/2024,Burnhill Dr,10/11/2024,534,714.82,735.64,160,714.82,833.62,714.82,833.62,41.64,2,11,833.62,368,10/11/2024,60,Burnhill Dr,Airbnb
+Editha Tenorio,airbnbOfficial,new,Paid,12/10/2024,12/12/2024,Burnhill Dr,10/11/2024,534,619.33,694,160,673.18,673.18,791.98,791.98,0,2,10,833.62,347,10/11/2024,60,Burnhill Dr,Airbnb
+Rogelio Abdiel,airbnbOfficial,inquiry,Unknown,12/11/2024,12/15/2024,Malvern (NEW),12/5/2024,0,0,0,0,0,0,0,0,0,4,10,0,0,12/5/2024,6,Malvern,Airbnb
+LaTrenda,airbnbOfficial,inquiry,Unknown,12/12/2024,12/15/2024,Sunstrip,11/11/2024,0,0,0,0,0,0,0,0,0,3,12,0,0,11/11/2024,31,Sunstrip,Airbnb
+LaTrenda,airbnbOfficial,inquiry,Unknown,12/12/2024,12/15/2024,Sunstrip,11/11/2024,0,0,0,0,0,0,0,0,0,3,12,0,0,11/11/2024,31,Sunstrip,Airbnb
+Siddhi Kapur,airbnbOfficial,new,Paid,12/12/2024,12/15/2024,Sunstrip,11/29/2024,837,1153.68,1184.04,175,1153.68,1326.91,1153.68,1326.91,172.04,3,8,1326.91,395,11/29/2024,13,Sunstrip,Airbnb
+Holly Weber-Johnson,airbnbOfficial,modified,Paid,12/12/2024,12/15/2024,Romney,12/10/2024,487,650.96,669.92,145,650.96,759.14,650.96,759.14,37.92,3,4,759.14,223,12/10/2024,2,Romney,Airbnb
+Anas,airbnbOfficial,inquiry,Unknown,12/12/2024,12/14/2024,Malvern (NEW),12/11/2024,0,0,0,0,0,0,0,0,0,2,5,0,0,12/11/2024,1,Malvern,Airbnb
+Ann Ellen,airbnbOfficial,cancelled,,12/13/2024,12/17/2024,Malvern (NEW),12/12/2024,0,0,0,0,0,0,0,0,0,4,3,741.94,0,12/12/2024,1,Malvern,Airbnb
+Michele Seib,airbnbOfficial,new,Paid,12/14/2024,12/17/2024,Burnhill Dr,12/12/2024,487,666.41,685.82,160,666.41,777.16,666.41,777.16,38.82,3,6,777.16,229,12/12/2024,2,Burnhill Dr,Airbnb
+Abdulmoula,airbnbOfficial,inquiry,Unknown,12/16/2024,12/17/2024,Sunstrip,12/16/2024,0,0,0,0,0,0,0,0,0,1,8,0,0,12/16/2024,0,Sunstrip,Airbnb
+Bo Huang,airbnbOfficial,modified,Paid,12/17/2024,12/21/2024,Sunstrip,12/4/2024,880,1202.7,1234.35,175,1202.7,1383.29,1202.7,1383.29,179.35,4,6,1383.29,309,12/4/2024,13,Sunstrip,Airbnb
+Bo,airbnbOfficial,inquiry,Unknown,12/17/2024,12/21/2024,Sunstrip,12/4/2024,0,0,0,0,0,0,0,0,0,4,6,0,0,12/4/2024,13,Sunstrip,Airbnb
+Juan,airbnbOfficial,inquiry,Unknown,12/19/2024,12/21/2024,Sunstrip,11/19/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,11/19/2024,30,Sunstrip,Airbnb
+Juan,airbnbOfficial,inquiry,Unknown,12/19/2024,12/21/2024,Sunstrip,11/19/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,11/19/2024,30,Sunstrip,Airbnb
+Katharine Griffing,airbnbOfficial,new,Paid,12/20/2024,12/27/2024,Burnhill Dr,12/9/2024,1706,1921.98,1977.96,160,1921.98,2241.4,1921.98,2241.4,111.96,7,4,2241.4,283,12/9/2024,11,Burnhill Dr,Airbnb
+Ana Holloway,airbnbOfficial,modified,Paid,12/20/2024,12/23/2024,Romney,12/20/2024,278,435.69,448.38,145,435.69,578.1,435.69,578.1,25.38,3,5,578.1,149,12/20/2024,0,Romney,Airbnb
+Ana,airbnbOfficial,inquiry,Unknown,12/20/2024,12/22/2024,Romney,12/20/2024,0,0,0,0,0,0,0,0,0,2,5,0,0,12/20/2024,0,Romney,Airbnb
+Regi Joseph,airbnbOfficial,cancelled,,12/21/2024,12/23/2024,Sunstrip,12/5/2024,0,0,0,0,0,0,0,0,0,2,12,0,0,12/5/2024,16,Sunstrip,Airbnb
+Caridad Guerrero,airbnbOfficial,new,Paid,12/21/2024,12/23/2024,Sunstrip,12/7/2024,428,687.42,705.51,175,687.42,790.64,687.42,790.64,102.51,2,11,790.64,353,12/7/2024,14,Sunstrip,Airbnb
+Chintan Desai,airbnbOfficial,new,Paid,12/21/2024,12/24/2024,Coventry Ln,12/14/2024,592,826.06,850.12,210,826.06,645.44,826.06,645.44,48.12,3,10,963.34,283,12/14/2024,7,Coventry Ln,Airbnb
+Jane Garcia,airbnbOfficial,new,Paid,12/23/2024,12/26/2024,Romney,12/10/2024,609,776.62,799.24,145,776.62,905.69,776.62,905.69,45.24,3,5,905.69,266,12/10/2024,13,Romney,Airbnb
+Janelle Solano,airbnbOfficial,new,Paid,12/23/2024,12/25/2024,Sunstrip,12/18/2024,398,653.22,670.41,175,653.22,751.3,653.22,751.3,97.41,2,9,751.3,335,12/18/2024,5,Sunstrip,Airbnb
+Gabriella Santucci,airbnbOfficial,new,Paid,12/25/2024,1/1/2025,Sunstrip,12/5/2024,2245,2758.8,2831.4,175,2758.8,3173.05,2758.8,3173.05,411.4,7,6,3173.05,404,12/5/2024,20,Sunstrip,Airbnb
+Victoria,airbnbOfficial,inquiry,Unknown,12/25/2024,12/29/2024,Romney,12/6/2024,0,0,0,0,0,0,0,0,0,4,4,0,0,12/6/2024,19,Romney,Airbnb
+Sai Krishna,airbnbOfficial,new,Paid,12/26/2024,12/28/2024,Coventry Ln,12/24/2024,396,624.18,642.36,210,624.18,827.91,624.18,827.91,36.36,2,10,827.91,321,12/24/2024,2,Coventry Ln,Airbnb
+Ann Burns,airbnbOfficial,new,Paid,12/27/2024,12/30/2024,Malvern (NEW),12/8/2024,630,946.2,971.1,200,946.2,1088.28,946.2,1088.28,141.1,3,10,1088.28,324,12/8/2024,19,Malvern,Airbnb
+Pau Sandoval,airbnbOfficial,new,Paid,12/27/2024,1/3/2025,Romney,12/19/2024,1462,1655.21,1703.42,145,1655.21,2009.14,1655.21,2009.14,96.42,7,5,2009.14,243,12/19/2024,8,Romney,Airbnb
+Sunita Anantaneni,airbnbOfficial,new,Paid,12/27/2024,12/30/2024,Burnhill Dr,12/26/2024,574,756.02,778.04,160,756.02,881.66,756.02,881.66,44.04,3,8,881.66,259,12/26/2024,1,Burnhill Dr,Airbnb
+Sara Flores,airbnbOfficial,new,Paid,12/28/2024,1/2/2025,Coventry Ln,12/8/2024,1730,1998.2,2056.4,210,1998.2,2425.47,1998.2,2425.47,116.4,5,12,2425.47,411,12/8/2024,20,Coventry Ln,Airbnb
+Manuel,airbnbOfficial,inquiry,Unknown,12/30/2024,1/1/2025,Malvern (NEW),12/29/2024,0,0,0,0,0,0,0,0,0,2,4,0,0,12/29/2024,1,Malvern,Airbnb
+Diana Franco,airbnbOfficial,new,Paid,12/30/2024,1/1/2025,Malvern (NEW),12/30/2024,431,719.34,738.27,200,719.34,827.35,719.34,827.35,107.27,2,1,827.35,369,12/30/2024,0,Malvern,Airbnb
+Joe,airbnbOfficial,inquiry,Unknown,12/30/2024,1/1/2025,Malvern (NEW),12/30/2024,0,0,0,0,0,0,0,0,0,2,1,0,0,12/30/2024,0,Malvern,Airbnb
+Janko Trenkoski,airbnbOfficial,new,Paid,1/1/2025,1/3/2025,Sunstrip,12/27/2024,419,677.16,694.98,175,677.16,677.16,778.84,778.84,100.98,2,7,778.84,347,12/27/2024,5,Sunstrip,Airbnb
+Jake Napper,airbnbOfficial,new,Paid,1/3/2025,1/6/2025,Sunstrip,11/10/2024,1548,1964.22,2015.91,175,1964.22,1964.22,2259.16,2259.16,292.91,3,10,2259.16,672,11/10/2024,54,Sunstrip,Airbnb
+Francisco Olivares,airbnbOfficial,new,Paid,1/6/2025,1/9/2025,Sunstrip,1/2/2025,537,811.68,833.04,175,811.68,811.68,933.56,933.56,121.04,3,12,933.56,278,1/2/2025,4,Sunstrip,Airbnb
+Beth Lester,airbnbOfficial,new,Paid,1/9/2025,1/13/2025,Sunstrip,7/29/2024,1323,1707.72,1752.66,175,1707.72,1707.72,1964.14,1964.14,254.66,4,8,1964.14,438,7/29/2024,164,Sunstrip,Airbnb
+John Alphonse Baldassare,airbnbOfficial,new,Paid,1/10/2025,1/14/2025,Romney,12/19/2024,729,900.22,926.44,145,900.22,900.22,1049.83,1049.83,52.44,4,3,1049.83,232,12/19/2024,22,Romney,Airbnb
+Gisele,airbnbOfficial,inquiry,Unknown,1/14/2025,1/16/2025,Sunstrip,12/29/2024,0,0,0,0,0,0,0,0,0,2,5,0,0,12/29/2024,16,Sunstrip,Airbnb
+Janan Issa,airbnbOfficial,modified,Paid,1/17/2025,1/20/2025,Sunstrip,12/17/2024,885,1208.4,1240.2,175,1208.4,1208.4,1389.85,1389.85,180.2,3,2,1389.85,413,12/17/2024,31,Sunstrip,Airbnb
+Julie Westerman,airbnbOfficial,modified,Paid,1/17/2025,1/20/2025,Romney,1/17/2025,514,678.77,698.54,145,678.77,678.77,791.58,791.58,39.54,3,2,791.58,233,1/17/2025,0,Romney,Airbnb
+Sneha Priya,airbnbOfficial,new,Paid,1/23/2025,1/26/2025,Sunstrip,11/7/2024,1034,1378.26,1414.53,175,1378.26,1378.26,1585.21,1585.21,205.53,3,12,1585.21,472,11/7/2024,77,Sunstrip,Airbnb
+Kcee Allen,airbnbOfficial,new,Paid,1/23/2025,1/26/2025,Romney,1/23/2025,457,620.06,638.12,145,620.06,620.06,723.11,723.11,36.12,3,2,723.11,213,1/23/2025,0,Romney,Airbnb
+Kathryn & Mitchell,airbnbOfficial,inquiry,Unknown,1/26/2025,1/31/2025,Sunstrip,1/1/2025,0,0,0,0,0,0,0,0,0,5,8,0,0,1/1/2025,25,Sunstrip,Airbnb
+Beverly,airbnbOfficial,inquiry,Unknown,1/26/2025,1/30/2025,Sunstrip,1/7/2025,0,0,0,0,0,0,0,0,0,4,7,0,0,1/7/2025,19,Sunstrip,Airbnb
+Beverly Garces Buella,airbnbOfficial,new,Paid,1/26/2025,1/30/2025,Sunstrip,1/8/2025,848,966.72,992.16,0,966.72,966.72,1111.88,1111.88,144.16,4,7,1111.88,248,1/8/2025,18,Sunstrip,Airbnb
+Elaine,airbnbOfficial,inquiry,Unknown,1/29/2025,1/31/2025,Sunstrip,11/28/2024,0,0,0,0,0,0,0,0,0,2,6,0,0,11/28/2024,62,Sunstrip,Airbnb
+Maria Paula Anaya Felix,airbnbOfficial,new,Paid,1/31/2025,2/3/2025,Sunstrip,11/25/2024,1240,1613.1,1655.55,175,1613.1,1613.1,1924.75,1924.75,240.55,3,10,1924.75,552,11/25/2024,67,Sunstrip,Airbnb
+Dario,airbnbOfficial,inquiry,Unknown,2/3/2025,2/8/2025,Romney,2/3/2025,0,0,0,0,0,0,0,0,0,5,4,0,0,2/3/2025,0,Romney,Airbnb
+Danielle Goldinsky,airbnbOfficial,new,Paid,2/6/2025,2/9/2025,Sunstrip,12/29/2024,1389,1782.96,1829.88,175,1782.96,1782.96,1875.68,1875.68,265.88,3,7,2050.68,610,12/29/2024,39,Sunstrip,Airbnb
+Ashley,airbnbOfficial,inquiry,Unknown,2/7/2025,2/10/2025,Sunstrip,12/22/2024,0,0,0,0,0,0,0,0,0,3,7,0,0,12/22/2024,47,Sunstrip,Airbnb
+Abdulrahman Alamri,airbnbOfficial,new,Paid,2/7/2025,2/9/2025,Romney,2/7/2025,312,470.71,484.42,145,470.71,470.71,548.94,548.94,27.42,2,1,548.94,242,2/7/2025,0,Romney,Airbnb
+Quinton,airbnbOfficial,inquiry,Unknown,2/7/2025,2/10/2025,Romney,2/7/2025,0,0,0,0,0,0,0,0,0,3,2,0,0,2/7/2025,0,Romney,Airbnb
+Aly Campbell,airbnbOfficial,new,Paid,2/10/2025,2/13/2025,Sunstrip,2/9/2025,510,780.9,801.45,175,780.9,780.9,898.16,898.16,116.45,3,2,898.16,267,2/9/2025,1,Sunstrip,Airbnb
+Ashleigh Smith,airbnbOfficial,modified,Paid,2/14/2025,2/17/2025,Sunstrip,8/29/2024,2108,2602.62,2671.11,175,2602.62,2602.62,2993.42,2993.42,388.11,3,10,2993.42,890,8/29/2024,169,Sunstrip,Airbnb
+Andrea,airbnbOfficial,inquiry,Unknown,2/14/2025,2/17/2025,Romney,2/12/2025,0,0,0,0,0,0,0,0,0,3,5,0,0,2/12/2025,2,Romney,Airbnb
+James Wilson,airbnbOfficial,new,Paid,2/14/2025,2/16/2025,Romney,2/13/2025,416,577.83,594.66,145,577.83,577.83,673.86,673.86,33.66,2,4,673.86,297,2/13/2025,1,Romney,Airbnb
+Jesse Yaker,airbnbOfficial,new,Paid,2/20/2025,2/23/2025,Sunstrip,1/2/2025,1389,1782.96,1829.88,175,1782.96,1782.96,2050.68,2050.68,265.88,3,9,2050.68,610,1/2/2025,49,Sunstrip,Airbnb
+Michele Morra,airbnbOfficial,new,Paid,2/22/2025,2/27/2025,Romney,12/28/2024,937,1114.46,1146.92,145,1114.46,1114.46,1299.67,1299.67,64.92,5,4,1299.67,229,12/28/2024,56,Romney,Airbnb
+Michele,airbnbOfficial,inquiry,Unknown,2/22/2025,2/27/2025,Romney,12/28/2024,0,0,0,0,0,0,0,0,0,5,5,0,0,12/28/2024,56,Romney,Airbnb
+Andrew Bovine,airbnbOfficial,new,Paid,2/26/2025,3/2/2025,Sunstrip,10/18/2024,1976,2452.14,2516.67,175,2452.14,2452.14,2820.34,2820.34,365.67,4,7,2820.34,629,10/18/2024,131,Sunstrip,Airbnb
+Alvaro Rosales,airbnbOfficial,new,Paid,2/27/2025,3/1/2025,Romney,2/27/2025,303,461.44,474.88,145,461.44,461.44,538.13,538.13,26.88,2,4,538.13,237,2/27/2025,0,Romney,Airbnb
+Scott Brindley,airbnbOfficial,new,Paid,3/1/2025,3/7/2025,Romney,3/1/2025,946,1123.73,1156.46,145,1123.73,1123.73,1310.48,1310.48,65.46,6,4,1310.48,193,3/1/2025,0,Romney,Airbnb
+Shauna Brantley,airbnbOfficial,new,Paid,3/3/2025,3/7/2025,Sunstrip,2/18/2025,1211,1580.04,1621.62,175,1580.04,1580.04,1817.29,1817.29,235.62,4,3,1817.29,405,2/18/2025,13,Sunstrip,Airbnb
+Nancy,airbnbOfficial,inquiry,Unknown,3/5/2025,3/9/2025,Romney,2/27/2025,0,0,0,0,0,0,0,0,0,4,5,0,0,2/27/2025,6,Romney,Airbnb
+Chandra Fogg,airbnbOfficial,new,Paid,3/7/2025,3/11/2025,Sunstrip,1/31/2025,2412,2749.68,2822.04,0,2749.68,2749.68,3162.56,3162.56,410.04,4,4,3162.56,706,1/31/2025,35,Sunstrip,Airbnb
+Chandra,airbnbOfficial,inquiry,Unknown,3/7/2025,3/11/2025,Sunstrip,1/31/2025,0,0,0,0,0,0,0,0,0,4,4,0,0,1/31/2025,35,Sunstrip,Airbnb
+Dylan Wood,airbnbOfficial,new,Paid,3/7/2025,3/14/2025,Romney,3/5/2025,1456,1499.68,1543.36,0,1499.68,1499.68,1723.91,1723.91,87.36,7,1,1748.91,220,3/5/2025,2,Romney,Airbnb
+Dylan,airbnbOfficial,inquiry,Unknown,3/7/2025,3/14/2025,Romney,3/5/2025,0,0,0,0,0,0,0,0,0,7,1,0,0,3/5/2025,2,Romney,Airbnb
+Krista,airbnbOfficial,inquiry,Unknown,3/9/2025,3/14/2025,Sunstrip,1/26/2025,0,0,0,0,0,0,0,0,0,5,3,0,0,1/26/2025,42,Sunstrip,Airbnb
+Martha Silva,airbnbOfficial,new,Paid,3/11/2025,3/12/2025,Sunstrip,3/10/2025,184,409.26,420.03,175,409.26,409.26,478.82,478.82,61.03,1,12,478.82,420,3/10/2025,1,Sunstrip,Airbnb
+Larussell Thomas,airbnbOfficial,new,Paid,3/12/2025,3/14/2025,Sunstrip,2/27/2025,695,991.8,1017.9,175,991.8,991.8,1140.72,1140.72,147.9,2,10,1140.72,509,2/27/2025,13,Sunstrip,Airbnb
+Cara,airbnbOfficial,inquiry,Unknown,3/14/2025,3/16/2025,Sunstrip,3/2/2025,0,0,0,0,0,0,0,0,0,2,5,0,0,3/2/2025,12,Sunstrip,Airbnb
+Austin Boscamp,airbnbOfficial,new,Paid,3/14/2025,3/16/2025,Sunstrip,3/8/2025,956,1289.34,1323.27,175,1289.34,1289.34,1482.94,1482.94,192.27,2,6,1482.94,662,3/8/2025,6,Sunstrip,Airbnb
+Lafestia Kelly,airbnbOfficial,new,Paid,3/14/2025,3/16/2025,Romney,3/13/2025,458,621.09,639.18,145,621.09,621.09,724.31,724.31,36.18,2,4,724.31,320,3/13/2025,1,Romney,Airbnb
+Melissa Shumway,airbnbOfficial,new,Paid,3/16/2025,3/21/2025,Sunstrip,1/25/2025,1827,2282.28,2342.34,175,2282.28,2282.28,2624.98,2624.98,340.34,5,10,2624.98,468,1/25/2025,50,Sunstrip,Airbnb
+Star Petersen,airbnbOfficial,new,Paid,3/17/2025,3/19/2025,Romney,3/16/2025,338,497.49,511.98,145,497.49,497.49,580.17,580.17,28.98,2,2,580.17,256,3/16/2025,1,Romney,Airbnb
+Jonisaac Mermella,airbnbOfficial,new,Paid,3/20/2025,3/28/2025,Romney,3/20/2025,1491,1685.08,1734.16,145,1685.08,1685.08,1965.13,1965.13,98.16,8,4,1965.13,217,3/20/2025,0,Romney,Airbnb
+Maria Miya,airbnbOfficial,modified,Paid,3/22/2025,3/28/2025,Sunstrip,3/19/2025,1436,1836.54,1884.87,175,1836.54,1836.54,2112.31,2112.31,273.87,6,6,2112.31,314,3/19/2025,3,Sunstrip,Airbnb
+David Martin,airbnbOfficial,modified,Paid,3/28/2025,3/31/2025,Sunstrip,1/22/2025,1688,2123.82,2179.71,175,2123.82,2123.82,2442.72,2442.72,316.71,3,7,2442.72,727,1/22/2025,65,Sunstrip,Airbnb
+Mark Oliver,airbnbOfficial,modified,Paid,3/28/2025,4/1/2025,Romney,3/9/2025,1591,1788.08,1840.16,145,1788.08,1788.08,2085.24,2085.24,104.16,4,2,2085.24,460,3/9/2025,19,Romney,Airbnb
+Jacqueline,airbnbOfficial,inquiry,Unknown,3/31/2025,4/7/2025,Romney,3/28/2025,0,0,0,0,0,0,0,0,0,7,2,0,0,3/28/2025,3,Romney,Airbnb
+Shira,airbnbOfficial,inquiry,Unknown,4/3/2025,4/6/2025,Sunstrip,1/6/2025,0,0,0,0,0,0,0,0,0,3,11,0,0,1/6/2025,87,Sunstrip,Airbnb
+Shira Kolansky,airbnbOfficial,new,Paid,4/3/2025,4/6/2025,Sunstrip,1/7/2025,3377,4049.28,4155.84,175,4049.28,4049.28,4657.3,4657.3,603.84,3,11,4657.3,1385,1/7/2025,86,Sunstrip,Airbnb
+Jazzlyn Gillett,airbnbOfficial,new,Paid,4/3/2025,4/6/2025,Romney,3/28/2025,809,982.62,1011.24,145,982.62,982.62,1145.92,1145.92,57.24,3,6,1145.92,337,3/28/2025,6,Romney,Airbnb
+David Boden,airbnbOfficial,new,Paid,4/6/2025,4/8/2025,Sunstrip,4/6/2025,390,740.15,757.1,175,740.15,740.15,836.87,836.87,192.1,2,4,836.87,379,4/6/2025,0,Sunstrip,Airbnb
+Kenny Jett,airbnbOfficial,new,Paid,4/9/2025,4/11/2025,Sunstrip,4/4/2025,394,745.39,762.46,175,745.39,745.39,842.79,842.79,193.46,2,3,842.79,381,4/4/2025,5,Sunstrip,Airbnb
+Magali Morales,airbnbOfficial,new,Paid,4/11/2025,4/13/2025,Romney,4/10/2025,416,639.54,656.37,145,639.54,639.54,735.57,735.57,95.37,2,6,735.57,328,4/10/2025,1,Romney,Airbnb
+Josue Trevino,airbnbOfficial,new,Paid,4/11/2025,4/12/2025,Sunstrip,4/11/2025,248,554.13,566.82,175,554.13,554.13,626.54,626.54,143.82,1,6,626.54,567,4/11/2025,0,Sunstrip,Airbnb
+Josue,airbnbOfficial,inquiry,Unknown,4/11/2025,4/12/2025,Sunstrip,4/11/2025,0,0,0,0,0,0,0,0,0,1,6,0,0,4/11/2025,0,Sunstrip,Airbnb
+Ryan Ring,airbnbOfficial,new,Paid,4/12/2025,4/16/2025,Sunstrip,4/2/2025,884,1387.29,1419.06,175,1387.29,1387.29,1568.57,1568.57,360.06,4,5,1568.57,355,4/2/2025,10,Sunstrip,Airbnb
+Beth Chitwood,airbnbOfficial,new,Paid,4/17/2025,4/20/2025,Sunstrip,4/8/2025,947,1469.82,1503.48,175,1469.82,1469.82,1161.88,1161.88,381.48,3,8,1661.88,501,4/8/2025,9,Sunstrip,Airbnb
+Sumon Chaudhuri,airbnbOfficial,new,Paid,4/18/2025,4/21/2025,Romney,4/17/2025,587,834.48,856.44,145,834.48,834.48,959.78,959.78,124.44,3,5,959.78,285,4/17/2025,1,Romney,Airbnb
+S,airbnbOfficial,inquiry,Unknown,4/18/2025,4/21/2025,Romney,4/17/2025,0,0,0,0,0,0,0,0,0,3,5,0,0,4/17/2025,1,Romney,Airbnb
+Y,airbnbOfficial,inquiry,Unknown,4/20/2025,4/22/2025,Sunstrip,4/13/2025,0,0,0,0,0,0,0,0,0,2,5,0,0,4/13/2025,7,Sunstrip,Airbnb
+Alfreda Gould,airbnbOfficial,new,Paid,4/21/2025,4/24/2025,Sunstrip,4/21/2025,531,924.86,946.04,175,924.86,924.86,1045.71,1045.71,240.04,3,2,1045.71,315,4/21/2025,0,Sunstrip,Airbnb
+Colby,airbnbOfficial,inquiry,Unknown,4/24/2025,4/27/2025,Romney,11/18/2024,0,0,0,0,0,0,0,0,0,3,4,0,0,11/18/2024,157,Romney,Airbnb
+Mike Enright,airbnbOfficial,modified,Paid,4/24/2025,4/27/2025,Sunstrip,3/25/2025,1867,2327.88,2389.14,175,2327.88,2327.88,2677.42,2677.42,347.14,3,4,2677.42,796,3/25/2025,30,Sunstrip,Airbnb
+Katie Poulos,airbnbOfficial,new,Paid,4/24/2025,4/26/2025,Romney,4/14/2025,484,717.06,735.93,145,717.06,717.06,824.73,824.73,106.93,2,3,824.73,368,4/14/2025,10,Romney,Airbnb
+Krista,airbnbOfficial,inquiry,Unknown,4/26/2025,5/1/2025,Romney,4/25/2025,0,0,0,0,0,0,0,0,0,5,2,0,0,4/25/2025,1,Romney,Airbnb
+Blanca Rosa Jose,airbnbOfficial,inquiry,Unknown,4/26/2025,4/28/2025,Romney,4/25/2025,0,0,0,0,0,0,0,0,0,2,4,0,0,4/25/2025,1,Romney,Airbnb
+Krista Hudson,airbnbOfficial,new,Paid,4/26/2025,5/1/2025,Romney,4/26/2025,648,738.72,758.16,0,738.72,738.72,849.64,849.64,110.16,5,6,849.64,152,4/26/2025,0,Romney,Airbnb
+Krista,airbnbOfficial,inquiry,Unknown,4/26/2025,5/1/2025,Romney,4/26/2025,0,0,0,0,0,0,0,0,0,5,6,0,0,4/26/2025,0,Romney,Airbnb
+Madeline Goss,airbnbOfficial,new,Paid,5/1/2025,5/4/2025,Sunstrip,10/31/2024,1917,2384.88,2447.64,175,2384.88,2384.88,2742.98,2742.98,355.64,3,10,2742.98,816,10/31/2024,182,Sunstrip,Airbnb
+Luis Espinosa,airbnbOfficial,new,Paid,5/7/2025,5/11/2025,Romney,5/7/2025,948,1246.02,1278.81,145,1246.02,1246.02,1457.81,1457.81,185.81,4,6,1457.81,320,5/7/2025,0,Romney,Airbnb
+Francisco,airbnbOfficial,inquiry,Unknown,5/7/2025,5/11/2025,Romney,5/1/2025,0,0,0,0,0,0,0,0,0,4,3,0,0,5/1/2025,6,Romney,Airbnb
+Shelby Johnson,airbnbOfficial,new,Paid,5/7/2025,5/9/2025,Sunstrip,4/29/2025,369,712.64,728.96,175,712.64,712.64,805.76,805.76,184.96,2,9,805.76,364,4/29/2025,8,Sunstrip,Airbnb
+Shelby,airbnbOfficial,inquiry,Unknown,5/7/2025,5/9/2025,Sunstrip,4/28/2025,0,0,0,0,0,0,0,0,0,2,9,0,0,4/28/2025,9,Sunstrip,Airbnb
+Natasha Forest,airbnbOfficial,new,Paid,5/9/2025,5/12/2025,Sunstrip,11/12/2024,2205,2713.2,2784.6,175,2713.2,2713.2,3120.6,3120.6,404.6,3,12,3120.6,928,11/12/2024,178,Sunstrip,Airbnb
+Natasha,airbnbOfficial,inquiry,Unknown,5/9/2025,5/12/2025,Sunstrip,10/28/2024,0,0,0,0,0,0,0,0,0,3,12,0,0,10/28/2024,193,Sunstrip,Airbnb
+Abigail,airbnbOfficial,inquiryNotPossible,Unknown,5/12/2025,5/14/2025,Sunstrip,5/5/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,5/5/2025,7,Sunstrip,Airbnb
+Aleksandra Miller,airbnbOfficial,new,Paid,5/14/2025,5/17/2025,Romney,5/7/2025,749,1019.16,1045.98,145,1019.16,1019.16,1172.19,1172.19,151.98,3,2,1172.19,349,5/7/2025,7,Romney,Airbnb
+Abrielle Meade,airbnbOfficial,new,Paid,5/15/2025,5/18/2025,Sunstrip,8/16/2024,1607,2031.48,2084.94,175,2031.48,2031.48,2436.52,2436.52,302.94,3,10,2436.52,695,8/16/2024,272,Sunstrip,Airbnb
+Ana Laura Ortiz,airbnbOfficial,new,Paid,5/16/2025,5/18/2025,MLVRN,5/15/2025,416,806.96,825.44,200,806.96,806.96,912.41,912.41,209.44,2,9,912.41,413,5/15/2025,1,Malvern,Airbnb
+Kelly Broussard,airbnbOfficial,modified,Paid,5/17/2025,5/19/2025,Romney,5/17/2025,350,564.3,579.15,145,564.3,564.3,649.03,649.03,84.15,2,1,649.03,290,5/17/2025,0,Romney,Airbnb
+Kaleigh Arnold,airbnbOfficial,new,Paid,5/18/2025,5/20/2025,Sunstrip,5/1/2025,387,736.22,753.08,175,736.22,736.22,832.42,832.42,191.08,2,10,832.42,377,5/1/2025,17,Sunstrip,Airbnb
+Shannon McDeez,airbnbOfficial,new,Paid,5/20/2025,5/23/2025,Sunstrip,4/28/2025,580,989.05,1011.7,175,989.05,989.05,1126.91,1126.91,256.7,3,4,1126.91,337,4/28/2025,22,Sunstrip,Airbnb
+Giovanni Cruz,airbnbOfficial,cancelled,Unknown,5/23/2025,5/25/2025,MLVRN,5/19/2025,0,0,0,0,0,0,0,0,0,2,7,0,0,5/19/2025,4,Malvern,Airbnb
+Julie Westerman,airbnbOfficial,new,Paid,5/23/2025,5/26/2025,Romney,5/19/2025,807,1085.28,1113.84,145,1085.28,1085.28,1248.24,1248.24,161.84,3,2,1248.24,371,5/19/2025,4,Romney,Airbnb
+Avryana Goplin,airbnbOfficial,new,Paid,5/23/2025,5/26/2025,Sunstrip,1/8/2025,2493,3041.52,3121.56,175,3041.52,3041.52,3498.22,3498.22,453.56,3,9,3498.22,1041,1/8/2025,135,Sunstrip,Airbnb
+Joelle Poole,airbnbOfficial,new,Paid,5/26/2025,5/29/2025,Sunstrip,5/25/2025,513,784.32,804.96,175,784.32,784.32,902.09,902.09,116.96,3,5,902.09,268,5/25/2025,1,Sunstrip,Airbnb
+Alli Meeker,airbnbOfficial,new,Paid,5/29/2025,6/1/2025,Sunstrip,9/18/2024,1917,2384.88,2447.64,175,2384.88,2384.88,2742.98,2742.98,355.64,3,11,2742.98,816,9/18/2024,253,Sunstrip,Airbnb
+Jaime Barrera,airbnbOfficial,new,Paid,5/30/2025,6/1/2025,Romney,5/28/2025,398,619.02,635.31,145,619.02,619.02,711.97,711.97,92.31,2,4,711.97,318,5/28/2025,2,Romney,Airbnb
+Malik Thompson,airbnbOfficial,new,Paid,6/1/2025,6/8/2025,MLVRN,6/1/2025,1306,1972.86,2018.04,200,1972.86,1972.86,2230.65,2230.65,512.04,7,5,2230.65,288,6/1/2025,0,Malvern,Airbnb
+Heath Naquin,airbnbOfficial,new,Paid,6/1/2025,6/6/2025,Sunstrip,5/21/2025,1095,1447.8,1485.9,175,1447.8,1447.8,1665.19,1665.19,215.9,5,2,1665.19,297,5/21/2025,11,Sunstrip,Airbnb
+Tam,airbnbOfficial,inquiry,Unknown,6/2/2025,6/4/2025,Sunstrip,5/19/2025,0,0,0,0,0,0,0,0,0,2,7,0,0,5/19/2025,14,Sunstrip,Airbnb
+Sulieman Alrousan,airbnbOfficial,new,Paid,6/6/2025,6/8/2025,Romney,6/2/2025,398,619.02,635.31,145,619.02,619.02,711.97,711.97,92.31,2,5,711.97,318,6/2/2025,4,Romney,Airbnb
+Randy Cardenas,airbnbOfficial,new,Paid,6/7/2025,6/9/2025,Sunstrip,6/3/2025,542,817.38,838.89,175,817.38,817.38,940.11,940.11,121.89,2,7,940.11,419,6/3/2025,4,Sunstrip,Airbnb
+Maria Otto,airbnbOfficial,new,Paid,6/11/2025,6/12/2025,Sunstrip,6/11/2025,180,404.7,415.35,175,404.7,404.7,465.47,465.47,60.35,1,11,465.47,415,6/11/2025,0,Sunstrip,Airbnb
+Janet Villarreal,airbnbOfficial,new,Paid,6/12/2025,6/15/2025,Sunstrip,2/24/2025,1788,2237.82,2296.71,175,2237.82,2237.82,2573.84,2573.84,333.71,3,12,2573.84,766,2/24/2025,108,Sunstrip,Airbnb
+Brianna,airbnbOfficial,declined,Unknown,6/13/2025,6/15/2025,MLVRN,6/12/2025,0,0,0,0,0,0,0,0,95.54,2,10,0,0,6/12/2025,1,Malvern,Airbnb
+Beverly,airbnbOfficial,declined,Unknown,6/13/2025,6/15/2025,MLVRN,6/12/2025,0,0,0,0,0,0,0,0,95.54,2,10,0,0,6/12/2025,1,Malvern,Airbnb
+Mohammad,airbnbOfficial,inquiry,Unknown,6/13/2025,6/16/2025,Romney,6/6/2025,0,0,0,0,0,0,0,0,0,3,5,0,0,6/6/2025,7,Romney,Airbnb
+Sean Mitchell,airbnbOfficial,new,Paid,6/14/2025,6/21/2025,Romney,6/8/2025,1333,1684.92,1729.26,145,1684.92,1684.92,1937.92,1937.92,251.26,7,1,1937.92,247,6/8/2025,6,Romney,Airbnb
+Melody Tisbe,airbnbOfficial,cancelled,Unknown,6/16/2025,6/18/2025,Sunstrip,3/17/2025,0,0,0,0,0,0,0,0,0,2,11,0,0,3/17/2025,91,Sunstrip,Airbnb
+Madeline Anstoetter,airbnbOfficial,new,Paid,6/19/2025,6/22/2025,Sunstrip,2/18/2025,1983,2460.12,2524.86,175,2460.12,2460.12,2829.52,2829.52,366.86,3,10,2829.52,842,2/18/2025,121,Sunstrip,Airbnb
+Madeline,airbnbOfficial,inquiry,Unknown,6/19/2025,6/22/2025,Sunstrip,2/14/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,2/14/2025,125,Sunstrip,Airbnb
+Emmily Bonilla,airbnbOfficial,new,Paid,6/20/2025,6/22/2025,MLVRN,6/18/2025,488,784.32,804.96,200,784.32,784.32,902.09,902.09,116.96,2,6,902.09,402,6/18/2025,2,Malvern,Airbnb
+Chris,airbnbOfficial,inquiryNotPossible,Unknown,6/20/2025,6/22/2025,MLVRN,6/18/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,6/18/2025,2,Malvern,Airbnb
+Nissi,airbnbOfficial,cancelled,Unknown,6/20/2025,6/22/2025,MLVRN,6/17/2025,0,0,0,0,0,0,0,0,0,2,10,0,0,6/17/2025,3,Malvern,Airbnb
+Aneesha Grant,airbnbOfficial,new,Paid,6/21/2025,6/23/2025,Romney,6/21/2025,445,507.3,520.65,0,507.3,507.3,583.47,583.47,75.65,2,4,583.47,260,6/21/2025,0,Romney,Airbnb
+Aneesha,airbnbOfficial,inquiry,Unknown,6/21/2025,6/23/2025,Romney,6/20/2025,0,0,0,0,0,0,0,0,0,2,4,0,0,6/20/2025,1,Romney,Airbnb
+Evelyn,airbnbOfficial,inquiry,Unknown,6/21/2025,6/23/2025,Romney,6/13/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,6/13/2025,8,Romney,Airbnb
+Aissa Sissoho,airbnbOfficial,new,Paid,6/22/2025,6/24/2025,Sunstrip,6/20/2025,414,671.46,689.13,175,671.46,671.46,772.28,772.28,100.13,2,10,772.28,345,6/20/2025,2,Sunstrip,Airbnb
+Fiona Baum,airbnbOfficial,new,Paid,6/26/2025,6/29/2025,Sunstrip,3/31/2025,1869,2330.16,2391.48,175,2330.16,2330.16,2680.05,2680.05,347.48,3,9,2680.05,797,3/31/2025,87,Sunstrip,Airbnb
+Fiona,airbnbOfficial,inquiry,Unknown,6/26/2025,6/29/2025,Sunstrip,3/31/2025,0,0,0,0,0,0,0,0,0,3,9,0,0,3/31/2025,87,Sunstrip,Airbnb
+Jayden,airbnbOfficial,inquiry,Unknown,6/26/2025,6/29/2025,Sunstrip,3/25/2025,0,0,0,0,0,0,0,0,0,3,7,0,0,3/25/2025,93,Sunstrip,Airbnb
+Zak Zimmerman,airbnbOfficial,new,Paid,6/27/2025,6/29/2025,MLVRN,6/27/2025,418,704.52,723.06,200,704.52,704.52,810.31,810.31,105.06,2,6,810.31,362,6/27/2025,0,Malvern,Airbnb
+Margarete Borck,airbnbOfficial,new,Paid,6/27/2025,6/29/2025,Romney,6/25/2025,382,600.78,616.59,145,600.78,600.78,690.99,690.99,89.59,2,4,690.99,308,6/25/2025,2,Romney,Airbnb
+Mishal,airbnbOfficial,inquiryNotPossible,Unknown,6/27/2025,6/30/2025,Romney,6/24/2025,0,0,0,0,0,0,0,0,0,3,6,0,0,6/24/2025,3,Romney,Airbnb
+Satish,airbnbOfficial,inquiry,Unknown,6/28/2025,7/6/2025,MLVRN,6/17/2025,0,0,0,0,0,0,0,0,0,8,8,0,0,6/17/2025,11,Malvern,Airbnb
+Andrea,airbnbOfficial,inquiry,Unknown,7/1/2025,7/6/2025,Romney,6/23/2025,0,0,0,0,0,0,0,0,0,5,1,0,0,6/23/2025,8,Romney,Airbnb
+Shane Bisson,airbnbOfficial,new,Paid,7/2/2025,7/3/2025,Romney,7/2/2025,143,328.32,336.96,145,328.32,328.32,412.62,412.62,48.96,1,2,412.62,337,7/2/2025,0,Romney,Airbnb
+Shauna,airbnbOfficial,inquiry,Unknown,7/2/2025,7/5/2025,Romney,6/28/2025,0,0,0,0,0,0,0,0,0,3,2,0,0,6/28/2025,4,Romney,Airbnb
+Vinay Thappeta,airbnbOfficial,new,Paid,7/2/2025,7/5/2025,Sunstrip,6/18/2025,1008,1348.62,1384.11,175,1348.62,1348.62,1551.12,1551.12,201.11,3,9,1551.12,461,6/18/2025,14,Sunstrip,Airbnb
+Gerardo Mendez,airbnbOfficial,new,Paid,7/3/2025,7/6/2025,Romney,6/30/2025,782,1056.78,1084.59,145,1056.78,1056.78,1215.46,1215.46,157.59,3,4,1215.46,362,6/30/2025,3,Romney,Airbnb
+Sophia Ward,airbnbOfficial,new,Paid,7/3/2025,7/5/2025,MLVRN,6/18/2025,643,961.02,986.31,200,961.02,961.02,1105.32,1105.32,143.31,2,8,1105.32,493,6/18/2025,15,Malvern,Airbnb
+Sol,airbnbOfficial,inquiry,Unknown,7/5/2025,7/7/2025,Sunstrip,7/5/2025,0,0,0,0,0,0,0,0,0,2,8,0,0,7/5/2025,0,Sunstrip,Airbnb
+Jonathan Nguyen,airbnbOfficial,cancelled,Unknown,7/5/2025,7/7/2025,Sunstrip,7/5/2025,0,0,0,0,0,0,0,0,0,2,3,0,0,7/5/2025,0,Sunstrip,Airbnb
+Jonathan,airbnbOfficial,inquiry,Unknown,7/5/2025,7/7/2025,Sunstrip,7/4/2025,0,0,0,0,0,0,0,0,0,2,3,0,0,7/4/2025,1,Sunstrip,Airbnb
+Martha Price,airbnbOfficial,new,Paid,7/6/2025,7/12/2025,Romney,7/3/2025,1053,1365.72,1401.66,145,1365.72,1365.72,1570.79,1570.79,203.66,6,1,1570.79,234,7/3/2025,3,Romney,Airbnb
+Kimberly Pipkins,airbnbOfficial,modified,Paid,7/7/2025,7/12/2025,MLVRN,7/7/2025,970,1333.8,1368.9,200,1333.8,1333.8,1534.08,1534.08,198.9,5,5,1534.08,274,7/7/2025,0,Malvern,Airbnb
+Rasheeka Dudley,airbnbOfficial,new,Paid,7/7/2025,7/9/2025,Sunstrip,6/25/2025,360,609.9,625.95,175,609.9,609.9,701.48,701.48,90.95,2,9,701.48,313,6/25/2025,12,Sunstrip,Airbnb
+Shawnte,airbnbOfficial,inquiry,Unknown,7/7/2025,7/9/2025,Sunstrip,6/24/2025,0,0,0,0,0,0,0,0,0,2,8,0,0,6/24/2025,13,Sunstrip,Airbnb
+Lindsey,airbnbOfficial,inquiry,Unknown,7/11/2025,7/14/2025,MLVRN,6/28/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,6/28/2025,13,Malvern,Airbnb
+Mariah Escobar,airbnbOfficial,new,Paid,7/11/2025,7/14/2025,Sunstrip,6/19/2025,1172,1535.58,1575.99,175,1535.58,1535.58,1766.16,1766.16,228.99,3,12,1766.16,525,6/19/2025,22,Sunstrip,Airbnb
+Akhila,airbnbOfficial,inquiry,Unknown,7/12/2025,7/14/2025,Romney,7/8/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,7/8/2025,4,Romney,Airbnb
+Derrell Cocroft,airbnbOfficial,modified,Paid,7/15/2025,7/21/2025,Romney,7/15/2025,865,1151.4,1181.7,145,1151.4,1151.4,1424.29,1424.29,171.7,6,5,1424.29,197,7/15/2025,0,Romney,Airbnb
+Derrell,airbnbOfficial,inquiry,Unknown,7/15/2025,7/20/2025,Romney,7/15/2025,0,0,0,0,0,0,0,0,0,5,5,0,0,7/15/2025,0,Romney,Airbnb
+Dee Ann Lujan,airbnbOfficial,new,Paid,7/15/2025,7/20/2025,MLVRN,7/7/2025,1120,1504.8,1544.4,200,1504.8,1504.8,1730.75,1730.75,224.4,5,7,1730.75,309,7/7/2025,8,Malvern,Airbnb
+Paola Roman,airbnbOfficial,new,Paid,7/17/2025,7/20/2025,Sunstrip,4/21/2025,1695,2449.7,2505.8,175,2449.7,2449.7,2861.55,2861.55,635.8,3,12,2861.55,835,4/21/2025,87,Sunstrip,Airbnb
+Tara Nimri,airbnbOfficial,cancelled,Unknown,7/17/2025,7/20/2025,Sunstrip,3/20/2025,0,0,0,0,0,0,0,0,0,3,12,0,0,3/20/2025,119,Sunstrip,Airbnb
+Joyce,airbnbOfficial,inquiry,Unknown,7/17/2025,7/20/2025,Sunstrip,2/11/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,2/11/2025,156,Sunstrip,Airbnb
+Terry Vittatoe,airbnbOfficial,new,Paid,7/20/2025,7/27/2025,Sunstrip,7/19/2025,1816,2070.24,2124.72,0,2070.24,2070.24,2381.1,2381.1,308.72,7,1,2381.1,304,7/19/2025,1,Sunstrip,Airbnb
+Terry,airbnbOfficial,inquiry,Unknown,7/20/2025,7/27/2025,Sunstrip,7/19/2025,0,0,0,0,0,0,0,0,0,7,1,0,0,7/19/2025,1,Sunstrip,Airbnb
+Terry Vittatoe,airbnbOfficial,cancelled,Unknown,7/20/2025,7/27/2025,MLVRN,7/19/2025,0,0,0,0,0,0,0,0,0,7,5,0,0,7/19/2025,1,Malvern,Airbnb
+Terry,airbnbOfficial,inquiry,Unknown,7/20/2025,7/27/2025,MLVRN,7/18/2025,0,0,0,0,0,0,0,0,0,7,5,0,0,7/18/2025,2,Malvern,Airbnb
+Nate,airbnbOfficial,inquiry,Unknown,7/20/2025,7/23/2025,Sunstrip,6/27/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,6/27/2025,23,Sunstrip,Airbnb
+Guadalupe Perez Manriquez,airbnbOfficial,modified,Paid,7/21/2025,7/27/2025,MLVRN,7/21/2025,1126,1511.64,1551.42,200,1511.64,1511.64,1888.62,1888.62,225.42,6,10,1888.62,259,7/21/2025,0,Malvern,Airbnb
+Guadalupe,airbnbOfficial,inquiry,Unknown,7/21/2025,7/26/2025,MLVRN,7/21/2025,0,0,0,0,0,0,0,0,0,5,1,0,0,7/21/2025,0,Malvern,Airbnb
+Alex Ecenia,airbnbOfficial,cancelled,Unknown,7/23/2025,7/25/2025,Sunstrip,6/18/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,6/18/2025,35,Sunstrip,Airbnb
+Hector Yee,airbnbOfficial,new,Paid,7/24/2025,7/28/2025,Romney,7/23/2025,762,1033.98,1061.19,145,1033.98,1033.98,1233.74,1233.74,154.19,4,6,1233.74,265,7/23/2025,1,Romney,Airbnb
+Cortney Andrews,airbnbOfficial,cancelled,Unknown,7/25/2025,7/28/2025,MLVRN,7/6/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,7/6/2025,19,Malvern,Airbnb
+Samantha Wilson,airbnbOfficial,cancelled,Unknown,7/25/2025,7/28/2025,Sunstrip,1/19/2025,0,0,0,0,0,0,0,0,0,3,9,1099.96,0,1/19/2025,187,Sunstrip,Airbnb
+Brisa Resendiz,airbnbOfficial,new,Paid,7/27/2025,7/30/2025,Sunstrip,7/22/2025,632,919.98,944.19,175,919.98,919.98,1097.72,1097.72,137.19,3,8,1097.72,315,7/22/2025,5,Sunstrip,Airbnb
+Alberto Gonzalez,airbnbOfficial,new,Paid,7/28/2025,8/1/2025,MLVRN,7/28/2025,640,957.6,982.8,200,957.6,957.6,1101.39,1101.39,142.8,4,5,1101.39,246,7/28/2025,0,Malvern,Airbnb
+Zakary,airbnbOfficial,inquiry,Unknown,7/28/2025,8/1/2025,MLVRN,7/28/2025,0,0,0,0,0,0,0,0,0,4,5,0,0,7/28/2025,0,Malvern,Airbnb
+Sean Sarti,airbnbOfficial,new,Paid,7/29/2025,8/1/2025,Romney,7/29/2025,424,648.66,665.73,145,648.66,648.66,746.06,746.06,96.73,3,4,746.06,222,7/29/2025,0,Romney,Airbnb
+Dante Amaro,airbnbOfficial,new,Paid,7/31/2025,8/4/2025,Sunstrip,7/29/2025,1058,1405.62,1442.61,175,1405.62,1405.62,1616.68,1616.68,209.61,4,6,1616.68,361,7/29/2025,2,Sunstrip,Airbnb
+Christy,airbnbOfficial,inquiry,Unknown,7/31/2025,8/2/2025,Sunstrip,7/14/2025,0,0,0,0,0,0,0,0,0,2,11,0,0,7/14/2025,17,Sunstrip,Airbnb
+Hannah Parry,airbnbOfficial,new,Paid,8/1/2025,8/3/2025,Romney,8/1/2025,338,550.62,565.11,145,550.62,550.62,658.3,658.3,82.11,2,1,658.3,283,8/1/2025,0,Romney,Airbnb
+John Gage,airbnbOfficial,cancelled,Unknown,8/2/2025,8/4/2025,MLVRN,7/31/2025,0,0,0,0,0,0,0,0,0,2,10,0,0,7/31/2025,2,Malvern,Airbnb
+Fernanda Villanueva,airbnbOfficial,new,Paid,8/7/2025,8/10/2025,MLVRN,8/7/2025,569,876.66,899.73,200,876.66,876.66,1008.3,1008.3,130.73,3,5,1008.3,300,8/7/2025,0,Malvern,Airbnb
+Beth Dahill,airbnbOfficial,new,Paid,8/7/2025,8/10/2025,Sunstrip,6/27/2025,1464,1868.48,1917.65,175,1868.48,1868.48,2292.75,2292.75,278.65,3,8,2292.75,639,6/27/2025,41,Sunstrip,Airbnb
+Eliecer Ocanto,airbnbOfficial,new,Paid,8/8/2025,8/10/2025,Romney,8/7/2025,358,573.42,588.51,145,573.42,573.42,659.52,659.52,85.51,2,6,659.52,294,8/7/2025,1,Romney,Airbnb
+Mollie Stevens,airbnbOfficial,modified,Partially paid,8/14/2025,8/17/2025,Sunstrip,2/13/2025,1656,2398.61,2453.54,175,2398.61,2398.61,2712.04,2712.04,622.54,3,7,2400.77,818,2/13/2025,182,Sunstrip,Airbnb
+Victor Pham,airbnbOfficial,new,Paid,8/17/2025,8/19/2025,Sunstrip,8/14/2025,368,619.02,635.31,175,619.02,619.02,711.97,711.97,92.31,2,8,711.97,318,8/14/2025,3,Sunstrip,Airbnb
+Terry Vittatoe,airbnbOfficial,new,Paid,8/19/2025,8/25/2025,Sunstrip,8/18/2025,1396,1591.44,1633.32,0,1591.44,1591.44,1830.4,1830.4,237.32,6,4,1830.4,272,8/18/2025,1,Sunstrip,Airbnb
+Terry,airbnbOfficial,inquiry,Unknown,8/19/2025,8/25/2025,Sunstrip,8/18/2025,0,0,0,0,0,0,0,0,0,6,4,0,0,8/18/2025,1,Sunstrip,Airbnb
+Karleigh Fisher,airbnbOfficial,cancelled,Unknown,8/21/2025,8/24/2025,MLVRN,6/2/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,6/2/2025,80,Malvern,Airbnb
+Karleigh,airbnbOfficial,inquiry,Unknown,8/21/2025,8/24/2025,MLVRN,5/24/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,5/24/2025,89,Malvern,Airbnb
+Karleigh,airbnbOfficial,declined,Unknown,8/21/2025,8/24/2025,MLVRN,5/23/2025,0,0,0,0,0,0,0,0,537.54,3,1,0,0,5/23/2025,90,Malvern,Airbnb
+Stephanie Torres,airbnbOfficial,new,Paid,8/22/2025,8/24/2025,Romney,8/20/2025,348,562.02,576.81,145,562.02,562.02,646.41,646.41,83.81,2,1,646.41,288,8/20/2025,2,Romney,Airbnb
+Jose De Luna,airbnbOfficial,new,Paid,8/22/2025,8/24/2025,MLVRN,8/15/2025,398,681.72,699.66,200,681.72,681.72,664.68,664.68,101.66,2,10,784.08,350,8/15/2025,7,Malvern,Airbnb
+Jose,airbnbOfficial,inquiry,Unknown,8/22/2025,8/25/2025,MLVRN,8/14/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,8/14/2025,8,Malvern,Airbnb
+Srija Rajak,airbnbOfficial,new,Paid,8/29/2025,8/31/2025,Romney,8/29/2025,338,550.62,565.11,145,550.62,550.62,633.3,633.3,82.11,2,6,633.3,283,8/29/2025,0,Romney,Airbnb
+Gill,airbnbOfficial,inquiry,Unknown,8/29/2025,8/31/2025,Romney,8/29/2025,0,0,0,0,0,0,0,0,0,2,2,0,0,8/29/2025,0,Romney,Airbnb
+Julia Nicole Norris,airbnbOfficial,new,Paid,8/29/2025,9/1/2025,MLVRN,8/21/2025,917,1273.38,1306.89,200,1273.38,1273.38,1464.58,1464.58,189.89,3,10,1464.58,436,8/21/2025,8,Malvern,Airbnb
+Stephanie Howington,airbnbOfficial,new,Paid,8/29/2025,9/1/2025,Sunstrip,3/15/2025,2196,2702.94,2774.07,175,2702.94,2702.94,3108.8,3108.8,403.07,3,10,3108.8,925,3/15/2025,167,Sunstrip,Airbnb
+Abby Hubley,airbnbOfficial,new,Paid,8/31/2025,9/9/2025,Romney,8/28/2025,1493,1867.32,1916.46,145,1867.32,1867.32,2147.71,2147.71,278.46,9,6,2147.71,213,8/28/2025,3,Romney,Airbnb
+Andrew Ugarte,airbnbOfficial,new,Paid,9/4/2025,9/6/2025,MLVRN,9/4/2025,370,649.8,666.9,200,649.8,649.8,747.37,747.37,96.9,2,6,747.37,333,9/4/2025,0,Malvern,Airbnb
+Emily,airbnbOfficial,inquiry,Unknown,9/4/2025,9/7/2025,Sunstrip,5/15/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,5/15/2025,112,Sunstrip,Airbnb
+Mar Moung,airbnbOfficial,new,Paid,9/5/2025,9/7/2025,Sunstrip,9/4/2025,658,949.62,974.61,175,949.62,949.62,2492.21,2492.21,141.61,2,8,2492.21,487,9/4/2025,1,Sunstrip,Airbnb
+Gabriela,airbnbOfficial,inquiry,Unknown,9/5/2025,9/7/2025,MLVRN,9/3/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,9/3/2025,2,Malvern,Airbnb
+Anne,airbnbOfficial,declined,Unknown,9/8/2025,9/15/2025,MLVRN,9/3/2025,0,0,0,0,0,0,0,0,0,7,4,0,0,9/3/2025,5,Malvern,Airbnb
+Daniel Vargas,airbnbOfficial,new,Paid,9/10/2025,9/15/2025,Sunstrip,9/3/2025,1595,2017.8,2070.9,175,2017.8,2017.8,2320.78,2320.78,300.9,5,1,2320.78,414,9/3/2025,7,Sunstrip,Airbnb
+Daniel,airbnbOfficial,inquiry,Unknown,9/10/2025,9/15/2025,Sunstrip,8/29/2025,0,0,0,0,0,0,0,0,0,5,1,0,0,8/29/2025,12,Sunstrip,Airbnb
+Britney Brignac,airbnbOfficial,new,Paid,9/11/2025,9/14/2025,Romney,9/4/2025,579,825.36,847.08,145,825.36,825.36,949.29,949.29,123.08,3,6,949.29,282,9/4/2025,7,Romney,Airbnb
+Alexander,airbnbOfficial,inquiry,Unknown,9/14/2025,9/28/2025,Romney,9/12/2025,0,0,0,0,0,0,0,0,0,14,2,0,0,9/12/2025,2,Romney,Airbnb
+Alejandra Rubio,airbnbOfficial,new,Paid,9/15/2025,9/20/2025,Romney,9/15/2025,796,1072.74,1100.97,145,1072.74,1072.74,1233.82,1233.82,159.97,5,4,1233.82,220,9/15/2025,0,Romney,Airbnb
+Taryn Brooks,airbnbOfficial,new,Paid,9/15/2025,9/20/2025,Sunstrip,9/15/2025,1235,1407.9,1444.95,0,1407.9,1407.9,1244.3,1244.3,209.95,5,3,1619.3,289,9/15/2025,0,Sunstrip,Airbnb
+Lynda,airbnbOfficial,inquiryNotPossible,Unknown,9/15/2025,9/20/2025,Sunstrip,9/15/2025,0,0,0,0,0,0,0,0,0,5,1,0,0,9/15/2025,0,Sunstrip,Airbnb
+Taryn,airbnbOfficial,inquiry,Unknown,9/15/2025,9/20/2025,Sunstrip,9/15/2025,0,0,0,0,0,0,0,0,0,5,3,0,0,9/15/2025,0,Sunstrip,Airbnb
+Sarah,airbnbOfficial,inquiry,Unknown,9/15/2025,9/19/2025,MLVRN,9/6/2025,0,0,0,0,0,0,0,0,0,4,1,0,0,9/6/2025,9,Malvern,Airbnb
+Hanniel,airbnbOfficial,inquiry,Unknown,9/18/2025,9/21/2025,MLVRN,8/28/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,8/28/2025,21,Malvern,Airbnb
+Chris,airbnbOfficial,declined,Unknown,9/18/2025,9/21/2025,MLVRN,8/19/2025,0,0,0,0,0,0,0,0,155.21,3,10,0,0,8/19/2025,30,Malvern,Airbnb
+Jennifer,airbnbOfficial,inquiry,Unknown,9/18/2025,9/20/2025,Sunstrip,6/23/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,6/23/2025,87,Sunstrip,Airbnb
+Jose Escalante,airbnbOfficial,new,Paid,9/19/2025,9/21/2025,MLVRN,9/4/2025,506,804.84,826.02,200,804.84,804.84,925.69,925.69,120.02,2,8,925.69,413,9/4/2025,15,Malvern,Airbnb
+Brooklyn,airbnbOfficial,declined,Unknown,9/19/2025,9/21/2025,MLVRN,8/24/2025,0,0,0,0,0,0,0,0,120.02,2,10,0,0,8/24/2025,26,Malvern,Airbnb
+William Miller,airbnbOfficial,new,Paid,9/20/2025,9/24/2025,Sunstrip,9/20/2025,896,1220.94,1253.07,175,1220.94,1220.94,1404.27,1404.27,182.07,4,2,1404.27,313,9/20/2025,0,Sunstrip,Airbnb
+Alejandra Rubio,airbnbOfficial,new,Paid,9/22/2025,9/26/2025,Romney,9/22/2025,587,834.48,856.44,145,834.48,834.48,959.78,959.78,124.44,4,4,959.78,214,9/22/2025,0,Romney,Airbnb
+Maria,airbnbOfficial,inquiry,Unknown,9/25/2025,9/28/2025,MLVRN,9/12/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,9/12/2025,13,Malvern,Airbnb
+Divya Chandrupatla,airbnbOfficial,new,Paid,9/25/2025,9/28/2025,Sunstrip,4/25/2025,1927,2753.62,2816.68,175,2753.62,2753.62,3113.43,3113.43,714.68,3,12,3113.43,939,4/25/2025,153,Sunstrip,Airbnb
+Divya,airbnbOfficial,inquiry,Unknown,9/25/2025,9/28/2025,Sunstrip,4/25/2025,0,0,0,0,0,0,0,0,0,3,12,0,0,4/25/2025,153,Sunstrip,Airbnb
+Laurie,airbnbOfficial,inquiry,Unknown,9/25/2025,9/29/2025,Sunstrip,4/12/2025,0,0,0,0,0,0,0,0,0,4,5,0,0,4/12/2025,166,Sunstrip,Airbnb
+Allison,airbnbOfficial,inquiry,Unknown,9/25/2025,9/28/2025,Sunstrip,3/12/2025,0,0,0,0,0,0,0,0,0,3,8,0,0,3/12/2025,197,Sunstrip,Airbnb
+Ana,airbnbOfficial,declined,Unknown,9/26/2025,9/29/2025,MLVRN,9/6/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,9/6/2025,20,Malvern,Airbnb
+Asia Hill-McGhee,airbnbOfficial,modified,Paid,9/27/2025,9/30/2025,Romney,9/27/2025,437,663.48,680.94,145,663.48,663.48,763.11,763.11,98.94,3,5,763.11,227,9/27/2025,0,Romney,Airbnb
+Asia,airbnbOfficial,inquiry,Unknown,9/27/2025,9/29/2025,Romney,9/27/2025,0,0,0,0,0,0,0,0,0,2,5,0,0,9/27/2025,0,Romney,Airbnb
+Kelly McGinnis,airbnbOfficial,new,Paid,9/29/2025,10/1/2025,Sunstrip,8/28/2025,358,607.62,623.61,175,607.62,607.62,706.38,706.38,90.61,2,9,706.38,312,8/28/2025,32,Sunstrip,Airbnb
+Branden Svienson,airbnbOfficial,new,Paid,10/1/2025,10/6/2025,MLVRN (4BR in Loft + Airstream),8/27/2025,1641,2098.74,2153.97,200,2098.74,2098.74,2413.88,2413.88,312.97,5,9,2413.88,431,8/27/2025,35,Malvern (4BR),Airbnb
+Elias Cedano,airbnbOfficial,new,Paid,10/2/2025,10/6/2025,Sunstrip,10/2/2025,1376,1768.14,1814.67,175,1768.14,1768.14,2033.64,2033.64,263.67,4,7,2045.2,454,10/2/2025,0,Sunstrip,Airbnb
+Gienne Hanson,airbnbOfficial,new,Paid,10/2/2025,10/5/2025,Romney,9/29/2025,647,902.88,926.64,145,902.88,902.88,1038.45,1038.45,134.64,3,4,1038.45,309,9/29/2025,3,Romney,Airbnb
+Maggie,airbnbOfficial,inquiry,Unknown,10/6/2025,10/9/2025,Sunstrip,8/4/2025,0,0,0,0,0,0,0,0,0,3,9,0,0,8/4/2025,63,Sunstrip,Airbnb
+Grace Roberts,airbnbOfficial,new,Paid,10/8/2025,10/10/2025,Sunstrip,9/29/2025,425,684,702,175,684,684,1286.71,1286.71,102,2,5,1286.71,351,9/29/2025,9,Sunstrip,Airbnb
+Grace,airbnbOfficial,inquiry,Unknown,10/8/2025,10/10/2025,Sunstrip,9/19/2025,0,0,0,0,0,0,0,0,0,2,5,0,0,9/19/2025,19,Sunstrip,Airbnb
+Jose Martinez,airbnbOfficial,new,Paid,10/10/2025,10/12/2025,MLVRN (4BR in Loft + Airstream),10/9/2025,618,932.52,957.06,200,932.52,932.52,1072.54,1072.54,139.06,2,6,1072.54,479,10/9/2025,1,Malvern (4BR),Airbnb
+Vanessa Xandria,airbnbOfficial,new,Paid,10/10/2025,10/13/2025,Sunstrip,8/9/2025,2301,2822.64,2896.92,175,2822.64,2822.64,3246.47,3246.47,420.92,3,1,3246.47,966,8/9/2025,62,Sunstrip,Airbnb
+Roy Carubia,airbnbOfficial,new,Paid,10/11/2025,10/14/2025,Romney,8/19/2025,961,1260.84,1294.02,145,1260.84,1260.84,1450.16,1450.16,188.02,3,5,1550.16,431,8/19/2025,53,Romney,Airbnb
+Kyle,airbnbOfficial,inquiryNotPossible,Unknown,10/11/2025,10/14/2025,Sunstrip,8/9/2025,0,0,0,0,0,0,0,0,0,3,8,0,0,8/9/2025,63,Sunstrip,Airbnb
+Melissa Simpson,airbnbOfficial,modified,Paid,10/14/2025,10/17/2025,Sunstrip,9/3/2025,1413,1810.32,1857.96,175,1810.32,1810.32,2082.15,2082.15,269.96,3,6,2082.15,619,9/3/2025,41,Sunstrip,Airbnb
+Tyler Danford,airbnbOfficial,new,Paid,10/15/2025,10/17/2025,Romney,10/15/2025,295,501.6,514.8,145,501.6,501.6,576.92,576.92,74.8,2,3,576.92,257,10/15/2025,0,Romney,Airbnb
+Fabrice Connen,airbnbOfficial,new,Paid,10/15/2025,10/20/2025,MLVRN (4BR in Loft + Airstream),10/5/2025,2535,3117.89,3199.94,200,3117.89,3117.89,3700.74,3700.74,464.94,5,4,3700.74,640,10/5/2025,10,Malvern (4BR),Airbnb
+Maya Higa,airbnbOfficial,cancelled,Paid,10/16/2025,10/20/2025,Sunstrip,12/30/2024,0,0,0,0,0,0,0,0,0,4,10,4428.31,0,12/30/2024,290,Sunstrip,Airbnb
+Maya,airbnbOfficial,inquiry,Unknown,10/16/2025,10/20/2025,Sunstrip,12/30/2024,0,0,0,0,0,0,0,0,0,4,10,0,0,12/30/2024,290,Sunstrip,Airbnb
+Yusuf Ozkaymak,airbnbOfficial,new,Partially paid,10/17/2025,10/20/2025,Sunstrip,10/2/2025,2462,3006.18,3085.29,175,3006.18,3006.18,3457.57,3457.57,448.29,3,5,3457.57,1028,10/2/2025,15,Sunstrip,Airbnb
+Madi Howell,airbnbOfficial,new,Paid,10/17/2025,10/20/2025,Romney,10/2/2025,1597,1985.88,2038.14,145,1985.88,1985.88,2284.07,2284.07,296.14,3,3,2284.07,679,10/2/2025,15,Romney,Airbnb
+StayCierge,airbnbOfficial,inquiry,Unknown,10/20/2025,10/25/2025,Romney,10/14/2025,0,0,0,0,0,0,0,0,0,5,1,0,0,10/14/2025,6,Romney,Airbnb
+Clay Turner,airbnbOfficial,new,Paid,10/20/2025,10/22/2025,Sunstrip,8/22/2025,358,607.62,623.61,175,607.62,607.62,698.86,698.86,90.61,2,6,698.86,312,8/22/2025,59,Sunstrip,Airbnb
+L,airbnbOfficial,inquiry,Unknown,10/22/2025,10/25/2025,Sunstrip,8/29/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,8/29/2025,54,Sunstrip,Airbnb
+Erin Grim,airbnbOfficial,new,Paid,10/23/2025,10/26/2025,Romney,10/19/2025,688,949.62,974.61,145,949.62,949.62,1092.21,1092.21,141.61,3,4,1092.21,325,10/19/2025,4,Romney,Airbnb
+Laura,airbnbOfficial,inquiry,Unknown,10/23/2025,10/27/2025,Sunstrip,9/8/2025,0,0,0,0,0,0,0,0,0,4,8,0,0,9/8/2025,45,Sunstrip,Airbnb
+Laura Westerlage,airbnbOfficial,new,Paid,10/24/2025,10/27/2025,Sunstrip,9/10/2025,1844,2301.66,2362.23,175,2301.66,2301.66,2647.27,2647.27,343.23,3,1,2647.27,787,9/10/2025,44,Sunstrip,Airbnb
+Debra Quiroz,airbnbOfficial,new,Paid,10/30/2025,11/2/2025,Sunstrip,10/30/2025,659,846.51,975.78,175,846.51,846.51,975.78,975.78,141.78,3,8,975.78,325,10/30/2025,0,Sunstrip,Airbnb
+Kristen McGuffin Lautner,airbnbOfficial,new,Paid,10/30/2025,11/1/2025,Romney,10/26/2025,430,655.5,672.75,145,655.5,655.5,753.93,753.93,97.75,2,1,753.93,336,10/26/2025,4,Romney,Airbnb
+Kristen McGuffin,airbnbOfficial,inquiry,Unknown,10/30/2025,11/1/2025,Romney,10/26/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,10/26/2025,4,Romney,Airbnb
+Everardo Mejia,airbnbOfficial,new,Paid,10/31/2025,11/2/2025,MLVRN (4BR in Loft + Airstream),10/30/2025,338,546.07,629.46,200,546.07,546.07,629.46,629.46,91.46,2,6,629.46,315,10/30/2025,1,Malvern (4BR),Airbnb
+Pranathi,airbnbOfficial,cancelled,Paid,10/31/2025,11/2/2025,MLVRN (4BR in Loft + Airstream),10/29/2025,0,0,0,0,0,0,0,0,0,2,7,0,0,10/29/2025,2,Malvern (4BR),Airbnb
+Desiree,airbnbOfficial,inquiry,Unknown,10/31/2025,11/2/2025,Sunstrip,10/27/2025,0,0,0,0,0,0,0,0,0,2,8,0,0,10/27/2025,4,Sunstrip,Airbnb
+Luisa Zuniga,airbnbOfficial,new,Paid,11/1/2025,11/3/2025,Romney,10/30/2025,300,451.67,520.65,145,451.67,451.67,520.65,520.65,75.65,2,3,520.65,260,10/30/2025,2,Romney,Airbnb
+Ronald Bowie,airbnbOfficial,modified,Paid,11/2/2025,11/5/2025,Sunstrip,11/1/2025,513,698.32,804.96,175,698.32,698.32,804.96,804.96,116.96,3,1,804.96,268,11/1/2025,1,Sunstrip,Airbnb
+Ronald,airbnbOfficial,inquiry,Unknown,11/2/2025,11/4/2025,Sunstrip,11/1/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,11/1/2025,1,Sunstrip,Airbnb
+Catey,airbnbOfficial,inquiry,Unknown,11/4/2025,11/7/2025,Sunstrip,10/9/2025,0,0,0,0,0,0,0,0,0,3,3,0,0,10/9/2025,26,Sunstrip,Airbnb
+Michael Hamm,airbnbOfficial,new,Paid,11/5/2025,11/7/2025,Sunstrip,11/5/2025,359,542.01,624.78,175,542.01,542.01,624.78,624.78,90.78,2,4,624.78,312,11/5/2025,0,Sunstrip,Airbnb
+Javi,airbnbOfficial,inquiry,Unknown,11/5/2025,11/7/2025,Sunstrip,11/4/2025,0,0,0,0,0,0,0,0,0,2,4,0,0,11/4/2025,1,Sunstrip,Airbnb
+Aimee,airbnbOfficial,inquiry,Unknown,11/5/2025,11/8/2025,MLVRN (4BR in Loft + Airstream),11/3/2025,0,0,0,0,0,0,0,0,0,3,8,0,0,11/3/2025,2,Malvern (4BR),Airbnb
+Avery Baker,airbnbOfficial,new,Paid,11/6/2025,11/9/2025,MLVRN (4BR in Loft + Airstream),11/6/2025,577,788.65,909.09,200,788.65,788.65,909.09,909.09,132.09,3,5,909.09,303,11/6/2025,0,Malvern (4BR),Airbnb
+Amelia,airbnbOfficial,inquiry,Unknown,11/6/2025,11/9/2025,Sunstrip,4/14/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,4/14/2025,206,Sunstrip,Airbnb
+Katherine,airbnbOfficial,inquiry,Unknown,11/6/2025,11/9/2025,Sunstrip,2/24/2025,0,0,0,0,0,0,0,0,0,3,8,0,0,2/24/2025,255,Sunstrip,Airbnb
+Dina Alazrai Ayoub,airbnbOfficial,modified,Partially paid,11/7/2025,11/12/2025,Romney,10/31/2025,857,1017.03,1172.34,145,1017.03,1017.03,1172.34,1172.34,170.34,5,4,1172.34,234,10/31/2025,7,Romney,Airbnb
+Dina,airbnbOfficial,inquiry,Unknown,11/7/2025,11/11/2025,Romney,10/31/2025,0,0,0,0,0,0,0,0,0,4,4,0,0,10/31/2025,7,Romney,Airbnb
+Morgan Weber,airbnbOfficial,new,Paid,11/7/2025,11/10/2025,Sunstrip,5/29/2025,2469,3014.16,3093.48,175,3014.16,3014.16,3466.75,3466.75,449.48,3,9,3466.75,1031,5/29/2025,162,Sunstrip,Airbnb
+Gabi Molina,airbnbOfficial,new,Paid,11/12/2025,11/16/2025,Sunstrip,11/2/2025,1560,1761.02,2029.95,175,1761.02,1761.02,2029.95,2029.95,294.95,4,10,2029.95,507,11/2/2025,10,Sunstrip,Airbnb
+Moriah Baker,airbnbOfficial,new,Paid,11/13/2025,11/16/2025,Romney,10/31/2025,639,795.76,917.28,145,795.76,795.76,917.28,917.28,133.28,3,5,917.28,306,10/31/2025,13,Romney,Airbnb
+Terry Vittatoe,airbnbOfficial,new,Paid,11/16/2025,11/22/2025,Sunstrip,11/16/2025,1363,1383.44,1594.71,0,1383.44,1383.44,1594.71,1594.71,231.71,6,3,1594.71,266,11/16/2025,0,Sunstrip,Airbnb
+Terry,airbnbOfficial,inquiry,Unknown,11/16/2025,11/22/2025,Sunstrip,11/16/2025,0,0,0,0,0,0,0,0,0,6,3,0,0,11/16/2025,0,Sunstrip,Airbnb
+Yesenia Martinez,airbnbOfficial,new,Paid,11/21/2025,11/22/2025,Romney,11/21/2025,139,288.26,332.28,145,288.26,288.26,332.28,332.28,48.28,1,6,332.28,332,11/21/2025,0,Romney,Airbnb
+Helene Hinh,airbnbOfficial,new,Paid,11/22/2025,11/24/2025,Sunstrip,11/19/2025,742,930.75,1072.89,175,930.75,930.75,1072.89,1072.89,155.89,2,11,1072.89,536,11/19/2025,3,Sunstrip,Airbnb
+Chase Clement,airbnbOfficial,new,Paid,11/22/2025,11/25/2025,Romney,11/15/2025,519,673.96,776.88,145,673.96,673.96,776.88,776.88,112.88,3,2,776.88,259,11/15/2025,7,Romney,Airbnb
+Ashby Dawson,airbnbOfficial,new,Paid,11/24/2025,11/28/2025,Sunstrip,11/1/2025,1576,1777.26,2048.67,175,1777.26,1777.26,2048.67,2048.67,297.67,4,6,2048.67,512,11/1/2025,23,Sunstrip,Airbnb
+Yi,airbnbOfficial,inquiry,Unknown,11/24/2025,11/27/2025,Sunstrip,9/28/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,9/28/2025,57,Sunstrip,Airbnb
+Ashby,airbnbOfficial,inquiry,Unknown,11/25/2025,11/28/2025,Sunstrip,10/30/2025,0,0,0,0,0,0,0,0,0,3,6,0,0,10/30/2025,26,Sunstrip,Airbnb
+Kelly Wright,airbnbOfficial,new,Paid,11/25/2025,11/30/2025,Romney,10/4/2025,2688,3229.62,3314.61,145,3229.62,3229.62,3714.56,3714.56,481.61,5,4,3714.56,663,10/4/2025,52,Romney,Airbnb
+Molly,airbnbOfficial,inquiry,Unknown,11/26/2025,11/30/2025,Sunstrip,9/17/2025,0,0,0,0,0,0,0,0,0,4,8,0,0,9/17/2025,70,Sunstrip,Airbnb
+Priya Patel,airbnbOfficial,new,Paid,11/28/2025,11/30/2025,Sunstrip,11/9/2025,1575,1598.62,1842.75,0,1598.62,1598.62,1842.75,1842.75,267.75,2,10,1842.75,921,11/9/2025,19,Sunstrip,Airbnb
+Priya,airbnbOfficial,expired,Unknown,11/28/2025,11/30/2025,Sunstrip,11/7/2025,0,0,0,0,0,0,0,0,0,2,10,0,0,11/7/2025,21,Sunstrip,Airbnb
+Alexandra Cain,airbnbOfficial,modified,Paid,12/5/2025,12/9/2025,Romney,12/5/2025,560,715.57,824.85,145,715.57,715.57,824.85,824.85,119.85,4,2,824.85,206,12/5/2025,0,Romney,Airbnb
+Erik Chavez,airbnbOfficial,modified,Paid,12/5/2025,12/7/2025,Sunstrip,12/3/2025,638,825.19,951.21,175,825.19,825.19,951.21,951.21,138.21,2,6,951.21,476,12/3/2025,2,Sunstrip,Airbnb
+Misty,airbnbOfficial,inquiry,Unknown,12/7/2025,12/9/2025,Sunstrip,11/27/2025,0,0,0,0,0,0,0,0,0,2,10,0,0,11/27/2025,10,Sunstrip,Airbnb
+Sheiyla Lopez,airbnbOfficial,new,Paid,12/10/2025,12/12/2025,Sunstrip,12/10/2025,450,456.75,526.5,0,456.75,456.75,576.5,576.5,76.5,2,6,576.5,263,12/10/2025,0,Sunstrip,Airbnb
+Sheiyla,airbnbOfficial,inquiry,Unknown,12/10/2025,12/12/2025,Sunstrip,12/10/2025,0,0,0,0,0,0,0,0,0,2,6,0,0,12/10/2025,0,Sunstrip,Airbnb
+Sheiyla,airbnbOfficial,inquiry,Unknown,12/10/2025,12/13/2025,Sunstrip,12/9/2025,0,0,0,0,0,0,0,0,0,3,6,0,0,12/9/2025,1,Sunstrip,Airbnb
+Danielle,airbnbOfficial,inquiry,Unknown,12/10/2025,12/12/2025,Sunstrip,11/28/2025,0,0,0,0,0,0,0,0,0,2,8,0,0,11/28/2025,12,Sunstrip,Airbnb
+Keerthi Gopisetti,airbnbOfficial,new,Paid,12/12/2025,12/13/2025,Romney,12/12/2025,139,288.26,332.28,145,288.26,288.26,332.28,332.28,48.28,1,5,332.28,332,12/12/2025,0,Romney,Airbnb
+Bree Alabi,airbnbOfficial,modified,Paid,12/12/2025,12/15/2025,Sunstrip,12/11/2025,541,726.74,837.72,175,726.74,726.74,837.72,837.72,121.72,3,6,837.72,279,12/11/2025,1,Sunstrip,Airbnb
+Iveth Jimenez,airbnbOfficial,new,Paid,12/13/2025,12/22/2025,Romney,12/11/2025,1472,1641.25,1891.89,145,1641.25,1641.25,1891.89,1891.89,274.89,9,4,1891.89,210,12/11/2025,2,Romney,Airbnb
+Samuel,airbnbOfficial,inquiry,Unknown,12/13/2025,12/15/2025,Sunstrip,12/10/2025,0,0,0,0,0,0,0,0,0,2,1,0,0,12/10/2025,3,Sunstrip,Airbnb
+Diego Celis,airbnbOfficial,new,Paid,12/17/2025,12/20/2025,Sunstrip,11/8/2025,1279,1475.81,1701.18,175,1475.81,1475.81,1701.18,1701.18,247.18,3,10,1701.18,567,11/8/2025,39,Sunstrip,Airbnb
+Oks Rental Khuu,airbnbOfficial,new,Paid,12/20/2025,12/22/2025,Sunstrip,12/20/2025,450,634.37,731.25,175,634.37,634.37,731.25,731.25,106.25,2,6,731.25,366,12/20/2025,0,Sunstrip,Airbnb
+Nidhi,airbnbOfficial,inquiry,Unknown,12/20/2025,12/27/2025,Sunstrip,12/13/2025,0,0,0,0,0,0,0,0,0,7,8,0,0,12/13/2025,7,Sunstrip,Airbnb
+Rene,airbnbOfficial,inquiry,Unknown,12/22/2025,12/24/2025,Sunstrip,11/29/2025,0,0,0,0,0,0,0,0,0,2,5,0,0,11/29/2025,23,Sunstrip,Airbnb
+Jacob Holder,airbnbOfficial,new,Paid,12/23/2025,12/27/2025,Sunstrip,12/20/2025,1318,1515.39,1746.81,175,1515.39,1515.39,1746.81,1746.81,253.81,4,6,1746.81,437,12/20/2025,3,Sunstrip,Airbnb
+Akshay,airbnbOfficial,inquiry,Unknown,12/25/2025,12/27/2025,MLVRN (4BR in Loft + Airstream),12/24/2025,0,0,0,0,0,0,0,0,0,2,6,0,0,12/24/2025,1,Malvern (4BR),Airbnb
+Tanmay Sapre,airbnbOfficial,new,Paid,12/25/2025,12/27/2025,Romney,12/22/2025,412,565.35,651.69,145,565.35,565.35,651.69,651.69,94.69,2,4,651.69,326,12/22/2025,3,Romney,Airbnb
+Foluke Ajisafe,airbnbOfficial,new,Paid,12/27/2025,12/29/2025,Romney,12/24/2025,320,471.97,544.05,145,471.97,471.97,544.05,544.05,79.05,2,3,544.05,272,12/24/2025,3,Romney,Airbnb
+Arian Diggs,airbnbOfficial,modified,Paid,12/27/2025,12/30/2025,Sunstrip,12/11/2025,1147,1341.83,1546.74,175,1341.83,1341.83,1546.74,1546.74,224.74,3,7,1546.74,516,12/11/2025,16,Sunstrip,Airbnb
+Erin,airbnbOfficial,inquiry,Unknown,12/28/2025,1/2/2026,Sunstrip,12/1/2025,0,0,0,0,0,0,0,0,0,5,8,0,0,12/1/2025,27,Sunstrip,Airbnb
+Kathy,airbnbOfficial,inquiry,Unknown,12/29/2025,1/3/2026,Romney,12/25/2025,0,0,0,0,0,0,0,0,0,5,5,0,0,12/25/2025,4,Romney,Airbnb
+Kendall,airbnbOfficial,inquiry,Unknown,12/29/2025,1/2/2026,Romney,12/24/2025,0,0,0,0,0,0,0,0,0,4,5,0,0,12/24/2025,5,Romney,Airbnb
+Lily,airbnbOfficial,inquiry,Unknown,12/30/2025,12/31/2025,Sunstrip,12/30/2025,0,0,0,0,0,0,0,0,0,1,5,0,0,12/30/2025,0,Sunstrip,Airbnb
+Jacob Caldera,airbnbOfficial,modified,Paid,12/31/2025,1/2/2026,MLVRN (4BR in Loft + Airstream),12/26/2025,380,588.7,678.6,200,588.7,588.7,678.6,678.6,98.6,2,8,678.6,339,12/26/2025,5,Malvern (4BR),Airbnb
+Romina Fittipaldi,airbnbOfficial,new,Paid,12/31/2025,1/3/2026,Romney,12/25/2025,521,675.99,779.22,145,675.99,675.99,779.22,779.22,113.22,3,5,779.22,260,12/25/2025,6,Romney,Airbnb
+Li Fan,airbnbOfficial,new,Paid,12/31/2025,1/2/2026,Sunstrip,12/23/2025,572,758.2,873.99,175,758.2,758.2,873.99,873.99,126.99,2,8,873.99,437,12/23/2025,8,Sunstrip,Airbnb
+Shravani,airbnbOfficial,inquiry,Unknown,12/31/2025,1/2/2026,Sunstrip,12/21/2025,0,0,0,0,0,0,0,0,0,2,10,0,0,12/21/2025,10,Sunstrip,Airbnb
+Lea,airbnbOfficial,inquiry,Unknown,12/31/2025,1/2/2026,Sunstrip,12/12/2025,0,0,0,0,0,0,0,0,0,2,7,0,0,12/12/2025,19,Sunstrip,Airbnb
+Manuel,airbnbOfficial,declined,Unknown,1/1/2026,1/3/2026,MLVRN (4BR in Loft + Airstream),12/24/2025,0,0,0,0,0,0,0,0,0,2,6,0,0,12/24/2025,8,Malvern (4BR),Airbnb
+Juliette Guajardo,airbnbOfficial,new,Paid,1/2/2026,1/3/2026,Sunstrip,12/27/2025,299,481.11,554.58,175,481.11,481.11,554.58,554.58,80.58,1,1,554.58,555,12/27/2025,6,Sunstrip,Airbnb
+Karla Zertuche,airbnbOfficial,new,Paid,1/3/2026,1/9/2026,Sunstrip,12/16/2025,1631,1833.09,2113.02,175,1833.09,1833.09,2113.02,2113.02,307.02,6,11,2113.02,352,12/16/2025,18,Sunstrip,Airbnb
+Nabeel Maredia,airbnbOfficial,new,Paid,1/9/2026,1/11/2026,Sunstrip,1/7/2026,498,683.09,787.41,175,683.09,683.09,787.41,787.41,114.41,2,10,787.41,394,1/7/2026,2,Sunstrip,Airbnb
+Eri,airbnbOfficial,inquiry,Unknown,1/10/2026,1/13/2026,Sunstrip,1/1/2026,0,0,0,0,0,0,0,0,0,3,6,0,0,1/1/2026,9,Sunstrip,Airbnb
+John Rowland,airbnbOfficial,new,Paid,1/12/2026,1/15/2026,Sunstrip,1/12/2026,513,698.32,804.96,175,698.32,698.32,804.96,804.96,116.96,3,5,804.96,268,1/12/2026,0,Sunstrip,Airbnb
+Simone Jones,airbnbOfficial,new,Paid,1/14/2026,1/16/2026,Romney,1/14/2026,290,441.52,508.95,145,441.52,441.52,407.16,407.16,73.95,2,2,508.95,254,1/14/2026,0,Romney,Airbnb
+Eliezer Luna,airbnbOfficial,new,Paid,1/15/2026,1/18/2026,Sunstrip,1/10/2026,933,1124.62,1296.36,175,1124.62,1124.62,3495.84,3495.84,188.36,3,5,3495.84,432,1/10/2026,5,Sunstrip,Airbnb
+Courtney Roberts,airbnbOfficial,new,Paid,1/16/2026,1/17/2026,Romney,1/15/2026,159,308.56,355.68,145,308.56,308.56,355.68,355.68,51.68,1,5,355.68,356,1/15/2026,1,Romney,Airbnb
+Courtney,airbnbOfficial,inquiry,Unknown,1/16/2026,1/17/2026,Romney,1/15/2026,0,0,0,0,0,0,0,0,0,1,5,0,0,1/15/2026,1,Romney,Airbnb
+Jamila Rodriguez,airbnbOfficial,new,Paid,1/16/2026,1/19/2026,MLVRN (4BR in Loft + Airstream),1/14/2026,537,748.05,862.29,200,748.05,748.05,862.29,862.29,125.29,3,1,862.29,287,1/14/2026,2,Malvern (4BR),Airbnb
+Breanna Vasquez,airbnbOfficial,new,Paid,1/17/2026,1/19/2026,Romney,1/14/2026,325,477.05,549.9,145,477.05,477.05,549.9,549.9,79.9,2,4,549.9,275,1/14/2026,3,Romney,Airbnb
+Jeannie Thorn,airbnbOfficial,cancelled,Paid,1/18/2026,1/19/2026,Sunstrip,1/17/2026,0,0,0,0,0,0,0,0,0,1,5,0,0,1/17/2026,1,Sunstrip,Airbnb
+Mohmaed Alnaggar,airbnbOfficial,new,Paid,1/19/2026,1/21/2026,Romney,1/19/2026,278,429.34,494.91,145,429.34,429.34,494.91,494.91,71.91,2,3,494.91,247,1/19/2026,0,Romney,Airbnb
+Juan De Nigris,airbnbOfficial,new,Paid,1/19/2026,1/23/2026,Sunstrip,1/12/2026,722,910.45,1049.49,175,910.45,910.45,1049.49,1049.49,152.49,4,7,1049.49,262,1/12/2026,7,Sunstrip,Airbnb
+Jared Danielson,airbnbOfficial,cancelled,Paid,1/19/2026,1/21/2026,Sunstrip,1/9/2026,0,0,0,0,0,0,0,0,0,2,4,0,0,1/9/2026,10,Sunstrip,Airbnb
+Michelle Klemme,airbnbOfficial,new,Paid,1/22/2026,1/25/2026,Romney,1/18/2026,489,643.51,741.78,145,643.51,643.51,371.78,371.78,107.78,3,2,741.78,247,1/18/2026,4,Romney,Airbnb
+Brooke,airbnbOfficial,inquiry,Unknown,1/22/2026,1/25/2026,Sunstrip,10/8/2025,0,0,0,0,0,0,0,0,0,3,1,0,0,10/8/2025,106,Sunstrip,Airbnb
+Tanya Coronado,airbnbOfficial,new,Paid,1/23/2026,1/28/2026,Sunstrip,1/5/2026,1453,1652.42,1904.76,175,1652.42,1652.42,1904.76,1904.76,276.76,5,9,1904.76,381,1/5/2026,18,Sunstrip,Airbnb
+Tanya,airbnbOfficial,inquiry,Unknown,1/23/2026,1/28/2026,Sunstrip,1/5/2026,0,0,0,0,0,0,0,0,0,5,9,0,0,1/5/2026,18,Sunstrip,Airbnb
+Dominica Esono,airbnbOfficial,new,Paid,1/29/2026,2/2/2026,Sunstrip,1/17/2026,1376,1574.26,1814.67,175,1574.26,1574.26,1814.67,1814.67,263.67,4,1,1814.67,454,1/17/2026,12,Sunstrip,Airbnb
+Allen Gatlin,airbnbOfficial,new,Paid,1/29/2026,2/1/2026,Romney,12/25/2025,773,931.77,1074.06,145,931.77,931.77,1074.06,1074.06,156.06,3,4,1074.06,358,12/25/2025,35,Romney,Airbnb
+Victor,airbnbOfficial,inquiry,Unknown,2/3/2026,2/6/2026,Sunstrip,2/3/2026,0,0,0,0,0,0,0,0,0,3,6,0,0,2/3/2026,0,Sunstrip,Airbnb
+Nora Glassco,airbnbOfficial,modified,Paid,2/5/2026,2/8/2026,Sunstrip,2/2/2026,797,986.58,1137.24,175,986.58,986.58,1212.24,1212.24,165.24,3,3,1212.24,379,2/2/2026,3,Sunstrip,Airbnb
+Jordan & Cassie Anderson,airbnbOfficial,new,Paid,2/6/2026,2/7/2026,Romney,2/6/2026,151,300.44,346.32,145,300.44,300.44,346.32,346.32,50.32,1,2,346.32,346,2/6/2026,0,Romney,Airbnb
+Ethan Juarez,airbnbOfficial,new,Paid,2/7/2026,2/9/2026,Romney,2/3/2026,328,480.09,553.41,145,480.09,480.09,553.41,553.41,80.41,2,4,553.41,277,2/3/2026,4,Romney,Airbnb
+Adam Pinckney,airbnbOfficial,new,Paid,2/9/2026,2/12/2026,Sunstrip,2/3/2026,513,698.32,804.96,175,698.32,698.32,804.96,804.96,116.96,3,3,804.96,268,2/3/2026,6,Sunstrip,Airbnb
+Kelly,airbnbOfficial,inquiry,Unknown,2/12/2026,2/16/2026,Romney,1/18/2026,0,0,0,0,0,0,0,0,0,4,2,0,0,1/18/2026,25,Romney,Airbnb
+Leah,airbnbOfficial,inquiry,Unknown,2/12/2026,2/15/2026,Romney,12/11/2025,0,0,0,0,0,0,0,0,0,3,2,0,0,12/11/2025,63,Romney,Airbnb
+Daniel Castillo,airbnbOfficial,new,Paid,2/13/2026,2/15/2026,Sunstrip,2/3/2026,942,1133.75,1306.89,175,1133.75,1133.75,1306.89,1306.89,189.89,2,10,1306.89,653,2/3/2026,10,Sunstrip,Airbnb
+Molly St Sauveur,airbnbOfficial,new,Paid,2/13/2026,2/16/2026,Romney,1/19/2026,926,1087.06,1253.07,145,1087.06,1087.06,1253.07,1253.07,182.07,3,4,1253.07,418,1/19/2026,25,Romney,Airbnb
+Leah Stein,airbnbOfficial,cancelled,Paid,2/14/2026,2/22/2026,Romney,1/5/2026,0,0,0,0,0,0,0,0,0,8,2,0,0,1/5/2026,40,Romney,Airbnb
+Jacob Clayton,airbnbOfficial,new,Paid,2/15/2026,2/18/2026,Sunstrip,2/8/2026,621,807.94,931.32,175,807.94,807.94,931.32,931.32,135.32,3,1,931.32,310,2/8/2026,7,Sunstrip,Airbnb
+Rebecca Hermes,airbnbOfficial,cancelled,Paid,2/15/2026,2/18/2026,Sunstrip,1/22/2026,0,0,0,0,0,0,0,0,0,3,4,561,0,1/22/2026,24,Sunstrip,Airbnb
+Thuy Nguyen,airbnbOfficial,new,Paid,2/19/2026,2/21/2026,Sunstrip,1/20/2026,938,1129.69,1302.21,175,1129.69,1129.69,1302.21,1302.21,189.21,2,9,1302.21,651,1/20/2026,30,Sunstrip,Airbnb
+Brett Springsted,airbnbOfficial,new,Paid,2/19/2026,2/22/2026,Romney,1/18/2026,687,844.48,973.44,145,844.48,844.48,973.44,973.44,141.44,3,3,973.44,324,1/18/2026,32,Romney,Airbnb
+Daysha Gonzalez,airbnbOfficial,new,Paid,2/21/2026,2/22/2026,Sunstrip,2/20/2026,228,409.04,471.51,175,409.04,409.04,471.51,471.51,68.51,1,7,471.51,472,2/20/2026,1,Sunstrip,Airbnb
+Vicky,airbnbOfficial,inquiryNotPossible,Unknown,2/21/2026,2/23/2026,Sunstrip,2/19/2026,0,0,0,0,0,0,0,0,0,2,4,0,0,2/19/2026,2,Sunstrip,Airbnb
+Praveen Neppalli,airbnbOfficial,new,Paid,2/23/2026,2/25/2026,Sunstrip,2/22/2026,340,522.72,602.55,175,522.72,522.72,602.55,602.55,87.55,2,9,602.55,301,2/22/2026,1,Sunstrip,Airbnb
+Miles Miller,airbnbOfficial,new,Paid,2/26/2026,3/1/2026,Romney,2/16/2026,687,844.48,973.44,145,844.48,844.48,973.44,973.44,141.44,3,4,973.44,324,2/16/2026,10,Romney,Airbnb
+Anna Swiech,airbnbOfficial,new,Paid,2/26/2026,3/1/2026,Sunstrip,9/25/2025,1877,2339.28,2400.84,175,2339.28,2339.28,2790.54,2790.54,348.84,3,12,2790.54,800,9/25/2025,154,Sunstrip,Airbnb
+Valerie Branch,airbnbOfficial,cancelled,Unknown,2/26/2026,3/2/2026,Sunstrip,3/1/2025,0,0,0,0,0,0,0,0,0,4,7,0,0,3/1/2025,362,Sunstrip,Airbnb
+Kassidy Spring,airbnbOfficial,new,Paid,2/27/2026,3/1/2026,MLVRN (4BR in Loft + Airstream),2/27/2026,351,559.26,644.67,200,559.26,559.26,819.67,819.67,93.67,2,6,819.67,322,2/27/2026,0,Malvern (4BR),Airbnb
+Valeria Trevino,airbnbOfficial,new,Paid,3/1/2026,3/3/2026,Romney,3/1/2026,303,454.72,524.16,145,454.72,454.72,524.16,524.16,76.16,2,1,524.16,262,3/1/2026,0,Romney,Airbnb
+Joel Shulman,airbnbOfficial,new,Paid,3/2/2026,3/5/2026,Sunstrip,2/3/2026,627,814.03,938.34,175,814.03,814.03,938.34,938.34,136.34,3,6,938.34,313,2/3/2026,27,Sunstrip,Airbnb
+William Mafezzoni,airbnbOfficial,new,Paid,3/4/2026,3/18/2026,MLVRN (4BR in Loft + Airstream),3/2/2026,3100,3349.49,3860.99,200,3349.49,3349.49,3860.99,3860.99,560.99,14,5,3860.99,276,3/2/2026,2,Malvern (4BR),Airbnb
+Lance Deane,airbnbOfficial,new,Paid,3/4/2026,3/8/2026,Romney,2/1/2026,826,985.56,1136.07,145,985.56,985.56,1136.07,1136.07,165.07,4,5,1136.07,284,2/1/2026,31,Romney,Airbnb
+Josie,airbnbOfficial,declined,Unknown,3/5/2026,3/9/2026,MLVRN (4BR in Loft + Airstream),1/23/2026,0,0,0,0,0,0,0,0,0,4,9,0,0,1/23/2026,41,Malvern (4BR),Airbnb
+Tatiana Gonzalez Quiroga,airbnbOfficial,modified,Paid,3/5/2026,3/8/2026,Sunstrip,9/24/2025,1889,2352.96,2414.88,175,2352.96,2352.96,2706.27,2706.27,350.88,3,11,2706.27,805,9/24/2025,162,Sunstrip,Airbnb
+Paige White,airbnbOfficial,new,Paid,3/8/2026,3/10/2026,Sunstrip,3/8/2026,327,509.53,587.34,175,509.53,509.53,587.34,587.34,85.34,2,6,587.34,294,3/8/2026,0,Sunstrip,Airbnb
+Victoria Erinle,airbnbOfficial,new,Paid,3/8/2026,3/12/2026,Romney,2/16/2026,676,833.31,960.57,145,833.31,833.31,960.57,960.57,139.57,4,5,960.57,240,2/16/2026,20,Romney,Airbnb
+Matthew Keith,airbnbOfficial,new,Paid,3/10/2026,3/12/2026,Sunstrip,1/19/2026,522,707.45,815.49,175,707.45,707.45,815.49,815.49,118.49,2,5,815.49,408,1/19/2026,50,Sunstrip,Airbnb
+Jordan,airbnbOfficial,declined,Unknown,3/11/2026,3/15/2026,MLVRN (4BR in Loft + Airstream),2/18/2026,0,0,0,0,0,0,0,0,0,4,6,0,0,2/18/2026,21,Malvern (4BR),Airbnb
+Zachary Veit,airbnbOfficial,new,Paid,3/12/2026,3/15/2026,Romney,2/24/2026,1151,1315.44,1516.32,145,1315.44,1315.44,1516.32,1516.32,220.32,3,5,1516.32,505,2/24/2026,16,Romney,Airbnb
+Patrick,airbnbOfficial,declined,Unknown,3/12/2026,3/17/2026,MLVRN (4BR in Loft + Airstream),2/14/2026,0,0,0,0,0,0,0,0,0,5,6,0,0,2/14/2026,26,Malvern (4BR),Airbnb
+Sydney Nelson,airbnbOfficial,new,Paid,3/12/2026,3/15/2026,Sunstrip,10/8/2025,2878,3480.42,3572.01,175,3480.42,3480.42,4003.02,4003.02,519.01,3,12,4003.02,1191,10/8/2025,155,Sunstrip,Airbnb
+Jessica Taylor,airbnbOfficial,cancelled,Unpaid,3/12/2026,3/15/2026,Sunstrip,9/16/2025,0,0,0,0,0,0,0,0,0,3,7,0,0,9/16/2025,177,Sunstrip,Airbnb
+Ricardo Alexander,airbnbOfficial,new,Paid,3/15/2026,3/16/2026,Sunstrip,3/14/2026,173,353.22,407.16,175,353.22,353.22,407.16,407.16,59.16,1,3,407.16,407,3/14/2026,1,Sunstrip,Airbnb
+JaVohn Griffin,airbnbOfficial,new,Paid,3/15/2026,3/16/2026,Romney,3/11/2026,176,325.81,375.57,145,325.81,325.81,375.57,375.57,54.57,1,5,375.57,376,3/11/2026,4,Romney,Airbnb
+Hallie Rosenblatt,airbnbOfficial,new,Paid,3/16/2026,3/19/2026,Sunstrip,12/17/2025,1389,1587.46,1829.88,175,1587.46,1587.46,1829.88,1829.88,265.88,3,7,1829.88,610,12/17/2025,89,Sunstrip,Airbnb
+Jacklyn Fritzsche,airbnbOfficial,new,Paid,3/16/2026,3/21/2026,Romney,11/19/2025,1470,1639.22,1889.55,145,1639.22,1639.22,1889.55,1889.55,274.55,5,5,1889.55,378,11/19/2025,117,Romney,Airbnb
+Marisol Ruiz,airbnbOfficial,new,Paid,3/18/2026,3/21/2026,MLVRN (4BR in Loft + Airstream),3/15/2026,506,716.59,826.02,200,716.59,716.59,826.02,826.02,120.02,3,6,826.02,275,3/15/2026,3,Malvern (4BR),Airbnb
+Marisol,airbnbOfficial,declined,Unknown,3/18/2026,3/21/2026,MLVRN (4BR in Loft + Airstream),3/15/2026,0,0,0,0,0,0,0,0,0,3,1,0,0,3/15/2026,3,Malvern (4BR),Airbnb
+Wonjun Jung,airbnbOfficial,modified,Paid,3/19/2026,3/22/2026,Sunstrip,3/6/2026,1191,1386.49,1598.22,175,1386.49,1386.49,1598.22,1598.22,232.22,3,10,1598.22,533,3/6/2026,13,Sunstrip,Airbnb
+Marisa,airbnbOfficial,inquiry,Unknown,3/19/2026,3/22/2026,Sunstrip,2/2/2026,0,0,0,0,0,0,0,0,0,3,8,0,0,2/2/2026,45,Sunstrip,Airbnb
+Bailey Cullins,airbnbOfficial,new,Paid,3/21/2026,3/23/2026,Romney,3/21/2026,400,406,468,0,406,406,468,468,68,2,3,468,234,3/21/2026,0,Romney,Airbnb
+Bailey,airbnbOfficial,inquiry,Unknown,3/21/2026,3/23/2026,Romney,3/21/2026,0,0,0,0,0,0,0,0,0,2,3,0,0,3/21/2026,0,Romney,Airbnb
+Joyce Ayers,airbnbOfficial,new,Paid,3/22/2026,3/24/2026,Sunstrip,3/18/2026,338,520.69,600.21,175,520.69,520.69,600.21,600.21,87.21,2,10,600.21,300,3/18/2026,4,Sunstrip,Airbnb
+Brian,airbnbOfficial,inquiry,Unknown,3/22/2026,3/24/2026,Sunstrip,3/7/2026,0,0,0,0,0,0,0,0,0,2,1,0,0,3/7/2026,15,Sunstrip,Airbnb
+Nathan Kopp,airbnbOfficial,new,Paid,3/23/2026,3/29/2026,Romney,3/8/2026,1517,1686.93,1944.54,145,1686.93,1686.93,1489.44,1489.44,282.54,6,4,1944.54,324,3/8/2026,15,Romney,Airbnb
+Mallory Nock,airbnbOfficial,new,Paid,3/24/2026,3/27/2026,Sunstrip,1/20/2026,1082,1275.85,1470.69,175,1275.85,1275.85,2320.69,2320.69,213.69,3,12,2320.69,490,1/20/2026,63,Sunstrip,Airbnb
+Rosa Calosso,airbnbOfficial,modified,Paid,3/24/2026,3/29/2026,MLVRN (4BR in Loft + Airstream),12/5/2025,1888,2119.32,2442.96,200,2119.32,2119.32,2442.96,2442.96,354.96,5,6,2442.96,489,12/5/2025,109,Malvern (4BR),Airbnb
+Chie,airbnbOfficial,inquiry,Unknown,3/25/2026,3/27/2026,Sunstrip,1/10/2026,0,0,0,0,0,0,0,0,0,2,6,0,0,1/10/2026,74,Sunstrip,Airbnb
+Rosa Calosso,airbnbOfficial,cancelled,Paid,3/25/2026,3/29/2026,MLVRN (4BR in Loft + Airstream),12/5/2025,0,0,0,0,0,0,0,0,0,4,6,0,0,12/5/2025,110,Malvern (4BR),Airbnb
+Brianna Wiebelt,airbnbOfficial,cancelled,Unknown,3/26/2026,3/29/2026,Sunstrip,4/6/2025,0,0,0,0,0,0,0,0,0,3,10,0,0,4/6/2025,354,Sunstrip,Airbnb
+Margaret Blasnek,airbnbOfficial,cancelled,Paid,3/27/2026,3/30/2026,Romney,3/7/2026,0,0,0,0,0,0,0,0,0,3,4,0,0,3/7/2026,20,Romney,Airbnb
+Kristen Hanley,airbnbOfficial,new,Paid,3/27/2026,3/30/2026,Sunstrip,10/6/2025,2039,2523.96,2590.38,175,2523.96,2523.96,2902.95,2902.95,376.38,3,6,2902.95,863,10/6/2025,172,Sunstrip,Airbnb
+Kristen,airbnbOfficial,inquiry,Unknown,3/27/2026,3/30/2026,Sunstrip,10/3/2025,0,0,0,0,0,0,0,0,0,3,6,0,0,10/3/2025,175,Sunstrip,Airbnb
+Danielle Pearce,airbnbOfficial,new,Paid,3/29/2026,4/3/2026,Romney,3/11/2026,949,1110.41,1279.98,145,1110.41,1110.41,1042.73,1042.73,185.98,5,4,1279.98,256,3/11/2026,18,Romney,Airbnb
+Hector,airbnbOfficial,inquiry,Unknown,3/30/2026,4/3/2026,MLVRN (4BR in Loft + Airstream),3/30/2026,0,0,0,0,0,0,0,0,0,4,4,0,0,3/30/2026,0,Malvern (4BR),Airbnb
+Renato Calheiros,airbnbOfficial,modified,Paid,3/30/2026,4/4/2026,Sunstrip,3/8/2026,1504,1704.18,1964.43,175,1704.18,1704.18,1964.43,1964.43,285.43,5,8,1964.43,393,3/8/2026,22,Sunstrip,Airbnb
+Nick,airbnbOfficial,inquiry,Unknown,4/1/2026,4/3/2026,Sunstrip,8/25/2025,0,0,0,0,0,0,0,0,0,2,9,0,0,8/25/2025,219,Sunstrip,Airbnb
+John,airbnbOfficial,declined,Unknown,4/2/2026,4/5/2026,MLVRN (4BR in Loft + Airstream),3/13/2026,0,0,0,0,0,0,0,0,0,3,9,0,0,3/13/2026,20,Malvern (4BR),Airbnb
+Dameon Guess,airbnbOfficial,new,Paid,4/3/2026,4/8/2026,Romney,3/24/2026,801,960.19,1106.82,145,960.19,960.19,1106.82,1106.82,160.82,5,5,1106.82,221,3/24/2026,10,Romney,Airbnb
+Michael Lindsey,airbnbOfficial,new,Paid,4/3/2026,4/6/2026,MLVRN (4BR in Loft + Airstream),3/15/2026,846,1061.69,1223.82,200,1061.69,1061.69,1223.82,1223.82,177.82,3,9,1223.82,408,3/15/2026,19,Malvern (4BR),Airbnb
+Britt Yearby,airbnbOfficial,new,Paid,4/4/2026,4/8/2026,Sunstrip,3/22/2026,967,1159.13,1336.14,175,1159.13,1159.13,755.94,755.94,194.14,4,5,1336.14,334,3/22/2026,13,Sunstrip,Airbnb
+Jerrod Gaither,airbnbOfficial,new,Paid,4/8/2026,4/9/2026,Sunstrip,4/8/2026,141,318.15,369.72,175,318.15,318.15,369.72,369.72,53.72,1,3,369.72,370,4/8/2026,0,Sunstrip,Airbnb
+Colette,airbnbOfficial,declined,Unknown,4/8/2026,4/12/2026,MLVRN (4BR in Loft + Airstream),2/25/2026,0,0,0,0,0,0,0,0,0,4,2,0,0,2/25/2026,42,Malvern (4BR),Airbnb
+Amanda Palmer,airbnbOfficial,new,Paid,4/9/2026,4/12/2026,Sunstrip,3/10/2026,1588,1789.44,2062.71,175,1789.44,1789.44,1335.62,1335.62,299.71,3,4,2062.71,688,3/10/2026,30,Sunstrip,Airbnb
+Jessica,airbnbOfficial,inquiry,Unknown,4/9/2026,4/12/2026,Sunstrip,1/28/2026,0,0,0,0,0,0,0,0,0,3,9,0,0,1/28/2026,71,Sunstrip,Airbnb
+Shawn Doggett,airbnbOfficial,new,Paid,4/10/2026,4/13/2026,Romney,3/8/2026,799,958.16,1104.48,145,958.16,958.16,1104.48,1104.48,160.48,3,5,1104.48,368,3/8/2026,33,Romney,Airbnb
+Fernanda Pozas,airbnbOfficial,cancelled,Paid,4/10/2026,4/13/2026,Sunstrip,8/22/2025,0,0,0,0,0,0,0,0,0,3,10,1170.65,0,8/22/2025,231,Sunstrip,Airbnb
+Sarah Russell,airbnbOfficial,new,Paid,4/14/2026,4/17/2026,Sunstrip,3/14/2026,576,762.26,878.67,175,762.26,762.26,878.67,878.67,127.67,3,2,878.67,293,3/14/2026,31,Sunstrip,Airbnb
+Dionne Cooper,airbnbOfficial,new,Paid,4/16/2026,4/19/2026,Romney,3/23/2026,696,853.62,983.97,145,853.62,853.62,983.97,983.97,142.97,3,3,983.97,328,3/23/2026,24,Romney,Airbnb
+Aleida Cardenas,airbnbOfficial,new,Paid,4/17/2026,4/20/2026,MLVRN (4BR in Loft + Airstream),4/3/2026,808,1014.87,1179.36,200,1014.87,1014.87,1179.36,1179.36,171.36,3,10,1179.36,393,4/3/2026,14,Malvern (4BR),Airbnb
+Aida Rueda,airbnbOfficial,cancelled,Paid,4/17/2026,4/22/2026,Sunstrip,3/5/2026,0,0,0,0,0,0,0,0,0,5,8,0,0,3/5/2026,43,Sunstrip,Airbnb
+Lauren Hogan,airbnbOfficial,cancelled,Paid,4/22/2026,4/24/2026,Sunstrip,3/24/2026,0,0,0,0,0,0,0,0,0,2,3,0,0,3/24/2026,29,Sunstrip,Airbnb
+Jhonsel Collado,airbnbOfficial,modified,Paid,4/23/2026,4/26/2026,MLVRN (4BR in Loft + Airstream),4/21/2026,527,731.95,850.59,200,731.95,731.95,850.59,850.59,123.59,3,5,850.59,284,4/21/2026,2,Malvern (4BR),Airbnb
+Ros,airbnbOfficial,cancelled,Paid,4/23/2026,4/26/2026,MLVRN (4BR in Loft + Airstream),4/17/2026,0,0,0,0,0,0,0,0,0,3,6,527,0,4/17/2026,6,Malvern (4BR),Airbnb
+Blake Allen,airbnbOfficial,new,Paid,4/23/2026,4/27/2026,Romney,3/22/2026,828,987.59,1138.41,145,987.59,987.59,1138.41,1138.41,165.41,4,4,1138.41,285,3/22/2026,32,Romney,Airbnb
+Nicola Salazar,airbnbOfficial,new,Paid,4/24/2026,4/25/2026,Sunstrip,4/12/2026,364,542.67,630.63,175,542.67,542.67,630.63,630.63,91.63,1,9,630.63,631,4/12/2026,12,Sunstrip,Airbnb
+Nicholas Barac,airbnbOfficial,cancelled,Paid,4/24/2026,4/25/2026,Sunstrip,4/8/2026,0,0,0,0,0,0,0,0,0,1,8,0,0,4/8/2026,16,Sunstrip,Airbnb
+Alexandra,airbnbOfficial,inquiry,Unknown,4/24/2026,4/26/2026,Sunstrip,4/29/2025,0,0,0,0,0,0,0,0,0,2,6,0,0,4/29/2025,360,Sunstrip,Airbnb
+Russ Munzer,airbnbOfficial,new,Paid,4/25/2026,4/29/2026,Sunstrip,10/7/2025,2010,2490.9,2556.45,175,2490.9,2490.9,2864.92,2864.92,371.45,4,12,2864.92,639,10/7/2025,200,Sunstrip,Airbnb
+Russell,airbnbOfficial,inquiry,Unknown,4/25/2026,4/29/2026,Sunstrip,10/7/2025,0,0,0,0,0,0,0,0,0,4,1,0,0,10/7/2025,200,Sunstrip,Airbnb
+Kelly,airbnbOfficial,inquiry,Unknown,4/30/2026,5/3/2026,MLVRN (3BR in Loft + Airstream),4/29/2026,0,0,0,0,0,0,0,0,0,3,7,0,0,4/29/2026,1,MLVRN (3BR in Loft + Airstream),Airbnb
+Nely,airbnbOfficial,declined,Unknown,4/30/2026,5/2/2026,MLVRN (3BR in Loft + Airstream),4/24/2026,0,0,0,0,0,0,0,0,0,2,6,0,0,4/24/2026,6,MLVRN (3BR in Loft + Airstream),Airbnb
+Nely,airbnbOfficial,inquiry,Unknown,4/30/2026,5/2/2026,MLVRN (3BR in Loft + Airstream),4/24/2026,0,0,0,0,0,0,0,0,0,2,6,0,0,4/24/2026,6,MLVRN (3BR in Loft + Airstream),Airbnb
+Alexander La Forest,airbnbOfficial,new,Paid,4/30/2026,5/4/2026,Romney,4/16/2026,716,866.86,1007.37,145,866.86,866.86,1007.37,1007.37,146.37,4,5,1007.37,252,4/16/2026,14,Romney,Airbnb
+Emily Mccoubrey,airbnbOfficial,cancelled,Unknown,4/30/2026,5/3/2026,Sunstrip,5/7/2025,0,0,0,0,0,0,0,0,0,3,7,0,0,5/7/2025,358,Sunstrip,Airbnb
+John Blanco,airbnbOfficial,new,Paid,5/1/2026,5/3/2026,MLVRN (3BR in Loft + Airstream),4/29/2026,342,525.56,610.74,180,525.56,525.56,610.74,610.74,88.74,2,2,610.74,305,4/29/2026,2,MLVRN (3BR in Loft + Airstream),Airbnb
+Jaron,airbnbOfficial,inquiry,Unknown,5/1/2026,5/3/2026,MLVRN (3BR in Loft + Airstream),4/29/2026,0,0,0,0,0,0,0,0,0,2,5,0,0,4/29/2026,2,MLVRN (3BR in Loft + Airstream),Airbnb
+Natalie Boswell,airbnbOfficial,new,Paid,5/1/2026,5/4/2026,Sunstrip,3/25/2026,1381,1579.34,1820.52,175,1579.34,1579.34,1820.52,1820.52,264.52,3,8,1820.52,607,3/25/2026,37,Sunstrip,Airbnb
+Angela,airbnbOfficial,inquiry,Unknown,5/7/2026,5/13/2026,MLVRN (3BR in Loft + Airstream),5/7/2026,0,0,0,0,0,0,0,0,0,6,3,0,0,5/7/2026,0,MLVRN (3BR in Loft + Airstream),Airbnb
+Arielle Scott-Turner,airbnbOfficial,cancelled,Paid,5/7/2026,5/10/2026,MLVRN (4BR in Loft + Airstream),4/8/2026,0,0,0,0,0,0,0,0,0,3,1,0,0,4/8/2026,29,Malvern (4BR),Airbnb
+Mary Chagnon,airbnbOfficial,new,Paid,5/7/2026,5/12/2026,Romney,2/22/2026,1540,1710.27,1971.45,145,1710.27,1710.27,1971.45,1971.45,286.45,5,5,1971.45,394,2/22/2026,74,Romney,Airbnb
+Rebecca Heymann,airbnbOfficial,new,Paid,5/7/2026,5/10/2026,Sunstrip,1/27/2026,2307,2519.23,2903.94,175,2519.23,2519.23,2036.84,2036.84,421.94,3,1,2903.94,968,1/27/2026,100,Sunstrip,Airbnb
+Jet,airbnbOfficial,inquiry,Unknown,5/12/2026,5/18/2026,MLVRN (3BR in Loft + Airstream),5/1/2026,0,0,0,0,0,0,0,0,0,6,6,0,0,5/1/2026,11,MLVRN (3BR in Loft + Airstream),Airbnb
+Jonathan,airbnbOfficial,cancelled,Paid,5/13/2026,5/17/2026,MLVRN (3BR in Loft + Airstream),5/10/2026,0,0,0,0,0,0,0,0,0,4,6,706,0,5/10/2026,3,MLVRN (3BR in Loft + Airstream),Airbnb
+Elvie Brown,airbnbOfficial,new,Paid,5/14/2026,5/17/2026,Romney,4/14/2026,768,919.22,1068.21,145,919.22,919.22,1068.21,1068.21,155.21,3,4,1068.21,356,4/14/2026,30,Romney,Airbnb
+Anna Gurr,airbnbOfficial,modified,Paid,5/14/2026,5/17/2026,Sunstrip,3/22/2026,1783,1971.35,2290.86,175,1971.35,1971.35,2290.86,2290.86,332.86,3,10,2290.86,764,3/22/2026,53,Sunstrip,Airbnb
+Nicole,airbnbOfficial,inquiry,Unknown,5/14/2026,5/16/2026,Sunstrip,2/13/2026,0,0,0,0,0,0,0,0,0,2,10,0,0,2/13/2026,90,Sunstrip,Airbnb
+Hattie Reim,airbnbOfficial,new,Paid,5/15/2026,5/17/2026,MLVRN (3BR in Loft + Airstream),5/13/2026,398,581.94,676.26,180,581.94,581.94,676.26,676.26,98.26,2,1,676.26,338,5/13/2026,2,MLVRN (3BR in Loft + Airstream),Airbnb
+Cristina,airbnbOfficial,cancelled,Paid,5/15/2026,5/17/2026,MLVRN (3BR in Loft + Airstream),5/12/2026,0,0,0,0,0,0,0,0,0,2,5,398,0,5/12/2026,3,MLVRN (3BR in Loft + Airstream),Airbnb
+Andrew,airbnbOfficial,cancelled,Paid,5/15/2026,5/18/2026,MLVRN (3BR in Loft + Airstream),5/12/2026,0,0,0,0,0,0,0,0,0,3,1,569,0,5/12/2026,3,MLVRN (3BR in Loft + Airstream),Airbnb
+Kristen,airbnbOfficial,inquiry,Unknown,5/15/2026,5/17/2026,MLVRN (3BR in Loft + Airstream),5/8/2026,0,0,0,0,0,0,0,0,0,2,2,0,0,5/8/2026,7,MLVRN (3BR in Loft + Airstream),Airbnb
+Ana Karen,airbnbOfficial,inquiry,Unknown,5/16/2026,5/18/2026,MLVRN (3BR in Loft + Airstream),5/12/2026,0,0,0,0,0,0,0,0,0,2,1,0,0,5/12/2026,4,MLVRN (3BR in Loft + Airstream),Airbnb
+Ethan Brannan,airbnbOfficial,new,Paid,5/17/2026,5/18/2026,Sunstrip,5/17/2026,152,329.22,382.59,175,329.22,329.22,382.59,382.59,55.59,1,2,382.59,383,5/17/2026,0,Sunstrip,Airbnb
+Sofia,airbnbOfficial,inquiry,Unknown,5/17/2026,5/23/2026,MLVRN (4BR in Loft + Airstream),4/20/2026,0,0,0,0,0,0,0,0,0,6,2,0,0,4/20/2026,27,Malvern (4BR),Airbnb
+Margarita Coronel,airbnbOfficial,new,Paid,5/18/2026,5/23/2026,Sunstrip,4/11/2026,1452,1638.08,1903.59,175,1638.08,1638.08,1903.59,1903.59,276.59,5,8,1903.59,381,4/11/2026,37,Sunstrip,Airbnb
+Chase,airbnbOfficial,inquiry,Unknown,5/18/2026,5/21/2026,MLVRN (4BR in Loft + Airstream),4/9/2026,0,0,0,0,0,0,0,0,0,3,8,0,0,4/9/2026,39,Malvern (4BR),Airbnb
+Norma,airbnbOfficial,inquiry,Unknown,5/21/2026,5/25/2026,Sunstrip,3/16/2026,0,0,0,0,0,0,0,0,0,4,9,0,0,3/16/2026,66,Sunstrip,Airbnb
+Chhayrithy Chhuan,airbnbOfficial,new,Paid,5/22/2026,5/26/2026,Romney,5/8/2026,877,1028.97,1195.74,145,1028.97,1028.97,1195.74,1195.74,173.74,4,4,1195.74,299,5/8/2026,14,Romney,Airbnb
+Lisa,airbnbOfficial,inquiry,Unknown,5/22/2026,6/8/2026,Romney,5/7/2026,0,0,0,0,0,0,0,0,0,17,4,0,0,5/7/2026,15,Romney,Airbnb
+Josh Roller,airbnbOfficial,modified,Paid,5/22/2026,5/25/2026,MLVRN (3BR in Loft + Airstream),5/6/2026,811,997.75,1159.47,180,997.75,997.75,1159.47,1159.47,168.47,3,5,1159.47,386,5/6/2026,16,MLVRN (3BR in Loft + Airstream),Airbnb
+Kasandra,airbnbOfficial,inquiry,Unknown,5/22/2026,5/25/2026,MLVRN (3BR in Loft + Airstream),5/3/2026,0,0,0,0,0,0,0,0,0,3,1,0,0,5/3/2026,19,MLVRN (3BR in Loft + Airstream),Airbnb
+Amar DEEP JYOTI Das,airbnbOfficial,new,Paid,5/23/2026,5/25/2026,Sunstrip,5/7/2026,857,1039.03,1207.44,175,1039.03,1039.03,1207.44,1207.44,175.44,2,12,1207.44,604,5/7/2026,16,Sunstrip,Airbnb
+Sydney Olson,airbnbOfficial,new,Paid,5/26/2026,5/28/2026,Sunstrip,5/10/2026,340,518.51,602.55,175,518.51,518.51,602.55,602.55,87.55,2,3,602.55,301,5/10/2026,16,Sunstrip,Airbnb
+Lillie Ferguson,airbnbOfficial,new,Paid,5/28/2026,5/30/2026,MLVRN (3BR in Loft + Airstream),5/19/2026,380,563.82,655.2,180,563.82,563.82,655.2,655.2,95.2,2,7,655.2,328,5/19/2026,9,MLVRN (3BR in Loft + Airstream),Airbnb
+Alejandro Raskind,airbnbOfficial,new,Paid,5/28/2026,5/31/2026,Sunstrip,4/12/2026,1538,1724.67,2004.21,175,1724.67,1724.67,2004.21,2004.21,291.21,3,6,2004.21,668,4/12/2026,46,Sunstrip,Airbnb
+Molly,airbnbOfficial,cancelled,Paid,5/30/2026,6/2/2026,MLVRN (3BR in Loft + Airstream),5/17/2026,0,0,0,0,0,0,0,0,0,3,5,569,0,5/17/2026,13,MLVRN (3BR in Loft + Airstream),Airbnb
+Molly,airbnbOfficial,cancelled,Paid,5/30/2026,6/2/2026,MLVRN (3BR in Loft + Airstream),5/17/2026,0,0,0,0,0,0,0,0,0,3,1,569,0,5/17/2026,13,MLVRN (3BR in Loft + Airstream),Airbnb
+Saveer Ramnani,airbnbOfficial,new,Paid,6/1/2026,6/3/2026,Sunstrip,5/8/2026,348,526.56,611.91,175,526.56,526.56,611.91,611.91,88.91,2,8,611.91,306,5/8/2026,24,Sunstrip,Airbnb
+Sahar,airbnbOfficial,inquiry,Unknown,6/4/2026,6/8/2026,MLVRN (3BR in Loft + Airstream),5/3/2026,0,0,0,0,0,0,0,0,0,4,8,0,0,5/3/2026,32,MLVRN (3BR in Loft + Airstream),Airbnb
+Paige Low,airbnbOfficial,new,Paid,6/4/2026,6/7/2026,Sunstrip,5/3/2026,1691,1878.72,2183.22,175,1878.72,1878.72,2183.22,2183.22,317.22,3,7,2183.22,728,5/3/2026,32,Sunstrip,Airbnb
+Jennifer,airbnbOfficial,inquiry,Unknown,6/11/2026,6/14/2026,Sunstrip,4/18/2026,0,0,0,0,0,0,0,0,0,3,1,0,0,4/18/2026,54,Sunstrip,Airbnb
+Alondra,airbnbOfficial,cancelled,Paid,6/17/2026,6/22/2026,MLVRN (3BR in Loft + Airstream),5/1/2026,0,0,0,0,0,0,0,0,0,5,5,1501,0,5/1/2026,47,MLVRN (3BR in Loft + Airstream),Airbnb
+Emma Kokaska,airbnbOfficial,new,Paid,6/18/2026,6/21/2026,Sunstrip,3/24/2026,1540,1740.72,2006.55,175,1740.72,1740.72,2006.55,2006.55,291.55,3,8,2006.55,669,3/24/2026,86,Sunstrip,Airbnb
+Julia Wilson,airbnbOfficial,modified,Paid,6/22/2026,6/24/2026,Sunstrip,5/19/2026,316,494.34,574.47,175,494.34,494.34,574.47,574.47,83.47,2,8,574.47,287,5/19/2026,34,Sunstrip,Airbnb
+Darcy Bellah,airbnbOfficial,new,Paid,6/25/2026,6/28/2026,MLVRN (3BR in Loft + Airstream),4/28/2026,912,1099.44,1277.64,180,1099.44,1099.44,1277.64,1277.64,185.64,3,4,1277.64,426,4/28/2026,58,MLVRN (3BR in Loft + Airstream),Airbnb
+Kristi,airbnbOfficial,inquiry,Unknown,6/25/2026,6/28/2026,MLVRN (4BR in Loft + Airstream),4/20/2026,0,0,0,0,0,0,0,0,0,3,10,0,0,4/20/2026,66,Malvern (4BR),Airbnb
+Morgan Klefeker,airbnbOfficial,modified,Paid,6/25/2026,6/27/2026,Sunstrip,4/15/2026,858,1040.04,1208.61,175,1040.04,1040.04,1208.61,1208.61,175.61,2,11,1208.61,604,4/15/2026,71,Sunstrip,Airbnb
+Ariana Cipriano,airbnbOfficial,new,Paid,7/16/2026,7/19/2026,Sunstrip,4/9/2026,1475,1661.25,1930.5,175,1661.25,1661.25,1930.5,1930.5,280.5,3,12,1930.5,644,4/9/2026,98,Sunstrip,Airbnb
+Natasha Katharina-Ale,airbnbOfficial,declined,Unknown,7/24/2026,7/27/2026,MLVRN (3BR in Loft + Airstream),5/10/2026,0,0,0,0,0,0,0,0,0,3,8,0,0,5/10/2026,75,MLVRN (3BR in Loft + Airstream),Airbnb
+Jared Winpenny,airbnbOfficial,new,Paid,9/11/2026,9/14/2026,Sunstrip,4/19/2026,1505,1691.45,1965.6,175,1691.45,1691.45,1965.6,1965.6,285.6,3,5,1965.6,655,4/19/2026,145,Sunstrip,Airbnb
+Kaylani Amos,airbnbOfficial,new,Paid,9/24/2026,9/27/2026,Sunstrip,4/22/2026,1632,1819.31,2114.19,175,1819.31,1819.31,2114.19,2114.19,307.19,3,10,2114.19,705,4/22/2026,155,Sunstrip,Airbnb
+Jessica,airbnbOfficial,cancelled,Paid,10/8/2026,10/12/2026,MLVRN (3BR in Loft + Airstream),5/8/2026,0,0,0,0,0,0,0,0,0,4,7,2022,0,5/8/2026,153,MLVRN (3BR in Loft + Airstream),Airbnb
+Bobbie,airbnbOfficial,inquiry,Unknown,10/22/2026,10/26/2026,Romney,4/15/2026,0,0,0,0,0,0,0,0,0,4,4,0,0,4/15/2026,190,Romney,Airbnb
+Laura,airbnbOfficial,inquiry,Unknown,10/22/2026,10/26/2026,Romney,4/11/2026,0,0,0,0,0,0,0,0,0,4,3,0,0,4/11/2026,194,Romney,Airbnb
+Sarah,airbnbOfficial,inquiry,Unknown,10/23/2026,10/26/2026,Romney,4/16/2026,0,0,0,0,0,0,0,0,0,3,4,0,0,4/16/2026,190,Romney,Airbnb

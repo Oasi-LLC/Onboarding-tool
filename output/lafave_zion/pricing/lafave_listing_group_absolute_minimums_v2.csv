@@ -1,0 +1,9 @@
+listing_group,soft_tier_nights_total,far_out_nights_gt14d,close_in_nights_lte14d,p10_far_out_achieved,p10_close_in_achieved_excl_219210,close_in_p10_at_or_above_far_out,model_structural_floor_jan_feb_dec,p10_far_out_at_or_above_model,recommended_floor,published_min_2027,gap_pct_published_vs_floor,rollout_action,v1_all_history_p10,v1_to_v2_change_pct,notes
+House (6BR/4BA),24,22,2,994.67,,,814,True,1000,995,-0.5,already essentially at floor,1165.27,-14.9,"close-in sample n=2, not used for comparison"
+Suite BIG (1BR/1BA),310,230,80,254.94,264.5,True,247,True,250,222,-11.2,raise,298.0,-16.7,
+Suite SMALL (1BR/1BA),128,91,37,207.64,232.25,True,199,True,200,221,10.5,published already above floor,245.65,-20.0,
+Deluxe Villa (2BR/1BA),265,173,92,241.33,372.25,True,313,False,250,230,-8.0,raise,381.33,-33.3,
+Premium Villa (2BR/2BA),303,216,87,355.67,354.17,False,388,False,400,225,-43.8,raise,433.33,-5.9,recommended floor above raw P10; see Feb 2025 East Temple/Big Springs soft-tier bookings
+Villa Game (2BR/2BA),96,59,37,449.75,462.8,True,434,True,450,344,-23.6,raise,518.0,-14.3,
+J.MT. Villa (3BR/2BA),33,20,13,559.97,601.33,True,473,True,550,373,-32.2,raise,661.25,-15.4,"thin data, single-unit group"
+Premier Villa (3BR/3BA),143,117,22,481.6,628.0,True,535,False,550,325,-40.9,raise,669.5,-18.5,res 219210 excluded from close-in comparison only

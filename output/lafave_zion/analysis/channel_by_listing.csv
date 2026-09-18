@@ -1,190 +1,190 @@
 unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
-100 LaFave South: Temple of Sinawava,Airbnb,7,9755.0,22,2.84,2.89,443.41
-100 LaFave South: Temple of Sinawava,Booking.com,6,7119.0,17,2.07,2.48,418.76
-100 LaFave South: Temple of Sinawava,Direct,205,298561.0,614,86.89,84.71,486.26
-100 LaFave South: Temple of Sinawava,Expedia,18,20292.88,46,5.91,7.44,441.15
-100 LaFave South: Temple of Sinawava,Other,2,2623.0,7,0.76,0.83,374.71
-100 LaFave South: Temple of Sinawava,VRBO,4,5261.0,13,1.53,1.65,404.69
-101 LaFave South: The Sentinel,Airbnb,11,15825.01,34,4.39,4.26,465.44
-101 LaFave South: The Sentinel,Booking.com,3,1842.0,3,0.51,1.16,614.0
-101 LaFave South: The Sentinel,Direct,217,308646.05,628,85.69,84.11,491.47
-101 LaFave South: The Sentinel,Expedia,18,21807.32,51,6.05,6.98,427.59
-101 LaFave South: The Sentinel,Little Travel Group,2,3133.0,7,0.87,0.78,447.57
-101 LaFave South: The Sentinel,Other,3,4047.0,10,1.12,1.16,404.7
-101 LaFave South: The Sentinel,VRBO,4,4891.0,15,1.36,1.55,326.07
-102 LaFave South: The Watchman,Airbnb,12,11703.0,35,5.24,6.56,334.37
-102 LaFave South: The Watchman,Booking.com,32,33316.85,83,14.92,17.49,401.41
-102 LaFave South: The Watchman,Direct,113,144381.0,350,64.67,61.75,412.52
-102 LaFave South: The Watchman,Expedia,15,16125.85,41,7.22,8.2,393.31
-102 LaFave South: The Watchman,Little Travel Group,1,1029.0,2,0.46,0.55,514.5
-102 LaFave South: The Watchman,Other,2,3532.0,7,1.58,1.09,504.57
-102 LaFave South: The Watchman,VRBO,8,13167.01,29,5.9,4.37,454.03
-103 LaFave South: The Zion Suite,Airbnb,17,20527.0,52,10.83,11.18,394.75
-103 LaFave South: The Zion Suite,Booking.com,8,7622.0,16,4.02,5.26,476.38
-103 LaFave South: The Zion Suite,Direct,99,128471.95,321,67.78,65.13,400.22
-103 LaFave South: The Zion Suite,Expedia,13,12441.2,32,6.56,8.55,388.79
-103 LaFave South: The Zion Suite,Other,9,13088.0,35,6.9,5.92,373.94
-103 LaFave South: The Zion Suite,VRBO,6,7400.45,18,3.9,3.95,411.14
-200 LaFave South: Angels Landing,Airbnb,19,59356.01,64,9.89,10.22,927.44
-200 LaFave South: Angels Landing,Booking.com,1,2274.0,3,0.38,0.54,758.0
-200 LaFave South: Angels Landing,Direct,144,472951.7,435,78.83,77.42,1087.25
-200 LaFave South: Angels Landing,Expedia,8,26064.77,27,4.34,4.3,965.36
-200 LaFave South: Angels Landing,Little Travel Group,3,8532.0,9,1.42,1.61,948.0
-200 LaFave South: Angels Landing,Other,3,13102.0,15,2.18,1.61,873.47
-200 LaFave South: Angels Landing,VRBO,8,17672.0,20,2.95,4.3,883.6
-201 LaFave South: Checkerboard Mesa,Airbnb,4,7787.0,15,1.99,2.45,519.13
-201 LaFave South: Checkerboard Mesa,Booking.com,3,4459.0,8,1.14,1.84,557.38
-201 LaFave South: Checkerboard Mesa,Direct,144,350297.55,460,89.71,88.34,761.52
-201 LaFave South: Checkerboard Mesa,Expedia,5,12561.0,16,3.22,3.07,785.06
-201 LaFave South: Checkerboard Mesa,Little Travel Group,2,3725.0,5,0.95,1.23,745.0
-201 LaFave South: Checkerboard Mesa,Other,2,6090.0,7,1.56,1.23,870.0
-201 LaFave South: Checkerboard Mesa,VRBO,3,5538.0,7,1.42,1.84,791.14
-202 LaFave South: Echo Canyon,Airbnb,12,26123.0,37,6.42,7.27,706.03
-202 LaFave South: Echo Canyon,Booking.com,2,6289.0,9,1.55,1.21,698.78
-202 LaFave South: Echo Canyon,Direct,137,345549.73,436,84.9,83.03,792.55
-202 LaFave South: Echo Canyon,Expedia,7,15131.0,19,3.72,4.24,796.37
-202 LaFave South: Echo Canyon,Little Travel Group,1,1249.0,2,0.31,0.61,624.5
-202 LaFave South: Echo Canyon,VRBO,6,12653.0,23,3.11,3.64,550.13
-203 LaFave South: Emerald Pools,Airbnb,2,5843.0,9,1.44,1.4,649.22
-203 LaFave South: Emerald Pools,Booking.com,3,7362.0,9,1.82,2.1,818.0
-203 LaFave South: Emerald Pools,Direct,127,360760.7,426,88.94,88.81,846.86
-203 LaFave South: Emerald Pools,Expedia,6,16423.0,20,4.05,4.2,821.15
-203 LaFave South: Emerald Pools,VRBO,5,15230.0,21,3.75,3.5,725.24
-204 LaFave South: Hidden Canyon,Airbnb,20,33084.02,60,9.72,10.0,551.4
-204 LaFave South: Hidden Canyon,Booking.com,15,25610.0,45,7.53,7.5,569.11
-204 LaFave South: Hidden Canyon,Direct,134,231188.0,361,67.95,67.0,640.41
-204 LaFave South: Hidden Canyon,Expedia,23,33887.979999999996,56,9.96,11.5,605.14
-204 LaFave South: Hidden Canyon,Little Travel Group,1,1894.0,3,0.56,0.5,631.33
-204 LaFave South: Hidden Canyon,Other,1,1469.0,4,0.43,0.5,367.25
-204 LaFave South: Hidden Canyon,VRBO,6,13124.0,18,3.86,3.0,729.11
-205 LaFave South: Kolob Arch,Airbnb,17,32026.0,50,10.5,10.24,640.52
-205 LaFave South: Kolob Arch,Booking.com,12,31962.0,42,10.48,7.23,761.0
-205 LaFave South: Kolob Arch,Direct,96,170654.8,250,55.93,57.83,682.62
-205 LaFave South: Kolob Arch,Expedia,17,23818.0,39,7.81,10.24,610.72
-205 LaFave South: Kolob Arch,Little Travel Group,2,3663.0,5,1.2,1.2,732.6
-205 LaFave South: Kolob Arch,Other,2,2193.0,7,0.72,1.2,313.29
-205 LaFave South: Kolob Arch,VRBO,20,40790.0,66,13.37,12.05,618.03
-206 LaFave South: Mountain of the Sun,Airbnb,10,18709.0,31,4.91,6.06,603.52
-206 LaFave South: Mountain of the Sun,Booking.com,3,6380.0,9,1.68,1.82,708.89
-206 LaFave South: Mountain of the Sun,Direct,136,323539.4,445,84.99,82.42,727.05
-206 LaFave South: Mountain of the Sun,Expedia,10,18296.0,26,4.81,6.06,703.69
-206 LaFave South: Mountain of the Sun,Little Travel Group,1,1889.0,2,0.5,0.61,944.5
-206 LaFave South: Mountain of the Sun,Other,2,5855.0,9,1.54,1.21,650.56
-206 LaFave South: Mountain of the Sun,VRBO,3,5993.0,8,1.57,1.82,749.12
-207 LaFave South: Mystery Falls,Airbnb,24,51942.45,80,15.1,15.58,649.28
-207 LaFave South: Mystery Falls,Booking.com,8,16435.0,23,4.78,5.19,714.57
-207 LaFave South: Mystery Falls,Direct,110,248214.85,337,72.16,71.43,736.54
-207 LaFave South: Mystery Falls,Expedia,1,2834.0,3,0.82,0.65,944.67
-207 LaFave South: Mystery Falls,Other,4,8335.0,13,2.42,2.6,641.15
-207 LaFave South: Mystery Falls,VRBO,7,16217.67,23,4.71,4.55,705.12
-208 LaFave South: Northgate Peaks,Airbnb,5,7720.0,15,3.22,3.94,514.67
-208 LaFave South: Northgate Peaks,Booking.com,20,34349.79,58,14.31,15.75,592.24
-208 LaFave South: Northgate Peaks,Direct,77,160149.5,248,66.72,60.63,645.76
-208 LaFave South: Northgate Peaks,Expedia,18,26819.3,43,11.17,14.17,623.7
-208 LaFave South: Northgate Peaks,Little Travel Group,1,1332.0,2,0.55,0.79,666.0
-208 LaFave South: Northgate Peaks,Other,2,1993.0,5,0.83,1.57,398.6
-208 LaFave South: Northgate Peaks,VRBO,4,7661.01,11,3.19,3.15,696.46
-209 LaFave South: Orderville Canyon,Airbnb,7,11334.0,22,3.41,3.85,515.18
-209 LaFave South: Orderville Canyon,Booking.com,8,11846.34,20,3.56,4.4,592.32
-209 LaFave South: Orderville Canyon,Direct,132,249292.0,420,75.01,72.53,593.55
-209 LaFave South: Orderville Canyon,Expedia,29,47255.0,76,14.22,15.93,621.78
-209 LaFave South: Orderville Canyon,Little Travel Group,1,1914.0,3,0.58,0.55,638.0
-209 LaFave South: Orderville Canyon,VRBO,5,10717.0,18,3.22,2.75,595.39
-210 LaFave South: The Subway,Airbnb,10,25317.64,31,6.68,6.76,816.7
-210 LaFave South: The Subway,Booking.com,3,5972.0,7,1.57,2.03,853.14
-210 LaFave South: The Subway,Direct,121,320298.0,411,84.45,81.76,779.31
-210 LaFave South: The Subway,Expedia,6,12304.0,16,3.24,4.05,769.0
-210 LaFave South: The Subway,Little Travel Group,1,1039.0,2,0.27,0.68,519.5
-210 LaFave South: The Subway,Other,1,1474.0,3,0.39,0.68,491.33
-210 LaFave South: The Subway,VRBO,6,12874.0,18,3.39,4.05,715.22
-211 LaFave South: The Narrows,Airbnb,18,61896.0,62,12.34,10.98,998.32
-211 LaFave South: The Narrows,Booking.com,3,7497.0,8,1.49,1.83,937.12
-211 LaFave South: The Narrows,Direct,120,370217.33,381,73.79,73.17,971.7
-211 LaFave South: The Narrows,Expedia,6,15444.85,16,3.08,3.66,965.3
-211 LaFave South: The Narrows,Little Travel Group,1,2874.0,3,0.57,0.61,958.0
-211 LaFave South: The Narrows,Other,2,6468.0,6,1.29,1.22,1078.0
-211 LaFave South: The Narrows,VRBO,14,37343.21,39,7.44,8.54,957.52
-300 LaFave South: Bridge Mountain,Airbnb,2,2398.0,4,2.08,4.17,599.5
-300 LaFave South: Bridge Mountain,Direct,34,80349.0,97,69.59,70.83,828.34
-300 LaFave South: Bridge Mountain,Expedia,4,9161.0,11,7.93,8.33,832.82
-300 LaFave South: Bridge Mountain,Little Travel Group,1,2774.0,3,2.4,2.08,924.67
-300 LaFave South: Bridge Mountain,Other,2,8408.0,10,7.28,4.17,840.8
-300 LaFave South: Bridge Mountain,VRBO,5,12370.0,15,10.71,10.42,824.67
+100 LaFave South: Temple of Sinawava,Airbnb,7,9755.0,22,2.71,2.67,443.41
+100 LaFave South: Temple of Sinawava,Booking.com,6,7119.0,17,1.98,2.29,418.76
+100 LaFave South: Temple of Sinawava,Direct,221,309430.4,647,86.0,84.35,478.25
+100 LaFave South: Temple of Sinawava,Expedia,20,22385.61,52,6.22,7.63,430.49
+100 LaFave South: Temple of Sinawava,Other,2,2623.0,7,0.73,0.76,374.71
+100 LaFave South: Temple of Sinawava,VRBO,6,8483.0,21,2.36,2.29,403.95
+101 LaFave South: The Sentinel,Airbnb,12,15942.01,35,3.88,4.1,455.49
+101 LaFave South: The Sentinel,Booking.com,4,2927.74,6,0.71,1.37,487.96
+101 LaFave South: The Sentinel,Direct,245,353676.35,722,85.99,83.62,489.86
+101 LaFave South: The Sentinel,Expedia,23,26677.0,62,6.49,7.85,430.27
+101 LaFave South: The Sentinel,Little Travel Group,2,3133.0,7,0.76,0.68,447.57
+101 LaFave South: The Sentinel,Other,3,4047.0,10,0.98,1.02,404.7
+101 LaFave South: The Sentinel,VRBO,4,4891.0,15,1.19,1.37,326.07
+102 LaFave South: The Watchman,Airbnb,15,14879.1,45,5.34,7.01,330.65
+102 LaFave South: The Watchman,Booking.com,33,41316.82,87,14.83,15.42,474.91
+102 LaFave South: The Watchman,Direct,134,182989.37,421,65.7,62.62,434.65
+102 LaFave South: The Watchman,Expedia,20,20656.38,55,7.42,9.35,375.57
+102 LaFave South: The Watchman,Little Travel Group,1,1029.0,2,0.37,0.47,514.5
+102 LaFave South: The Watchman,Other,2,3532.0,7,1.27,0.93,504.57
+102 LaFave South: The Watchman,VRBO,9,14137.77,32,5.08,4.21,441.81
+103 LaFave South: The Zion Suite,Airbnb,20,22415.0,60,10.3,11.3,373.58
+103 LaFave South: The Zion Suite,Booking.com,9,8452.01,18,3.88,5.08,469.56
+103 LaFave South: The Zion Suite,Direct,118,151570.96,381,69.63,66.67,397.82
+103 LaFave South: The Zion Suite,Expedia,14,13204.88,35,6.07,7.91,377.28
+103 LaFave South: The Zion Suite,Other,9,13088.0,35,6.01,5.08,373.94
+103 LaFave South: The Zion Suite,VRBO,7,8954.45,23,4.11,3.95,389.32
+200 LaFave South: Angels Landing,Airbnb,19,58442.01,63,10.47,9.95,927.65
+200 LaFave South: Angels Landing,Booking.com,1,2274.0,3,0.41,0.52,758.0
+200 LaFave South: Angels Landing,Direct,149,432058.89,444,77.41,78.01,973.11
+200 LaFave South: Angels Landing,Expedia,8,26064.77,27,4.67,4.19,965.36
+200 LaFave South: Angels Landing,Little Travel Group,3,8532.0,9,1.53,1.57,948.0
+200 LaFave South: Angels Landing,Other,3,13102.0,15,2.35,1.57,873.47
+200 LaFave South: Angels Landing,VRBO,8,17672.0,20,3.17,4.19,883.6
+201 LaFave South: Checkerboard Mesa,Airbnb,5,9064.8,18,2.15,2.7,503.6
+201 LaFave South: Checkerboard Mesa,Booking.com,4,8555.720000000001,11,2.03,2.16,777.79
+201 LaFave South: Checkerboard Mesa,Direct,165,378883.78,524,89.96,89.19,723.06
+201 LaFave South: Checkerboard Mesa,Expedia,4,9332.0,12,2.22,2.16,777.67
+201 LaFave South: Checkerboard Mesa,Little Travel Group,2,3725.0,5,0.88,1.08,745.0
+201 LaFave South: Checkerboard Mesa,Other,2,6090.0,7,1.45,1.08,870.0
+201 LaFave South: Checkerboard Mesa,VRBO,3,5538.0,7,1.31,1.62,791.14
+202 LaFave South: Echo Canyon,Airbnb,13,28563.0,41,7.19,7.3,696.66
+202 LaFave South: Echo Canyon,Booking.com,2,6289.0,9,1.58,1.12,698.78
+202 LaFave South: Echo Canyon,Direct,147,329507.13,460,83.0,82.58,716.32
+202 LaFave South: Echo Canyon,Expedia,8,17476.86,22,4.4,4.49,794.4
+202 LaFave South: Echo Canyon,Little Travel Group,1,1249.0,2,0.31,0.56,624.5
+202 LaFave South: Echo Canyon,VRBO,7,13931.64,26,3.51,3.93,535.83
+203 LaFave South: Emerald Pools,Airbnb,4,8045.9,14,1.82,2.4,574.71
+203 LaFave South: Emerald Pools,Booking.com,3,7362.0,9,1.67,1.8,818.0
+203 LaFave South: Emerald Pools,Direct,148,392920.9,492,89.12,88.62,798.62
+203 LaFave South: Emerald Pools,Expedia,7,17350.0,22,3.94,4.19,788.64
+203 LaFave South: Emerald Pools,VRBO,5,15230.0,21,3.45,2.99,725.24
+204 LaFave South: Hidden Canyon,Airbnb,21,32410.72,63,8.51,9.25,514.46
+204 LaFave South: Hidden Canyon,Booking.com,15,22690.86,42,5.96,6.61,540.26
+204 LaFave South: Hidden Canyon,Direct,158,273007.5,439,71.72,69.6,621.88
+204 LaFave South: Hidden Canyon,Expedia,25,36042.13,61,9.47,11.01,590.85
+204 LaFave South: Hidden Canyon,Little Travel Group,1,1894.0,3,0.5,0.44,631.33
+204 LaFave South: Hidden Canyon,Other,1,1469.0,4,0.39,0.44,367.25
+204 LaFave South: Hidden Canyon,VRBO,6,13124.0,18,3.45,2.64,729.11
+205 LaFave South: Kolob Arch,Airbnb,19,35245.6,56,10.1,9.5,629.39
+205 LaFave South: Kolob Arch,Booking.com,14,20141.55,39,5.77,7.0,516.45
+205 LaFave South: Kolob Arch,Direct,120,212631.6,329,60.94,60.0,646.3
+205 LaFave South: Kolob Arch,Expedia,22,30359.45,53,8.7,11.0,572.82
+205 LaFave South: Kolob Arch,Little Travel Group,2,3663.0,5,1.05,1.0,732.6
+205 LaFave South: Kolob Arch,Other,2,2193.0,7,0.63,1.0,313.29
+205 LaFave South: Kolob Arch,VRBO,21,44694.04,74,12.81,10.5,603.97
+206 LaFave South: Mountain of the Sun,Airbnb,12,26147.72,43,5.64,6.19,608.09
+206 LaFave South: Mountain of the Sun,Booking.com,5,9359.27,15,2.02,2.58,623.95
+206 LaFave South: Mountain of the Sun,Direct,159,392012.62,524,84.6,81.96,748.12
+206 LaFave South: Mountain of the Sun,Expedia,12,22123.01,34,4.77,6.19,650.68
+206 LaFave South: Mountain of the Sun,Little Travel Group,1,1889.0,2,0.41,0.52,944.5
+206 LaFave South: Mountain of the Sun,Other,2,5855.0,9,1.26,1.03,650.56
+206 LaFave South: Mountain of the Sun,VRBO,3,5993.0,8,1.29,1.55,749.12
+207 LaFave South: Mystery Falls,Airbnb,24,53683.45,80,13.15,13.64,671.04
+207 LaFave South: Mystery Falls,Booking.com,8,16035.04,24,3.93,4.55,668.13
+207 LaFave South: Mystery Falls,Direct,130,307461.4,401,75.34,73.86,766.74
+207 LaFave South: Mystery Falls,Expedia,3,6384.5,7,1.56,1.7,912.07
+207 LaFave South: Mystery Falls,Other,4,8335.0,13,2.04,2.27,641.15
+207 LaFave South: Mystery Falls,VRBO,7,16217.67,23,3.97,3.98,705.12
+208 LaFave South: Northgate Peaks,Airbnb,8,14730.7,26,5.21,5.26,566.57
+208 LaFave South: Northgate Peaks,Booking.com,23,37655.64,66,13.32,15.13,570.54
+208 LaFave South: Northgate Peaks,Direct,94,191343.3,304,67.69,61.84,629.42
+208 LaFave South: Northgate Peaks,Expedia,20,27955.15,48,9.89,13.16,582.4
+208 LaFave South: Northgate Peaks,Little Travel Group,1,1332.0,2,0.47,0.66,666.0
+208 LaFave South: Northgate Peaks,Other,2,1993.0,5,0.71,1.32,398.6
+208 LaFave South: Northgate Peaks,VRBO,4,7661.01,11,2.71,2.63,696.46
+209 LaFave South: Orderville Canyon,Airbnb,9,13304.61,27,3.57,4.25,492.76
+209 LaFave South: Orderville Canyon,Booking.com,14,20572.760000000002,37,5.52,6.6,556.02
+209 LaFave South: Orderville Canyon,Direct,150,273882.8,469,73.49,70.75,583.97
+209 LaFave South: Orderville Canyon,Expedia,33,52300.51,87,14.03,15.57,601.16
+209 LaFave South: Orderville Canyon,Little Travel Group,1,1914.0,3,0.51,0.47,638.0
+209 LaFave South: Orderville Canyon,VRBO,5,10717.0,18,2.88,2.36,595.39
+210 LaFave South: The Subway,Airbnb,14,33032.54,42,6.96,7.73,786.49
+210 LaFave South: The Subway,Booking.com,5,23409.69,21,4.93,2.76,1114.75
+210 LaFave South: The Subway,Direct,145,385333.8,480,81.17,80.11,802.78
+210 LaFave South: The Subway,Expedia,8,15045.85,21,3.17,4.42,716.47
+210 LaFave South: The Subway,Little Travel Group,1,1039.0,2,0.22,0.55,519.5
+210 LaFave South: The Subway,Other,1,1474.0,3,0.31,0.55,491.33
+210 LaFave South: The Subway,VRBO,7,15401.0,20,3.24,3.87,770.05
+211 LaFave South: The Narrows,Airbnb,21,70957.1,71,10.85,10.61,999.4
+211 LaFave South: The Narrows,Booking.com,5,10286.72,12,1.57,2.53,857.23
+211 LaFave South: The Narrows,Direct,147,507855.93,473,77.69,74.24,1073.69
+211 LaFave South: The Narrows,Expedia,7,16997.78,18,2.6,3.54,944.32
+211 LaFave South: The Narrows,Little Travel Group,1,2874.0,3,0.44,0.51,958.0
+211 LaFave South: The Narrows,Other,2,6468.0,6,0.99,1.01,1078.0
+211 LaFave South: The Narrows,VRBO,15,38275.94,40,5.86,7.58,956.9
+300 LaFave South: Bridge Mountain,Airbnb,2,2398.0,4,2.25,4.35,599.5
+300 LaFave South: Bridge Mountain,Direct,32,71698.0,90,67.13,69.57,796.64
+300 LaFave South: Bridge Mountain,Expedia,4,9161.0,11,8.58,8.7,832.82
+300 LaFave South: Bridge Mountain,Little Travel Group,1,2774.0,3,2.6,2.17,924.67
+300 LaFave South: Bridge Mountain,Other,2,8408.0,10,7.87,4.35,840.8
+300 LaFave South: Bridge Mountain,VRBO,5,12370.0,15,11.58,10.87,824.67
 301 LaFave South: West Temple,Airbnb,4,8581.0,9,7.17,9.52,953.44
 301 LaFave South: West Temple,Booking.com,2,4833.0,7,4.04,4.76,690.43
 301 LaFave South: West Temple,Direct,34,97791.0,105,81.66,80.95,931.34
 301 LaFave South: West Temple,VRBO,2,8553.0,9,7.14,4.76,950.33
-302 LaFave South: The Gallery House,Airbnb,21,96424.01,72,15.0,16.8,1339.22
-302 LaFave South: The Gallery House,Booking.com,1,4184.0,3,0.65,0.8,1394.67
-302 LaFave South: The Gallery House,Direct,86,451364.0,329,70.21,68.8,1371.93
-302 LaFave South: The Gallery House,Expedia,3,12552.0,9,1.95,2.4,1394.67
-302 LaFave South: The Gallery House,Other,3,14847.0,10,2.31,2.4,1484.7
-302 LaFave South: The Gallery House,VRBO,11,63500.99,44,9.88,8.8,1443.2
-400 LaFave North: The Sundial,Airbnb,9,12623.02,34,4.42,4.55,371.27
-400 LaFave North: The Sundial,Booking.com,9,12891.0,28,4.52,4.55,460.39
-400 LaFave North: The Sundial,Direct,159,225476.7,482,79.02,80.3,467.79
-400 LaFave North: The Sundial,Expedia,20,31670.0,64,11.1,10.1,494.84
-400 LaFave North: The Sundial,VRBO,1,2669.0,6,0.94,0.51,444.83
-500 LaFave North: Big Springs,Airbnb,3,5247.0,9,1.47,2.08,583.0
-500 LaFave North: Big Springs,Booking.com,5,7927.0,12,2.22,3.47,660.58
-500 LaFave North: Big Springs,Direct,114,290666.0,355,81.33,79.17,818.78
-500 LaFave North: Big Springs,Expedia,7,14689.02,21,4.11,4.86,699.48
-500 LaFave North: Big Springs,VRBO,15,38841.0,56,10.87,10.42,693.59
-501 LaFave North: Cathedral Mountain,Airbnb,8,25366.98,27,4.86,5.0,939.52
-501 LaFave North: Cathedral Mountain,Booking.com,6,18202.0,14,3.49,3.75,1300.14
-501 LaFave North: Cathedral Mountain,Direct,124,405473.0,399,77.64,77.5,1016.22
-501 LaFave North: Cathedral Mountain,Expedia,14,46111.0,47,8.83,8.75,981.09
-501 LaFave North: Cathedral Mountain,VRBO,8,27092.0,28,5.19,5.0,967.57
-502 LaFave North: East Temple,Airbnb,4,8089.0,15,2.49,2.9,539.27
-502 LaFave North: East Temple,Booking.com,7,17457.0,24,5.37,5.07,727.38
-502 LaFave North: East Temple,Direct,107,265178.95,351,81.57,77.54,755.5
-502 LaFave North: East Temple,Expedia,11,17915.0,24,5.51,7.97,746.46
-502 LaFave North: East Temple,VRBO,9,16454.0,25,5.06,6.52,658.16
-503 LaFave North: Johnson Mountain,Airbnb,5,13860.0,15,2.67,2.89,924.0
-503 LaFave North: Johnson Mountain,Booking.com,5,13575.0,14,2.61,2.89,969.64
-503 LaFave North: Johnson Mountain,Direct,141,433935.0,451,83.58,81.5,962.16
-503 LaFave North: Johnson Mountain,Expedia,10,25430.0,26,4.9,5.78,978.08
-503 LaFave North: Johnson Mountain,Other,2,6963.0,7,1.34,1.16,994.71
-503 LaFave North: Johnson Mountain,VRBO,10,25445.0,28,4.9,5.78,908.75
-504 LaFave North: Kayenta,Airbnb,8,14275.01,25,4.83,4.88,571.0
-504 LaFave North: Kayenta,Booking.com,10,16680.0,24,5.64,6.1,695.0
-504 LaFave North: Kayenta,Direct,127,232223.0,373,78.53,77.44,622.58
-504 LaFave North: Kayenta,Expedia,16,27454.0,48,9.28,9.76,571.96
-504 LaFave North: Kayenta,VRBO,3,5072.0,7,1.72,1.83,724.57
-505 LaFave North: Lava Point,Airbnb,5,12006.0,15,3.16,3.45,800.4
-505 LaFave North: Lava Point,Booking.com,7,20297.0,24,5.35,4.83,845.71
-505 LaFave North: Lava Point,Direct,112,300182.0,364,79.12,77.24,824.68
-505 LaFave North: Lava Point,Expedia,12,29508.02,39,7.78,8.28,756.62
-505 LaFave North: Lava Point,Little Travel Group,1,2274.0,3,0.6,0.69,758.0
-505 LaFave North: Lava Point,Other,1,1909.0,2,0.5,0.69,954.5
-505 LaFave North: Lava Point,VRBO,7,13243.0,18,3.49,4.83,735.72
-506 LaFave North: Meridian Tower,Airbnb,7,12733.01,17,4.04,5.51,749.0
-506 LaFave North: Meridian Tower,Booking.com,3,7057.0,8,2.24,2.36,882.12
-506 LaFave North: Meridian Tower,Direct,105,268068.79,333,85.0,82.68,805.01
-506 LaFave North: Meridian Tower,Expedia,10,21313.43,26,6.76,7.87,819.75
-506 LaFave North: Meridian Tower,VRBO,2,6203.0,9,1.97,1.57,689.22
-507 LaFave North: Mount Kinesava,Airbnb,13,24657.0,44,9.39,8.97,560.39
-507 LaFave North: Mount Kinesava,Booking.com,14,19031.0,31,7.25,9.66,613.9
-507 LaFave North: Mount Kinesava,Direct,94,168943.48,282,64.36,64.83,599.09
-507 LaFave North: Mount Kinesava,Expedia,17,33628.0,55,12.81,11.72,611.42
-507 LaFave North: Mount Kinesava,VRBO,7,16218.0,25,6.18,4.83,648.72
-508 LaFave North: Phantom Valley,Airbnb,10,19699.0,31,6.43,7.14,635.45
-508 LaFave North: Phantom Valley,Booking.com,3,6489.0,8,2.12,2.14,811.12
-508 LaFave North: Phantom Valley,Direct,118,258203.0,369,84.32,84.29,699.74
-508 LaFave North: Phantom Valley,Expedia,6,15342.0,20,5.01,4.29,767.1
-508 LaFave North: Phantom Valley,VRBO,3,6492.0,9,2.12,2.14,721.33
-509 LaFave North: Pine Creek,Airbnb,5,10381.0,16,2.95,3.42,648.81
-509 LaFave North: Pine Creek,Booking.com,3,3423.0,6,0.97,2.05,570.5
-509 LaFave North: Pine Creek,Direct,118,296162.0,404,84.25,80.82,733.07
-509 LaFave North: Pine Creek,Expedia,12,23892.0,34,6.8,8.22,702.71
-509 LaFave North: Pine Creek,VRBO,8,17660.0,24,5.02,5.48,735.83
-510 LaFave North: Virgin River,Airbnb,17,51453.0,55,10.22,10.83,935.51
-510 LaFave North: Virgin River,Booking.com,6,16834.0,20,3.34,3.82,841.7
-510 LaFave North: Virgin River,Direct,111,373673.8,374,74.2,70.7,999.13
-510 LaFave North: Virgin River,Expedia,11,25924.0,29,5.15,7.01,893.93
-510 LaFave North: Virgin River,VRBO,12,35733.0,35,7.1,7.64,1020.94
-511 LaFave North: Weeping Rock,Airbnb,26,39224.0,72,11.19,12.56,544.78
-511 LaFave North: Weeping Rock,Booking.com,6,8358.0,16,2.38,2.9,522.38
-511 LaFave North: Weeping Rock,Direct,149,261217.25,416,74.51,71.98,627.93
-511 LaFave North: Weeping Rock,Expedia,19,29402.0,53,8.39,9.18,554.75
-511 LaFave North: Weeping Rock,VRBO,7,12382.0,21,3.53,3.38,589.62
+302 LaFave South: The Gallery House,Airbnb,22,102804.01,77,16.02,17.74,1335.12
+302 LaFave South: The Gallery House,Booking.com,1,4184.0,3,0.65,0.81,1394.67
+302 LaFave South: The Gallery House,Direct,86,456795.65,323,71.19,69.35,1414.23
+302 LaFave South: The Gallery House,Expedia,3,12552.0,9,1.96,2.42,1394.67
+302 LaFave South: The Gallery House,Other,3,14847.0,10,2.31,2.42,1484.7
+302 LaFave South: The Gallery House,VRBO,9,50475.99,36,7.87,7.26,1402.11
+400 LaFave North: The Sundial,Airbnb,10,14177.94,38,4.24,4.37,373.1
+400 LaFave North: The Sundial,Booking.com,10,13401.56,30,4.01,4.37,446.72
+400 LaFave North: The Sundial,Direct,183,266998.85,549,79.85,79.91,486.34
+400 LaFave North: The Sundial,Expedia,25,37126.05,78,11.1,10.92,475.98
+400 LaFave North: The Sundial,VRBO,1,2669.0,6,0.8,0.44,444.83
+500 LaFave North: Big Springs,Airbnb,5,10673.0,16,2.92,3.07,667.06
+500 LaFave North: Big Springs,Booking.com,6,8765.22,14,2.4,3.68,626.09
+500 LaFave North: Big Springs,Direct,125,284647.9,392,77.96,76.69,726.14
+500 LaFave North: Big Springs,Expedia,12,22184.07,36,6.08,7.36,616.22
+500 LaFave North: Big Springs,VRBO,15,38841.0,56,10.64,9.2,693.59
+501 LaFave North: Cathedral Mountain,Airbnb,9,27996.989999999998,30,5.39,5.14,933.23
+501 LaFave North: Cathedral Mountain,Booking.com,5,10690.0,11,2.06,2.86,971.82
+501 LaFave North: Cathedral Mountain,Direct,139,407173.3,434,78.4,79.43,938.19
+501 LaFave North: Cathedral Mountain,Expedia,14,46111.0,47,8.88,8.0,981.09
+501 LaFave North: Cathedral Mountain,VRBO,8,27392.22,29,5.27,4.57,944.56
+502 LaFave North: East Temple,Airbnb,6,9874.9,19,2.99,3.92,519.73
+502 LaFave North: East Temple,Booking.com,8,19609.8,29,5.93,5.23,676.2
+502 LaFave North: East Temple,Direct,116,261859.15,372,79.18,75.82,703.92
+502 LaFave North: East Temple,Expedia,14,22914.02,35,6.93,9.15,654.69
+502 LaFave North: East Temple,VRBO,9,16454.0,25,4.98,5.88,658.16
+503 LaFave North: Johnson Mountain,Airbnb,6,17466.0,19,3.37,3.19,919.26
+503 LaFave North: Johnson Mountain,Booking.com,7,16029.119999999999,17,3.09,3.72,942.89
+503 LaFave North: Johnson Mountain,Direct,153,426773.2,480,82.37,81.38,889.11
+503 LaFave North: Johnson Mountain,Expedia,10,25430.0,26,4.91,5.32,978.08
+503 LaFave North: Johnson Mountain,Other,2,6963.0,7,1.34,1.06,994.71
+503 LaFave North: Johnson Mountain,VRBO,10,25445.0,28,4.91,5.32,908.75
+504 LaFave North: Kayenta,Airbnb,7,12500.0,22,3.69,3.65,568.18
+504 LaFave North: Kayenta,Booking.com,13,19848.36,31,5.85,6.77,640.27
+504 LaFave North: Kayenta,Direct,147,262130.8,425,77.3,76.56,616.78
+504 LaFave North: Kayenta,Expedia,19,32082.33,58,9.46,9.9,553.14
+504 LaFave North: Kayenta,VRBO,6,12551.21,19,3.7,3.12,660.59
+505 LaFave North: Lava Point,Airbnb,7,17166.010000000002,23,4.38,4.38,746.35
+505 LaFave North: Lava Point,Booking.com,8,19984.02,29,5.09,5.0,689.1
+505 LaFave North: Lava Point,Direct,124,307863.8,397,78.46,77.5,775.48
+505 LaFave North: Lava Point,Expedia,11,28608.68,37,7.29,6.88,773.21
+505 LaFave North: Lava Point,Little Travel Group,1,2274.0,3,0.58,0.62,758.0
+505 LaFave North: Lava Point,Other,1,1909.0,2,0.49,0.62,954.5
+505 LaFave North: Lava Point,VRBO,8,14553.4,20,3.71,5.0,727.67
+506 LaFave North: Meridian Tower,Airbnb,9,16285.01,23,4.26,5.73,708.04
+506 LaFave North: Meridian Tower,Booking.com,3,7057.0,8,1.85,1.91,882.12
+506 LaFave North: Meridian Tower,Direct,130,326044.8,410,85.31,82.8,795.23
+506 LaFave North: Meridian Tower,Expedia,13,26600.6,36,6.96,8.28,738.91
+506 LaFave North: Meridian Tower,VRBO,2,6203.0,9,1.62,1.27,689.22
+507 LaFave North: Mount Kinesava,Airbnb,15,26613.6,48,8.7,8.67,554.45
+507 LaFave North: Mount Kinesava,Booking.com,19,25047.73,43,8.19,10.98,582.51
+507 LaFave North: Mount Kinesava,Direct,113,202420.18,341,66.19,65.32,593.61
+507 LaFave North: Mount Kinesava,Expedia,19,35507.25,60,11.61,10.98,591.79
+507 LaFave North: Mount Kinesava,VRBO,7,16218.0,25,5.3,4.05,648.72
+508 LaFave North: Phantom Valley,Airbnb,12,23350.01,38,5.75,7.1,614.47
+508 LaFave North: Phantom Valley,Booking.com,4,7833.9400000000005,11,1.93,2.37,712.18
+508 LaFave North: Phantom Valley,Direct,143,349273.0,460,86.02,84.62,759.29
+508 LaFave North: Phantom Valley,Expedia,7,19078.86,24,4.7,4.14,794.95
+508 LaFave North: Phantom Valley,VRBO,3,6492.0,9,1.6,1.78,721.33
+509 LaFave North: Pine Creek,Airbnb,5,10381.0,16,2.61,2.98,648.81
+509 LaFave North: Pine Creek,Booking.com,4,5208.98,9,1.31,2.38,578.78
+509 LaFave North: Pine Creek,Direct,137,337260.2,457,84.92,81.55,737.99
+509 LaFave North: Pine Creek,Expedia,12,23892.0,34,6.02,7.14,702.71
+509 LaFave North: Pine Creek,VRBO,10,20390.62,29,5.13,5.95,703.12
+510 LaFave North: Virgin River,Airbnb,20,60486.22,68,10.27,10.42,889.5
+510 LaFave North: Virgin River,Booking.com,6,15638.0,16,2.65,3.12,977.38
+510 LaFave North: Virgin River,Direct,140,444772.4,460,75.49,72.92,966.9
+510 LaFave North: Virgin River,Expedia,12,27428.26,31,4.66,6.25,884.78
+510 LaFave North: Virgin River,VRBO,14,40871.61,42,6.94,7.29,973.13
+511 LaFave North: Weeping Rock,Airbnb,26,38333.0,71,9.25,11.06,539.9
+511 LaFave North: Weeping Rock,Booking.com,7,9398.27,18,2.27,2.98,522.13
+511 LaFave North: Weeping Rock,Direct,173,317891.38,477,76.67,73.62,666.44
+511 LaFave North: Weeping Rock,Expedia,21,34615.79,62,8.35,8.94,558.32
+511 LaFave North: Weeping Rock,VRBO,8,14367.53,25,3.47,3.4,574.7

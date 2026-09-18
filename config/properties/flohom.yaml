@@ -2,6 +2,10 @@ property_id: flohom
 property_name: FLOHOM
 pms_id: hostaway
 room_count: 16
+
+data_source:
+  type: google_sheets
+  tab: "Flohom_data"
 analysis_window:
   start_date: "2024-12-01"
   end_date: "2026-04-30"

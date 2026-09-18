@@ -118,6 +118,41 @@ def _unit_name_from_unit_id(unit_id: str) -> str:
     return unit_id.strip()
 
 
+# PriceLabs listing mapping (listing_id, full listing name including prefix).
+PRICE_LABS_LISTINGS: list[tuple[str, str]] = [
+    ("4140___8128", "LaFave: Luxury Rentals at Zion--Mystery Premium Villa (2BR/2BA)"),
+    ("4140___8114", "LaFave: Luxury Rentals at Zion--J.MT. Villa (3BR/2BA)"),
+    ("4140___8115", "LaFave: Luxury Rentals at Zion--House (6BR/4BA)"),
+    ("4140___8117", "LaFave: Luxury Rentals at Zion--Sinawava Suite BIG (1BR/1BA)"),
+    ("4140___8118", "LaFave: Luxury Rentals at Zion--Sentinel Suite BIG (1BR/1BA)"),
+    ("4140___8119", "LaFave: Luxury Rentals at Zion--Sundial Suite BIG (1BR/1BA)"),
+    ("4140___8120", "LaFave: Luxury Rentals at Zion--Watchman Suite SMALL (1BR/1BA)"),
+    ("4140___8121", "LaFave: Luxury Rentals at Zion--Zion Suite SMALL (1BR/1BA)"),
+    ("4140___8122", "LaFave: Luxury Rentals at Zion--Emerald Villa Game (2BR/2BA)"),
+    ("4140___8123", "LaFave: Luxury Rentals at Zion--Subway Villa Game (2BR/2BA)"),
+    ("4140___8124", "LaFave: Luxury Rentals at Zion--Meridian Villa Game (2BR/2BA)"),
+    ("4140___8125", "LaFave: Luxury Rentals at Zion--Checkerboard Premium Villa (2BR/2BA)"),
+    ("4140___8126", "LaFave: Luxury Rentals at Zion--Echo Canyon Premium Villa (2BR/2BA)"),
+    ("4140___8127", "LaFave: Luxury Rentals at Zion--Mountain Premium Villa (2BR/2BA)"),
+    ("4140___8129", "LaFave: Luxury Rentals at Zion--Big Springs Premium Villa (2BR/2BA)"),
+    ("4140___8130", "LaFave: Luxury Rentals at Zion--East Temple Premium Villa (2BR/2BA)"),
+    ("4140___8131", "LaFave: Luxury Rentals at Zion--Lava Villa Game (2BR/2BA)"),
+    ("4140___8132", "LaFave: Luxury Rentals at Zion--Phantom Premium Villa (2BR/2BA)"),
+    ("4140___8133", "LaFave: Luxury Rentals at Zion--Pine Premium Villa (2BR/2BA)"),
+    ("4140___8134", "LaFave: Luxury Rentals at Zion--Hidden Deluxe Villa (2BR/1BA)"),
+    ("4140___8135", "LaFave: Luxury Rentals at Zion--Kolob Deluxe Villa (2BR/1BA)"),
+    ("4140___8136", "LaFave: Luxury Rentals at Zion--Northgate Deluxe Villa (2BR/1BA)"),
+    ("4140___8137", "LaFave: Luxury Rentals at Zion--Orderville Deluxe Villa (2BR/1BA)"),
+    ("4140___8138", "LaFave: Luxury Rentals at Zion--Kayenta Deluxe Villa (2BR/1BA)"),
+    ("4140___8139", "LaFave: Luxury Rentals at Zion--Mount Kinesava Deluxe Villa (2BR/1BA)"),
+    ("4140___8140", "LaFave: Luxury Rentals at Zion--Weeping Rock Deluxe Villa (2BR/1BA)"),
+    ("4140___8141", "LaFave: Luxury Rentals at Zion--Angels Premier Villa (3BR/3BA)"),
+    ("4140___8142", "LaFave: Luxury Rentals at Zion--Narrows Premier Villa (3BR/3BA)"),
+    ("4140___8143", "LaFave: Luxury Rentals at Zion--Cathedral Premier Villa (3BR/3BA)"),
+    ("4140___8144", "LaFave: Luxury Rentals at Zion--Virgin Premier Villa (3BR/3BA)"),
+]
+
+
 def _match_unit_id(
     unit_ids: list[str],
     group: str,
@@ -181,41 +216,6 @@ def main() -> None:
         for u in g.get("unit_ids") or []:
             unit_to_group[u] = gname
             group_to_units.setdefault(gname, []).append(u)
-
-    # --- PriceLabs listing mapping (from the user-provided IDs) ---
-    # Format: listing_id, listing_name (full string including prefix), PMS name is fixed to resnexus.
-    PRICE_LABS_LISTINGS: list[tuple[str, str]] = [
-        ("4140___8128", "LaFave: Luxury Rentals at Zion--Mystery Premium Villa (2BR/2BA)"),
-        ("4140___8114", "LaFave: Luxury Rentals at Zion--J.MT. Villa (3BR/2BA)"),
-        ("4140___8115", "LaFave: Luxury Rentals at Zion--House (6BR/4BA)"),
-        ("4140___8117", "LaFave: Luxury Rentals at Zion--Sinawava Suite BIG (1BR/1BA)"),
-        ("4140___8118", "LaFave: Luxury Rentals at Zion--Sentinel Suite BIG (1BR/1BA)"),
-        ("4140___8119", "LaFave: Luxury Rentals at Zion--Sundial Suite BIG (1BR/1BA)"),
-        ("4140___8120", "LaFave: Luxury Rentals at Zion--Watchman Suite SMALL (1BR/1BA)"),
-        ("4140___8121", "LaFave: Luxury Rentals at Zion--Zion Suite SMALL (1BR/1BA)"),
-        ("4140___8122", "LaFave: Luxury Rentals at Zion--Emerald Villa Game (2BR/2BA)"),
-        ("4140___8123", "LaFave: Luxury Rentals at Zion--Subway Villa Game (2BR/2BA)"),
-        ("4140___8124", "LaFave: Luxury Rentals at Zion--Meridian Villa Game (2BR/2BA)"),
-        ("4140___8125", "LaFave: Luxury Rentals at Zion--Checkerboard Premium Villa (2BR/2BA)"),
-        ("4140___8126", "LaFave: Luxury Rentals at Zion--Echo Canyon Premium Villa (2BR/2BA)"),
-        ("4140___8127", "LaFave: Luxury Rentals at Zion--Mountain Premium Villa (2BR/2BA)"),
-        ("4140___8129", "LaFave: Luxury Rentals at Zion--Big Springs Premium Villa (2BR/2BA)"),
-        ("4140___8130", "LaFave: Luxury Rentals at Zion--East Temple Premium Villa (2BR/2BA)"),
-        ("4140___8131", "LaFave: Luxury Rentals at Zion--Lava Villa Game (2BR/2BA)"),
-        ("4140___8132", "LaFave: Luxury Rentals at Zion--Phantom Premium Villa (2BR/2BA)"),
-        ("4140___8133", "LaFave: Luxury Rentals at Zion--Pine Premium Villa (2BR/2BA)"),
-        ("4140___8134", "LaFave: Luxury Rentals at Zion--Hidden Deluxe Villa (2BR/1BA)"),
-        ("4140___8135", "LaFave: Luxury Rentals at Zion--Kolob Deluxe Villa (2BR/1BA)"),
-        ("4140___8136", "LaFave: Luxury Rentals at Zion--Northgate Deluxe Villa (2BR/1BA)"),
-        ("4140___8137", "LaFave: Luxury Rentals at Zion--Orderville Deluxe Villa (2BR/1BA)"),
-        ("4140___8138", "LaFave: Luxury Rentals at Zion--Kayenta Deluxe Villa (2BR/1BA)"),
-        ("4140___8139", "LaFave: Luxury Rentals at Zion--Mount Kinesava Deluxe Villa (2BR/1BA)"),
-        ("4140___8140", "LaFave: Luxury Rentals at Zion--Weeping Rock Deluxe Villa (2BR/1BA)"),
-        ("4140___8141", "LaFave: Luxury Rentals at Zion--Angels Premier Villa (3BR/3BA)"),
-        ("4140___8142", "LaFave: Luxury Rentals at Zion--Narrows Premier Villa (3BR/3BA)"),
-        ("4140___8143", "LaFave: Luxury Rentals at Zion--Cathedral Premier Villa (3BR/3BA)"),
-        ("4140___8144", "LaFave: Luxury Rentals at Zion--Virgin Premier Villa (3BR/3BA)"),
-    ]
 
     # Map each PriceLabs listing to a unit_id in our pricing matrix.
     listing_id_to_unit_id: dict[str, str] = {}

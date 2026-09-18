@@ -1,0 +1,113 @@
+property_id: atx
+property_name: ATX (Oasi Austin)
+pms_id: multi
+room_count: 2
+
+# Only Sunstrip + Malvern (whole-property; 4BR/5BR split is for pricing, not separate analysis SKUs).
+analysis_unit_filter: true
+
+# Track historical (Dec 2023–Oct 2024) + Hostaway live (Oct 2024+).
+analysis_window:
+  start_date: "2023-12-01"
+  end_date: "2026-10-31"
+
+ingestion_sources:
+  - match: "hostaway"
+    pms_id: hostaway
+  - match: "track"
+    pms_id: track
+
+# Live source only — matches Historical Snapshot's atx.json. "track" (pre-Oct
+# 2024 history) is a fixed legacy file, not a live tab — same as Historical
+# Snapshot's treatment. Added manually to data/ATX/ (filename must contain
+# "track" to match the ingestion_sources token above), then passed alongside
+# --from-sheets, e.g.:
+#   python scripts/run_ingestion.py --property atx --from-sheets "data/ATX/ATX_track_data.csv"
+data_source:
+  type: google_sheets
+  tab: "ATX_hostaway_data"
+
+room_types:
+  - unit_id: "Sunstrip"
+    listing_start_date: "2023-12-01"
+  - unit_id: "Malvern"
+    listing_start_date: "2023-12-01"
+
+# All Malvern / MLVRN Hostaway labels → one unit for portfolio performance (price 4BR, multiplier → 5BR).
+listing_name_map:
+  "MLVRN": "Malvern"
+  "Malvern (NEW)": "Malvern"
+  "Malvern (4BR)": "Malvern"
+  "MLVRN (4BR in Loft + Airstream)": "Malvern"
+  "MLVRN (3BR in Loft + Airstream)": "Malvern"
+
+tiering:
+  method: "gap_detection"
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  gap_score_basis: "revpar_zscore"
+  smoothing_window_days: 14
+  gap_threshold_pct: 6
+  gap_threshold_zscore: 0.6
+  min_tiers: 2
+  max_tiers: 10
+  quantile_fallback_tiers: 5
+  min_days_per_tier: 14
+  min_active_months_for_portfolio: 6
+  tier_label_map:
+    1: "Soft"
+    2: "Low"
+    3: "Shoulder Low"
+    4: "Shoulder High"
+    5: "High"
+    6: "Peak"
+
+# Score-mode base rate matrix (run_pricing_matrix.py). Malvern row = 4BR; 5BR derived in script.
+pricing:
+  mode: score
+  # Low → high: Mon/Tue/Wed < Sun < Thu < Fri = Sat
+  dow_hierarchy:
+    - ["Monday", "Tuesday", "Wednesday"]
+    - ["Sunday"]
+    - ["Thursday"]
+    - ["Friday", "Saturday"]
+  # Month strength 1–10 (weak → strong), aligned to month_hierarchy bands.
+  month_score_by_index:
+    1: 3    # January
+    2: 5    # February
+    3: 10   # March
+    4: 7    # April
+    5: 8    # May
+    6: 5    # June
+    7: 3    # July
+    8: 3    # August
+    9: 1    # September
+    10: 10  # October
+    11: 8   # November
+    12: 1   # December
+  listing_price_hierarchy:
+    tiers:
+      - order: 1
+        id: malvern_4br
+        unit_ids:
+          - "Malvern"
+      - order: 2
+        id: sunstrip
+        unit_ids:
+          - "Sunstrip"
+
+  malvern:
+    anchor_sku: "4BR"
+    five_br_min_rate_usd: 600
+    # 5BR nightly rate (after 4BR matrix rate is built for Malvern):
+    #   max(
+    #     five_br_min_rate_usd,
+    #     min(4BR * multiplier, 4BR + additive_usd),
+    #     Sunstrip + sunstrip_floor_premium_usd,
+    #   )
+    # Floor handles soft season; min(mult, add) caps peak spikes; Sunstrip guard enforces listing order.
+    five_br_from_4br:
+      method: floor_capped_premium
+      multiplier: 1.45
+      additive_usd: 225
+      sunstrip_floor_premium_usd: 25

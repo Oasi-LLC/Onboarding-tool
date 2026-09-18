@@ -116,6 +116,122 @@ See `docs/01-data-ingestion-and-validation-design.md` and
 
 ---
 
+## 3a. Google Sheets data source (replaces the manual CSV download)
+
+`lafave_zion`, `flohom`, `wmb`, `fbg`, `atx`, and `spoon_mountain` can pull
+straight from the same master **"Dashboard revenue reporting"** Google
+Spreadsheet, instead of someone downloading a tab as CSV by hand and dropping
+it into `data/<PROPERTY>/`. Ingestion itself (`src/parser.py`) is unchanged;
+`src/sheets_sync.py` fetches the tab(s) and writes a CSV cache that parser.py
+consumes exactly like a manually-downloaded export. `lafave_zion`/`flohom`/
+`wmb`/`fbg`/`atx` are also synced by Historical Snapshot from this
+spreadsheet; `spoon_mountain` is Onboarding-EDA-only (Historical Snapshot
+doesn't track that property), but its tab lives in the same spreadsheet.
+
+For `flohom` and `atx`, the live tab already carries every column the parser
+needs (raw pass-through, no changes). For `lafave_zion`, `fbg`, `wmb`, and
+`spoon_mountain`, the live tab is narrower than what analysts used to
+download by hand (a raw ResNexus/Cloudbeds/OwnerRez export, not a
+pre-joined dashboard view) — `src/sheets_sync.py` shapes those into what the
+existing parser already expects, ported from Historical Snapshot's own
+working logic for the same properties. See "Per-property shaping" below.
+
+### One-time setup
+
+If Historical Snapshot is already configured on this machine, reuse the same
+service account and spreadsheet — no new credentials needed. Otherwise:
+
+1. Create a Google Cloud service account with read access to the spreadsheet
+   (see Historical Snapshot's README for the full walkthrough).
+2. Set the same two environment variables Historical Snapshot uses:
+
+```bash
+export GOOGLE_SHEETS_SPREADSHEET_ID="your-spreadsheet-id"
+export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.config/historical-snapshot/sheets-sa.json"
+```
+
+3. `pip install -r requirements.txt` (adds `gspread` + `google-auth`).
+
+### Sync and ingest
+
+```bash
+# Sync one property's tab(s) into data/.cache/sheets/
+python scripts/sync_sheets.py --property lafave_zion
+
+# Sync everything wired to the sheet
+python scripts/sync_sheets.py --all
+
+# Ingest straight from the sheet (syncs automatically if not already synced today)
+python scripts/run_ingestion.py --property lafave_zion --from-sheets
+```
+
+Add `--force-sync` to either command to refresh even if already synced today.
+The manual CSV path still works exactly as before (`--csv`-style positional
+path) — `--from-sheets` is additive, not a replacement requirement.
+
+Which tab(s) a property reads is declared in `config/properties/<id>.yaml`:
+
+```yaml
+data_source:
+  type: google_sheets
+  tab: "Lafave_data"        # or `tabs: [{tab: "..."}, {tab: "..."}]` for multi-source properties like atx
+```
+
+### Per-property shaping
+
+`lafave_zion`, `fbg`, `wmb`, and `spoon_mountain`'s live tabs don't match
+what `src/parser.py` expects as raw pass-through, so `sync_property()` runs
+each through a small shaping step (`PROPERTY_SHAPERS` in
+`src/sheets_sync.py`) before writing the cache file — never touching
+`src/parser.py` itself:
+
+- **`lafave_zion`** — the live `Lafave_data` tab is the raw 11-column
+  ResNexus export (no Listing Name or Channel). `config/properties/
+  lafave_zion.yaml` declares `Lafave_data`, `Lafave_data2` (Res# → Unit),
+  and `Lafave_OTA_data` (Reservation → Channel Name) as its three tabs; the
+  shaper joins them into one output, derives Channel with the same
+  By Phone / Booked Online → Direct, 3rd Party → OTA-name-or-Other logic,
+  and adds Grouping via the same listing-name lookup Historical Snapshot
+  uses (`_lafave_grouping`). Ingestion writes this to canonical as
+  `listing_group`.
+- **`fbg` / `wmb`** — the live `FBG_data` / `WMB_data` tabs are narrow
+  Cloudbeds dashboard exports with no Revenue column. The shaper computes
+  Revenue as `Accommodation Total + $35 × Nights` (the resort fee,
+  Historical Snapshot's own formula), waived for Airbnb bookings only on
+  `fbg` — `wmb` never waives it. It also fills in Listing Name (from Room
+  Type) and blank Name/Property columns, which the tab genuinely doesn't
+  have and which the Cloudbeds parser otherwise mishandles when totally
+  absent.
+- **`spoon_mountain`** — the live `SpoonMount_data` tab otherwise matches
+  the OwnerRez parser's required columns; only Arrival/Departure/Booked come
+  back as ISO (`YYYY-MM-DD`) dates instead of the `M/D/YYYY` the parser
+  expects. The shaper reformats just those three columns.
+
+A property with no registered shaper (flohom, atx) is unaffected — its
+tab(s) are written to cache exactly as fetched, same as before this layer
+existed.
+
+`fbg` and `atx` are hybrids, matching how Historical Snapshot treats onera
+and atx: the live tab syncs automatically, but pre-live-tab history is a
+fixed, manually-maintained CSV (not automated — add it to `data/` yourself).
+`--from-sheets` accepts extra manual paths alongside it — they're added to
+the synced source(s), not replaced:
+
+```bash
+python scripts/run_ingestion.py --property fbg --from-sheets "data/FBG/Historical FBG (until 12_31_24).csv"
+python scripts/run_ingestion.py --property atx --from-sheets "data/ATX/ATX_track_data.csv"
+```
+
+### Offboarded properties
+
+`sos` (Spirit Of Sofia) is no longer an Oasi property. Its config
+(`config/properties/sos.yaml`) is commented out rather than deleted —
+`run_ingestion.py --property sos` fails cleanly ("no pms_id in config")
+instead of silently running with stale data. Uncomment that file to
+reactivate; nothing else needed to change elsewhere.
+
+---
+
 ## 4. Analysis (CSV outputs – Step 1)
 
 Once you have a canonical CSV for a property:

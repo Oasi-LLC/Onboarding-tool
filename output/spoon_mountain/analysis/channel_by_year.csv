@@ -1,0 +1,5 @@
+channel,year,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Direct,2024,276,271613.15,574,95.25,92.93,473.19
+Airbnb,2024,21,13537.19,39,4.75,7.07,347.11
+Direct,2025,332,371734.77,717,93.75,89.25,518.46
+Airbnb,2025,40,24769.8,60,6.25,10.75,412.83

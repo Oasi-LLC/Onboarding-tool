@@ -6,8 +6,18 @@ Uses the property's config (pms_id, etc.) to select the correct parser — not h
 Usage (run from project root):
   python scripts/run_ingestion.py --property <property_id> <path_to_csv> [--output-canonical path] [--output-report path]
 
+  For properties with a google_sheets data_source (see README: Google Sheets
+  data source), skip the manual CSV path entirely:
+  python scripts/run_ingestion.py --property <property_id> --from-sheets
+
+  For hybrid properties (fbg, atx) with a legacy/historical CSV that isn't
+  in the live sheet, pass it alongside --from-sheets — it's added to the
+  synced source(s), not replaced:
+  python scripts/run_ingestion.py --property fbg --from-sheets "data/FBG/Historical FBG (until 12_31_24).csv"
+
 Example:
   python scripts/run_ingestion.py --property lafave_zion "data/LAFAVE ZION/Lafave_data.csv" --output-canonical output/ingestion/canonical.csv --output-report output/ingestion/validation_report.json
+  python scripts/run_ingestion.py --property lafave_zion --from-sheets
 """
 
 import json
@@ -23,6 +33,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.parser import load_csv, normalize
 from src.property_config import load_property_inventory
 from src.validation import run_validation, validation_report_text
+from src import sheets_sync
 
 
 def _resolve_source_pms(path: Path, ingestion_sources: list[dict], default_pms_id: str) -> str:
@@ -48,6 +59,8 @@ def main():
     csv_paths: list[Path] = []
     output_canonical = None
     output_report = None
+    from_sheets = False
+    force_sync = False
 
     i = 0
     while i < len(args):
@@ -60,6 +73,12 @@ def main():
         elif args[i] == "--output-report" and i + 1 < len(args):
             output_report = Path(args[i + 1])
             i += 2
+        elif args[i] == "--from-sheets":
+            from_sheets = True
+            i += 1
+        elif args[i] == "--force-sync":
+            force_sync = True
+            i += 1
         elif not args[i].startswith("--"):
             csv_paths.append(Path(args[i]))
             i += 1
@@ -68,10 +87,38 @@ def main():
 
     if not property_id:
         print("Usage: python scripts/run_ingestion.py --property <property_id> <path_to_csv> [--output-canonical path] [--output-report path]")
+        print("   or: python scripts/run_ingestion.py --property <property_id> --from-sheets")
         print("Example: python scripts/run_ingestion.py --property lafave_zion \"data/LAFAVE ZION/Lafave_data.csv\" --output-canonical output/lafave_zion/ingestion/canonical.csv")
         sys.exit(1)
+
+    if from_sheets:
+        # Any explicit paths passed alongside --from-sheets are treated as
+        # additional manual sources (e.g. a legacy/historical CSV for fbg or
+        # atx) — synced cache file(s) are prepended, not replaced.
+        manual_paths = list(csv_paths)
+        try:
+            stale, reason = sheets_sync.needs_sync(property_id)
+            if force_sync or stale:
+                print(f"Syncing '{property_id}' from Google Sheets ({reason})...")
+                results = sheets_sync.sync_property(property_id)
+                for result in results:
+                    print(f"  synced '{result.tab}' -> {result.cache_path} ({result.row_count} rows)")
+                synced_paths = [result.cache_path for result in results]
+            else:
+                print(f"Using cached sync ({reason}); pass --force-sync to refresh first.")
+                synced_paths = sheets_sync.cached_paths_for_property(property_id)
+        except Exception as exc:
+            print(f"Error: Google Sheets sync failed for '{property_id}': {exc}")
+            sys.exit(1)
+        if not synced_paths:
+            print(f"Error: no cached files after sync for '{property_id}'. Check config/properties/{property_id}.yaml data_source.")
+            sys.exit(1)
+        csv_paths = synced_paths + manual_paths
+        if manual_paths:
+            print(f"Also ingesting manual source(s): {', '.join(str(p) for p in manual_paths)}")
+
     if not csv_paths:
-        print("Error: at least one CSV file path is required.")
+        print("Error: at least one CSV file path is required (or pass --from-sheets).")
         sys.exit(1)
     missing_paths = [p for p in csv_paths if not p.exists()]
     if missing_paths:

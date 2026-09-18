@@ -2,6 +2,20 @@
 property_id: fbg
 property_name: Onera Fredericksburg
 pms_id: cloudbeds
+
+# Keep only configured listing SKUs in canonical + analysis (drops historical
+# Property-column buckets like OLD Track / OLD CB / Onera Fredericksburg — not units).
+analysis_unit_filter: true
+
+# Live data only — matches Historical Snapshot's onera.json tab name.
+# Pre-2025 history still comes from the manually-maintained
+# "Historical FBG (until 12_31_24).csv" file (same hybrid split Historical
+# Snapshot uses for onera: legacy fixed file + live sheet tab). Add it under
+# data/FBG/ and pass it alongside --from-sheets to get full history, e.g.:
+#   python scripts/run_ingestion.py --property fbg --from-sheets "data/FBG/Historical FBG (until 12_31_24).csv"
+data_source:
+  type: google_sheets
+  tab: "FBG_data"
 # Total physical units (sum of positive unit_count in room_types; overlay SKUs with unit_count 0 are excluded).
 # Great Lodge whole-property is not extra beds: it shares the 8 king-room units (see listing_unit_capacity_fallback).
 # Cypress Sleeps 6: two combo units (each marketed as 4+2); still 2 physical addresses — counts stay 2 / SKU, not additive with Sleeps 2/4 pools in this model.
@@ -25,6 +39,13 @@ monthly_performance_combined:
 # Whole-property Great Lodge uses the same 8 physical king rooms as Great Lodge: King Room (occupancy denominator).
 listing_unit_capacity_fallback:
   Great Lodge: "Great Lodge: King Room"
+
+# Cloudbeds FBG_data + historical rows use slightly different labels than room_types unit_id.
+listing_name_map:
+  "Cypress Lodge Sleeps 2": "Cypress Lodge | Sleeps 2"
+  "Cypress Lodge Sleeps 4": "Cypress Lodge | Sleeps 4"
+  "Cypress Lodge Sleeps 6": "Cypress Lodge | Sleeps 6"
+  "Great Lodge King Room": "Great Lodge: King Room"
 
 # Static inventory split (operational “Basse Type” / comma-joined rows can differ per stay).
 listing_groups:
@@ -149,10 +170,10 @@ tiering:
 # Hierarchy (weak → strong): Jan < Jun < Sep < Jul=Aug < May < Nov < Dec < Oct=Feb < Apr < Mar
 pricing:
   mode: score
+  # Mon=Tue=Wed < Thu=Sun < Fri=Sat
   dow_hierarchy:
     - ["Monday", "Tuesday", "Wednesday"]
-    - ["Thursday"]
-    - ["Sunday"]
+    - ["Thursday", "Sunday"]
     - ["Friday", "Saturday"]
   month_score_by_index:
     1: 1   # Jan — weakest
@@ -207,19 +228,19 @@ pricing:
         id: signature
         unit_ids:
           - "Cypress Lodge | Sleeps 6"
-          - Diamond
       - order: 7
         id: hard
         unit_ids:
           - Live Oak Lodge
-          - Monarch
           - Spyglass
           - Walnut House
       - order: 8
         id: elite
         unit_ids:
           - Monolith
+          - Diamond
+          - Monarch
       - order: 9
-        id: estate
+        id: buyout
         unit_ids:
           - Great Lodge

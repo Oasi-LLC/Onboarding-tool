@@ -30,6 +30,7 @@ def canonical_columns() -> list[str]:
         "lead_time_days",
         "adr",
         "channel",
+        "listing_group",
         "arrival_day_of_week",
         "arrival_year_month",
     ]
@@ -1054,7 +1055,9 @@ def _hostaway_map_to_canonical(raw: pd.DataFrame, property_id: Optional[str] = N
         df = df.loc[~st.map(reservation_status_is_excluded)].copy()
 
     # Business rule: exclude unknown/unpaid payment rows; keep paid and partially paid.
-    if "Payment status" in df.columns:
+    # Flohom's live sheet tab often returns Payment status = Unknown for every row;
+    # rentalRevenue > 0 (below) is the inclusion gate for that property.
+    if "Payment status" in df.columns and str(property_id or "").strip().lower() != "flohom":
         payment_status = df["Payment status"].astype(str).str.strip().str.lower()
         df = df.loc[~payment_status.isin({"unknown", "unpaid"})].copy()
 
@@ -1114,6 +1117,8 @@ def _resnexus_map_sheet_to_canonical(raw: pd.DataFrame, property_id: Optional[st
         df["amount_paid"] = df["revenue"]
     df["booking_date"] = df["Reservation Date"].apply(_parse_date_resnexus)
     df["channel"] = df.apply(_derive_channel_resnexus_sheet, axis=1)
+    if "Grouping" in df.columns:
+        df["listing_group"] = df["Grouping"].astype(str).str.strip().replace("nan", "")
     computed_lt = None
     if pd.api.types.is_datetime64_any_dtype(df["arrival_date"]) and pd.api.types.is_datetime64_any_dtype(
         df["booking_date"]

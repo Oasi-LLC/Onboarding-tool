@@ -1,6 +1,8 @@
 channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
-Direct,3624,3075940.0,6449,82.94,78.04,476.96
-Expedia,521,270460.0,801,7.29,11.22,337.65
-Airbnb,433,309298.0,681,8.34,9.32,454.18
-Booking.com,64,52009.0,102,1.4,1.38,509.89
-OTA (or Other),2,770.0,2,0.02,0.04,385.0
+Expedia,778,399877.73,1239,8.18,12.8,322.74
+Direct,4684,4033994.66,8449,82.5,77.09,477.45
+Airbnb,471,360356.85,752,7.37,7.75,479.2
+Booking.com,129,92208.38,206,1.89,2.12,447.61
+Email,8,560.0,16,0.01,0.13,35.0
+HotelTonight (Channel Collect Booking),2,770.5999999999999,2,0.02,0.03,385.3
+Hotelnet (Hotel Collect Booking),4,1651.4,6,0.03,0.07,275.23

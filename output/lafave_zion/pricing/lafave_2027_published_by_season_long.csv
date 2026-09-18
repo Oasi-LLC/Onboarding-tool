@@ -1,0 +1,169 @@
+source,season,room_type,dow,rate
+published,high,House (6BR/4BA),Mon,2356
+published,high,House (6BR/4BA),Tue,2127
+published,high,House (6BR/4BA),Wed,2451
+published,high,House (6BR/4BA),Thu,2904
+published,high,House (6BR/4BA),Fri,3060
+published,high,House (6BR/4BA),Sat,3065
+published,high,House (6BR/4BA),Sun,2510
+published,high,Suite BIG (1BR/1BA),Mon,578
+published,high,Suite BIG (1BR/1BA),Tue,560
+published,high,Suite BIG (1BR/1BA),Wed,603
+published,high,Suite BIG (1BR/1BA),Thu,709
+published,high,Suite BIG (1BR/1BA),Fri,733
+published,high,Suite BIG (1BR/1BA),Sat,775
+published,high,Suite BIG (1BR/1BA),Sun,639
+published,high,Suite SMALL (1BR/1BA),Mon,415
+published,high,Suite SMALL (1BR/1BA),Tue,433
+published,high,Suite SMALL (1BR/1BA),Wed,461
+published,high,Suite SMALL (1BR/1BA),Thu,558
+published,high,Suite SMALL (1BR/1BA),Fri,503
+published,high,Suite SMALL (1BR/1BA),Sat,609
+published,high,Suite SMALL (1BR/1BA),Sun,486
+published,high,Deluxe Villa (2BR/1BA),Mon,710
+published,high,Deluxe Villa (2BR/1BA),Tue,693
+published,high,Deluxe Villa (2BR/1BA),Wed,746
+published,high,Deluxe Villa (2BR/1BA),Thu,872
+published,high,Deluxe Villa (2BR/1BA),Fri,916
+published,high,Deluxe Villa (2BR/1BA),Sat,990
+published,high,Deluxe Villa (2BR/1BA),Sun,811
+published,high,Premium Villa (2BR/2BA),Mon,895
+published,high,Premium Villa (2BR/2BA),Tue,882
+published,high,Premium Villa (2BR/2BA),Wed,931
+published,high,Premium Villa (2BR/2BA),Thu,1082
+published,high,Premium Villa (2BR/2BA),Fri,1130
+published,high,Premium Villa (2BR/2BA),Sat,1136
+published,high,Premium Villa (2BR/2BA),Sun,952
+published,high,Villa Game (2BR/2BA),Mon,1011
+published,high,Villa Game (2BR/2BA),Tue,1011
+published,high,Villa Game (2BR/2BA),Wed,1044
+published,high,Villa Game (2BR/2BA),Thu,1212
+published,high,Villa Game (2BR/2BA),Fri,1306
+published,high,Villa Game (2BR/2BA),Sat,1282
+published,high,Villa Game (2BR/2BA),Sun,1071
+published,high,J.MT. Villa (3BR/2BA),Mon,1518
+published,high,J.MT. Villa (3BR/2BA),Tue,1446
+published,high,J.MT. Villa (3BR/2BA),Wed,1576
+published,high,J.MT. Villa (3BR/2BA),Thu,1812
+published,high,J.MT. Villa (3BR/2BA),Fri,1795
+published,high,J.MT. Villa (3BR/2BA),Sat,1889
+published,high,J.MT. Villa (3BR/2BA),Sun,1619
+published,high,Premier Villa (3BR/3BA),Mon,1562
+published,high,Premier Villa (3BR/3BA),Tue,1502
+published,high,Premier Villa (3BR/3BA),Wed,1610
+published,high,Premier Villa (3BR/3BA),Thu,1854
+published,high,Premier Villa (3BR/3BA),Fri,1876
+published,high,Premier Villa (3BR/3BA),Sat,1946
+published,high,Premier Villa (3BR/3BA),Sun,1669
+published,low,House (6BR/4BA),Mon,1158
+published,low,House (6BR/4BA),Tue,1112
+published,low,House (6BR/4BA),Wed,1216
+published,low,House (6BR/4BA),Thu,1453
+published,low,House (6BR/4BA),Fri,1443
+published,low,House (6BR/4BA),Sat,1570
+published,low,House (6BR/4BA),Sun,1262
+published,low,Suite BIG (1BR/1BA),Mon,268
+published,low,Suite BIG (1BR/1BA),Tue,246
+published,low,Suite BIG (1BR/1BA),Wed,274
+published,low,Suite BIG (1BR/1BA),Thu,332
+published,low,Suite BIG (1BR/1BA),Fri,315
+published,low,Suite BIG (1BR/1BA),Sat,346
+published,low,Suite BIG (1BR/1BA),Sun,284
+published,low,Suite SMALL (1BR/1BA),Mon,288
+published,low,Suite SMALL (1BR/1BA),Tue,300
+published,low,Suite SMALL (1BR/1BA),Wed,293
+published,low,Suite SMALL (1BR/1BA),Thu,272
+published,low,Suite SMALL (1BR/1BA),Fri,274
+published,low,Suite SMALL (1BR/1BA),Sat,296
+published,low,Suite SMALL (1BR/1BA),Sun,265
+published,low,Deluxe Villa (2BR/1BA),Mon,311
+published,low,Deluxe Villa (2BR/1BA),Tue,239
+published,low,Deluxe Villa (2BR/1BA),Wed,325
+published,low,Deluxe Villa (2BR/1BA),Thu,397
+published,low,Deluxe Villa (2BR/1BA),Fri,368
+published,low,Deluxe Villa (2BR/1BA),Sat,428
+published,low,Deluxe Villa (2BR/1BA),Sun,340
+published,low,Premium Villa (2BR/2BA),Mon,396
+published,low,Premium Villa (2BR/2BA),Tue,266
+published,low,Premium Villa (2BR/2BA),Wed,412
+published,low,Premium Villa (2BR/2BA),Thu,494
+published,low,Premium Villa (2BR/2BA),Fri,368
+published,low,Premium Villa (2BR/2BA),Sat,520
+published,low,Premium Villa (2BR/2BA),Sun,424
+published,low,Villa Game (2BR/2BA),Mon,444
+published,low,Villa Game (2BR/2BA),Tue,352
+published,low,Villa Game (2BR/2BA),Wed,460
+published,low,Villa Game (2BR/2BA),Thu,554
+published,low,Villa Game (2BR/2BA),Fri,470
+published,low,Villa Game (2BR/2BA),Sat,602
+published,low,Villa Game (2BR/2BA),Sun,488
+published,low,J.MT. Villa (3BR/2BA),Mon,683
+published,low,J.MT. Villa (3BR/2BA),Tue,515
+published,low,J.MT. Villa (3BR/2BA),Wed,710
+published,low,J.MT. Villa (3BR/2BA),Thu,845
+published,low,J.MT. Villa (3BR/2BA),Fri,698
+published,low,J.MT. Villa (3BR/2BA),Sat,850
+published,low,J.MT. Villa (3BR/2BA),Sun,686
+published,low,Premier Villa (3BR/3BA),Mon,706
+published,low,Premier Villa (3BR/3BA),Tue,504
+published,low,Premier Villa (3BR/3BA),Wed,733
+published,low,Premier Villa (3BR/3BA),Thu,872
+published,low,Premier Villa (3BR/3BA),Fri,691
+published,low,Premier Villa (3BR/3BA),Sat,908
+published,low,Premier Villa (3BR/3BA),Sun,762
+published,shoulder,House (6BR/4BA),Mon,1747
+published,shoulder,House (6BR/4BA),Tue,1814
+published,shoulder,House (6BR/4BA),Wed,1838
+published,shoulder,House (6BR/4BA),Thu,2245
+published,shoulder,House (6BR/4BA),Fri,2389
+published,shoulder,House (6BR/4BA),Sat,2397
+published,shoulder,House (6BR/4BA),Sun,1933
+published,shoulder,Suite BIG (1BR/1BA),Mon,428
+published,shoulder,Suite BIG (1BR/1BA),Tue,442
+published,shoulder,Suite BIG (1BR/1BA),Wed,455
+published,shoulder,Suite BIG (1BR/1BA),Thu,546
+published,shoulder,Suite BIG (1BR/1BA),Fri,581
+published,shoulder,Suite BIG (1BR/1BA),Sat,569
+published,shoulder,Suite BIG (1BR/1BA),Sun,466
+published,shoulder,Suite SMALL (1BR/1BA),Mon,308
+published,shoulder,Suite SMALL (1BR/1BA),Tue,324
+published,shoulder,Suite SMALL (1BR/1BA),Wed,330
+published,shoulder,Suite SMALL (1BR/1BA),Thu,406
+published,shoulder,Suite SMALL (1BR/1BA),Fri,442
+published,shoulder,Suite SMALL (1BR/1BA),Sat,429
+published,shoulder,Suite SMALL (1BR/1BA),Sun,348
+published,shoulder,Deluxe Villa (2BR/1BA),Mon,526
+published,shoulder,Deluxe Villa (2BR/1BA),Tue,538
+published,shoulder,Deluxe Villa (2BR/1BA),Wed,550
+published,shoulder,Deluxe Villa (2BR/1BA),Thu,665
+published,shoulder,Deluxe Villa (2BR/1BA),Fri,716
+published,shoulder,Deluxe Villa (2BR/1BA),Sat,695
+published,shoulder,Deluxe Villa (2BR/1BA),Sun,565
+published,shoulder,Premium Villa (2BR/2BA),Mon,655
+published,shoulder,Premium Villa (2BR/2BA),Tue,674
+published,shoulder,Premium Villa (2BR/2BA),Wed,696
+published,shoulder,Premium Villa (2BR/2BA),Thu,831
+published,shoulder,Premium Villa (2BR/2BA),Fri,908
+published,shoulder,Premium Villa (2BR/2BA),Sat,866
+published,shoulder,Premium Villa (2BR/2BA),Sun,718
+published,shoulder,Villa Game (2BR/2BA),Mon,742
+published,shoulder,Villa Game (2BR/2BA),Tue,760
+published,shoulder,Villa Game (2BR/2BA),Wed,772
+published,shoulder,Villa Game (2BR/2BA),Thu,927
+published,shoulder,Villa Game (2BR/2BA),Fri,1012
+published,shoulder,Villa Game (2BR/2BA),Sat,966
+published,shoulder,Villa Game (2BR/2BA),Sun,802
+published,shoulder,J.MT. Villa (3BR/2BA),Mon,1108
+published,shoulder,J.MT. Villa (3BR/2BA),Tue,1148
+published,shoulder,J.MT. Villa (3BR/2BA),Wed,1164
+published,shoulder,J.MT. Villa (3BR/2BA),Thu,1379
+published,shoulder,J.MT. Villa (3BR/2BA),Fri,1459
+published,shoulder,J.MT. Villa (3BR/2BA),Sat,1453
+published,shoulder,J.MT. Villa (3BR/2BA),Sun,1223
+published,shoulder,Premier Villa (3BR/3BA),Mon,1147
+published,shoulder,Premier Villa (3BR/3BA),Tue,1202
+published,shoulder,Premier Villa (3BR/3BA),Wed,1206
+published,shoulder,Premier Villa (3BR/3BA),Thu,1447
+published,shoulder,Premier Villa (3BR/3BA),Fri,1550
+published,shoulder,Premier Villa (3BR/3BA),Sat,1508
+published,shoulder,Premier Villa (3BR/3BA),Sun,1268

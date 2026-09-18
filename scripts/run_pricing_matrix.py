@@ -12,6 +12,7 @@ if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.pricing_matrix import (
+    DEFAULT_TIER_MONTH_BLEND_WEIGHT,
     apply_within_tier_median_rates,
     build_pricing_matrix,
     build_tiered_pricing_matrix,
@@ -177,11 +178,23 @@ def main() -> None:
             f"({len(listing_factor_override)} unit_ids)."
         )
 
+    tier_month_blend_weight = pricing_cfg.get("tier_month_blend_weight")
+    if tier_month_blend_weight is not None:
+        try:
+            tier_month_blend_weight = float(tier_month_blend_weight)
+        except (TypeError, ValueError):
+            tier_month_blend_weight = None
+    if tier_month_blend_weight is not None:
+        print(f"Using pricing.tier_month_blend_weight override: {tier_month_blend_weight}")
+    else:
+        print(f"Using default tier_month_blend_weight: {DEFAULT_TIER_MONTH_BLEND_WEIGHT}")
+
     listing_pricing_df = build_pricing_matrix(
         analysis_dir,
         dow_hierarchy=dow_hierarchy,
         month_score_by_index=month_score_by_index,
         listing_factor_by_unit=listing_factor_override,
+        tier_month_blend_weight=tier_month_blend_weight,
     )
     if pricing_cfg.get("listing_price_hierarchy"):
         listing_pricing_df = apply_within_tier_median_rates(

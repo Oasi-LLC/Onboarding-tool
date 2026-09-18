@@ -1,0 +1,80 @@
+property_id: spoon_mountain
+property_name: Spoon Mountain
+pms_id: ownerrez
+room_count: 3
+
+# Same master "Dashboard revenue reporting" spreadsheet Historical Snapshot
+# syncs from (Historical Snapshot itself doesn't sync this property — Spoon
+# Mountain is Onboarding-EDA-only — but the tab lives in the same spreadsheet).
+data_source:
+  type: google_sheets
+  tab: "SpoonMount_data"
+
+analysis_window:
+  start_date: "2024-01-01"
+  end_date: "2025-12-31"
+
+room_types:
+  - unit_id: "Kingfisher"
+    listing_start_date: "2024-01-01"
+  - unit_id: "Shaka"
+    listing_start_date: "2024-01-01"
+  - unit_id: "Chisum"
+    listing_start_date: "2024-01-01"
+
+tiering:
+  method: "gap_detection"
+  use_tiers_as_seasons: true
+  require_listing_start_dates: true
+  gap_score_basis: "revpar_zscore"
+  smoothing_window_days: 14
+  gap_threshold_pct: 6
+  gap_threshold_zscore: 0.6
+  min_tiers: 2
+  max_tiers: 10
+  quantile_fallback_tiers: 5
+  min_days_per_tier: 14
+  min_active_months_for_portfolio: 6
+  tier_label_map:
+    1: "Soft"
+    2: "Low"
+    3: "Shoulder Low"
+    4: "Shoulder High"
+    5: "High"
+    6: "Peak"
+
+# Score-mode pricing matrix (run_pricing_matrix.py).
+# Derived from output/spoon_mountain/analysis/by_day_of_week.csv and monthly_performance_combined.csv.
+pricing:
+  mode: score
+
+  # Day-of-week ladder (weak → strong): Mon=Tue=Wed < Thu=Sun < Fri=Sat
+  dow_hierarchy:
+    - ["Monday", "Tuesday", "Wednesday"]
+    - ["Thursday", "Sunday"]
+    - ["Friday", "Saturday"]
+
+  # Month strength 1–10 (weak → strong), 2024–2025 portfolio performance_score_1_10
+  month_score_by_index:
+    1: 1    # January
+    2: 2    # February
+    3: 3    # March
+    4: 6    # April
+    5: 6    # May
+    6: 9    # June
+    7: 10   # July — peak
+    8: 8    # August
+    9: 4    # September
+    10: 7   # October
+    11: 8   # November
+    12: 3   # December
+
+  # Same nightly rates for all listings (single tier, equal listing_factor).
+  listing_price_hierarchy:
+    tiers:
+      - order: 1
+        id: all_listings
+        unit_ids:
+          - "Kingfisher"
+          - "Shaka"
+          - "Chisum"

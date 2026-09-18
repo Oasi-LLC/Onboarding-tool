@@ -112,47 +112,47 @@
       "check": "row_count",
       "severity": "info",
       "passed": true,
-      "message": "Total rows: 6047",
-      "count": 6047
+      "message": "Total rows: 6862",
+      "count": 6862
     },
     {
       "check": "date_range",
       "severity": null,
       "passed": true,
-      "message": "Arrival range: 2023-01-11 00:00:00 to 2027-06-16 00:00:00 (~53.1 months)",
+      "message": "Arrival range: 2023-01-11 00:00:00 to 2027-10-04 00:00:00 (~56.7 months)",
       "detail": {
         "min_arrival": "2023-01-11 00:00:00",
-        "max_arrival": "2027-06-16 00:00:00",
-        "months_approx": 53.1
+        "max_arrival": "2027-10-04 00:00:00",
+        "months_approx": 56.7
       }
     },
     {
       "check": "revenue_coverage",
       "severity": null,
       "passed": true,
-      "message": "Rows with revenue 0 or null: 6 (0.1%)",
-      "count": 6
+      "message": "Rows with revenue 0 or null: 5 (0.1%)",
+      "count": 5
     },
     {
       "check": "channel_mix",
       "severity": null,
       "passed": true,
-      "message": "Rows with channel 'Other': 255 (4.2%)",
+      "message": "Rows with channel 'Other': 255 (3.7%)",
       "count": 255
     },
     {
       "check": "null_amount_paid",
       "severity": "info",
       "passed": true,
-      "message": "Rows with null amount_paid: 1",
-      "count": 1
+      "message": "Rows with null amount_paid: 0",
+      "count": 0
     }
   ],
   "summary": {
     "can_continue": false,
     "error_count": 1,
     "warning_count": 1,
-    "total_rows": 6047,
+    "total_rows": 6862,
     "message": "Validation complete. Do not run analysis."
   }
 }

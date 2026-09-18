@@ -532,23 +532,38 @@ def main():
                             unit_to_submarket[str(uid)] = subm
                     if "unit_id" in df_season.columns:
                         df_season["submarket"] = df_season["unit_id"].astype(str).map(unit_to_submarket).fillna("Unmapped")
-                    grouped = (
-                        df_season.groupby("submarket", as_index=False)
-                        .agg(
-                            season_revenue=("season_revenue", "sum"),
-                            season_room_nights=("season_room_nights", "sum"),
-                            season_bookings=("season_bookings", "sum"),
-                        )
+                    has_days = "season_days" in df_season.columns
+                    agg_kwargs = dict(
+                        season_revenue=("season_revenue", "sum"),
+                        season_room_nights=("season_room_nights", "sum"),
+                        season_bookings=("season_bookings", "sum"),
                     )
+                    if has_days:
+                        agg_kwargs["season_days"] = ("season_days", "sum")
+                    grouped = df_season.groupby("submarket", as_index=False).agg(**agg_kwargs)
                     grouped["season_adr"] = grouped["season_revenue"] / grouped["season_room_nights"]
                     grouped.loc[grouped["season_room_nights"] == 0, "season_adr"] = None
+                    # Match the documented 70% revenue / 30% RevPAR formula used everywhere else
+                    # (listing-level season_score_1_10, docs/07 Table 7). RevPAR here is
+                    # submarket revenue / submarket active-days, same construction as the
+                    # per-listing season_revpar it's aggregated from — not ADR, which double-counts
+                    # occupancy and doesn't match the rest of the tool's scoring convention.
+                    if has_days:
+                        grouped["season_revpar"] = grouped["season_revenue"] / grouped["season_days"]
+                        grouped.loc[grouped["season_days"] == 0, "season_revpar"] = None
+                    else:
+                        grouped["season_revpar"] = None
                     n = len(grouped)
                     if n > 1:
                         rev_rank = grouped["season_revenue"].rank(method="min", ascending=True)
-                        adr_rank = grouped["season_adr"].rank(method="min", ascending=True)
+                        if has_days and grouped["season_revpar"].notna().any():
+                            revpar_rank = grouped["season_revpar"].rank(method="min", ascending=True)
+                        else:
+                            # Fallback if season_days isn't available (older analysis output): ADR
+                            revpar_rank = grouped["season_adr"].rank(method="min", ascending=True)
                         s_rev = (rev_rank - 1) / (n - 1)
-                        s_adr = (adr_rank - 1) / (n - 1)
-                        s_combined = 0.7 * s_rev + 0.3 * s_adr
+                        s_revpar = (revpar_rank - 1) / (n - 1)
+                        s_combined = 0.7 * s_rev + 0.3 * s_revpar
                         grouped["season_score_1_10"] = 1 + 9 * s_combined
                     else:
                         grouped["season_score_1_10"] = 5.0
@@ -1590,7 +1605,15 @@ def main():
                     f"**Event multipliers for selected range ({start_date} to {end_date})** "
                     "(editable for this session, ordered by date):"
                 )
+                st.caption(
+                    "⚠️ Edits here are **session-only** — they are not saved back to the property "
+                    "config, so `run_pricing_sheet.py` (the batch script) will keep using the saved "
+                    "config values regardless of what you enter below. The multiplier actually used "
+                    "for each date is recorded in the exported CSV's `multiplier_applied` column, and "
+                    "any value that differs from the saved config default is flagged below and in the export."
+                )
                 event_rows = []
+                overridden = []
                 for idx, evt in enumerate(events):
                     name = evt.get("name", f"Event {idx+1}")
                     s = evt.get("start_date", "")
@@ -1605,6 +1628,8 @@ def main():
                         value=default_mult,
                         key=f"evt_{idx}_{name}_{s}_{e}",
                     )
+                    if abs(new_mult - default_mult) > 1e-9:
+                        overridden.append((name, default_mult, new_mult))
                     event_rows.append(
                         {
                             "name": name,
@@ -1612,6 +1637,17 @@ def main():
                             "end_date": e,
                             "multiplier": new_mult,
                         }
+                    )
+                if overridden:
+                    lines = "\n".join(
+                        f"- **{n}**: config default {d:.2f} → using {v:.2f} this session"
+                        for n, d, v in overridden
+                    )
+                    st.warning(
+                        "You've changed multiplier(s) away from the saved property config:\n\n"
+                        + lines
+                        + "\n\nThe batch pipeline (`run_pricing_sheet.py`) will still use the config "
+                        "defaults for these events unless someone updates the property YAML."
                     )
 
             generate = st.button("Generate pricing sheet")
@@ -1679,21 +1715,30 @@ def main():
                                 except (TypeError, ValueError):
                                     pass
                         row["notes"] = evt.get("name", "")
+                        row["multiplier_applied"] = float(m)
                     else:
                         row["notes"] = ""
+                        row["multiplier_applied"] = 1.0
                     rows.append(row)
 
                 sheet_df = pd.DataFrame(rows)
                 st.success(f"Generated pricing sheet with {len(sheet_df)} days.")
+                if overridden:
+                    st.warning(
+                        f"This export used {len(overridden)} session-edited multiplier(s) that differ "
+                        "from the saved property config — see `multiplier_applied` in the table/CSV "
+                        "for exactly what was used on each date."
+                    )
                 st.dataframe(sheet_df, use_container_width=True, hide_index=True)
 
                 # Download button
                 csv_buf = StringIO()
                 sheet_df.to_csv(csv_buf, index=False)
+                edited_suffix = "_edited-multipliers" if overridden else ""
                 st.download_button(
                     "Download pricing sheet as CSV",
                     data=csv_buf.getvalue(),
-                    file_name=f"pricing_sheet_{start_date.isoformat()}_{end_date.isoformat()}.csv",
+                    file_name=f"pricing_sheet_{start_date.isoformat()}_{end_date.isoformat()}{edited_suffix}.csv",
                     mime="text/csv",
                 )
 

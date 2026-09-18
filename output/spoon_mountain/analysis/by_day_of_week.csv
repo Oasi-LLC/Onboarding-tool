@@ -1,0 +1,8 @@
+day_of_week,revenue,room_nights,check_ins,share_of_check_ins_pct,share_of_revenue_pct,share_of_room_nights_pct,adr,dow_score_1_10,dow_history_days,dow_rank_provisional
+Monday,75131.5545,190,101,15.1,11.02,13.67,395.43,4.6,732,False
+Tuesday,70678.55883333333,181,64,9.57,10.37,13.02,390.49,2.5,732,False
+Wednesday,69452.96716666667,176,76,11.36,10.19,12.66,394.62,1.9,732,False
+Thursday,80133.47283333333,169,87,13.0,11.76,12.16,474.16,5.2,732,False
+Friday,149347.62233333333,243,174,26.01,21.91,17.48,614.6,9.100000000000001,732,False
+Saturday,154491.51733333332,252,58,8.67,22.66,18.13,613.06,9.4,732,False
+Sunday,82419.217,179,109,16.29,12.09,12.88,460.44,5.8,732,False

@@ -6,6 +6,24 @@ property_name: LaFave Zion
 pms_id: resnexus   # links to config/pms/resnexus_mapping.yaml for ingestion
 room_count: 32
 
+# Same master "Dashboard revenue reporting" spreadsheet Historical Snapshot syncs from.
+# `python scripts/run_ingestion.py --property lafave_zion --from-sheets` pulls these tabs
+# instead of requiring a manually-downloaded CSV in data/LAFAVE ZION/.
+#
+# Lafave_data is the raw 11-column ResNexus export -- no Listing Name or
+# Channel columns. Lafave_data2 (Res# -> Unit) and Lafave_OTA_data
+# (Reservation -> Channel Name) are lookup-only helper tabs, joined in by
+# src/sheets_sync.py's lafave_zion shaper (same 3-tab join Historical
+# Snapshot's own sync already relies on for this property) into a single
+# ingestable output with Listing Name, Channel, and Grouping. Helper tabs
+# are not ingested on their own.
+data_source:
+  type: google_sheets
+  tabs:
+    - tab: "Lafave_data"
+    - tab: "Lafave_data2"
+    - tab: "Lafave_OTA_data"
+
 # Include all booked arrivals from Jan 2024 through the latest stay in canonical (for forward pricing).
 analysis_window:
   start_date: "2024-01-01"

@@ -80,17 +80,17 @@
       "check": "booking_before_arrival",
       "severity": "warning",
       "passed": false,
-      "message": "Rows with booking_date after arrival_date: 2",
-      "count": 2
+      "message": "Rows with booking_date after arrival_date: 1",
+      "count": 1
     }
   ],
   "row_checks": [
     {
       "check": "no_duplicate_key",
-      "severity": null,
-      "passed": true,
-      "message": "Rows with duplicate (reservation_id, unit_id, arrival_date): 0",
-      "count": 0
+      "severity": "warning",
+      "passed": false,
+      "message": "Rows with duplicate (reservation_id, unit_id, arrival_date): 104",
+      "count": 104
     },
     {
       "check": "nights_consistent",
@@ -112,18 +112,18 @@
       "check": "row_count",
       "severity": "info",
       "passed": true,
-      "message": "Total rows: 6501",
-      "count": 6501
+      "message": "Total rows: 8454",
+      "count": 8454
     },
     {
       "check": "date_range",
       "severity": null,
       "passed": true,
-      "message": "Arrival range: 2024-08-31 00:00:00 to 2026-12-05 00:00:00 (~27.1 months)",
+      "message": "Arrival range: 2024-08-01 00:00:00 to 2027-04-02 00:00:00 (~32.0 months)",
       "detail": {
-        "min_arrival": "2024-08-31 00:00:00",
-        "max_arrival": "2026-12-05 00:00:00",
-        "months_approx": 27.1
+        "min_arrival": "2024-08-01 00:00:00",
+        "max_arrival": "2027-04-02 00:00:00",
+        "months_approx": 32.0
       }
     },
     {
@@ -151,8 +151,8 @@
   "summary": {
     "can_continue": true,
     "error_count": 0,
-    "warning_count": 1,
-    "total_rows": 7197,
+    "warning_count": 2,
+    "total_rows": 8455,
     "message": "Validation complete. Review warnings before analysis."
   }
 }

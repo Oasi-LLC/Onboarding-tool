@@ -1,0 +1,4 @@
+unit_id,revenue,revenue_yoy_pct,room_nights,bookings,bookings_yoy_pct,adr,adr_yoy_pct,occupancy_pct,revpar
+Malvern,126678.76,26.77,312,101,38.89,406.02,-11.11,29.27,118.84
+Sunstrip,497317.03,-17.69,911,302,1.41,545.9,-11.21,85.46,466.53
+PROPERTY,623995.79,-10.64,1223,403,8.99,510.22,-13.72,57.36,292.68

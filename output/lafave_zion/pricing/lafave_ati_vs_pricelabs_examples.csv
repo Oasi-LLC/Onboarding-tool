@@ -1,0 +1,61 @@
+example_window,date,dow,unit_id,listing_group,season,ati_static_rate,pricelabs_override,gap_dollars,gap_pct
+Off (Jan 2027),2027-01-12,Tuesday,The Zion Suite,Suite SMALL (1BR/1BA),Off,225,380.0,-155.0,-0.4078947368421053
+Off (Jan 2027),2027-01-12,Tuesday,Checkerboard Mesa,Premium Villa (2BR/2BA),Off,575,322.0,253.0,0.7857142857142858
+Off (Jan 2027),2027-01-12,Tuesday,Emerald Pools,Villa Game (2BR/2BA),Off,600,396.0,204.0,0.5151515151515151
+Off (Jan 2027),2027-01-12,Tuesday,Angels Landing,Premier Villa (3BR/3BA),Off,675,517.0,158.0,0.3056092843326885
+Off (Jan 2027),2027-01-12,Tuesday,The Gallery House,House (6BR/4BA),Off,1250,1112.0,138.0,0.12410071942446033
+Off (Jan 2027),2027-01-15,Friday,The Zion Suite,Suite SMALL (1BR/1BA),Off,225,346.0,-121.0,-0.3497109826589595
+Off (Jan 2027),2027-01-15,Friday,Checkerboard Mesa,Premium Villa (2BR/2BA),Off,575,423.0,152.0,0.3593380614657211
+Off (Jan 2027),2027-01-15,Friday,Emerald Pools,Villa Game (2BR/2BA),Off,600,534.0,66.0,0.12359550561797761
+Off (Jan 2027),2027-01-15,Friday,Angels Landing,Premier Villa (3BR/3BA),Off,675,691.0,-16.0,-0.02315484804630974
+Off (Jan 2027),2027-01-15,Friday,The Gallery House,House (6BR/4BA),Off,1250,1443.0,-193.0,-0.13374913374913378
+Off (Jan 2027),2027-01-16,Saturday,The Zion Suite,Suite SMALL (1BR/1BA),Off,225,374.0,-149.0,-0.39839572192513373
+Off (Jan 2027),2027-01-16,Saturday,Checkerboard Mesa,Premium Villa (2BR/2BA),Off,575,455.0,120.0,0.2637362637362637
+Off (Jan 2027),2027-01-16,Saturday,Emerald Pools,Villa Game (2BR/2BA),Off,600,575.0,25.0,0.04347826086956519
+Off (Jan 2027),2027-01-16,Saturday,Angels Landing,Premier Villa (3BR/3BA),Off,675,752.0,-77.0,-0.10239361702127658
+Off (Jan 2027),2027-01-16,Saturday,The Gallery House,House (6BR/4BA),Off,1250,1550.0,-300.0,-0.19354838709677424
+Shoulder (Jul 2027),2027-07-13,Tuesday,The Zion Suite,Suite SMALL (1BR/1BA),Shoulder,325,328.0,-3.0,-0.009146341463414642
+Shoulder (Jul 2027),2027-07-13,Tuesday,Checkerboard Mesa,Premium Villa (2BR/2BA),Shoulder,600,707.0,-107.0,-0.15134370579915135
+Shoulder (Jul 2027),2027-07-13,Tuesday,Emerald Pools,Villa Game (2BR/2BA),Shoulder,625,785.0,-160.0,-0.20382165605095537
+Shoulder (Jul 2027),2027-07-13,Tuesday,Angels Landing,Premier Villa (3BR/3BA),Shoulder,825,1233.0,-408.0,-0.3309002433090025
+Shoulder (Jul 2027),2027-07-13,Tuesday,The Gallery House,House (6BR/4BA),Shoulder,1475,1833.0,-358.0,-0.19530823786142937
+Shoulder (Jul 2027),2027-07-16,Friday,The Zion Suite,Suite SMALL (1BR/1BA),Shoulder,325,418.0,-93.0,-0.22248803827751196
+Shoulder (Jul 2027),2027-07-16,Friday,Checkerboard Mesa,Premium Villa (2BR/2BA),Shoulder,600,875.0,-275.0,-0.3142857142857143
+Shoulder (Jul 2027),2027-07-16,Friday,Emerald Pools,Villa Game (2BR/2BA),Shoulder,625,969.0,-344.0,-0.3550051599587203
+Shoulder (Jul 2027),2027-07-16,Friday,Angels Landing,Premier Villa (3BR/3BA),Shoulder,825,1502.0,-677.0,-0.45073235685752333
+Shoulder (Jul 2027),2027-07-16,Friday,The Gallery House,House (6BR/4BA),Shoulder,1475,2333.0,-858.0,-0.367766823831976
+Shoulder (Jul 2027),2027-07-17,Saturday,The Zion Suite,Suite SMALL (1BR/1BA),Shoulder,325,437.0,-112.0,-0.25629290617848965
+Shoulder (Jul 2027),2027-07-17,Saturday,Checkerboard Mesa,Premium Villa (2BR/2BA),Shoulder,600,912.0,-312.0,-0.3421052631578947
+Shoulder (Jul 2027),2027-07-17,Saturday,Emerald Pools,Villa Game (2BR/2BA),Shoulder,625,1008.0,-383.0,-0.37996031746031744
+Shoulder (Jul 2027),2027-07-17,Saturday,Angels Landing,Premier Villa (3BR/3BA),Shoulder,825,1561.0,-736.0,-0.47149263292761046
+Shoulder (Jul 2027),2027-07-17,Saturday,The Gallery House,House (6BR/4BA),Shoulder,1475,2425.0,-950.0,-0.3917525773195877
+Spring Peak (May 2027),2027-05-11,Tuesday,The Zion Suite,Suite SMALL (1BR/1BA),Spring Peak,450,373.0,77.0,0.20643431635388731
+Spring Peak (May 2027),2027-05-11,Tuesday,Checkerboard Mesa,Premium Villa (2BR/2BA),Spring Peak,750,924.0,-174.0,-0.18831168831168832
+Spring Peak (May 2027),2027-05-11,Tuesday,Emerald Pools,Villa Game (2BR/2BA),Spring Peak,800,1027.0,-227.0,-0.22103213242453745
+Spring Peak (May 2027),2027-05-11,Tuesday,Angels Landing,Premier Villa (3BR/3BA),Spring Peak,1025,1626.0,-601.0,-0.36961869618696186
+Spring Peak (May 2027),2027-05-11,Tuesday,The Gallery House,House (6BR/4BA),Spring Peak,1500,2447.0,-947.0,-0.38700449530036785
+Spring Peak (May 2027),2027-05-14,Friday,The Zion Suite,Suite SMALL (1BR/1BA),Spring Peak,450,554.0,-104.0,-0.18772563176895307
+Spring Peak (May 2027),2027-05-14,Friday,Checkerboard Mesa,Premium Villa (2BR/2BA),Spring Peak,750,1112.0,-362.0,-0.3255395683453237
+Spring Peak (May 2027),2027-05-14,Friday,Emerald Pools,Villa Game (2BR/2BA),Spring Peak,800,1230.0,-430.0,-0.34959349593495936
+Spring Peak (May 2027),2027-05-14,Friday,Angels Landing,Premier Villa (3BR/3BA),Spring Peak,1025,1925.0,-900.0,-0.4675324675324676
+Spring Peak (May 2027),2027-05-14,Friday,The Gallery House,House (6BR/4BA),Spring Peak,1500,3028.0,-1528.0,-0.5046235138705416
+Spring Peak (May 2027),2027-05-15,Saturday,The Zion Suite,Suite SMALL (1BR/1BA),Spring Peak,450,580.0,-130.0,-0.22413793103448276
+Spring Peak (May 2027),2027-05-15,Saturday,Checkerboard Mesa,Premium Villa (2BR/2BA),Spring Peak,750,1157.0,-407.0,-0.35177182368193605
+Spring Peak (May 2027),2027-05-15,Saturday,Emerald Pools,Villa Game (2BR/2BA),Spring Peak,800,1277.0,-477.0,-0.37353171495693027
+Spring Peak (May 2027),2027-05-15,Saturday,Angels Landing,Premier Villa (3BR/3BA),Spring Peak,1025,1996.0,-971.0,-0.4864729458917836
+Spring Peak (May 2027),2027-05-15,Saturday,The Gallery House,House (6BR/4BA),Spring Peak,1500,3128.0,-1628.0,-0.520460358056266
+Fall Peak (Sep 2027),2027-09-08,Wednesday,The Zion Suite,Suite SMALL (1BR/1BA),Fall Peak,475,504.0,-29.0,-0.05753968253968256
+Fall Peak (Sep 2027),2027-09-08,Wednesday,Checkerboard Mesa,Premium Villa (2BR/2BA),Fall Peak,875,981.0,-106.0,-0.10805300713557597
+Fall Peak (Sep 2027),2027-09-08,Wednesday,Emerald Pools,Villa Game (2BR/2BA),Fall Peak,900,1084.0,-184.0,-0.1697416974169742
+Fall Peak (Sep 2027),2027-09-08,Wednesday,Angels Landing,Premier Villa (3BR/3BA),Fall Peak,1100,1656.0,-556.0,-0.33574879227053145
+Fall Peak (Sep 2027),2027-09-08,Wednesday,The Gallery House,House (6BR/4BA),Fall Peak,1525,2462.0,-937.0,-0.38058489033306253
+Fall Peak (Sep 2027),2027-09-10,Friday,The Zion Suite,Suite SMALL (1BR/1BA),Fall Peak,475,595.0,-120.0,-0.2016806722689075
+Fall Peak (Sep 2027),2027-09-10,Friday,Checkerboard Mesa,Premium Villa (2BR/2BA),Fall Peak,875,1140.0,-265.0,-0.23245614035087714
+Fall Peak (Sep 2027),2027-09-10,Friday,Emerald Pools,Villa Game (2BR/2BA),Fall Peak,900,1258.0,-358.0,-0.28457869634340227
+Fall Peak (Sep 2027),2027-09-10,Friday,Angels Landing,Premier Villa (3BR/3BA),Fall Peak,1100,1906.0,-806.0,-0.42287513116474296
+Fall Peak (Sep 2027),2027-09-10,Friday,The Gallery House,House (6BR/4BA),Fall Peak,1525,2961.0,-1436.0,-0.4849712934819318
+Fall Peak (Sep 2027),2027-09-11,Saturday,The Zion Suite,Suite SMALL (1BR/1BA),Fall Peak,475,619.0,-144.0,-0.23263327948303714
+Fall Peak (Sep 2027),2027-09-11,Saturday,Checkerboard Mesa,Premium Villa (2BR/2BA),Fall Peak,875,1182.0,-307.0,-0.25972927241962773
+Fall Peak (Sep 2027),2027-09-11,Saturday,Emerald Pools,Villa Game (2BR/2BA),Fall Peak,900,1304.0,-404.0,-0.3098159509202454
+Fall Peak (Sep 2027),2027-09-11,Saturday,Angels Landing,Premier Villa (3BR/3BA),Fall Peak,1100,1971.0,-871.0,-0.4419076610857433
+Fall Peak (Sep 2027),2027-09-11,Saturday,The Gallery House,House (6BR/4BA),Fall Peak,1525,3065.0,-1540.0,-0.5024469820554649

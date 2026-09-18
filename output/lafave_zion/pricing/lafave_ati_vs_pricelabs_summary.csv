@@ -1,0 +1,33 @@
+season,listing_group,ati_static_rate,pl_median_daily,pl_mean_daily,gap_static_vs_median,gap_pct
+Off,Suite SMALL (1BR/1BA),225,311,308,-86,-0.2765
+Off,Suite BIG (1BR/1BA),275,314,324,-39,-0.1242
+Off,Deluxe Villa (2BR/1BA),550,360,377,190,0.5278
+Off,Premium Villa (2BR/2BA),575,405,415,170,0.4198
+Off,Villa Game (2BR/2BA),600,484,516,116,0.2384
+Off,J.MT. Villa (3BR/2BA),650,690,698,-40,-0.0587
+Off,Premier Villa (3BR/3BA),675,667,699,8,0.012
+Off,House (6BR/4BA),1250,1262,1356,-12,-0.0095
+Shoulder,Suite SMALL (1BR/1BA),325,345,360,-20,-0.058
+Shoulder,Suite BIG (1BR/1BA),375,466,481,-91,-0.1953
+Shoulder,Deluxe Villa (2BR/1BA),575,565,579,10,0.0177
+Shoulder,Premium Villa (2BR/2BA),600,714,738,-114,-0.1591
+Shoulder,Villa Game (2BR/2BA),625,798,829,-173,-0.2168
+Shoulder,J.MT. Villa (3BR/2BA),825,1207,1247,-382,-0.3165
+Shoulder,Premier Villa (3BR/3BA),875,1258,1299,-383,-0.3045
+Shoulder,House (6BR/4BA),1525,1904,2023,-379,-0.1991
+Spring Peak,Suite SMALL (1BR/1BA),450,504,510,-54,-0.1063
+Spring Peak,Suite BIG (1BR/1BA),500,647,649,-147,-0.2272
+Spring Peak,Deluxe Villa (2BR/1BA),675,821,819,-146,-0.1778
+Spring Peak,Premium Villa (2BR/2BA),750,1042,1031,-292,-0.2799
+Spring Peak,Villa Game (2BR/2BA),825,1201,1193,-376,-0.3131
+Spring Peak,J.MT. Villa (3BR/2BA),1225,1610,1659,-386,-0.2394
+Spring Peak,Premier Villa (3BR/3BA),1300,1679,1700,-379,-0.2257
+Spring Peak,House (6BR/4BA),2125,2523,2611,-398,-0.1577
+Fall Peak,Suite SMALL (1BR/1BA),475,516,544,-41,-0.0795
+Fall Peak,Suite BIG (1BR/1BA),550,748,743,-198,-0.2647
+Fall Peak,Deluxe Villa (2BR/1BA),700,929,916,-229,-0.2465
+Fall Peak,Premium Villa (2BR/2BA),875,1082,1043,-207,-0.1913
+Fall Peak,Villa Game (2BR/2BA),900,1212,1175,-312,-0.2574
+Fall Peak,J.MT. Villa (3BR/2BA),1300,1692,1730,-392,-0.2317
+Fall Peak,Premier Villa (3BR/3BA),1375,1766,1795,-391,-0.2214
+Fall Peak,House (6BR/4BA),2250,2627,2743,-377,-0.1435

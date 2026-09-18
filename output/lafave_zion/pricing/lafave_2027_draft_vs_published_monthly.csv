@@ -1,0 +1,97 @@
+listing_group,month_index,month_name,draft_base,published,diff,diff_pct
+Deluxe Villa (2BR/1BA),1,Jan,389.0,309,-80.0,-20.6
+Deluxe Villa (2BR/1BA),2,Feb,442.0,309,-133.0,-30.1
+Deluxe Villa (2BR/1BA),3,Mar,630.0,724,94.0,14.9
+Deluxe Villa (2BR/1BA),4,Apr,692.0,831,139.0,20.1
+Deluxe Villa (2BR/1BA),5,May,728.0,680,-48.0,-6.6
+Deluxe Villa (2BR/1BA),6,Jun,703.0,787,84.0,11.9
+Deluxe Villa (2BR/1BA),7,Jul,573.0,624,51.0,8.9
+Deluxe Villa (2BR/1BA),8,Aug,579.0,552,-27.0,-4.7
+Deluxe Villa (2BR/1BA),9,Sep,648.0,960,312.0,48.1
+Deluxe Villa (2BR/1BA),10,Oct,672.0,848,176.0,26.2
+Deluxe Villa (2BR/1BA),11,Nov,523.0,492,-31.0,-5.9
+Deluxe Villa (2BR/1BA),12,Dec,337.0,374,37.0,11.0
+House (6BR/4BA),1,Jan,1079.0,1262,183.0,17.0
+House (6BR/4BA),2,Feb,1294.0,1333,39.0,3.0
+House (6BR/4BA),3,Mar,1509.0,2552,1043.0,69.1
+House (6BR/4BA),4,Apr,1760.0,2384,624.0,35.5
+House (6BR/4BA),5,May,1844.0,2411,567.0,30.7
+House (6BR/4BA),6,Jun,1760.0,2270,510.0,29.0
+House (6BR/4BA),7,Jul,1395.0,2040,645.0,46.2
+House (6BR/4BA),8,Aug,1509.0,1858,349.0,23.1
+House (6BR/4BA),9,Sep,1658.0,2865,1207.0,72.8
+House (6BR/4BA),10,Oct,1658.0,2510,852.0,51.4
+House (6BR/4BA),11,Nov,1395.0,1766,371.0,26.6
+House (6BR/4BA),12,Dec,868.0,1292,424.0,48.8
+J.MT. Villa (3BR/2BA),1,Jan,651.0,628,-23.0,-3.5
+J.MT. Villa (3BR/2BA),2,Feb,651.0,588,-63.0,-9.7
+J.MT. Villa (3BR/2BA),3,Mar,1013.0,1568,555.0,54.8
+J.MT. Villa (3BR/2BA),4,Apr,1105.0,1669,564.0,51.0
+J.MT. Villa (3BR/2BA),5,May,1159.0,1445,286.0,24.7
+J.MT. Villa (3BR/2BA),6,Jun,1122.0,1580,458.0,40.8
+J.MT. Villa (3BR/2BA),7,Jul,930.0,1306,376.0,40.4
+J.MT. Villa (3BR/2BA),8,Aug,945.0,1177,232.0,24.6
+J.MT. Villa (3BR/2BA),9,Sep,1040.0,1824,784.0,75.4
+J.MT. Villa (3BR/2BA),10,Oct,1076.0,1619,543.0,50.5
+J.MT. Villa (3BR/2BA),11,Nov,871.0,1120,249.0,28.6
+J.MT. Villa (3BR/2BA),12,Dec,506.0,804,298.0,58.9
+Premier Villa (3BR/3BA),1,Jan,637.0,594,-43.0,-6.8
+Premier Villa (3BR/3BA),2,Feb,726.0,578,-148.0,-20.4
+Premier Villa (3BR/3BA),3,Mar,1101.0,1590,489.0,44.4
+Premier Villa (3BR/3BA),4,Apr,1211.0,1702,491.0,40.5
+Premier Villa (3BR/3BA),5,May,1284.0,1512,228.0,17.8
+Premier Villa (3BR/3BA),6,Jun,1242.0,1686,444.0,35.7
+Premier Villa (3BR/3BA),7,Jul,1033.0,1390,357.0,34.6
+Premier Villa (3BR/3BA),8,Aug,1045.0,1207,162.0,15.5
+Premier Villa (3BR/3BA),9,Sep,1147.0,1854,707.0,61.6
+Premier Villa (3BR/3BA),10,Oct,1192.0,1716,524.0,44.0
+Premier Villa (3BR/3BA),11,Nov,969.0,1174,205.0,21.2
+Premier Villa (3BR/3BA),12,Dec,571.0,842,271.0,47.5
+Premium Villa (2BR/2BA),1,Jan,471.0,339,-132.0,-28.0
+Premium Villa (2BR/2BA),2,Feb,526.0,338,-188.0,-35.7
+Premium Villa (2BR/2BA),3,Mar,778.0,910,132.0,17.0
+Premium Villa (2BR/2BA),4,Apr,851.0,1049,198.0,23.3
+Premium Villa (2BR/2BA),5,May,895.0,853,-42.0,-4.7
+Premium Villa (2BR/2BA),6,Jun,865.0,978,113.0,13.1
+Premium Villa (2BR/2BA),7,Jul,710.0,794,84.0,11.8
+Premium Villa (2BR/2BA),8,Aug,720.0,693,-27.0,-3.7
+Premium Villa (2BR/2BA),9,Sep,798.0,1082,284.0,35.6
+Premium Villa (2BR/2BA),10,Oct,827.0,981,154.0,18.6
+Premium Villa (2BR/2BA),11,Nov,663.0,660,-3.0,-0.5
+Premium Villa (2BR/2BA),12,Dec,416.0,480,64.0,15.4
+Suite BIG (1BR/1BA),1,Jan,360.0,291,-69.0,-19.2
+Suite BIG (1BR/1BA),2,Feb,360.0,284,-76.0,-21.1
+Suite BIG (1BR/1BA),3,Mar,498.0,568,70.0,14.1
+Suite BIG (1BR/1BA),4,Apr,547.0,651,104.0,19.0
+Suite BIG (1BR/1BA),5,May,575.0,558,-17.0,-3.0
+Suite BIG (1BR/1BA),6,Jun,555.0,604,49.0,8.8
+Suite BIG (1BR/1BA),7,Jul,454.0,509,55.0,12.1
+Suite BIG (1BR/1BA),8,Aug,461.0,458,-3.0,-0.7
+Suite BIG (1BR/1BA),9,Sep,512.0,775,263.0,51.4
+Suite BIG (1BR/1BA),10,Oct,531.0,695,164.0,30.9
+Suite BIG (1BR/1BA),11,Nov,423.0,434,11.0,2.6
+Suite BIG (1BR/1BA),12,Dec,266.0,308,42.0,15.8
+Suite SMALL (1BR/1BA),1,Jan,285.0,272,-13.0,-4.6
+Suite SMALL (1BR/1BA),2,Feb,285.0,274,-11.0,-3.9
+Suite SMALL (1BR/1BA),3,Mar,406.0,439,33.0,8.1
+Suite SMALL (1BR/1BA),4,Apr,448.0,518,70.0,15.6
+Suite SMALL (1BR/1BA),5,May,474.0,441,-33.0,-7.0
+Suite SMALL (1BR/1BA),6,Jun,457.0,472,15.0,3.3
+Suite SMALL (1BR/1BA),7,Jul,368.0,384,16.0,4.3
+Suite SMALL (1BR/1BA),8,Aug,375.0,332,-43.0,-11.5
+Suite SMALL (1BR/1BA),9,Sep,419.0,516,97.0,23.2
+Suite SMALL (1BR/1BA),10,Oct,435.0,516,81.0,18.6
+Suite SMALL (1BR/1BA),11,Nov,341.0,312,-29.0,-8.5
+Suite SMALL (1BR/1BA),12,Dec,215.0,290,75.0,34.9
+Villa Game (2BR/2BA),1,Jan,513.0,450,-63.0,-12.3
+Villa Game (2BR/2BA),2,Feb,527.0,448,-79.0,-15.0
+Villa Game (2BR/2BA),3,Mar,860.0,1068,208.0,24.2
+Villa Game (2BR/2BA),4,Apr,940.0,1202,262.0,27.9
+Villa Game (2BR/2BA),5,May,987.0,993,6.0,0.6
+Villa Game (2BR/2BA),6,Jun,954.0,1104,150.0,15.7
+Villa Game (2BR/2BA),7,Jul,786.0,886,100.0,12.7
+Villa Game (2BR/2BA),8,Aug,799.0,782,-17.0,-2.1
+Villa Game (2BR/2BA),9,Sep,882.0,1212,330.0,37.4
+Villa Game (2BR/2BA),10,Oct,914.0,1109,195.0,21.3
+Villa Game (2BR/2BA),11,Nov,734.0,744,10.0,1.4
+Villa Game (2BR/2BA),12,Dec,465.0,534,69.0,14.8

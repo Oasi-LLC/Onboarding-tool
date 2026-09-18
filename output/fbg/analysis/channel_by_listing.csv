@@ -1,89 +1,97 @@
 unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
-Spyglass,Airbnb,29,16308.0,39,6.95,11.79,418.15
-Lantana Dome,Airbnb,25,17216.0,41,9.91,10.37,419.9
-Monarch,Airbnb,38,30639.0,62,12.57,15.77,494.18
-Buckeye Bungalow,Airbnb,22,16547.0,35,11.71,11.4,472.77
-Sage Safari,Airbnb,27,20034.0,43,9.58,10.63,465.91
-Cedar Haus,Airbnb,53,20108.0,74,21.99,27.6,271.73
-Live Oak Lodge,Airbnb,23,18910.0,35,7.46,9.66,540.29
-Juniper Haus,Airbnb,44,15381.0,61,21.87,30.14,252.15
-Walnut House,Airbnb,31,18711.0,47,8.98,13.48,398.11
-Cocoon,Airbnb,5,2169.0,8,2.24,3.6,271.12
-Bluebonnet,Airbnb,4,1663.0,6,1.42,2.29,277.17
-Great Lodge: King Room,Airbnb,48,37659.0,88,12.41,9.54,427.94
-Pecan Haus,Airbnb,5,2753.0,8,3.42,3.55,344.12
-Post Oak,Airbnb,2,592.0,2,0.61,1.28,296.0
-Cypress Lodge | Sleeps 6,Airbnb,4,3906.0,7,5.2,5.56,558.0
-Spiral,Airbnb,6,4381.0,8,3.75,4.32,547.62
-Winecup,Airbnb,7,4889.0,10,4.25,4.49,488.9
-Quonset,Airbnb,10,7998.0,17,5.75,5.08,470.47
-Cypress Lodge | Sleeps 2,Airbnb,6,2956.0,9,2.57,3.17,328.44
-Cypress Lodge | Sleeps 4,Airbnb,8,6087.0,12,6.86,7.27,507.25
-Great Lodge,Airbnb,5,30410.0,11,69.77,62.5,2764.55
-Monolith,Airbnb,12,9941.0,20,2.67,3.67,497.05
-Diamond,Airbnb,19,20040.0,38,6.24,5.41,527.37
-Cedar Haus,Booking.com,4,1495.0,5,1.63,2.08,299.0
-Spyglass,Booking.com,4,4906.0,6,2.09,1.63,817.67
-Walnut House,Booking.com,2,1906.0,3,0.92,0.87,635.33
-Pecan Haus,Booking.com,1,261.0,1,0.32,0.71,261.0
-Live Oak Lodge,Booking.com,3,1408.0,3,0.56,1.26,469.33
-Lantana Dome,Booking.com,3,2060.0,6,1.19,1.24,343.33
-Cypress Lodge | Sleeps 2,Booking.com,8,7297.0,15,6.35,4.23,486.47
-Great Lodge: King Room,Booking.com,19,11037.0,27,3.64,3.78,408.78
-Spiral,Booking.com,2,1339.0,2,1.14,1.44,669.5
-Buckeye Bungalow,Booking.com,1,582.0,1,0.41,0.52,582.0
-Quonset,Booking.com,2,1835.0,3,1.32,1.02,611.67
-Bluebonnet,Booking.com,2,1973.0,3,1.69,1.14,657.67
-Post Oak,Booking.com,3,1060.0,4,1.09,1.92,265.0
-Winecup,Booking.com,3,2945.0,4,2.56,1.92,736.25
-Diamond,Booking.com,2,1324.0,3,0.41,0.57,441.33
-Cypress Lodge | Sleeps 6,Booking.com,1,1940.0,3,2.58,1.39,646.67
-Sage Safari,Booking.com,2,3856.0,6,1.84,0.79,642.67
-Monarch,Booking.com,2,4785.0,7,1.96,0.83,683.57
-Sage Safari,Direct,206,176091.0,378,84.2,81.1,465.85
-Spyglass,Direct,197,204570.0,353,87.22,80.08,579.52
-Buckeye Bungalow,Direct,161,120238.0,282,85.08,83.42,426.38
-Pecan Haus,Direct,108,64904.0,188,80.7,76.6,345.23
-Lantana Dome,Direct,194,147751.0,314,85.03,80.5,470.54
-Bluebonnet,Direct,143,101797.0,251,87.15,81.71,405.57
-Walnut House,Direct,178,174396.0,319,83.73,77.39,546.7
-Cedar Haus,Direct,116,62037.0,177,67.84,60.42,350.49
-Monarch,Direct,185,192141.0,338,78.8,76.76,568.46
-Live Oak Lodge,Direct,184,213138.0,360,84.05,77.31,592.05
-Juniper Haus,Direct,90,51729.0,146,73.54,61.64,354.31
-Cocoon,Direct,122,90888.0,208,93.94,87.77,436.96
-Post Oak,Direct,123,84305.0,222,86.45,78.85,379.75
-Diamond,Direct,305,284240.0,567,88.46,86.89,501.31
-Cypress Lodge | Sleeps 2,Direct,120,77150.0,204,67.13,63.49,378.19
-Great Lodge: King Room,Direct,355,216686.0,605,71.43,70.58,358.16
-Quonset,Direct,168,123007.0,291,88.4,85.28,422.7
-Winecup,Direct,118,88101.0,209,76.5,75.64,421.54
-Monolith,Direct,292,353746.0,565,94.96,89.3,626.1
-Cypress Lodge | Sleeps 6,Direct,60,66136.0,107,88.12,83.33,618.09
-Cypress Lodge | Sleeps 4,Direct,81,70064.0,146,79.01,73.64,479.89
-Spiral,Direct,115,99650.0,213,85.19,82.73,467.84
-Great Lodge,Direct,3,13175.0,6,30.23,37.5,2195.83
-Sage Safari,Expedia,19,9158.0,28,4.38,7.48,327.07
-Lantana Dome,Expedia,19,6736.0,25,3.88,7.88,269.44
-Pecan Haus,Expedia,27,12512.0,44,15.56,19.15,284.36
-Monarch,Expedia,16,16276.0,32,6.67,6.64,508.62
-Juniper Haus,Expedia,12,3228.0,13,4.59,8.22,248.31
-Buckeye Bungalow,Expedia,8,3776.0,13,2.67,4.15,290.46
-Bluebonnet,Expedia,25,10795.0,33,9.24,14.29,327.12
-Walnut House,Expedia,19,13260.0,31,6.37,8.26,427.74
-Live Oak Lodge,Expedia,28,20142.0,49,7.94,11.76,411.06
-Cedar Haus,Expedia,19,7802.0,28,8.53,9.9,278.64
-Cocoon,Expedia,12,3696.0,14,3.82,8.63,264.0
-Spyglass,Expedia,16,8756.0,20,3.73,6.5,437.8
-Winecup,Expedia,28,19224.0,49,16.69,17.95,392.33
-Cypress Lodge | Sleeps 6,Expedia,7,3072.0,9,4.09,9.72,341.33
-Post Oak,Expedia,28,11563.0,39,11.86,17.95,296.49
-Quonset,Expedia,17,6310.0,23,4.53,8.63,274.35
-Great Lodge: King Room,Expedia,81,37967.0,123,12.52,16.1,308.67
-Diamond,Expedia,25,15731.0,39,4.9,7.12,403.36
-Cypress Lodge | Sleeps 2,Expedia,55,27521.0,94,23.95,29.1,292.78
-Spiral,Expedia,16,11599.0,31,9.92,11.51,374.16
-Monolith,Expedia,23,8815.0,27,2.37,7.03,326.48
-Cypress Lodge | Sleeps 4,Expedia,21,12521.0,37,14.12,19.09,338.41
-Buckeye Bungalow,OTA (or Other),1,185.0,1,0.13,0.52,185.0
-Bluebonnet,OTA (or Other),1,585.0,1,0.5,0.57,585.0
+Spyglass,Airbnb,32,18432.98,43,6.25,10.49,428.67
+Monarch,Airbnb,42,32653.559999999998,67,11.62,15.05,487.37
+Buckeye Bungalow,Airbnb,22,16546.93,35,9.71,9.21,472.77
+Lantana Dome,Airbnb,25,17215.63,41,9.17,9.26,419.89
+Live Oak Lodge,Airbnb,26,22375.18,40,7.56,9.42,559.38
+Sage Safari,Airbnb,30,21577.55,46,8.52,9.43,469.08
+Cedar Haus,Airbnb,55,22626.42,81,19.71,24.34,279.34
+Juniper Haus,Airbnb,45,15770.17,62,17.21,24.32,254.36
+Walnut House,Airbnb,33,20667.02,52,7.88,11.46,397.44
+Cocoon,Airbnb,5,2169.0,8,1.68,2.7,271.12
+Bluebonnet,Airbnb,4,1662.92,6,1.12,1.83,277.15
+Great Lodge: King Room,Airbnb,57,44765.28,105,9.45,7.36,426.34
+Pecan Haus,Airbnb,5,2753.24,8,2.64,2.7,344.16
+Post Oak,Airbnb,3,5817.95,4,4.1,1.43,1454.49
+Cypress Lodge | Sleeps 6,Airbnb,4,3905.2,7,4.27,5.13,557.89
+Spiral,Airbnb,6,4380.65,8,2.83,3.14,547.58
+Winecup,Airbnb,8,6471.95,12,3.65,3.51,539.33
+Quonset,Airbnb,11,8892.92,20,3.91,3.73,444.65
+Cypress Lodge | Sleeps 2,Airbnb,7,4132.51,12,2.54,2.66,344.38
+Cypress Lodge | Sleeps 4,Airbnb,8,6086.77,12,4.48,5.41,507.23
+Great Lodge,Airbnb,6,42975.33,14,62.97,50.0,3069.67
+Monolith,Airbnb,13,11648.86,22,2.47,3.13,529.49
+Diamond,Airbnb,24,26828.83,47,5.95,4.93,570.83
+Cedar Haus,Booking.com,7,3313.1800000000003,10,2.89,3.1,331.32
+Spyglass,Booking.com,6,7653.08,10,2.59,1.97,765.31
+Walnut House,Booking.com,2,1905.29,3,0.73,0.69,635.1
+Pecan Haus,Booking.com,5,1762.97,5,1.69,2.7,352.59
+Live Oak Lodge,Booking.com,4,2933.3500000000004,6,0.99,1.45,488.89
+Lantana Dome,Booking.com,3,2059.8,6,1.1,1.11,343.3
+Cypress Lodge | Sleeps 2,Booking.com,9,5511.89,14,3.39,3.42,393.71
+Great Lodge: King Room,Booking.com,37,20041.1,60,4.23,4.78,334.02
+Spiral,Booking.com,5,3928.3,7,2.54,2.62,561.19
+Buckeye Bungalow,Booking.com,2,822.7800000000001,2,0.48,0.84,411.39
+Quonset,Booking.com,6,4976.98,9,2.19,2.03,553.0
+Bluebonnet,Booking.com,6,4848.36,11,3.26,2.74,440.76
+Post Oak,Booking.com,9,5200.66,16,3.67,4.29,325.04
+Winecup,Booking.com,7,5121.4,8,2.89,3.07,640.17
+Diamond,Booking.com,6,3857.5600000000004,8,0.86,1.23,482.2
+Cypress Lodge | Sleeps 6,Booking.com,2,2585.88,4,2.82,2.56,646.47
+Sage Safari,Booking.com,4,4949.33,9,1.95,1.26,549.93
+Monarch,Booking.com,3,5266.58,7,1.87,1.08,752.37
+Juniper Haus,Booking.com,2,627.53,2,0.68,1.08,313.76
+Monolith,Booking.com,2,3438.68,5,0.73,0.48,687.74
+Cypress Lodge | Sleeps 4,Booking.com,2,1403.6799999999998,4,1.03,1.35,350.92
+Bluebonnet,Direct,175,126894.45,312,85.4,79.91,406.71
+Sage Safari,Direct,248,209250.49,457,82.65,77.99,457.88
+Lantana Dome,Direct,216,157802.02,346,84.07,80.0,456.08
+Spyglass,Direct,243,255888.3,444,86.76,79.67,576.32
+Pecan Haus,Direct,138,83042.24,244,79.5,74.59,340.34
+Buckeye Bungalow,Direct,199,145869.28,346,85.59,83.26,421.59
+Cedar Haus,Direct,137,75676.25,220,65.92,60.62,343.98
+Walnut House,Direct,220,219826.81,404,83.85,76.39,544.13
+Monarch,Direct,210,218457.5,381,77.76,75.27,573.38
+Live Oak Lodge,Direct,218,250368.85,425,84.64,78.99,589.1
+Juniper Haus,Direct,122,70635.93,202,77.1,65.95,349.68
+Cypress Lodge | Sleeps 2,Direct,162,113428.35,293,69.71,61.6,387.13
+Cocoon,Direct,159,117229.84,271,90.95,85.95,432.58
+Post Oak,Direct,161,116080.54,289,81.86,76.67,401.66
+Diamond,Direct,417,396320.47,790,87.9,85.63,501.67
+Great Lodge: King Room,Direct,531,346359.36,921,73.09,68.6,376.07
+Quonset,Direct,251,201720.97,448,88.77,85.08,450.27
+Winecup,Direct,169,137339.73,315,77.5,74.12,436.0
+Monolith,Direct,370,444912.15,719,94.3,89.16,618.79
+Cypress Lodge | Sleeps 4,Direct,109,109943.69,202,80.92,73.65,544.28
+Cypress Lodge | Sleeps 6,Direct,66,82175.01,119,89.77,84.62,690.55
+Spiral,Direct,157,129497.36,289,83.7,82.2,448.09
+Great Lodge,Direct,6,25275.07,12,37.03,50.0,2106.26
+Great Lodge: King Room,Email,8,560.0,16,0.12,1.03,35.0
+Sage Safari,Expedia,36,17397.86,53,6.87,11.32,328.26
+Lantana Dome,Expedia,26,10618.14,38,5.66,9.63,279.42
+Pecan Haus,Expedia,37,16893.59,62,16.17,20.0,272.48
+Monarch,Expedia,24,24552.85,51,8.74,8.6,481.43
+Juniper Haus,Expedia,16,4583.3099999999995,18,5.0,8.65,254.63
+Bluebonnet,Expedia,33,14588.95,49,9.82,15.07,297.73
+Buckeye Bungalow,Expedia,15,6999.0199999999995,23,4.11,6.28,304.31
+Walnut House,Expedia,33,19777.88,51,7.54,11.46,387.8
+Live Oak Lodge,Expedia,28,20140.6,49,6.81,10.14,411.03
+Cedar Haus,Expedia,27,13178.66,44,11.48,11.95,299.52
+Cocoon,Expedia,21,9499.37,30,7.37,11.35,316.65
+Spyglass,Expedia,24,12980.41,32,4.4,7.87,405.64
+Quonset,Expedia,26,11052.21,39,4.86,8.81,283.39
+Winecup,Expedia,43,28028.58,77,15.82,18.86,364.01
+Post Oak,Expedia,37,14697.21,55,10.37,17.62,267.22
+Great Lodge: King Room,Expedia,140,61979.5,220,13.08,18.09,281.73
+Cypress Lodge | Sleeps 6,Expedia,6,2875.6699999999996,8,3.14,7.69,359.46
+Diamond,Expedia,40,23854.76,64,5.29,8.21,372.73
+Cypress Lodge | Sleeps 2,Expedia,84,39045.88,142,24.0,31.94,274.97
+Spiral,Expedia,23,16911.01,45,10.93,12.04,375.8
+Monolith,Expedia,30,11787.17,37,2.5,7.23,318.57
+Cypress Lodge | Sleeps 4,Expedia,29,18435.1,52,13.57,19.59,354.52
+Bluebonnet,HotelTonight (Channel Collect Booking),1,585.3,1,0.39,0.46,585.3
+Buckeye Bungalow,HotelTonight (Channel Collect Booking),1,185.3,1,0.11,0.42,185.3
+Cypress Lodge | Sleeps 2,Hotelnet (Hotel Collect Booking),1,596.0,2,0.37,0.38,298.0
+Winecup,Hotelnet (Hotel Collect Booking),1,256.72,1,0.14,0.44,256.72
+Great Lodge: King Room,Hotelnet (Hotel Collect Booking),1,190.48,1,0.04,0.13,190.48
+Quonset,Hotelnet (Hotel Collect Booking),1,608.2,2,0.27,0.34,304.1

@@ -31,6 +31,12 @@ DEFAULT_BOOKING_WINDOW_BANDS = [
 
 DAY_ORDER = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
+# Below this many days of stay-date history, day-of-week ranks (build_by_day_of_week) are
+# drawn from too few distinct weeks to be a reliable signal; flagged via dow_rank_provisional
+# so pricing_matrix.py can neutralize dow_score_1_10 the same way it already does for
+# thin/provisional months (~8 weeks).
+_DOW_MIN_HISTORY_DAYS_FOR_STABLE_RANK = 56
+
 
 def _per_listing_physical_units(
     unit_id: object,
@@ -917,6 +923,20 @@ def build_by_day_of_week(df: pd.DataFrame) -> pd.DataFrame:
     else:
         grp["dow_score_1_10"] = 5.0
 
+    # Thin-data guard (mirrors performance_rank_provisional for months): if the exploded
+    # stay-date data only spans a short window, the ADR/revenue-share/room-night-share ranks
+    # above are drawn from too few distinct weeks to be reliable (e.g. a newly onboarded
+    # property with only a few weeks of history). Flag the whole table so downstream pricing
+    # can neutralize dow_score_1_10 instead of treating a noisy rank as a real weekday signal.
+    stay_dates = pd.to_datetime(stay["stay_date"], errors="coerce").dropna()
+    if not stay_dates.empty:
+        history_days = int((stay_dates.max() - stay_dates.min()).days) + 1
+    else:
+        history_days = 0
+    dow_rank_provisional = history_days < _DOW_MIN_HISTORY_DAYS_FOR_STABLE_RANK
+    grp["dow_history_days"] = history_days
+    grp["dow_rank_provisional"] = bool(dow_rank_provisional)
+
     grp["day_of_week"] = pd.Categorical(grp["day_of_week"], categories=DAY_ORDER, ordered=True)
     grp = grp.sort_values("day_of_week").dropna(subset=["day_of_week"])
     grp["day_of_week"] = grp["day_of_week"].astype(str)
@@ -976,136 +996,46 @@ def build_booking_window(
 
 def build_adr_by_listing_by_month(df: pd.DataFrame) -> pd.DataFrame:
     """Table 6: One row per unit_id x year_month (e.g. 2024-01, 2025-06).
-    Includes volume, revenue, mean ADR, and min/max row-level ADR per month."""
+    Includes volume, revenue, mean ADR, min/max row-level ADR per month, and p05/p95
+    row-level ADR per month (a trimmed alternative to min/max for pricing bounds, since
+    a single outlier booking — an error fare, a distressed same-day discount — can set
+    a raw min/max on a thin listing × month without being representative of a normal rate)."""
     grp = df.groupby(["unit_id", "arrival_year_month"], sort=False).agg(
         bookings=("unit_id", "count"),
         room_nights=("nights", "sum"),
         revenue=("revenue", "sum"),
         min_adr=("adr", "min"),
         max_adr=("adr", "max"),
+        p05_adr=("adr", lambda s: s.quantile(0.05)),
+        p95_adr=("adr", lambda s: s.quantile(0.95)),
     ).reset_index()
     grp["adr"] = (grp["revenue"] / grp["room_nights"]).round(2)
     grp.loc[grp["room_nights"] == 0, "adr"] = None
+    grp["p05_adr"] = grp["p05_adr"].round(2)
+    grp["p95_adr"] = grp["p95_adr"].round(2)
     grp = grp.rename(columns={"arrival_year_month": "year_month"})
     # Sort by unit_id numerically (100, 101, ...), then year_month
     grp["_unit_sort"] = grp["unit_id"].map(lambda u: _unit_id_numeric_sort_key(u)[0])
     grp = grp.sort_values(["_unit_sort", "year_month"]).drop(columns=["_unit_sort"])
-    cols = ["unit_id", "year_month", "bookings", "room_nights", "revenue", "adr", "min_adr", "max_adr"]
-    return grp[[c for c in cols if c in grp.columns]]
-
-
-def build_listing_season_performance(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Listing performance by season (High / Shoulder / Low).
-    Seasons are defined by calendar month:
-      - High: April, May, June, September, October
-      - Low: January, February, December
-      - Shoulder: March, July, August, November
-    For each unit_id x season we compute revenue, room_nights, bookings, ADR,
-    and a 1–10 score combining revenue and ADR (relative within that season).
-    """
-    if "arrival_date" not in df.columns or "unit_id" not in df.columns:
-        return pd.DataFrame(
-            columns=["unit_id", "season", "season_revenue", "season_room_nights", "season_bookings", "season_adr", "season_score_1_10"]
-        )
-
-    tmp = df.copy()
-    tmp["month_index"] = tmp["arrival_date"].dt.month
-    # Map months to seasons
-    def _season_for_month(m: int) -> Optional[str]:
-        if m in (4, 5, 6, 9, 10):
-            return "High"
-        if m in (1, 2, 12):
-            return "Low"
-        if m in (3, 7, 8, 11):
-            return "Shoulder"
-        return None
-
-    tmp["season"] = tmp["month_index"].map(_season_for_month)
-    tmp = tmp.loc[tmp["season"].notna()].copy()
-    if tmp.empty:
-        return pd.DataFrame(
-            columns=["unit_id", "season", "season_revenue", "season_room_nights", "season_bookings", "season_adr", "season_score_1_10"]
-        )
-
-    grouped = tmp.groupby(["unit_id", "season"], sort=False).agg(
-        season_revenue=("revenue", "sum"),
-        season_room_nights=("nights", "sum"),
-        season_bookings=("unit_id", "count"),
-    ).reset_index()
-
-    # ADR at season level (for reference only)
-    grouped["season_adr"] = (grouped["season_revenue"] / grouped["season_room_nights"]).round(2)
-    grouped.loc[grouped["season_room_nights"] == 0, "season_adr"] = None
-
-    # Approximate seasonal RevPAR: revenue / days_in_season (one unit per listing)
-    def _days_in_season(seas: str) -> int:
-        # Months per season (two analysis years)
-        if seas == "High":
-            months_in = (4, 5, 6, 9, 10)
-        elif seas == "Low":
-            months_in = (1, 2, 12)
-        else:  # Shoulder
-            months_in = (3, 7, 8, 11)
-        days = 0
-        y1, y2 = get_analysis_years()
-        for y in (y1, y2):
-            for m in months_in:
-                days += (pd.Timestamp(year=y, month=m, day=1) + pd.offsets.MonthEnd(0)).day
-        return days
-
-    grouped["season_revpar"] = None
-    for seas in ["High", "Shoulder", "Low"]:
-        mask = grouped["season"] == seas
-        if not mask.any():
-            continue
-        days_in_season = _days_in_season(seas)
-        if days_in_season > 0:
-            grouped.loc[mask, "season_revpar"] = (
-                grouped.loc[mask, "season_revenue"] / float(days_in_season)
-            ).round(2)
-
-    # Score within each season using revenue (70%) and RevPAR (30%), keep continuous score
-    grouped["season_score_1_10"] = 5.0
-    grouped["season_percentile"] = None
-    for seas in ["High", "Shoulder", "Low"]:
-        mask = grouped["season"] == seas
-        n = int(mask.sum())
-        if n <= 1:
-            continue
-        rev = grouped.loc[mask, "season_revenue"]
-        revpar = grouped.loc[mask, "season_revpar"]
-        rev_rank = rev.rank(method="min", ascending=True)
-        revpar_rank = revpar.rank(method="min", ascending=True)
-        s_rev = (rev_rank - 1) / (n - 1)
-        s_revpar = (revpar_rank - 1) / (n - 1)
-        # Revenue-heavy weighting: 70% revenue, 30% RevPAR
-        s_combined = 0.7 * s_rev + 0.3 * s_revpar
-        scores = 1 + 9 * s_combined  # float in [1, 10]
-        grouped.loc[mask, "season_score_1_10"] = scores
-        grouped.loc[mask, "season_percentile"] = (s_combined * 100).round(1)
-
-    # Sort listings numerically within each season for readability
-    grouped["_unit_sort"] = grouped["unit_id"].map(lambda u: _unit_id_numeric_sort_key(u)[0])
-    grouped = grouped.sort_values(["season", "_unit_sort"]).drop(columns=["_unit_sort"])
-
     cols = [
-        "unit_id",
-        "season",
-        "season_revenue",
-        "season_room_nights",
-        "season_bookings",
-        "season_adr",
-        "season_score_1_10",
-        "season_percentile",
+        "unit_id", "year_month", "bookings", "room_nights", "revenue", "adr",
+        "min_adr", "max_adr", "p05_adr", "p95_adr",
     ]
-    return grouped[[c for c in cols if c in grouped.columns]]
+    return grp[[c for c in cols if c in grp.columns]]
 
 
 def build_listing_season_performance_from_tiers(listing_daily: pd.DataFrame) -> pd.DataFrame:
     """
     Build listing performance by tier bucket (using tier labels as 'season').
     Output schema intentionally matches listing_season_performance for dashboard reuse.
+
+    This is the sole implementation of `listing_season_performance.csv` (Table 7).
+    Tool-standard behavior: listing seasonality always follows the discovered tier
+    calendar for consistency across properties, rather than a fixed High/Shoulder/Low
+    calendar-month split. (A fixed-calendar version, `build_listing_season_performance()`,
+    existed earlier in this file but was never wired into `run_analysis()` — it was
+    removed as dead code. If you need the fixed-calendar behavior back for a specific
+    property, recreate it as an explicit alternative rather than a silent second path.)
     """
     if listing_daily.empty:
         return pd.DataFrame(
@@ -1163,6 +1093,8 @@ def build_listing_season_performance_from_tiers(listing_daily: pd.DataFrame) -> 
         "season_room_nights",
         "season_bookings",
         "season_adr",
+        "season_revpar",
+        "season_days",
         "season_score_1_10",
         "season_percentile",
     ]

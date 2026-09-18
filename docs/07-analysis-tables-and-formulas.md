@@ -171,6 +171,8 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 | `share_of_revenue_pct` | (revenue / total revenue) * 100. |
 | `share_of_room_nights_pct` | (room_nights / total room_nights) * 100. |
 | `dow_score_1_10` | Day-of-week “strength” on a **continuous 1–10 scale**, combining **ADR**, **share_of_revenue_pct**, and **share_of_room_nights_pct**. For each metric we rank days across the 7 weekdays, convert ranks to 0–1, then combine **40% ADR**, **40% revenue share**, and **20% room-night share** and map to 1–10; values near 1 are weakest, near 10 strongest. |
+| `dow_history_days` | Number of calendar days spanned by the exploded stay-date data used to build this table (informational — shows how much history the ranks above are based on). |
+| `dow_rank_provisional` | `True` for every row when `dow_history_days` is below the stability threshold (56 days / ~8 weeks) — i.e. there isn't enough stay-date history yet for the weekday ranks to be reliable (e.g. a newly onboarded property). Mirrors `performance_rank_provisional` for months (§5). Step 2 pricing neutralizes `dow_score_1_10` to 5 for every day when this is set, the same way it already does for provisional months. |
 
 **Output:** e.g. `by_day_of_week.csv`.
 
@@ -224,30 +226,27 @@ Use these definitions everywhere. All revenue is **room revenue only** (`revenue
 
 ---
 
-## 9. Table 7: Listing performance by season (High / Shoulder / Low)
+## 9. Table 7: Listing performance by season (discovered tier calendar)
 
-**Purpose:** See how each listing performs in **High**, **Shoulder**, and **Low** seasons, and whether the top performers change with seasonality.
+**Purpose:** See how each listing performs across the property's own discovered demand "seasons," and whether the top performers change with seasonality.
 
-**Season definition (calendar months, based on combined monthly findings):**
+**Season definition (data-driven, not a fixed calendar):** `season` here is the `tier_label` from that property's daily RevPAR tier calendar (see docs/09), not a fixed High/Shoulder/Low calendar-month split. Each property's own gap-detection (or quantile-fallback) tiering discovers its own number of tiers — anywhere from 2 to 15 — and its own labels (e.g. `Soft`/`Low`/`Shoulder Low`/`Shoulder High`/`High`/`Peak`), configured per property under `tiering.tier_label_map`. This is an intentional design choice (`build_listing_season_performance_from_tiers()` in `src/analysis.py`): listing seasonality always follows the same discovered-tier structure used for the rest of that property's tiering output, rather than a generic three-bucket calendar split. An earlier fixed-calendar implementation (`build_listing_season_performance()`, using the High=Apr/May/Jun/Sep/Oct style split) existed in the codebase but was never actually wired into the pipeline; it has since been removed. If you see a property described with fixed High/Shoulder/Low seasons elsewhere, treat that as informal shorthand, not what this table computes.
 
-- **High season:** April, May, June, September, October.
-- **Low season:** January, February, December.
-- **Shoulder:** March, July, August, November.
-
-**Grain:** One row per **unit_id** × **season** (at most three rows per listing).
+**Grain:** One row per **unit_id** × **season** (`tier_label`), for however many tiers that property's tiering run discovered.
 
 **Columns:**
 
 | Column | Formula / definition |
 |--------|----------------------|
 | `unit_id` | Listing. |
-| `season` | One of `High`, `Shoulder`, `Low` based on arrival month. |
-| `season_revenue` | Sum of `revenue` for that listing over all arrivals in months belonging to that season. |
-| `season_room_nights` | Sum of `nights` over those arrivals. |
-| `season_bookings` | Count of rows (unit-stays) for that listing in that season. |
-| `season_adr` | `season_revenue / season_room_nights` (average ADR for that listing in that season). |
-| `season_score_1_10` | Listing’s performance in that season on a 1–10 scale (float), combining **season_revenue** and **season_revpar** (both ranked across listings within that season, with revenue weighted 70% and RevPAR 30%; 1 = weakest listing in that season, 10 = strongest). |
-| `season_percentile` | Percentile rank of the listing within its season (0–100), derived from the same normalized score (e.g. 97.0 = 97th percentile among listings in that season). |
+| `season` | The tier label (`tier_label`) for that listing's active days in this tier, per the property's discovered daily tier calendar. |
+| `season_order` | The tier's rank order (from `tier_id`), used for consistent low→high sorting since labels are property-specific. |
+| `season_revenue` | Sum of that listing's revenue over all active days assigned to this tier. |
+| `season_room_nights` | Sum of room-nights over those days. |
+| `season_bookings` | Count of bookings attributed to that listing in that tier. |
+| `season_adr` | `season_revenue / season_room_nights` (average ADR for that listing in that tier). |
+| `season_score_1_10` | Listing's performance in that tier on a 1–10 scale (float), combining **season_revenue** and **season_revpar** (both ranked across listings within that tier, with revenue weighted 70% and RevPAR 30%; 1 = weakest listing in that tier, 10 = strongest). |
+| `season_percentile` | Percentile rank of the listing within its tier (0–100), derived from the same normalized score (e.g. 97.0 = 97th percentile among listings in that tier). |
 
 **Output:** e.g. `listing_season_performance.csv`.
 

@@ -9,7 +9,7 @@ final_tier_count_matches_config_when_quantile,pass,5,Expected 5 when quantile_fa
 all_tiers_meet_min_days_threshold,pass,0,Each tier should have >= 14 days.
 tier_avg_revpar_monotonic_increasing,pass,0,Tier 1 should be lowest avg_revpar and highest tier should be highest.
 no_null_tier_id_in_daily_output,pass,0,tier_id should be present on all daily rows.
-airdna_context_file_present,warn,1,Missing output/lafave_zion/benchmark/daily_market_context.csv; AirDNA checks skipped.
+airdna_context_file_present,warn,1,Missing /Users/roro/Desktop/Tools/Onboarding_EDA/output/lafave_zion/benchmark/daily_market_context.csv; AirDNA checks skipped.
 daily_tier_calendar_expected_columns_present,pass,0,Missing columns: []
 daily_tier_calendar_required_fields_non_null,pass,0,"Required fields (date, tier_id) should not be null."
 daily_tier_calendar_date_spine_complete,pass,0,Date spine should have no missing days in analysis window.

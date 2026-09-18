@@ -2,9 +2,42 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 import pandas as pd
+
+# Default weight given to a listing's own discovered-tier seasonality when blending it
+# into that listing's month factor (see _compute_listing_tier_month_scores and its use in
+# build_pricing_matrix). 0 = ignore per-listing tier data entirely (old behavior: one
+# portfolio-wide month curve for every listing); 1 = ignore the portfolio month score
+# entirely and price seasonality purely off each listing's own tier calendar. Override per
+# property via `pricing.tier_month_blend_weight` in the property YAML.
+DEFAULT_TIER_MONTH_BLEND_WEIGHT = 0.35
+
+
+def _group_apply(df: pd.DataFrame, group_cols: List[str], func) -> pd.DataFrame:
+    """
+    Version-safe replacement for `df.groupby(group_cols, group_keys=False).apply(func)`.
+
+    pandas has changed, across versions, whether the grouping columns are included in
+    the per-group frame passed to the callable (pandas >= 3.0 excludes them by
+    default, which breaks any `func` that reads a grouping column off the frame it's
+    given, e.g. `group["unit_id"].iloc[0]`). Rather than depend on that version-specific
+    behavior, iterate the groups explicitly and guarantee the grouping columns are
+    always present in the frame passed to `func`, on any pandas version.
+    """
+    if df.empty:
+        return df
+    out_frames = []
+    for key, group in df.groupby(group_cols, sort=False):
+        g = group.copy()
+        keys = key if isinstance(key, tuple) else (key,)
+        for col, val in zip(group_cols, keys):
+            g[col] = val
+        out_frames.append(func(g))
+    if not out_frames:
+        return df.iloc[0:0]
+    return pd.concat(out_frames, ignore_index=True)
 
 
 def _coerce_provisional_bool(series: pd.Series) -> pd.Series:
@@ -34,12 +67,32 @@ def _month_performance_score_for_pricing(monthly_combined: pd.DataFrame) -> pd.S
     return base.where(~prov, 5.0)
 
 
+def _dow_score_for_pricing(by_day_of_week: pd.DataFrame) -> pd.Series:
+    """
+    Raw dow_score_1_10 for dow_factor, except when analysis.py flagged the whole table
+    dow_rank_provisional (too few weeks of stay-date history for a reliable weekday rank)
+    -> neutral 5 for every day, same treatment as provisional months.
+    """
+    df = by_day_of_week
+    base = pd.to_numeric(df["dow_score_1_10"], errors="coerce").fillna(5.0)
+    if "dow_rank_provisional" in df.columns:
+        prov = _coerce_provisional_bool(df["dow_rank_provisional"])
+    else:
+        prov = pd.Series(False, index=df.index)
+    return base.where(~prov, 5.0)
+
+
 @dataclass
 class PricingInputs:
     overall_summary: pd.DataFrame
     monthly_combined: pd.DataFrame
     by_day_of_week: pd.DataFrame
     adr_by_listing_by_month: pd.DataFrame
+    # Optional: per-listing daily tier assignments (docs/09). Not every analysis run has
+    # this (e.g. tiering isn't configured for every property, or an older analysis dir),
+    # so this may be None -- callers must handle that by falling back to the portfolio-wide
+    # month score.
+    listing_daily_tier: Optional[pd.DataFrame] = None
 
 
 def _load_pricing_inputs(analysis_dir: Path) -> PricingInputs:
@@ -48,11 +101,16 @@ def _load_pricing_inputs(analysis_dir: Path) -> PricingInputs:
     monthly_combined = pd.read_csv(analysis_dir / "monthly_performance_combined.csv")
     dow = pd.read_csv(analysis_dir / "by_day_of_week.csv")
     adr_listing_month = pd.read_csv(analysis_dir / "adr_by_listing_by_month.csv")
+    listing_daily_tier_path = analysis_dir / "listing_daily_tier_calendar.csv"
+    listing_daily_tier = (
+        pd.read_csv(listing_daily_tier_path) if listing_daily_tier_path.exists() else None
+    )
     return PricingInputs(
         overall_summary=overall,
         monthly_combined=monthly_combined,
         by_day_of_week=dow,
         adr_by_listing_by_month=adr_listing_month,
+        listing_daily_tier=listing_daily_tier,
     )
 
 
@@ -75,15 +133,14 @@ def _compute_listing_factor(overall_summary: pd.DataFrame) -> Dict[str, float]:
     df["revpar_percentile"] = df["revpar"].rank(method="min", pct=True)
 
     def to_factor(p: float) -> float:
-        if p >= 0.80:
-            return 1.10
-        if p >= 0.60:
-            return 1.05
-        if p >= 0.40:
-            return 1.00
-        if p >= 0.20:
-            return 0.95
-        return 0.90
+        # Continuous interpolation from 0.90 (0th percentile) to 1.10 (100th percentile).
+        # Replaces a 5-step band table (<20% -> 0.90, 20-40% -> 0.95, ..., >=80% -> 1.10)
+        # that produced a hard price jump for listings sitting just above/below a cutoff
+        # (e.g. 79th vs 81st percentile) despite being nearly identical in the underlying
+        # data. Same overall range and the same value at the old band midpoints/anchors
+        # (0%, 50%, 100%), just without the cliffs in between.
+        p = max(0.0, min(1.0, float(p)))
+        return 0.90 + 0.20 * p
 
     df["listing_factor"] = df["revpar_percentile"].apply(to_factor)
     return df.set_index("unit_id")["listing_factor"].to_dict()
@@ -241,8 +298,87 @@ def _compute_month_factor(monthly_combined: pd.DataFrame) -> Dict[int, float]:
     return df.set_index("month_index")["month_factor"].to_dict()
 
 
+def _compute_listing_tier_month_scores(
+    listing_daily_tier: Optional[pd.DataFrame],
+) -> Dict[Tuple[str, int], float]:
+    """
+    Per-listing, per-calendar-month score (1-10), derived from that listing's own
+    discovered daily demand tier assignments (listing_daily_tier_calendar.csv, docs/09)
+    rather than the single portfolio-wide month curve every listing otherwise shares.
+
+    For each unit_id, average its tier_id across both analysis years for each calendar
+    month, then normalize that average against the full range of tier_ids the property's
+    tiering run discovered (1 = weakest tier, 10 = strongest), the same 1-10 scale as
+    performance_score_1_10. Two listings whose personal high season falls in different
+    months can end up with different seasonal shapes here, which a single portfolio curve
+    cannot express.
+
+    Returns {} (meaning: no adjustment, callers fall back to the portfolio month score)
+    when tiering wasn't run for this property, the table doesn't have the expected
+    columns, or every day in it landed in the same tier (no seasonal spread to add).
+    """
+    if listing_daily_tier is None or listing_daily_tier.empty:
+        return {}
+    required = {"unit_id", "date", "tier_id", "active"}
+    if not required.issubset(set(listing_daily_tier.columns)):
+        return {}
+
+    df = listing_daily_tier.copy()
+    df = df.loc[df["active"] == True].copy()  # noqa: E712 (explicit bool compare; CSV round-trip safe)
+    if "out_of_window" in df.columns:
+        df = df.loc[df["out_of_window"] != True].copy()  # noqa: E712
+    if "insufficient_data" in df.columns:
+        df = df.loc[df["insufficient_data"] != True].copy()  # noqa: E712
+    df["date"] = pd.to_datetime(df["date"], errors="coerce")
+    df["tier_id"] = pd.to_numeric(df["tier_id"], errors="coerce")
+    df = df.dropna(subset=["date", "tier_id", "unit_id"])
+    if df.empty:
+        return {}
+    df["month_index"] = df["date"].dt.month
+
+    tier_min = float(df["tier_id"].min())
+    tier_max = float(df["tier_id"].max())
+    tier_span = tier_max - tier_min
+    if tier_span <= 0:
+        # Only one tier discovered for this property -- no seasonal signal to contribute.
+        return {}
+
+    grp = df.groupby(["unit_id", "month_index"], as_index=False)["tier_id"].mean()
+    norm = (grp["tier_id"] - tier_min) / tier_span
+    grp["listing_month_score"] = 1.0 + 9.0 * norm
+
+    return {
+        (str(row.unit_id), int(row.month_index)): float(row.listing_month_score)
+        for row in grp.itertuples(index=False)
+    }
+
+
+def _blended_month_score(
+    unit: str,
+    month_index: int,
+    portfolio_score: float,
+    listing_tier_scores: Dict[Tuple[str, int], float],
+    blend_weight: float,
+    month_score_by_index: Optional[Dict[int, float]] = None,
+) -> float:
+    """
+    A listing's month score for month_index, blending the portfolio-wide score with that
+    listing's own tier-based seasonality (see _compute_listing_tier_month_scores).
+
+    A manual `pricing.month_score_by_index` override for this exact month always wins
+    outright -- it represents a deliberate human decision and isn't diluted by the blend.
+    """
+    if month_score_by_index and month_index in month_score_by_index:
+        return float(month_score_by_index[month_index])
+    listing_score = listing_tier_scores.get((str(unit), int(month_index)))
+    if listing_score is None or blend_weight <= 0:
+        return float(portfolio_score)
+    w = min(1.0, max(0.0, float(blend_weight)))
+    return (1.0 - w) * float(portfolio_score) + w * float(listing_score)
+
+
 def _compute_dow_factor(by_day_of_week: pd.DataFrame) -> Dict[str, float]:
-    """Map day_of_week -> dow_factor using dow_score_1_10."""
+    """Map day_of_week -> dow_factor using dow_score_1_10 (provisional tables -> score 5 for all days)."""
     df = by_day_of_week.copy()
     if "day_of_week" not in df.columns:
         raise ValueError("by_day_of_week must have 'day_of_week'")
@@ -254,7 +390,8 @@ def _compute_dow_factor(by_day_of_week: pd.DataFrame) -> Dict[str, float]:
         # Score 1  -> ~0.84, score 5 -> ~1.00, score 10 -> 1.20
         return 0.80 + 0.04 * float(score)
 
-    df["dow_factor"] = df["dow_score_1_10"].apply(to_factor)
+    df["_score_for_pricing"] = _dow_score_for_pricing(df)
+    df["dow_factor"] = df["_score_for_pricing"].apply(to_factor)
     return df.set_index("day_of_week")["dow_factor"].to_dict()
 
 
@@ -262,7 +399,14 @@ def _compute_adr_bounds(adr_by_listing_by_month: pd.DataFrame) -> pd.DataFrame:
     """
     Return DataFrame with columns:
       unit_id, month_index, floor, ceiling
-    based on min_adr / max_adr across both years for that listing × calendar month.
+    based on p05_adr / p95_adr (5th/95th percentile row-level ADR) across both years for
+    that listing × calendar month, when available — falling back to raw min_adr / max_adr
+    for older analysis CSVs that don't have the percentile columns yet.
+
+    Percentile trimming avoids a single outlier booking (an error fare, a distressed
+    same-day discount) setting a listing's entire floor/ceiling for a month; since bounds
+    are applied at the week level (to preserve weekday shape), one bad data point could
+    otherwise drag the whole week's price band with it.
     """
     df = adr_by_listing_by_month.copy()
     if "unit_id" not in df.columns or "year_month" not in df.columns:
@@ -270,11 +414,20 @@ def _compute_adr_bounds(adr_by_listing_by_month: pd.DataFrame) -> pd.DataFrame:
     if "min_adr" not in df.columns or "max_adr" not in df.columns:
         raise ValueError("adr_by_listing_by_month must have 'min_adr' and 'max_adr'")
 
+    has_percentiles = "p05_adr" in df.columns and "p95_adr" in df.columns
+
     df["month_index"] = df["year_month"].astype(str).str[5:7].astype(int)
-    grp = df.groupby(["unit_id", "month_index"], as_index=False).agg(
+    agg_kwargs = dict(
         min_adr=("min_adr", "min"),
         max_adr=("max_adr", "max"),
     )
+    if has_percentiles:
+        # Same aggregation direction as raw min/max (min-of-p05 across years, max-of-p95
+        # across years) so we still capture genuine year-to-year seasonality spread, while
+        # trimming the within-year outlier tail.
+        agg_kwargs["p05_adr"] = ("p05_adr", "min")
+        agg_kwargs["p95_adr"] = ("p95_adr", "max")
+    grp = df.groupby(["unit_id", "month_index"], as_index=False).agg(**agg_kwargs)
 
     # If min/max are missing, fall back to adr
     if "adr" in df.columns:
@@ -287,9 +440,16 @@ def _compute_adr_bounds(adr_by_listing_by_month: pd.DataFrame) -> pd.DataFrame:
         grp["max_adr"] = grp["max_adr"].fillna(grp["adr_max"])
         grp = grp.drop(columns=["adr_min", "adr_max"])
 
-    # Store raw min/max; adaptive floor/ceiling are derived later using month strength
-    grp["floor"] = grp["min_adr"]
-    grp["ceiling"] = grp["max_adr"]
+    if has_percentiles:
+        # Prefer the trimmed percentile bound; fall back to raw min/max for any
+        # unit x month where the percentile came back null (e.g. a single-booking month,
+        # where p05/p95 collapse to the same point as min/max anyway).
+        grp["floor"] = grp["p05_adr"].fillna(grp["min_adr"])
+        grp["ceiling"] = grp["p95_adr"].fillna(grp["max_adr"])
+    else:
+        # Store raw min/max; adaptive floor/ceiling are derived later using month strength
+        grp["floor"] = grp["min_adr"]
+        grp["ceiling"] = grp["max_adr"]
     return grp[["unit_id", "month_index", "floor", "ceiling"]]
 
 
@@ -545,6 +705,7 @@ def build_pricing_matrix(
     dow_hierarchy: List[List[str]] | None = None,
     month_score_by_index: Optional[Dict[int, float]] = None,
     listing_factor_by_unit: Optional[Dict[str, float]] = None,
+    tier_month_blend_weight: Optional[float] = None,
 ) -> pd.DataFrame:
     """
     Build the draft pricing matrix from analysis CSVs in analysis_dir.
@@ -557,6 +718,14 @@ def build_pricing_matrix(
     factors override RevPAR-percentile listing factors for each matching ``unit_id``; any unit
     not listed keeps the RevPAR-derived factor.
 
+    ``tier_month_blend_weight`` (from property YAML ``pricing.tier_month_blend_weight``, default
+    ``DEFAULT_TIER_MONTH_BLEND_WEIGHT``) controls how much each listing's own discovered daily
+    demand tiers (docs/09) bend that listing's month score away from the single portfolio-wide
+    month curve every listing used to share unconditionally. 0 disables this (pure portfolio
+    curve, old behavior); 1 uses only the listing's own tier-derived seasonality. A manual
+    ``month_score_by_index`` entry for a given month always wins outright regardless of this
+    weight -- see ``_blended_month_score``.
+
     Returns a DataFrame with columns:
       unit_id, month_index, day_of_week,
       base_adr_anchor, listing_score, month_score, dow_score, draft_adr
@@ -565,6 +734,12 @@ def build_pricing_matrix(
         return _build_sos_reservation_grounded_matrix(analysis_dir, dow_hierarchy=dow_hierarchy)
 
     inputs = _load_pricing_inputs(analysis_dir)
+    blend_w = (
+        float(tier_month_blend_weight)
+        if tier_month_blend_weight is not None
+        else DEFAULT_TIER_MONTH_BLEND_WEIGHT
+    )
+    listing_tier_scores = _compute_listing_tier_month_scores(inputs.listing_daily_tier)
 
     base_adr = _compute_base_adr_anchor(inputs.overall_summary)
     listing_factor = _compute_listing_factor(inputs.overall_summary)
@@ -572,12 +747,14 @@ def build_pricing_matrix(
         merged = dict(listing_factor)
         merged.update(listing_factor_by_unit)
         listing_factor = merged
+    # Only the per-calendar-month *score* is needed here (not a ready-made month_factor
+    # dict) -- month_factor is now computed per unit x month below via _blended_month_score
+    # + _score_to_month_factor, since it can vary by listing once tier data is blended in.
     if month_score_by_index:
-        month_factor, month_score_map_dict = _month_factors_and_scores_merged(
+        _, month_score_map_dict = _month_factors_and_scores_merged(
             inputs.monthly_combined, month_score_by_index
         )
     else:
-        month_factor = _compute_month_factor(inputs.monthly_combined)
         month_score_map_dict = (
             inputs.monthly_combined.assign(
                 _score_for_pricing=_month_performance_score_for_pricing(inputs.monthly_combined)
@@ -597,7 +774,10 @@ def build_pricing_matrix(
     )
     month_score_map = month_score_map_dict
     dow_score_map = (
-        inputs.by_day_of_week.set_index("day_of_week")["dow_score_1_10"].to_dict()
+        inputs.by_day_of_week
+        .assign(_score_for_pricing=_dow_score_for_pricing(inputs.by_day_of_week))
+        .set_index("day_of_week")["_score_for_pricing"]
+        .to_dict()
     )
 
     adr_listing_month = inputs.adr_by_listing_by_month.copy()
@@ -652,9 +832,12 @@ def build_pricing_matrix(
         l_metric = float(listing_revpar.get(unit, 0.0)) if unit in listing_revpar else None
 
         for m in months:
-            m_factor = float(month_factor.get(m, 1.0))
+            portfolio_m_score = float(month_score_map.get(m, 5.0)) if m in month_score_map else 5.0
+            m_score = _blended_month_score(
+                unit, m, portfolio_m_score, listing_tier_scores, blend_w, month_score_by_index
+            )
+            m_factor = _score_to_month_factor(m_score)
             m_adj = m_factor - 1.0
-            m_score = float(month_score_map.get(m, 0.0)) if m in month_score_map else None
 
             # Adaptive historical bounds based on month strength
             min_adr = None
@@ -755,11 +938,7 @@ def build_pricing_matrix(
         # restore original ordering by month_index
         return grp.sort_values("month_index")
 
-    df = (
-        df.groupby(["unit_id", "day_of_week"], group_keys=False)
-        .apply(_enforce_month_hierarchy)
-        .reset_index(drop=True)
-    )
+    df = _group_apply(df, ["unit_id", "day_of_week"], _enforce_month_hierarchy)
 
     # 2) Enforce weekday hierarchy (pre-bounds) per unit × month
     def _enforce_dow(group: pd.DataFrame) -> pd.DataFrame:
@@ -771,11 +950,7 @@ def build_pricing_matrix(
         grp["draft_adr"] = grp["day_of_week"].map(adjusted)
         return grp
 
-    df = (
-        df.groupby(["unit_id", "month_index"], group_keys=False)
-        .apply(_enforce_dow)
-        .reset_index(drop=True)
-    )
+    df = _group_apply(df, ["unit_id", "month_index"], _enforce_dow)
 
     # 3) Apply adaptive historical bounds with week-level scaling
     def _apply_bounds(group: pd.DataFrame) -> pd.DataFrame:
@@ -840,23 +1015,11 @@ def build_pricing_matrix(
         grp["draft_adr"] = new_vals
         return grp
 
-    df = (
-        df.groupby(["unit_id", "month_index"], group_keys=False)
-        .apply(_apply_bounds)
-        .reset_index(drop=True)
-    )
+    df = _group_apply(df, ["unit_id", "month_index"], _apply_bounds)
 
     # 4) Re-apply month and weekday hierarchies after bounds
-    df = (
-        df.groupby(["unit_id", "day_of_week"], group_keys=False)
-        .apply(_enforce_month_hierarchy)
-        .reset_index(drop=True)
-    )
-    df = (
-        df.groupby(["unit_id", "month_index"], group_keys=False)
-        .apply(_enforce_dow)
-        .reset_index(drop=True)
-    )
+    df = _group_apply(df, ["unit_id", "day_of_week"], _enforce_month_hierarchy)
+    df = _group_apply(df, ["unit_id", "month_index"], _enforce_dow)
 
     # Final rounding to nearest whole dollar
     df["draft_adr"] = df["draft_adr"].round(0)

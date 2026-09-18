@@ -1,0 +1,6 @@
+tier_id,tier_label,days,avg_revpar,min_revpar,max_revpar,avg_adr,avg_occupancy_pct,min_percentile,max_percentile,share_of_days_pct
+1,Soft,215,134.46,0.0,468.37,430.94,30.7,0.09,20.08,20.17
+2,Low,212,229.27,0.0,612.08,509.81,44.58,20.31,39.96,19.89
+3,Shoulder Low,214,296.89,0.0,771.79,490.35,63.08,40.2,60.04,20.08
+4,Shoulder High,212,339.8,0.0,1206.88,510.93,66.75,60.32,79.92,19.89
+5,High,213,464.37,0.0,1198.6,573.53,81.92,80.21,99.91,19.98

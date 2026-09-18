@@ -1,0 +1,38 @@
+# OwnerRez CSV → canonical schema mapping
+# Oasi dashboard export (e.g. Spoon Mountain). Parser: src/parser.py (_ownerrez_map_to_canonical).
+
+pms_id: ownerrez
+description: "OwnerRez export via Oasi dashboard revenue reporting CSV."
+
+required_columns:
+  - Booking #
+  - Property
+  - Guest
+  - Booked
+  - Arrival
+  - Departure
+  - N
+  - Rent
+  - Revenue
+  - Booking Window
+
+channel_columns:
+  - Channel
+  - Listing Site
+
+field_mapping:
+  reservation_id: "Booking #"
+  unit_id: Property
+  guest_name: Guest
+  booking_date: Booked
+  arrival_date: Arrival
+  departure_date: Departure
+  nights: N
+  revenue: Revenue
+  amount_paid: Net Payments
+  lead_time_days: Booking Window
+  channel: "Channel (fallback Listing Site)"
+
+exclusions:
+  - "Guest name contains [CANCELED] or [CANCELLED]"
+  - "Revenue <= 0 or missing"

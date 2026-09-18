@@ -1,0 +1,4 @@
+period_label,period_start,period_end,unit_id,revenue,room_nights,bookings,adr,occupancy_pct,revpar
+2026_Q1,2026-01-01,2026-03-31,Malvern,8811.93,27,5,326.37,30.0,97.91
+2026_Q1,2026-01-01,2026-03-31,Sunstrip,42620.95,80,28,532.76,88.89,473.57
+2026_Q1,2026-01-01,2026-03-31,PROPERTY,51432.88,107,33,480.68,59.44,285.74

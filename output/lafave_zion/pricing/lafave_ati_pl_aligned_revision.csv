@@ -1,0 +1,33 @@
+listing_group,season,pl_median,current_ati,revised_ati,current_gap,revised_gap,band_lo,band_hi,ok
+Suite SMALL (1BR/1BA),Off,311,225,225,-86,-86,-75,700,True
+Suite SMALL (1BR/1BA),Shoulder,345,325,325,-20,-20,-50,725,True
+Suite SMALL (1BR/1BA),Spring Peak,504,450,450,-54,-54,125,900,True
+Suite SMALL (1BR/1BA),Fall Peak,516,475,475,-41,-41,125,900,True
+Suite BIG (1BR/1BA),Off,314,275,275,-39,-39,-75,700,True
+Suite BIG (1BR/1BA),Shoulder,466,375,375,-91,-91,75,850,True
+Suite BIG (1BR/1BA),Spring Peak,647,500,500,-147,-147,250,1025,True
+Suite BIG (1BR/1BA),Fall Peak,748,550,550,-198,-198,350,1125,True
+Deluxe Villa (2BR/1BA),Off,360,550,550,190,190,-25,750,True
+Deluxe Villa (2BR/1BA),Shoulder,565,575,575,10,10,175,950,True
+Deluxe Villa (2BR/1BA),Spring Peak,821,675,675,-146,-146,425,1200,True
+Deluxe Villa (2BR/1BA),Fall Peak,929,700,700,-229,-229,550,1325,True
+Premium Villa (2BR/2BA),Off,405,575,575,170,170,25,800,True
+Premium Villa (2BR/2BA),Shoulder,714,600,600,-114,-114,325,1100,True
+Premium Villa (2BR/2BA),Spring Peak,1042,750,750,-292,-292,650,1425,True
+Premium Villa (2BR/2BA),Fall Peak,1082,875,875,-207,-207,700,1475,True
+Villa Game (2BR/2BA),Off,484,600,600,116,116,100,875,True
+Villa Game (2BR/2BA),Shoulder,798,625,625,-173,-173,400,1175,True
+Villa Game (2BR/2BA),Spring Peak,1201,800,825,-401,-376,825,1600,True
+Villa Game (2BR/2BA),Fall Peak,1212,900,900,-312,-312,825,1600,True
+J.MT. Villa (3BR/2BA),Off,690,650,650,-40,-40,300,1075,True
+J.MT. Villa (3BR/2BA),Shoulder,1207,750,825,-457,-382,825,1600,True
+J.MT. Villa (3BR/2BA),Spring Peak,1610,925,1225,-686,-386,1225,2000,True
+J.MT. Villa (3BR/2BA),Fall Peak,1692,1075,1300,-617,-392,1300,2075,True
+Premier Villa (3BR/3BA),Off,667,675,675,8,8,275,1050,True
+Premier Villa (3BR/3BA),Shoulder,1258,825,875,-433,-383,875,1650,True
+Premier Villa (3BR/3BA),Spring Peak,1679,1025,1300,-654,-379,1300,2075,True
+Premier Villa (3BR/3BA),Fall Peak,1766,1100,1375,-666,-391,1375,2150,True
+House (6BR/4BA),Off,1262,1250,1250,-12,-12,875,1650,True
+House (6BR/4BA),Shoulder,1904,1475,1525,-429,-379,1525,2300,True
+House (6BR/4BA),Spring Peak,2523,1500,2125,-1023,-398,2125,2900,True
+House (6BR/4BA),Fall Peak,2627,1525,2250,-1102,-377,2250,3025,True

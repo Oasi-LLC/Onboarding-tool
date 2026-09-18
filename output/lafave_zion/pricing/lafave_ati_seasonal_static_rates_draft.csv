@@ -1,0 +1,33 @@
+listing_group,season,nights_post,nights_prior,adr_post_onboard,adr_prior,adr_blended_raw,rate_data_driven,house_cap_applied,rate_after_season_hierarchy,rate_final,season_adj,group_adj
+Suite SMALL (1BR/1BA),Off,3,155,188.0,277.21,219.22,225,False,225.0,225.0,False,False
+Suite SMALL (1BR/1BA),Shoulder,108,224,297.55,385.38,328.29,325,False,325.0,325.0,False,False
+Suite SMALL (1BR/1BA),Spring Peak,30,402,445.07,492.39,461.63,450,False,450.0,450.0,False,False
+Suite SMALL (1BR/1BA),Fall Peak,68,189,433.74,460.4,443.07,450,False,475.0,475.0,True,False
+Suite BIG (1BR/1BA),Off,6,389,256.45,336.97,284.63,275,False,275.0,275.0,False,False
+Suite BIG (1BR/1BA),Shoulder,164,429,351.2,406.39,370.52,375,False,375.0,375.0,False,False
+Suite BIG (1BR/1BA),Spring Peak,56,787,459.6,557.6,493.9,500,False,500.0,500.0,False,False
+Suite BIG (1BR/1BA),Fall Peak,70,375,541.48,574.12,552.91,550,False,550.0,550.0,False,False
+Deluxe Villa (2BR/1BA),Off,6,368,629.7,401.39,549.79,550,False,550.0,550.0,False,False
+Deluxe Villa (2BR/1BA),Shoulder,395,730,416.08,516.29,451.15,450,False,575.0,575.0,True,False
+Deluxe Villa (2BR/1BA),Spring Peak,173,1484,643.72,712.55,667.81,675,False,675.0,675.0,False,False
+Deluxe Villa (2BR/1BA),Fall Peak,292,602,654.4,671.65,660.44,650,False,700.0,700.0,True,False
+Premium Villa (2BR/2BA),Off,21,432,411.91,481.61,436.31,425,False,425.0,575.0,False,True
+Premium Villa (2BR/2BA),Shoulder,326,761,512.78,633.57,555.05,550,False,550.0,600.0,False,True
+Premium Villa (2BR/2BA),Spring Peak,162,1779,726.59,814.58,757.38,750,False,750.0,750.0,False,False
+Premium Villa (2BR/2BA),Fall Peak,213,746,906.73,783.67,863.66,875,False,875.0,875.0,False,False
+Villa Game (2BR/2BA),Off,4,158,383.48,577.15,451.26,450,False,450.0,600.0,False,True
+Villa Game (2BR/2BA),Shoulder,186,361,533.94,740.2,606.13,600,False,600.0,625.0,False,True
+Villa Game (2BR/2BA),Spring Peak,121,891,748.43,898.4,800.92,800,False,800.0,800.0,False,False
+Villa Game (2BR/2BA),Fall Peak,176,249,807.85,840.88,819.41,825,False,825.0,900.0,False,True
+J.MT. Villa (3BR/2BA),Off,0,44,,648.45,648.45,650,False,650.0,650.0,False,False
+J.MT. Villa (3BR/2BA),Shoulder,32,106,718.12,832.05,758.0,750,False,750.0,750.0,False,False
+J.MT. Villa (3BR/2BA),Spring Peak,14,252,919.62,959.18,933.47,925,False,925.0,925.0,False,False
+J.MT. Villa (3BR/2BA),Fall Peak,29,97,1144.58,961.07,1080.35,1075,False,1075.0,1075.0,False,False
+Premier Villa (3BR/3BA),Off,33,193,515.07,691.3,576.75,575,False,575.0,675.0,False,True
+Premier Villa (3BR/3BA),Shoulder,157,408,773.86,940.47,832.18,825,False,825.0,825.0,False,False
+Premier Villa (3BR/3BA),Spring Peak,54,1005,1006.51,1057.37,1024.31,1025,False,1025.0,1025.0,False,False
+Premier Villa (3BR/3BA),Fall Peak,116,382,1085.5,1036.92,1068.49,1075,False,1075.0,1100.0,False,True
+House (6BR/4BA),Off,5,36,1276.0,1183.56,1243.64,1250,False,1250.0,1250.0,False,False
+House (6BR/4BA),Shoulder,12,108,1496.68,1401.04,1463.21,1475,False,1475.0,1475.0,False,False
+House (6BR/4BA),Spring Peak,2,192,2397.5,1399.78,2048.3,1400,True,1500.0,1500.0,True,False
+House (6BR/4BA),Fall Peak,0,95,,1442.63,1442.63,1450,False,1525.0,1525.0,True,False

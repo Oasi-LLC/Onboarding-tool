@@ -1,0 +1,105 @@
+LaFave 2027 — Draft pricing matrix (from analysis),,,,,,,
+,,,,,,,
+DRAFT MATRIX — SEASON: high,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),1625,1625,1641,1877,1877,1994,1709
+Suite BIG (1BR/1BA),510,510,516,596,596,636,539
+Suite SMALL (1BR/1BA),418,418,422,492,492,526,442
+Deluxe Villa (2BR/1BA),645,645,652,755,755,806,682
+Premium Villa (2BR/2BA),796,796,804,926,926,987,839
+Villa Game (2BR/2BA),879,879,889,1022,1022,1088,927
+J.MT. Villa (3BR/2BA),1037,1037,1047,1198,1198,1274,1090
+Premier Villa (3BR/3BA),1143,1143,1154,1320,1320,1402,1202
+,,,,,,,
+DRAFT MATRIX — SEASON: low,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),1108,1108,1124,1342,1342,1452,1186
+Suite BIG (1BR/1BA),332,332,338,414,414,453,360
+Suite SMALL (1BR/1BA),262,262,266,332,332,366,285
+Deluxe Villa (2BR/1BA),384,384,390,479,479,524,416
+Premium Villa (2BR/2BA),462,462,469,572,572,622,498
+Villa Game (2BR/2BA),482,482,490,594,594,647,520
+J.MT. Villa (3BR/2BA),606,606,615,741,741,804,651
+Premier Villa (3BR/3BA),636,636,645,772,772,836,682
+,,,,,,,
+"DRAFT MATRIX — SEASON: Summer pricing July, August 7/8",,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),1370,1370,1386,1620,1620,1738,1452
+Suite BIG (1BR/1BA),429,429,435,514,514,554,458
+Suite SMALL (1BR/1BA),346,346,352,421,421,456,372
+Deluxe Villa (2BR/1BA),540,540,547,649,649,700,576
+Premium Villa (2BR/2BA),672,672,680,802,802,863,715
+Villa Game (2BR/2BA),745,745,754,887,887,954,792
+J.MT. Villa (3BR/2BA),884,884,894,1045,1045,1120,938
+Premier Villa (3BR/3BA),981,981,992,1157,1157,1239,1039
+,,,,,,,
+LaFave 2027 — Published rates (listing-level overrides),,,,,,,
+,,,,,,,
+PUBLISHED — SEASON: high,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),2356,2127,2451,2904,3060,3065,2510
+Suite BIG (1BR/1BA),578,560,603,709,733,775,639
+Suite SMALL (1BR/1BA),415,433,461,558,503,609,486
+Deluxe Villa (2BR/1BA),710,693,746,872,916,990,811
+Premium Villa (2BR/2BA),895,882,931,1082,1130,1136,952
+Villa Game (2BR/2BA),1011,1011,1044,1212,1306,1282,1071
+J.MT. Villa (3BR/2BA),1518,1446,1576,1812,1795,1889,1619
+Premier Villa (3BR/3BA),1562,1502,1610,1854,1876,1946,1669
+,,,,,,,
+PUBLISHED — SEASON: low,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),1158,1112,1216,1453,1443,1570,1262
+Suite BIG (1BR/1BA),268,246,274,332,315,346,284
+Suite SMALL (1BR/1BA),288,300,293,272,274,296,265
+Deluxe Villa (2BR/1BA),311,239,325,397,368,428,340
+Premium Villa (2BR/2BA),396,266,412,494,368,520,424
+Villa Game (2BR/2BA),444,352,460,554,470,602,488
+J.MT. Villa (3BR/2BA),683,515,710,845,698,850,686
+Premier Villa (3BR/3BA),706,504,733,872,691,908,762
+,,,,,,,
+"PUBLISHED — SEASON: Summer pricing July, August 7/8",,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),1747,1814,1838,2245,2389,2397,1933
+Suite BIG (1BR/1BA),428,442,455,546,581,569,466
+Suite SMALL (1BR/1BA),308,324,330,406,442,429,348
+Deluxe Villa (2BR/1BA),526,538,550,665,716,695,565
+Premium Villa (2BR/2BA),655,674,696,831,908,866,718
+Villa Game (2BR/2BA),742,760,772,927,1012,966,802
+J.MT. Villa (3BR/2BA),1108,1148,1164,1379,1459,1453,1223
+Premier Villa (3BR/3BA),1147,1202,1206,1447,1550,1508,1268
+,,,,,,,
+LaFave 2027 — Gap: published minus draft,,,,,,,
+,,,,,,,
+GAP (published − draft) — SEASON: high,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),731,502,810,1027,1183,1071,801
+Suite BIG (1BR/1BA),68,50,87,113,137,139,100
+Suite SMALL (1BR/1BA),-3,15,39,66,11,83,44
+Deluxe Villa (2BR/1BA),65,48,94,117,161,184,129
+Premium Villa (2BR/2BA),99,86,127,156,204,149,113
+Villa Game (2BR/2BA),132,132,155,190,284,194,144
+J.MT. Villa (3BR/2BA),481,409,529,614,597,615,529
+Premier Villa (3BR/3BA),419,359,456,534,556,544,467
+,,,,,,,
+GAP (published − draft) — SEASON: low,,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),50,4,92,111,101,118,76
+Suite BIG (1BR/1BA),-64,-86,-64,-82,-99,-107,-76
+Suite SMALL (1BR/1BA),26,38,27,-60,-58,-70,-20
+Deluxe Villa (2BR/1BA),-73,-145,-65,-82,-111,-96,-76
+Premium Villa (2BR/2BA),-66,-196,-57,-78,-204,-102,-74
+Villa Game (2BR/2BA),-38,-130,-30,-40,-124,-45,-32
+J.MT. Villa (3BR/2BA),77,-91,95,104,-43,46,35
+Premier Villa (3BR/3BA),70,-132,88,100,-81,72,80
+,,,,,,,
+"GAP (published − draft) — SEASON: Summer pricing July, August 7/8",,,,,,,
+room type,Mon,Tue,Wed,Thu,Fri,Sat,Sun
+House (6BR/4BA),377,444,452,625,769,659,481
+Suite BIG (1BR/1BA),-1,13,20,32,67,15,8
+Suite SMALL (1BR/1BA),-38,-22,-22,-15,21,-27,-24
+Deluxe Villa (2BR/1BA),-14,-2,3,16,67,-5,-11
+Premium Villa (2BR/2BA),-17,2,16,29,106,3,3
+Villa Game (2BR/2BA),-3,15,18,40,125,12,10
+J.MT. Villa (3BR/2BA),224,264,270,334,414,333,285
+Premier Villa (3BR/3BA),166,221,214,290,393,269,229
+,,,,,,,

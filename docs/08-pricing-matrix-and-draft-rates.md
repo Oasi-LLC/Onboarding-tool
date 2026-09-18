@@ -52,7 +52,7 @@ Step 2 **never looks at raw reservations**. It reads only the Step‑1 outputs:
 
 - `overall_summary.csv` (Table 1) – listing ADR and RevPAR.
 - `monthly_performance_combined.csv` (Table 2b) – month-of-year scores.
-- `by_day_of_week.csv` (Table 4) – day-of-week scores.
+- `by_day_of_week.csv` (Table 4) – day-of-week scores (and `dow_rank_provisional`, which neutralizes all 7 scores to 5 when there's too little history — see docs/07 §6).
 - `adr_by_listing_by_month.csv` (Table 6) – min/max ADR per listing × year-month.
 
 All formulas below assume the analysis period is the two full calendar years defined in docs/07.
@@ -82,15 +82,21 @@ We tilt each listing slightly up or down based on its **RevPAR performance** ove
 **Source:** `overall_summary.csv`.
 
 1. For each `unit_id`, compute its **RevPAR percentile** among all listings (excluding the `PROPERTY` row).
-2. Map that percentile into a **listing strength multiplier**:
+2. Map that percentile into a **listing strength multiplier**, using a continuous linear interpolation from the 0th to the 100th percentile:
 
-| RevPAR percentile band | `listing_factor` |
-|------------------------|------------------|
-| ≥ 80% | 1.10 |
-| 60–80% | 1.05 |
-| 40–60% | 1.00 |
-| 20–40% | 0.95 |
-| < 20% | 0.90 |
+\[
+\text{listing\_factor} = 0.90 + 0.20 \times \text{revpar\_percentile}
+\]
+
+| RevPAR percentile | `listing_factor` |
+|--------------------|------------------|
+| 0% | 0.90 |
+| 25% | 0.95 |
+| 50% | 1.00 |
+| 75% | 1.05 |
+| 100% | 1.10 |
+
+(Earlier versions used a 5-step band table with the same anchor values at 0/20/40/60/80/100%, which produced a hard price jump for a listing sitting just above vs. just below a band cutoff — e.g. 79th vs. 81st percentile — despite being nearly identical in the underlying data. The continuous version removes those cliffs while keeping the same overall 0.90–1.10 range.)
 
 3. This factor is **constant across all months and DOWs** for a listing.
 
@@ -133,22 +139,24 @@ This reproduces the **seasonal shape** observed in the data:
 
 **Source:** `by_day_of_week.csv` (7 rows, Mon–Sun).
 
-    - Let `dow_score` = `dow_score_1_10` for that day-of-week (same for all listings and months).
+    - Let `dow_score` = `dow_score_1_10` for that day-of-week (same for all listings and months). If `by_day_of_week.csv` flags the whole table `dow_rank_provisional` (too few weeks of stay-date history for a reliable weekday rank — see docs/07 §6), every day's score is neutralized to 5 before this step, same treatment as a provisional month.
     - Convert to a **weekday factor**:
 
 \[
-\text{dow\_factor} = 0.85 + 0.025 \times \text{dow\_score}
+\text{dow\_factor} = 0.80 + 0.04 \times \text{dow\_score}
 \]
 
 Examples:
 
 | `dow_score` | `dow_factor` |
 |------------|--------------|
-| 1 | 0.875 |
-| 5 | 0.975 |
-| 10 | 1.10 |
+| 1 | 0.84 |
+| 5 | 1.00 |
+| 10 | 1.20 |
 
-This widens the weekday spread slightly so that high-score days (e.g. **Saturday, Thursday**) have a clearer uplift over weaker days.
+This widens the weekday spread so that high-score days (e.g. **Saturday, Thursday**) have a clearer uplift over weaker days.
+
+> **Note:** this section previously documented a narrower `0.85 + 0.025 × dow_score` curve (0.875–1.10). That was a docs/code drift, not a change in behavior — `src/pricing_matrix.py` has always used `0.80 + 0.04 × dow_score` (0.84–1.20). This section now matches the shipped code.
 
 ---
 

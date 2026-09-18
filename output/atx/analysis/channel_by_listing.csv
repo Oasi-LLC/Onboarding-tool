@@ -1,0 +1,3 @@
+unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Sunstrip,Airbnb,302,497317.0296988,911,100.0,100.0,545.9
+Malvern,Airbnb,101,126678.7596434,312,100.0,100.0,406.02

@@ -1,0 +1,169 @@
+source,season,room_type,dow,rate
+draft_matrix,high,House (6BR/4BA),Mon,1625
+draft_matrix,high,House (6BR/4BA),Tue,1625
+draft_matrix,high,House (6BR/4BA),Wed,1641
+draft_matrix,high,House (6BR/4BA),Thu,1877
+draft_matrix,high,House (6BR/4BA),Fri,1877
+draft_matrix,high,House (6BR/4BA),Sat,1994
+draft_matrix,high,House (6BR/4BA),Sun,1709
+draft_matrix,high,Suite BIG (1BR/1BA),Mon,510
+draft_matrix,high,Suite BIG (1BR/1BA),Tue,510
+draft_matrix,high,Suite BIG (1BR/1BA),Wed,516
+draft_matrix,high,Suite BIG (1BR/1BA),Thu,596
+draft_matrix,high,Suite BIG (1BR/1BA),Fri,596
+draft_matrix,high,Suite BIG (1BR/1BA),Sat,636
+draft_matrix,high,Suite BIG (1BR/1BA),Sun,539
+draft_matrix,high,Suite SMALL (1BR/1BA),Mon,418
+draft_matrix,high,Suite SMALL (1BR/1BA),Tue,418
+draft_matrix,high,Suite SMALL (1BR/1BA),Wed,422
+draft_matrix,high,Suite SMALL (1BR/1BA),Thu,492
+draft_matrix,high,Suite SMALL (1BR/1BA),Fri,492
+draft_matrix,high,Suite SMALL (1BR/1BA),Sat,526
+draft_matrix,high,Suite SMALL (1BR/1BA),Sun,442
+draft_matrix,high,Deluxe Villa (2BR/1BA),Mon,645
+draft_matrix,high,Deluxe Villa (2BR/1BA),Tue,645
+draft_matrix,high,Deluxe Villa (2BR/1BA),Wed,652
+draft_matrix,high,Deluxe Villa (2BR/1BA),Thu,755
+draft_matrix,high,Deluxe Villa (2BR/1BA),Fri,755
+draft_matrix,high,Deluxe Villa (2BR/1BA),Sat,806
+draft_matrix,high,Deluxe Villa (2BR/1BA),Sun,682
+draft_matrix,high,Premium Villa (2BR/2BA),Mon,796
+draft_matrix,high,Premium Villa (2BR/2BA),Tue,796
+draft_matrix,high,Premium Villa (2BR/2BA),Wed,804
+draft_matrix,high,Premium Villa (2BR/2BA),Thu,926
+draft_matrix,high,Premium Villa (2BR/2BA),Fri,926
+draft_matrix,high,Premium Villa (2BR/2BA),Sat,987
+draft_matrix,high,Premium Villa (2BR/2BA),Sun,839
+draft_matrix,high,Villa Game (2BR/2BA),Mon,879
+draft_matrix,high,Villa Game (2BR/2BA),Tue,879
+draft_matrix,high,Villa Game (2BR/2BA),Wed,889
+draft_matrix,high,Villa Game (2BR/2BA),Thu,1022
+draft_matrix,high,Villa Game (2BR/2BA),Fri,1022
+draft_matrix,high,Villa Game (2BR/2BA),Sat,1088
+draft_matrix,high,Villa Game (2BR/2BA),Sun,927
+draft_matrix,high,J.MT. Villa (3BR/2BA),Mon,1037
+draft_matrix,high,J.MT. Villa (3BR/2BA),Tue,1037
+draft_matrix,high,J.MT. Villa (3BR/2BA),Wed,1047
+draft_matrix,high,J.MT. Villa (3BR/2BA),Thu,1198
+draft_matrix,high,J.MT. Villa (3BR/2BA),Fri,1198
+draft_matrix,high,J.MT. Villa (3BR/2BA),Sat,1274
+draft_matrix,high,J.MT. Villa (3BR/2BA),Sun,1090
+draft_matrix,high,Premier Villa (3BR/3BA),Mon,1143
+draft_matrix,high,Premier Villa (3BR/3BA),Tue,1143
+draft_matrix,high,Premier Villa (3BR/3BA),Wed,1154
+draft_matrix,high,Premier Villa (3BR/3BA),Thu,1320
+draft_matrix,high,Premier Villa (3BR/3BA),Fri,1320
+draft_matrix,high,Premier Villa (3BR/3BA),Sat,1402
+draft_matrix,high,Premier Villa (3BR/3BA),Sun,1202
+draft_matrix,low,House (6BR/4BA),Mon,1108
+draft_matrix,low,House (6BR/4BA),Tue,1108
+draft_matrix,low,House (6BR/4BA),Wed,1124
+draft_matrix,low,House (6BR/4BA),Thu,1342
+draft_matrix,low,House (6BR/4BA),Fri,1342
+draft_matrix,low,House (6BR/4BA),Sat,1452
+draft_matrix,low,House (6BR/4BA),Sun,1186
+draft_matrix,low,Suite BIG (1BR/1BA),Mon,332
+draft_matrix,low,Suite BIG (1BR/1BA),Tue,332
+draft_matrix,low,Suite BIG (1BR/1BA),Wed,338
+draft_matrix,low,Suite BIG (1BR/1BA),Thu,414
+draft_matrix,low,Suite BIG (1BR/1BA),Fri,414
+draft_matrix,low,Suite BIG (1BR/1BA),Sat,453
+draft_matrix,low,Suite BIG (1BR/1BA),Sun,360
+draft_matrix,low,Suite SMALL (1BR/1BA),Mon,262
+draft_matrix,low,Suite SMALL (1BR/1BA),Tue,262
+draft_matrix,low,Suite SMALL (1BR/1BA),Wed,266
+draft_matrix,low,Suite SMALL (1BR/1BA),Thu,332
+draft_matrix,low,Suite SMALL (1BR/1BA),Fri,332
+draft_matrix,low,Suite SMALL (1BR/1BA),Sat,366
+draft_matrix,low,Suite SMALL (1BR/1BA),Sun,285
+draft_matrix,low,Deluxe Villa (2BR/1BA),Mon,384
+draft_matrix,low,Deluxe Villa (2BR/1BA),Tue,384
+draft_matrix,low,Deluxe Villa (2BR/1BA),Wed,390
+draft_matrix,low,Deluxe Villa (2BR/1BA),Thu,479
+draft_matrix,low,Deluxe Villa (2BR/1BA),Fri,479
+draft_matrix,low,Deluxe Villa (2BR/1BA),Sat,524
+draft_matrix,low,Deluxe Villa (2BR/1BA),Sun,416
+draft_matrix,low,Premium Villa (2BR/2BA),Mon,462
+draft_matrix,low,Premium Villa (2BR/2BA),Tue,462
+draft_matrix,low,Premium Villa (2BR/2BA),Wed,469
+draft_matrix,low,Premium Villa (2BR/2BA),Thu,572
+draft_matrix,low,Premium Villa (2BR/2BA),Fri,572
+draft_matrix,low,Premium Villa (2BR/2BA),Sat,622
+draft_matrix,low,Premium Villa (2BR/2BA),Sun,498
+draft_matrix,low,Villa Game (2BR/2BA),Mon,482
+draft_matrix,low,Villa Game (2BR/2BA),Tue,482
+draft_matrix,low,Villa Game (2BR/2BA),Wed,490
+draft_matrix,low,Villa Game (2BR/2BA),Thu,594
+draft_matrix,low,Villa Game (2BR/2BA),Fri,594
+draft_matrix,low,Villa Game (2BR/2BA),Sat,647
+draft_matrix,low,Villa Game (2BR/2BA),Sun,520
+draft_matrix,low,J.MT. Villa (3BR/2BA),Mon,606
+draft_matrix,low,J.MT. Villa (3BR/2BA),Tue,606
+draft_matrix,low,J.MT. Villa (3BR/2BA),Wed,615
+draft_matrix,low,J.MT. Villa (3BR/2BA),Thu,741
+draft_matrix,low,J.MT. Villa (3BR/2BA),Fri,741
+draft_matrix,low,J.MT. Villa (3BR/2BA),Sat,804
+draft_matrix,low,J.MT. Villa (3BR/2BA),Sun,651
+draft_matrix,low,Premier Villa (3BR/3BA),Mon,636
+draft_matrix,low,Premier Villa (3BR/3BA),Tue,636
+draft_matrix,low,Premier Villa (3BR/3BA),Wed,645
+draft_matrix,low,Premier Villa (3BR/3BA),Thu,772
+draft_matrix,low,Premier Villa (3BR/3BA),Fri,772
+draft_matrix,low,Premier Villa (3BR/3BA),Sat,836
+draft_matrix,low,Premier Villa (3BR/3BA),Sun,682
+draft_matrix,shoulder,House (6BR/4BA),Mon,1370
+draft_matrix,shoulder,House (6BR/4BA),Tue,1370
+draft_matrix,shoulder,House (6BR/4BA),Wed,1386
+draft_matrix,shoulder,House (6BR/4BA),Thu,1620
+draft_matrix,shoulder,House (6BR/4BA),Fri,1620
+draft_matrix,shoulder,House (6BR/4BA),Sat,1738
+draft_matrix,shoulder,House (6BR/4BA),Sun,1452
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Mon,429
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Tue,429
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Wed,435
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Thu,514
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Fri,514
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Sat,554
+draft_matrix,shoulder,Suite BIG (1BR/1BA),Sun,458
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Mon,346
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Tue,346
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Wed,352
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Thu,421
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Fri,421
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Sat,456
+draft_matrix,shoulder,Suite SMALL (1BR/1BA),Sun,372
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Mon,540
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Tue,540
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Wed,547
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Thu,649
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Fri,649
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Sat,700
+draft_matrix,shoulder,Deluxe Villa (2BR/1BA),Sun,576
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Mon,672
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Tue,672
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Wed,680
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Thu,802
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Fri,802
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Sat,863
+draft_matrix,shoulder,Premium Villa (2BR/2BA),Sun,715
+draft_matrix,shoulder,Villa Game (2BR/2BA),Mon,745
+draft_matrix,shoulder,Villa Game (2BR/2BA),Tue,745
+draft_matrix,shoulder,Villa Game (2BR/2BA),Wed,754
+draft_matrix,shoulder,Villa Game (2BR/2BA),Thu,887
+draft_matrix,shoulder,Villa Game (2BR/2BA),Fri,887
+draft_matrix,shoulder,Villa Game (2BR/2BA),Sat,954
+draft_matrix,shoulder,Villa Game (2BR/2BA),Sun,792
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Mon,884
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Tue,884
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Wed,894
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Thu,1045
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Fri,1045
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Sat,1120
+draft_matrix,shoulder,J.MT. Villa (3BR/2BA),Sun,938
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Mon,981
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Tue,981
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Wed,992
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Thu,1157
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Fri,1157
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Sat,1239
+draft_matrix,shoulder,Premier Villa (3BR/3BA),Sun,1039

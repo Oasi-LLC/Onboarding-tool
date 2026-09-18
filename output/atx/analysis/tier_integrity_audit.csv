@@ -1,0 +1,15 @@
+check_name,status,count,reason
+listing_start_source_all_config,pass,0,All listings should use config start dates.
+listing_out_of_window_units,pass,0,Listings outside analysis window should be explicit.
+active_before_listing_start_date,pass,0,No active days should exist before configured listing_start_date.
+contributing_units_not_exceed_total_units,pass,0,contributing_units_count must be <= units_total (2).
+composition_shift_gt_2_units_in_14d,pass,0,Large denominator shifts in smoothing window can bias signal interpretation.
+weighted_revpar_denominator_consistency,pass,0,Portfolio revpar should equal weighted listing DOY mean per day.
+final_tier_count_matches_config_when_quantile,pass,5,Expected 5 when quantile_fallback selected.
+all_tiers_meet_min_days_threshold,pass,0,Each tier should have >= 14 days.
+tier_avg_revpar_monotonic_increasing,pass,0,Tier 1 should be lowest avg_revpar and highest tier should be highest.
+no_null_tier_id_in_daily_output,pass,0,tier_id should be present on all daily rows.
+airdna_context_file_present,warn,1,Missing /Users/roro/Desktop/Tools/Onboarding_EDA/output/atx/benchmark/daily_market_context.csv; AirDNA checks skipped.
+daily_tier_calendar_expected_columns_present,pass,0,Missing columns: []
+daily_tier_calendar_required_fields_non_null,pass,0,"Required fields (date, tier_id) should not be null."
+daily_tier_calendar_date_spine_complete,pass,0,Date spine should have no missing days in analysis window.

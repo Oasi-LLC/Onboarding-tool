@@ -2,6 +2,10 @@ property_id: wmb
 property_name: Onera Wimberley
 pms_id: cloudbeds
 room_count: 28
+
+data_source:
+  type: google_sheets
+  tab: "WMB_data"
 analysis_window:
   start_date: "2024-08-01"
   end_date: "2026-03-31"

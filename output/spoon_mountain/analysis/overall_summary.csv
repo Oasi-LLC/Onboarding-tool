@@ -1,0 +1,5 @@
+unit_id,revenue,revenue_yoy_pct,room_nights,bookings,bookings_yoy_pct,adr,adr_yoy_pct,occupancy_pct,revpar
+Chisum,228258.46,52.88,464,223,39.78,491.94,9.85,63.47,312.26
+Kingfisher,230547.74,28.86,473,229,16.04,487.42,5.57,64.71,315.39
+Shaka,222848.71,36.69,453,217,21.43,491.94,14.0,61.97,304.85
+PROPERTY,681654.91,39.05,1390,669,25.25,490.4,9.7,63.38,310.83

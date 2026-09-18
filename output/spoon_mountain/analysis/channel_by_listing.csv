@@ -1,0 +1,7 @@
+unit_id,channel,bookings,revenue,room_nights,share_of_revenue_pct,share_of_bookings_pct,adr
+Shaka,Airbnb,24,14156.45,41,6.35,11.06,345.28
+Kingfisher,Airbnb,16,11558.310000000001,26,5.01,6.99,444.55
+Chisum,Airbnb,21,12592.23,32,5.52,9.42,393.51
+Shaka,Direct,193,208692.26,412,93.65,88.94,506.53
+Kingfisher,Direct,213,218989.43,447,94.99,93.01,489.91
+Chisum,Direct,202,215666.23,432,94.48,90.58,499.23
